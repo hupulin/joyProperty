@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    >
+    <!--android:background="@color/white"-->
+    <!--720 1280-->
+    <!--app:layout_heightPercent="2.34375%w"-->
+    <!--app:layout_widthPercent="12.22%w"-->
+    <!--每个TextView后面的minute表示15分钟，hour表示一小时，day表示24小时-->
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:orientation="horizontal"
+        android:background="#f9f9f9"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="响应超时"
+           android:layout_marginLeft="28px"
+            android:layout_gravity="center_vertical"
+            android:textColor="#333333"
+            android:textSize="35px"
+            android:textStyle="bold"
+            />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1px"
+    android:background="@color/new_line_color">
+
+</View>
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="gone"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_heightPercent="1.1%w"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:src="@drawable/yuan1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_heightPercent="1.1%w"
+            android:gravity="center_horizontal"
+            android:background="#b7b7b9"
+            android:layout_weight="1.6"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:src="@drawable/yuan1"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_heightPercent="1.1%w"
+            android:gravity="center_horizontal"
+            android:background="#d0e111"
+            android:layout_weight="1.6"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:src="@drawable/yuan1"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_heightPercent="1.1%w"
+            android:gravity="center_horizontal"
+            android:background="#f89468"
+            android:layout_weight="1.6"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:src="@drawable/yuan1"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_heightPercent="1.1%w"
+            android:gravity="center_horizontal"
+            android:background="#e84a4a"
+            android:layout_weight="1.6"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_heightPercent="1.1%w"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            />
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+
+        android:layout_height="67px"
+        android:layout_width="fill_parent"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        >
+
+
+        <TextView
+            android:layout_width="126px"
+            android:layout_height="31px"
+            android:text=""
+            android:layout_marginLeft="62px"
+            android:layout_centerVertical="true"
+            android:background="@drawable/react_time_over_time"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15-60分钟"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="222px"
+            android:textSize="24px"
+            android:textColor="#706f79"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1小时"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="396px"
+            android:textSize="24px"
+            android:textColor="#706f79"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=">24小时"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="558px"
+            android:textSize="24px"
+            android:textColor="#706f79"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/new_line_color"
+            android:layout_alignParentBottom="true"
+            >
+
+        </View>
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="194px"
+        android:orientation="vertical"
+        android:layout_height="210px">
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="今 日 超 时 数"
+            android:layout_marginTop="30px"
+            android:layout_marginLeft="28px"
+            android:textSize="24px"
+            android:textColor="#706f79"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="历 史 超 时 数"
+            android:layout_marginTop="30px"
+            android:layout_marginLeft="28px"
+            android:textSize="24px"
+            android:textColor="#706f79"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="今日超时比率"
+            android:layout_marginTop="30px"
+            android:textSize="24px"
+            android:layout_marginLeft="27px"
+            android:textColor="#706f79"
+            android:layout_marginBottom="34px"
+            />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="148px"
+            android:background="@drawable/react_time_divide_line"
+            android:layout_gravity="center_vertical"
+            >
+        </View>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="165px"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_response_time_over_today_minute"
+                android:layout_marginTop="28px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_response_time_over_history_minute"
+                android:layout_marginTop="26px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_response_time_over_rate_minute"
+                android:layout_marginTop="26px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+        <View
+            android:layout_width="1px"
+            android:layout_height="148px"
+            android:background="@drawable/react_time_divide_line"
+            android:layout_gravity="center_vertical"
+            >
+        </View>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="165px"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_response_time_over_today_hour"
+                android:layout_marginTop="28px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_response_time_over_history_hour"
+                android:layout_marginTop="26px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_response_time_over_rate_hour"
+                android:layout_marginTop="26px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+        <View
+            android:layout_width="1px"
+            android:layout_height="148px"
+            android:background="@drawable/react_time_divide_line"
+            android:layout_gravity="center_vertical"
+            >
+        </View>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="165px"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_response_time_over_today_day"
+                android:layout_marginTop="28px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_response_time_over_history_day"
+                android:layout_marginTop="26px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_response_time_over_rate_day"
+                android:layout_marginTop="26px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12px"
+        android:background="#b9e7f2"
+        >
+
+    </View>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:orientation="horizontal"
+        android:background="#f9f9f9"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="处理超时"
+            android:layout_marginLeft="28px"
+            android:layout_gravity="center_vertical"
+            android:textColor="#333333"
+            android:textSize="35px"
+            android:textStyle="bold"
+            />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/new_line_color">
+
+    </View>
+    <com.zhy.android.percent.support.PercentLinearLayout
+
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="gone"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_heightPercent="1.1%w"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:src="@drawable/yuan1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_heightPercent="1.1%w"
+            android:gravity="center_horizontal"
+            android:background="#b7b7b9"
+            android:layout_weight="1.6"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:src="@drawable/yuan1"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_heightPercent="1.1%w"
+            android:gravity="center_horizontal"
+            android:background="#d0e111"
+            android:layout_weight="1.6"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:src="@drawable/yuan1"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_heightPercent="1.1%w"
+            android:gravity="center_horizontal"
+            android:background="#f89468"
+            android:layout_weight="1.6"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:src="@drawable/yuan1"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_heightPercent="1.1%w"
+            android:gravity="center_horizontal"
+            android:background="#e84a4a"
+            android:layout_weight="1.6"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_heightPercent="1.1%w"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            />
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/LinearLayout02"
+        android:layout_height="67px"
+        android:layout_width="fill_parent"
+       android:background="@color/white"
+        android:orientation="horizontal"
+        >
+
+
+        <TextView
+            android:layout_width="126px"
+            android:layout_height="31px"
+            android:text=""
+            android:layout_marginLeft="62px"
+            android:layout_centerVertical="true"
+            android:background="@drawable/react_time_over_time"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15-60分钟"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="222px"
+            android:textSize="24px"
+            android:textColor="#706f79"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1小时"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="396px"
+            android:textSize="24px"
+            android:textColor="#706f79"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=">24小时"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="558px"
+            android:textSize="24px"
+            android:textColor="#706f79"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/new_line_color"
+            android:layout_alignParentBottom="true"
+            >
+
+        </View>
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="194px"
+            android:orientation="vertical"
+            android:layout_height="210px">
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="今 日 超 时 数"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="28px"
+                android:textSize="24px"
+                android:textColor="#706f79"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="历 史 超 时 数"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="28px"
+                android:textSize="24px"
+                android:textColor="#706f79"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="今日超时比率"
+                android:layout_marginTop="30px"
+                android:textSize="24px"
+                android:layout_marginLeft="27px"
+                android:textColor="#706f79"
+                android:layout_marginBottom="34px"
+                />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="148px"
+            android:background="@drawable/react_time_divide_line"
+            android:layout_gravity="center_vertical"
+            >
+        </View>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="165px"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_process_time_over_today_minute"
+                android:layout_marginTop="28px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_process_time_over_history_minute"
+                android:layout_marginTop="26px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_process_time_over_rate_minute"
+                android:layout_marginTop="26px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+        <View
+            android:layout_width="1px"
+            android:layout_height="148px"
+            android:background="@drawable/react_time_divide_line"
+            android:layout_gravity="center_vertical"
+            >
+        </View>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="165px"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_process_time_over_today_hour"
+                android:layout_marginTop="28px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_process_time_over_history_hour"
+                android:layout_marginTop="26px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_process_time_over_rate_hour"
+                android:layout_marginTop="26px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+        <View
+            android:layout_width="1px"
+            android:layout_height="148px"
+            android:background="@drawable/react_time_divide_line"
+            android:layout_gravity="center_vertical"
+            >
+        </View>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="165px"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_process_time_over_today_day"
+                android:layout_marginTop="28px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_process_time_over_history_day"
+                android:layout_marginTop="26px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="111"
+                android:id="@+id/tv_process_time_over_rate_day"
+                android:layout_marginTop="26px"
+
+                android:textSize="28px"
+                android:textColor="#706f79"
+                />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12px"
+        android:background="#b9e7f2"
+        >
+
+    </View>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_weight="1.0"
+        android:background="#f9f9f9"
+        >
+
+    </LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

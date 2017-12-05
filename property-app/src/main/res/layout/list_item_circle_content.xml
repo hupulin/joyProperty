@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="1dp"
+    android:background="@drawable/circle_comment_content_bg">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="32dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="9dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitXY"
+        android:background="@drawable/replay_head_image_bg"
+        android:layout_height="32dp" />
+
+    <TextView
+        android:id="@+id/comment_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/time"
+        android:layout_toRightOf="@+id/icon"
+        android:layout_marginLeft="8dp"
+        android:textColor="#95a5b0" />
+
+    <TextView
+        android:id="@+id/comment_content"
+        android:layout_width="match_parent"
+        android:layout_toRightOf="@+id/icon"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#595151"
+        android:layout_marginBottom="6dp"
+        android:layout_marginRight="33dp"
+        android:layout_below="@+id/comment_user"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/time"
+        android:textColor="#979797"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:text="10:12"
+        android:paddingRight="9dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>

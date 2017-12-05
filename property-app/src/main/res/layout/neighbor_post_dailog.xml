@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+
+    android:background="@drawable/neighbor_dailog_bg"
+    android:layout_height="match_parent">
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+<View
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    app:layout_heightPercent="7%w"
+    android:id="@+id/divideView"
+    >
+
+</View>
+
+        <com.joy.property.neighborhood.adapter.GridViews
+            android:id="@+id/gv_neighbor"
+            app:layout_marginTopPercent="28%"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.joy.property.neighborhood.adapter.GridViews>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+
+    <ImageView
+        android:id="@+id/iv_neighbor_dailog_close"
+        android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:layout_width="73dp"
+        android:layout_height="73dp"
+        android:background="@drawable/neighbor_dailog_close"/>
+</RelativeLayout>

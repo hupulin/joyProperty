@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativeLayout"
+    android:layout_height="wrap_content">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:background="@drawable/selector_group_item_bg"
+        android:layout_height="0dp"
+        app:layout_heightPercent="21.67%w">
+        <ImageView
+        android:id="@+id/image"
+        android:layout_width="53px"
+        android:layout_height="53px"
+
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/text_name"
+            android:layout_marginBottom="20px"
+        android:contentDescription="@string/app_name"
+        />
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|bottom"
+            android:layout_alignParentBottom="true"
+            android:textColor="#464646"
+            android:layout_marginBottom="28px"
+           android:textSize="24px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.android.percent.support.PercentRelativeLayout>

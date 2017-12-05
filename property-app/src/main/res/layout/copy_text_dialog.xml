@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout"
+    android:background="#4f000000">
+<com.zhy.android.percent.support.PercentLinearLayout
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_widthPercent="80%w"
+    android:layout_centerInParent="true"
+    android:background="@drawable/rounded_bg"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="复制"
+        android:textColor="@color/black"
+        app:layout_textSizePercent="7%w"
+        app:layout_marginLeftPercent="5%w"
+        android:gravity="center_vertical"
+        android:id="@+id/copy"
+        app:layout_heightPercent="19.12%w"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#d1d1d1">
+
+    </View>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="取消"
+        android:id="@+id/cancel"
+        app:layout_textSizePercent="7%w"
+        app:layout_marginLeftPercent="5%w"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"
+        app:layout_heightPercent="19.12%w"
+        />
+</com.zhy.android.percent.support.PercentLinearLayout>
+</com.zhy.android.percent.support.PercentRelativeLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingBottom="17.5dp"
+        android:background="@drawable/selector_list_item_bg"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/guideTitle"
+            android:layout_marginLeft="40dp"
+            android:layout_width="match_parent"
+            android:layout_marginRight="74dp"
+            android:layout_marginTop="17.5dp"
+            android:textColor="#2f2f2f"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/guideAbstract"
+            android:layout_width="match_parent"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="13dp"
+            android:textColor="#2f2f2f"
+            android:textSize="12sp"
+            android:layout_below="@+id/guideTitle"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@drawable/selector_list_item_bg"
+    >
+
+
+        <ImageView
+            android:id="@+id/service_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="21dp"
+            android:layout_marginRight="21dp"
+            android:visibility="gone"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/service_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:textSize="26px"
+            android:layout_toRightOf="@+id/service_icon"
+            android:text=""
+            android:layout_marginLeft="45px"
+
+            android:textColor="#2f2f2f" />
+
+
+        <TextView
+            android:id="@+id/service_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/service_name"
+            android:layout_marginRight="30dp"
+            android:textSize="14sp"
+            android:layout_marginTop="12dp"
+            android:layout_toRightOf="@+id/service_icon"
+            android:text=""
+            android:visibility="gone"
+            android:textColor="#2f2f2f" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

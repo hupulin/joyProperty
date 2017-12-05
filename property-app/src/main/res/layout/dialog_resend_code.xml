@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+                  android:id="@+id/parent"
+                android:background="@drawable/feedback_evaluation_bg">
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="354px"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/dialog_corners_bg">
+
+        <ImageView
+            android:id="@+id/exclamatory"
+            android:layout_width="18px"
+            android:layout_height="77px"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/exclamatory"
+            android:layout_marginTop="45px"
+            android:text="请输入取件码"
+            android:textColor="#000000"
+            android:textSize="30px" />
+        <TextView
+            android:id="@+id/tv"
+            android:layout_marginTop="30px"
+            android:textSize="24px"
+            android:textColor="#aaaaaa"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/exclamatory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="每个快递仅有一次重发取件码的机会"/>
+        <TextView
+            android:layout_marginTop="20px"
+            android:layout_below="@+id/tv"
+            android:textSize="24px"
+            android:textColor="#000000"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="是否重发？"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/divider"
+            android:layout_above="@+id/bg_ll"
+            />
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/bg_ll"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btn_close"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/dialogbutton_corner_withe_left"
+                android:text="取消"
+                android:layout_marginRight="1dp"
+                android:textColor="@color/text_col"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_go"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/dialogbutton_corners_bg_right"
+                android:text="确认"
+                android:textColor="@color/home_item_color"
+                android:textSize="14sp" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

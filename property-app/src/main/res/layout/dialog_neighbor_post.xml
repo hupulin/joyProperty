@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alpha="100"
+    android:background="#7F000000">
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="169dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="28dp"
+        android:padding="0dp"
+        android:layout_marginRight="28dp"
+        android:background="@drawable/dialog_ic">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="13dp"
+            android:text="确定要删除这条状态吗？"
+            android:textColor="#5b4d4c"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:padding="0dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="wrap_content"
+                android:layout_height="41dp"
+                android:background="@drawable/selector_dialog_left"
+                android:text="确定"
+                android:layout_weight="1"
+                android:layout_marginRight="1dp"
+                android:textColor="#5b4d4c"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="41dp"
+                android:background="@drawable/selector_dialog_right"
+                android:text="取消"
+                android:layout_weight="1"
+                android:textColor="#5b4d4c"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

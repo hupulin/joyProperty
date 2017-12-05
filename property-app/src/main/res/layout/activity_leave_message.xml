@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/layout_message"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    >
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/page_title_color_new">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_back"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/back"
+            android:layout_height="match_parent"
+            android:text="留言"
+            android:gravity="center"
+            android:layout_toLeftOf="@+id/forward"
+            android:textColor="@color/home_item_color"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/forward"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_alignParentRight="true"
+            android:text="转发"
+            android:textColor="@color/home_item_color"
+            android:textSize="18sp"
+            android:visibility="invisible" />
+
+  </RelativeLayout>
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:scrollbars="none"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:background="@drawable/msg_post_bg" >
+
+        <EditText
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+             android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_centerVertical="true"
+            android:paddingLeft="5dp"
+            android:maxLength="100"
+            android:background="@color/home_item_color"
+            android:focusableInTouchMode="true"
+            android:hint="我想说..."
+            android:layout_toLeftOf="@+id/btn_send"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:background="@drawable/property_null_msg_bg"
+            android:gravity="center"
+            android:text="发送"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:textColor="#d5d4ce" />
+    </RelativeLayout>
+
+</LinearLayout>

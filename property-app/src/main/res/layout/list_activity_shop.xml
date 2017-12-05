@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+    >
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/goodInfo"
+        app:layout_heightPercent="33.47%w"
+        android:background="@color/white"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/goodsImage"
+            app:layout_heightPercent="33.33%w"
+            app:layout_widthPercent="33.33%w"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="孤品代购古着罕见罕见可爱别致"
+            android:id="@+id/goodsName"
+            android:textColor="#353535"
+            android:singleLine="true"
+            app:layout_textSizePercent="4.03%w"
+            app:layout_marginLeftPercent="2.64%w"
+            app:layout_marginStartPercent="2.64%w"
+            app:layout_marginTopPercent="4.31%w"
+            android:layout_toRightOf="@+id/goodsImage"
+            />
+        <com.joy.property.utils.flowlayout.TagFlowLayout
+            android:id="@+id/flow_layout_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_marginStartPercent="2.64%w"
+            app:layout_marginLeftPercent="2.64%w"
+            app:layout_marginTopPercent="14.67%w"
+            android:layout_toRightOf="@+id/goodsImage"
+            >
+        </com.joy.property.utils.flowlayout.TagFlowLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="孤品代购古着罕见罕见可爱别致"
+            android:id="@+id/goods_description"
+            android:textColor="#999999"
+            android:singleLine="true"
+            app:layout_textSizePercent="3.47%w"
+            app:layout_marginLeftPercent="2.64%w"
+            app:layout_marginStartPercent="2.64%w"
+            app:layout_marginTopPercent="9.86%w"
+            android:layout_toRightOf="@+id/goodsImage"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="市场价 ¥ "
+            android:id="@+id/marketPrice"
+            android:textColor="#999999"
+            app:layout_textSizePercent="2.64%w"
+            app:layout_marginStartPercent="2.64%w"
+            app:layout_marginLeftPercent="2.64%w"
+            app:layout_marginTopPercent="21.53%w"
+            android:layout_toRightOf="@+id/goodsImage"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="南都特价 ¥"
+            android:textColor="@color/page_title_color"
+            android:id="@+id/current_price_name"
+            app:layout_textSizePercent="2.92%w"
+            app:layout_marginStartPercent="2.64%w"
+            app:layout_marginLeftPercent="2.64%w"
+            app:layout_marginTopPercent="26.8%w"
+            android:layout_toRightOf="@+id/goodsImage"
+            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="99"
+                android:layout_toRightOf="@+id/current_price_name"
+                android:id="@+id/goodsPrice"
+                android:textColor="@color/page_title_color"
+
+
+                android:singleLine="true"
+                android:gravity="center"
+                app:layout_textSizePercent="3.75%w"
+                android:layout_alignBottom="@+id/tv_price"
+                app:layout_marginLeftPercent="0.64%w"
+                app:layout_marginStartPercent="0.64%w"
+
+
+                app:layout_marginTopPercent="25.8%w"
+
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:background="@color/new_line_color"
+            app:layout_widthPercent="94.72%w"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/divideLine"
+            >
+        </View>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+</com.zhy.android.percent.support.PercentRelativeLayout>

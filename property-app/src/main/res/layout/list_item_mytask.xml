@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray_bg">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/aaaaa"
+        android:layout_marginTop="12px"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/title"
+
+        android:background="@drawable/selector_list_item_bg"
+        android:layout_height="wrap_content">
+        <!--android:layout_centerVertical="true"-->
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="235px"
+            android:id="@+id/leftLayout"
+            android:minHeight="188px"
+            android:layout_height="wrap_content"
+
+
+        >
+        <ImageView
+
+            android:id="@+id/image"
+            android:layout_width="76px"
+            android:background="@drawable/ic_launcher"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/app_name"
+            android:layout_marginTop="43px"
+            android:layout_height="76px"
+            app:layout_auto_basewidth="height"
+            />
+
+
+        <TextView
+            android:id="@+id/apartment"
+            android:textColor="#7d7d7d"
+            android:textSize="32px"
+            android:singleLine="true"
+            android:layout_centerHorizontal="true"
+            android:ellipsize="end"
+            android:text="bbbbbbb"
+            android:layout_below="@+id/image"
+            android:layout_width="95dp"
+            android:layout_marginTop="20px"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+<com.zhy.autolayout.AutoRelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/task_border"
+    android:layout_toRightOf="@+id/leftLayout"
+    android:minHeight="168px"
+    android:paddingTop="-2px"
+    android:layout_marginTop="-2px"
+    android:layout_marginBottom="-2px"
+
+    >
+
+    <ImageView
+        android:id="@+id/bad_comment"
+        android:layout_marginLeft="10px"
+        android:visibility="gone"
+        android:src="@drawable/negative_comment"
+        android:layout_width="77px"
+        android:layout_height="31px" />
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:text=""
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="28px"
+            android:textSize="29px"
+            android:layout_marginTop="6px"
+            android:textColor="#808080"
+            android:layout_height="wrap_content" />
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_item1"
+            android:layout_marginLeft="30px"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="43px"
+                android:layout_toRightOf="@+id/image"
+                android:ellipsize="end"
+                android:maxEms="9"
+                android:maxLines="1"
+                android:text="名称:我就是一个lalalalalalal本"
+                android:textColor="#7d7d7d"
+                android:textSize="33px" />
+
+
+        </com.zhy.autolayout.AutoLinearLayout>
+        <TextView
+            android:id="@+id/servicebooking"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:text=""
+            android:layout_height="wrap_content" />
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_item3"
+            android:layout_marginLeft="30px"
+
+            android:layout_width="match_parent"
+            android:layout_below="@+id/ll_item1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@+id/image"
+                android:text="提交时间："
+                 android:textSize="29px"
+                android:textColor="#808080"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@+id/image"
+                android:text="时间"
+                android:textSize="29px"
+
+                android:textColor="#808080"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_item2"
+            android:layout_marginLeft="30px"
+
+            android:layout_width="match_parent"
+            android:layout_below="@+id/ll_item3"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/timesinfo"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@+id/image"
+                android:text="响应时间："
+
+                android:textSize="29px"
+                android:textColor="#808080"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/times"
+                android:layout_width="wrap_content"
+
+                android:textSize="29px"
+                android:layout_toRightOf="@+id/image"
+                android:text="响应时间"
+                android:textColor="#808080"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll3"
+            android:layout_marginLeft="30px"
+
+            android:layout_width="match_parent"
+            android:layout_below="@+id/ll_item2"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/t"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@+id/image"
+
+                android:textSize="29px"
+                android:text="处理时间："
+                android:textColor="#808080"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/timese"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@+id/image"
+
+                android:textSize="29px"
+
+android:layout_marginBottom="20px"
+                android:text="没有处理时间"
+                android:textColor="#808080"
+                android:layout_height="wrap_content" />
+        </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

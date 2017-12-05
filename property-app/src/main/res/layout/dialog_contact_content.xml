@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#7F000000"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/round_contact_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="15sp"
+            android:text="联系人列表"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/home_item_color"
+            android:gravity="center_vertical"
+            android:layout_height="48dp" />
+
+        <ImageView
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/selector_evaluation_close" />
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_below="@+id/cancel"
+            android:background="@drawable/round_content_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="#d5d5d5"
+            android:paddingLeft="10dp"
+            android:dividerHeight="1dp"
+            android:fadingEdge="none"
+            android:fastScrollEnabled="false"
+            android:footerDividersEnabled="true"
+            android:headerDividersEnabled="true"
+            android:listSelector="@color/transparent"
+            android:scrollbars="none"
+            android:smoothScrollbar="true"/>
+    </RelativeLayout>
+</RelativeLayout>

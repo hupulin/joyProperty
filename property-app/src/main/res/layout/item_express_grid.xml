@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativeLayout"
+    android:layout_height="wrap_content">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="125px"
+     >
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="15px"
+            android:layout_height="15px"
+            android:background="@drawable/express_circular"
+            android:layout_marginTop="38px"
+            android:layout_marginLeft="34px"
+            />
+        <TextView
+            android:layout_marginTop="30px"
+            android:layout_marginLeft="70px"
+            android:text="快递单号："
+            android:id="@+id/tv_express_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#aaaaaa"
+            android:textSize="24px" />
+        <TextView
+            android:layout_toRightOf="@+id/tv_express_num"
+           android:layout_alignBottom="@+id/tv_express_num"
+            android:text="132435345345456547"
+            android:id="@+id/express_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#aaaaaa"
+            android:textSize="24px" />
+        <TextView
+            android:layout_marginTop="18px"
+            android:layout_marginLeft="70px"
+            android:text="百世汇通"
+            android:id="@+id/express_name"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/tv_express_num"
+            android:layout_height="wrap_content"
+            android:textColor="#aaaaaa"
+            android:textSize="24px" />
+        <TextView
+            android:text="幸福家园"
+            android:layout_alignBottom="@+id/express_name"
+            android:layout_toRightOf="@+id/express_name"
+            android:layout_marginLeft="30px"
+            android:id="@+id/apartment_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#aaaaaa"
+            android:textSize="24px" />
+        <View
+            android:layout_width="680px"
+            android:layout_alignParentRight="true"
+            android:layout_height="1px"
+            android:background="#ebebeb"
+            android:layout_alignParentBottom="true"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

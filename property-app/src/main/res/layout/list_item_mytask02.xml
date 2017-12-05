@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   >
+
+    <RelativeLayout
+        android:id="@+id/aaaaa"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/selector_list_item_bg"
+        android:layout_height="wrap_content">
+        <!--android:layout_centerVertical="true"-->
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:background="@drawable/ic_back"
+            android:contentDescription="@string/app_name"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/imag"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="90dp"
+            android:background="@drawable/shu"
+            android:contentDescription="@string/app_name"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:text="ccccccc"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            android:textSize="14sp"
+            android:layout_marginTop="2dp"
+            android:layout_height="wrap_content" />
+         <LinearLayout
+         android:id="@+id/ll_item1"
+         android:layout_marginLeft="100dp"
+         android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+         android:orientation="vertical"
+          >
+
+        <TextView
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/image"
+            android:layout_marginTop="12dp"
+            android:textSize="20sp"
+            android:text="名称:"
+            android:singleLine="true"
+            android:textColor="#7d7d7d"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/times"
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/image"
+            android:layout_marginTop="2dp"
+            android:text="响应时间:"
+            android:textColor="#808080"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/timese"
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/image"
+            android:text="chulishijian"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/text_color03"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/image"
+            android:text="时间"
+            android:layout_marginTop="2dp"
+            android:hint="响应时间："
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+        <TextView
+            android:id="@+id/apartment"
+            android:textColor="#979797"
+            android:textSize="18sp"
+            android:layout_marginLeft="15dp"
+            android:ellipsize="end"
+            android:text="bbbbbbb"
+            android:layout_marginTop="3dp"
+            android:layout_below="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</RelativeLayout>

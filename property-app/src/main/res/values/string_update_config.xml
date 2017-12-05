@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="update_server">http://www.jinyi-app.com/AppUpdate/gKey/</string>
+    <string name="update_appname">gKey</string>
+    <string name="update_json_version">android-update.html</string>
+    <string name="update_server_name">gKey</string>
+    <string name="update_package_name">com.joy.property</string>
+
+</resources>

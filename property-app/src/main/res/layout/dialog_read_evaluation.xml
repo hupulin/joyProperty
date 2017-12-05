@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/feedback_evaluation_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/dialog_corners_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="我的评价："
+            android:paddingRight="5dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/read_close"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/evaluation_closes_ic"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/my_evaluation_content"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/read_close"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="27.5dp"
+            android:maxLength="100"
+            android:text=""
+            android:background="@drawable/dialogtextview_border"
+            android:hint="业主的评价内容为空..."
+            android:textColor="@color/text_col"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/my_evaluation_content"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/item01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="服务态度："
+                android:textColor="@color/text_col"
+                android:textSize="14sp" />
+
+            <RatingBar
+                android:id="@+id/rb_rate01"
+                style="@style/RoomRatingBar"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:layout_toRightOf="@+id/item01"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp" />
+            <TextView
+                android:id="@+id/tv_text01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="14sp"
+                android:textColor="@color/text_col"
+                android:layout_alignBottom="@+id/rb_rate01"
+                android:layout_toRightOf="@+id/rb_rate01"
+                android:layout_toEndOf="@+id/rb_rate01"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/item02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="解决速度："
+                android:layout_below="@+id/item01"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/text_col"
+                android:textSize="14sp" />
+
+            <RatingBar
+                android:id="@+id/rb_rate02"
+                style="@style/RoomRatingBar"
+                android:layout_width="wrap_content"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:layout_below="@+id/item01"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/item02"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp" />
+            <TextView
+                android:id="@+id/tv_text02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="14sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/text_col"
+                android:layout_alignBottom="@+id/rb_rate02"
+                android:layout_toRightOf="@+id/rb_rate02"
+                android:layout_toEndOf="@+id/rb_rate02"
+                android:layout_alignTop="@+id/rb_rate02" />
+
+
+            <TextView
+                android:id="@+id/item03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="满意度："
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/item02"
+                android:textColor="@color/text_col"
+                android:textSize="14sp" />
+
+            <RatingBar
+                android:id="@+id/rb_rate03"
+                style="@style/RoomRatingBar"
+                android:numStars="5"
+                android:isIndicator="true"
+                android:layout_toRightOf="@+id/item03"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/item02"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="34dp" />
+            <TextView
+                android:id="@+id/tv_text03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="14sp"
+                android:textColor="@color/text_col"
+                android:layout_marginTop="3dp"
+                android:layout_alignTop="@+id/rb_rate03"
+                android:layout_alignLeft="@+id/tv_text02"
+                android:layout_alignStart="@+id/tv_text02"
+                android:layout_alignBottom="@+id/rb_rate03" />
+
+            <TextView
+                android:id="@+id/satisfaction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="22.5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/item03"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="19dp"
+                android:gravity="center_horizontal"
+                android:text=""
+                android:textColor="@color/text_col"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

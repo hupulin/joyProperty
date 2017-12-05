@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="60px"
+        >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/parameterName"
+    android:text="产地"
+    android:textSize="26px"
+    android:textColor="#999999"
+    android:layout_marginLeft="30px"
+    android:layout_marginTop="17px"
+    android:layout_marginBottom="17px"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/parameterValue"
+        android:text="产地"
+        android:textSize="26px"
+        android:textColor="#353535"
+        android:layout_marginLeft="197px"
+        android:layout_marginTop="17px"
+        android:layout_marginBottom="17px"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/new_line_color"
+        android:layout_below="@+id/parameterValue"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        >
+
+    </View>
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

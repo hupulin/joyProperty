@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://www.baidu.com/apk/res/custom"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="9dp"
+        android:layout_marginLeft="9.5dp"
+        android:layout_marginRight="9.5dp"
+        android:layout_marginTop="33dp"
+        android:background="@drawable/selector_list_item_bg">
+
+        <ImageView
+            android:id="@+id/bulk_image"
+            android:layout_width="match_parent"
+            android:layout_height="152dp"
+            android:layout_marginLeft="10.5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="9.5dp"
+            android:background="@drawable/store_business_ic"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/my_appointment_status_ic">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="8dp"
+                android:padding="0dp">
+
+                <com.joyhome.nacity.app.util.RotateTextView
+                    android:id="@+id/status"
+                    android:layout_width="65dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:paddingTop="30dp"
+                    android:text=""
+                    android:textColor="@color/page_title_color"
+                    android:textSize="15sp"
+                    custom:rotate="-43"
+                    custom:translateX="-0.35"
+                    custom:translateY="0.2" />
+
+                <com.joyhome.nacity.app.util.RotateTextView
+                    android:id="@+id/date"
+                    android:layout_width="100dp"
+                    android:layout_height="85dp"
+                    android:layout_below="@+id/status"
+                    android:layout_marginTop="-50dp"
+                    android:paddingTop="32dp"
+                    android:text=""
+                    android:textColor="#979797"
+                    android:textSize="15sp"
+                    custom:rotate="-43"
+                    custom:translateX="-0.25"
+                    custom:translateY="0.4" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/bulk_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bulk_image"
+            android:layout_marginLeft="10.5dp"
+            android:layout_marginTop="14dp"
+            android:text=""
+            android:textColor="#333333"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/tv01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bulk_title"
+            android:layout_marginLeft="10.5dp"
+            android:layout_marginTop="15dp"
+            android:text="我购买了"
+            android:textColor="#979797"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bulk_title"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/tv01"
+            android:text=""
+            android:textColor="@color/page_title_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bulk_title"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/number"
+            android:text="份"
+            android:textColor="#979797"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv01"
+            android:layout_marginBottom="13dp"
+            android:layout_marginLeft="10.5dp"
+            android:layout_marginTop="10dp"
+            android:text="共计"
+            android:textColor="#979797"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv01"
+            android:layout_marginBottom="13dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/tv02"
+            android:text="¥ "
+            android:textColor="#d16c5a"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv01"
+            android:layout_marginBottom="13dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/tv02"
+            android:text=""
+            android:textColor="@color/page_title_color"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_pay"
+            android:layout_width="70.5dp"
+            android:layout_alignParentRight="true"
+            android:text="支付订单"
+            android:textColor="@color/white"
+            android:layout_below="@+id/bulk_image"
+            android:layout_marginTop="53dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="14sp"
+            android:layout_marginRight="10.5dp"
+            android:background="@drawable/selector_purchase_appointment"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="31.5dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/btn_pay"
+
+            android:layout_marginRight="10.5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/selector_cancel_appointment"
+            android:text="取消订单"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</RelativeLayout>

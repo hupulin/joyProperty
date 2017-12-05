@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#f1f1f1"
+    android:id="@+id/moveLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:id="@+id/title"
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="11.11%w"
+        android:background="@color/page_title_color">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_heightPercent="11.11%w"
+
+            app:layout_widthPercent="11.11%w"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/selector_back_icon"
+            android:contentDescription="@string/app_name" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/titleText"
+            android:gravity="center_vertical"
+            android:text="我的抵用券"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            app:layout_textSizePercent="4.44%w" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="9.45%w"
+            app:layout_widthPercent="18.24%w"
+            android:visibility="gone"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/neighbor_down"
+            app:layout_marginLeftPercent="9.45%w"
+            android:id="@+id/neighborShowIcon"
+            />
+
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <View
+        android:layout_below="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#e6e6e6"
+        android:id="@+id/line"
+        app:layout_heightPercent="0.234%"
+        >
+
+    </View>
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+
+        android:layout_height="wrap_content">
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/tab"
+
+            android:background="@color/white"
+            android:orientation="horizontal"
+            app:layout_heightPercent="10.4%w"
+
+            >
+            <com.zhy.android.percent.support.PercentRelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:layout_widthPercent="28.33%w"
+                android:id="@+id/activityLayout"
+                app:layout_marginLeftPercent="7.5%w"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/page_title_color"
+                    android:layout_centerVertical="true"
+                    app:layout_textSizePercent="40%h"
+                    android:id="@+id/activityText"
+                    android:layout_centerInParent="true"
+                    android:text="未使用"/>
+
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+            <com.zhy.android.percent.support.PercentRelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:layout_widthPercent="28.33%w"
+                android:id="@+id/topicLayout"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray_text"
+                    android:layout_centerVertical="true"
+                    app:layout_textSizePercent="40%h"
+                    android:id="@+id/topic"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="已使用"/>
+
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+            <com.zhy.android.percent.support.PercentRelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:layout_widthPercent="28.33%w"
+                android:id="@+id/investigationLayout"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray_text"
+                    android:layout_centerVertical="true"
+                    app:layout_textSizePercent="40%h"
+                    android:id="@+id/investigation"
+                    android:layout_centerInParent="true"
+                    android:text="已过期"/>
+
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_marginLeftPercent="7.5%w"
+            android:id="@+id/moveLine"
+            android:orientation="vertical"
+            app:layout_widthPercent="28.33%w">
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1.5dp"
+                android:background="@color/page_title_color"
+                app:layout_widthPercent="55.35%w"
+
+                android:layout_gravity="center_horizontal"
+                >
+
+            </View>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#d4d4d4">
+        </View>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:id="@+id/hideLine"
+            android:background="#d9d9d9">
+        </View>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <android.support.v4.view.ViewPager
+android:background="#f1f1f1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewPager">
+
+    </android.support.v4.view.ViewPager>
+</com.zhy.android.percent.support.PercentLinearLayout>

@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f0f0f0">
+    <com.joy.property.views.MyScrollViewMain
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:id="@+id/my_scrollview"
+
+        >
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <com.bigkoo.convenientbanner.ConvenientBanner
+        android:layout_width="match_parent"
+        android:layout_height="276px"
+        android:id="@+id/autoRow"
+        >
+
+    </com.bigkoo.convenientbanner.ConvenientBanner>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="276px"
+        android:id="@+id/ad_load"
+        android:background="@drawable/ad_load_bg"
+        >
+
+    </ImageView>
+
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+
+    >
+<com.zhy.autolayout.AutoRelativeLayout
+    android:layout_width="39px"
+    android:layout_height="80px"
+    android:id="@+id/home_more"
+    >
+    <ImageView
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="28px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_more_ic"
+        android:contentDescription="@string/app_name" />
+</com.zhy.autolayout.AutoRelativeLayout>
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|left"
+            android:textColor="#ffffff"
+            android:layout_toRightOf="@+id/home_more"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="24px"
+            android:shadowColor="#ffb1b1b1"
+            android:shadowRadius="1"
+            android:shadowDx="1.5"
+            android:shadowDy="1.5"/>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/title"
+            android:layout_height="match_parent">
+
+            <TextView
+
+                android:layout_width="32px"
+                android:layout_height="28px"
+                android:layout_marginTop="26px"
+                android:layout_marginRight="33px"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/news_bg"
+                android:contentDescription="@string/app_name" />
+            <TextView
+                android:id="@+id/home_news"
+                android:layout_width="100px"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/app_name" />
+
+            <TextView
+                android:layout_toLeftOf="@+id/home_news"
+                android:id="@+id/news_tip"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/news_tip"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#ffffff"
+                android:textSize="10sp" />
+            <TextView
+                android:layout_alignParentRight="true"
+                android:layout_width="14px"
+                android:layout_height="14px"
+                android:layout_marginRight="25px"
+                android:layout_marginTop="21px"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:id="@+id/message_tv"
+                />
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="40px"
+    android:text="常用功能"
+    android:background="@color/gray_bg"
+    android:textSize="20px"
+    android:textColor="#707070"
+   android:gravity="center_vertical"
+    android:paddingLeft="54px"
+    android:id="@+id/functionText"
+    android:layout_below="@+id/autoRow"
+    />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/functionText"
+        android:background="#f0f0f0"
+        android:id="@+id/functionLayout"
+        >
+
+
+<com.zhy.autolayout.AutoRelativeLayout
+    android:layout_width="360px"
+    android:layout_height="114px"
+    android:id="@+id/visitnew_top"
+android:background="@color/white"
+    
+    >
+  <com.zhy.android.percent.support.PercentRelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:layout_marginLeft="48px"
+
+      >
+      <ImageView
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          app:layout_heightPercent="77.19%h"
+          app:layout_widthPercent="77.19%h"
+          android:layout_centerVertical="true"
+          android:background="@drawable/main_vistor_icon"
+          app:layout_auto_basewidth="height"
+
+          />
+  </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="扫一扫"
+        android:layout_marginLeft="152px"
+        android:layout_centerVertical="true"
+        android:textSize="26px"
+        android:textColor="@color/main_text_color"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="欢迎您回家"
+        android:layout_marginLeft="156px"
+        android:layout_marginTop="69px"
+        android:textSize="18px"
+        android:visibility="gone"
+        android:textColor="@color/main_gray_text_color"
+
+        />
+</com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="360px"
+        android:layout_height="114px"
+       android:layout_toRightOf="@+id/visitnew_top"
+        android:layout_below="@+id/functionText"
+        android:id="@+id/villagenew_top"
+        android:background="@color/white"
+        android:layout_marginLeft="1px"
+        >
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="48px"
+
+            >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_heightPercent="77.19%h"
+                app:layout_widthPercent="77.19%h"
+                android:layout_centerVertical="true"
+                android:background="@drawable/main_neighbor_inspect"
+                app:layout_auto_basewidth="height"
+
+                />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="小区巡检"
+            android:layout_marginLeft="152px"
+            android:layout_centerVertical="true"
+            android:textSize="26px"
+            android:textColor="@color/main_text_color"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="巡检好帮手"
+            android:layout_marginLeft="156px"
+            android:layout_marginTop="69px"
+            android:textSize="18px"
+            android:visibility="gone"
+            android:textColor="@color/main_gray_text_color"
+
+            />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="360px"
+        android:layout_height="114px"
+        android:id="@+id/taskhallnew_top"
+        android:layout_marginTop="1px"
+        android:layout_below="@+id/visitnew_top"
+        android:background="@color/white"
+        >
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="48px"
+
+            >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_heightPercent="77.19%h"
+                app:layout_widthPercent="77.19%h"
+                android:layout_centerVertical="true"
+                android:background="@drawable/main_task_icon"
+                app:layout_auto_basewidth="height"
+
+                />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="任务大厅"
+            android:layout_marginLeft="152px"
+            android:layout_centerVertical="true"
+            android:textSize="26px"
+            android:textColor="@color/main_text_color"
+
+            />
+        <TextView
+        android:layout_width="12px"
+        android:layout_height="12px"
+        android:layout_marginLeft="256px"
+        android:layout_marginTop="28px"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:id="@+id/task_tv"
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="在线实时处理"
+            android:layout_marginLeft="156px"
+            android:layout_marginTop="69px"
+            android:textSize="18px"
+            android:visibility="gone"
+            android:textColor="@color/main_gray_text_color"
+
+            />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="360px"
+        android:layout_height="114px"
+        android:id="@+id/neighbornew_top"
+        android:layout_marginTop="1px"
+       android:layout_marginLeft="361px"
+        android:layout_below="@+id/visitnew_top"
+        android:background="@color/white"
+
+        >
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="48px"
+
+            >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_heightPercent="77.19%h"
+                app:layout_widthPercent="77.19%h"
+                android:layout_centerVertical="true"
+                android:background="@drawable/main_neighbor_icon"
+                app:layout_auto_basewidth="height"
+
+                />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邻居圈"
+            android:layout_marginLeft="152px"
+            android:layout_marginTop="31px"
+            android:textSize="26px"
+            android:textColor="@color/main_text_color"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_width="12px"
+            android:layout_height="12px"
+            android:layout_marginLeft="230px"
+            android:layout_marginTop="28px"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:id="@+id/neighbor_tv"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="聊聊家常事儿"
+            android:layout_marginLeft="156px"
+            android:layout_marginTop="69px"
+            android:textSize="18px"
+            android:textColor="@color/main_gray_text_color"
+            android:visibility="gone"
+            />
+    </com.zhy.autolayout.AutoRelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:id="@+id/line1"
+            android:layout_below="@+id/neighbornew_top"
+            android:background="@color/timepicker_line">
+
+        </View>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="20px"
+            android:layout_below="@+id/line1"
+            android:id="@+id/line2"
+            android:background="@color/timepicker_line">
+
+        </View>
+        <com.bigkoo.convenientbanner.ConvenientBanner
+            android:id="@+id/lbt"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="168px"
+            android:layout_below="@+id/line2"
+            android:layout_weight="6" />
+        <ImageView
+            android:id="@+id/lbt_load"
+            android:background="@drawable/ad_load_bg_middle"
+            android:layout_width="match_parent"
+            android:layout_height="168px"
+            android:layout_below="@+id/line2"
+            android:layout_weight="6" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40px"
+        android:text="个性功能"
+        android:background="@color/gray_bg"
+        android:textSize="20px"
+        android:textColor="#707070"
+        android:gravity="center_vertical"
+        android:paddingLeft="54px"
+        android:id="@+id/personFunctionText"
+        android:layout_below="@+id/functionLayout"
+        />
+
+    <com.joy.property.utils.NoScrollGridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:numColumns="4"
+
+        android:horizontalSpacing="1dp"
+        android:verticalSpacing="1dp"
+        android:layout_below="@+id/personFunctionText"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/parent"
+        android:background="#7F000000"
+        android:visibility="gone"
+        >
+
+    </RelativeLayout>
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_below="@+id/gridView"
+                android:layout_width="match_parent"
+                android:layout_height="60px"
+                />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.joy.property.views.MyScrollViewMain>
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.joy.property">
+    <permission
+        android:name="com.joy.property.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.joy.property.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--调用本地照相机权限-->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera2"/>
+    <uses-feature android:name="android.hardware.camera2.CameraManager"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!--创建快捷方式权限-->
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <!-- 浮动通知权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!--个推权限-->
+    <uses-permission android:name="getui.permission.GetuiService.com.joy.property" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+
+    <!--自定义权限-->
+
+    <permission
+        android:name="getui.permission.GetuiService.com.joy.property"
+        android:protectionLevel="normal"/>
+
+
+
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
+
+
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".login.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppStartLoad"
+
+            >
+            <!--android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"-->
+
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".task.TaskHallActivity"
+
+            android:screenOrientation="portrait"/>
+        <activity android:name=".task.TaskScreenActivity"
+
+            android:screenOrientation="portrait"/>
+        <activity android:name=".manage.InspectionManage"
+
+            android:screenOrientation="portrait"/>
+        <activity android:name=".myservice.MyServiceOrderActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".myservice.ScreenActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".myservice.SelectTaskServiceActivity"
+            android:theme="@style/myTransparent"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".manage.InspectionTablesActivity"
+
+            android:screenOrientation="portrait"/>
+
+
+        <activity android:name=".message.MessageCenterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".task.ReceiveTaskDetailActivity"
+
+            android:screenOrientation="portrait"/>
+        <activity android:name=".task.FilterTaskResultActivity"
+
+            android:screenOrientation="portrait"/>
+        <activity android:name=".task.MyWorkFeedBackActivity"
+            android:windowSoftInputMode="adjustPan"
+
+            android:screenOrientation="portrait"/>
+        <activity android:name=".task.CheckEvaluateActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".task.ReceiveTaskDetaActivity"
+
+            android:screenOrientation="portrait"/>
+        <activity android:name=".task.HistoryFeedBackActivity"
+
+            android:screenOrientation="portrait"/>
+        <activity android:name=".task.FeedBackTaskOlderActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".task.FeedBackTaskActivity"
+            android:windowSoftInputMode="stateHidden|adjustUnspecified|adjustPan"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".visit.CaptureActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".visit.ExpressActivity"
+                  android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".visit.ExpressRecordActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".visit.ReceiveExpressListActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".visit.ExpressInputDetailActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".visit.PhotoReceiveDetailActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".visit.PhotoReceiveExpressActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".visit.ReceiveExpressRecordActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".visit.ReceiveExpressActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".visit.view.CaptureActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".visit.SerialNumberActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".visit.VerifyResultActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DisclaimerActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".FeedBackActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AboutActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AboutNewActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AdvertisingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".common.LongPictureShowActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <!--新增忘记密码页面-->
+        <activity
+            android:name=".login.ResetPwdActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustUnspecified|adjustPan"/>
+        <!--新增来访记录页面-->
+        <activity android:name=".vehicle.CarVisitorsRecordActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustUnspecified|adjustPan"/>
+        <activity android:name=".vehicle.VehicleInspectionActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustUnspecified|adjustPan"/>
+        <activity android:name=".reaction.ReactionRateActivitypark"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustUnspecified|adjustPan"/>
+        <activity
+            android:name=".task.LeaveMessageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".neighborhood.NeighborPark"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".task.ForwardCenterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".task.ForwardDescActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".inspection.VillageInspectionActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".inspection.CallDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".inspection.NegativeCommentActivity"
+            android:theme="@style/myTransparent"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".vehicle.CarNumberActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".vehicle.VehicleCallDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".host.OwnerMouthActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".host.OwnerMouthDetail"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".complaint.ComplaintTablesActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".complaint.ComplaintManagerActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".repairs.RepairsManagementActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".repairs.RepairsTableActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".house.HouseManagerActivity"
+         android:screenOrientation="portrait"/>
+        <activity android:name=".house.HouseTablesActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.lidong.photopicker.PhotoPickerActivity"
+            android:theme="@style/PhotoPickerTheme"
+            >
+
+        </activity>
+
+        <activity android:name="com.lidong.photopicker.PhotoPreviewActivity"
+            android:theme="@style/PhotoPickerTheme"
+            >
+
+        </activity>
+        <activity android:name=".vehicle.EditorVehicleInformationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustUnspecified|adjustPan"/>
+        <activity android:name=".vehicle.VehicleInformationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustUnspecified|adjustPan"/>
+        <activity android:name=".vehicle.VehicleManagementActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustUnspecified|adjustPan"/>
+        <activity android:name=".vehicle.CarViolationHistoryActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".reaction.SelectComunityActivity"
+
+            android:windowSoftInputMode="stateHidden|adjustUnspecified|adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".vehicle.CarViolationDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".vehicle.VehicleInspectionManage"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".vehicle.VehicleTableActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".common.PictureShowActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".reaction.ReactionRateActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".neighborhood.OwnerMessageDetailActivitys"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".common.ShowImageActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.ShoppingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.HyCaiChangActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.CampaignListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.CommentListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.SideGoodsDetailActivity"
+
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.ActivityShopMore"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.AddAddressActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.ConfirmOlderActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.FinishPayActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.GoodsDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.GoodsListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.MyWaltActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.ImmediatelyConfirmOlderActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.InvalidGoodsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.MerchantShopActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.MyAddressActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MyAddressActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.MyCouponActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.MyShoppingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.OlderDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.OtherBulkActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.PictureTextActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.SearchActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity android:name=".shop.SelfShopActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.ShopAdActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.ShopBulkActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.ShopMoreType"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.ShoppingCarActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.ShoppingExpressActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".shop.ShoppingPostActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".repairs.RoomRepairsManagementActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".repairs.RoomRepairsTableActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".task.MyTaskHallActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".task.MyWorkDetailActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".task.ResultActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".person.MyNeighbor"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".person.MyNeighborActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".person.MyNeighborJoinDetailActivity"
+            android:screenOrientation="portrait"/>
+
+
+        <activity android:name=".neighborhood.NeighborhoodCircleNewsActivity"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
+        <activity android:name=".neighborhood.OwnerMessageDetailActivity"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
+        <activity android:name=".neighborhood.PostActivity"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
+        <activity android:name="com.joyhome.nacity.app.base.BaseActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name="com.joyhome.nacity.app.photo.AlbumActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+       <activity android:name="com.joyhome.nacity.app.photo.GalleryActivity"
+           android:screenOrientation="portrait"
+           >
+
+       </activity>
+       <activity android:name="com.joyhome.nacity.app.photo.ImageFile"
+           android:screenOrientation="portrait"
+           >
+
+       </activity>
+       <activity android:name="com.joyhome.nacity.app.photo.ShowAllPhoto"
+           android:screenOrientation="portrait"
+           >
+
+       </activity>
+        <activity android:name=".neighborhood.Neighbor"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
+        <activity android:name="com.joy.property.community.CommunityBulletinActivity"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
+        <activity android:name="com.joy.property.community.GuideDetailActivity">
+
+        </activity>
+        <activity android:name="com.joy.property.community.NoticeDetailActivity">
+
+        </activity>
+        <activity android:name="com.joy.property.community.VideoPlayActivity">
+
+        </activity>
+        <activity android:name=".neighborhood.NeighborActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            />
+        <activity android:name="com.joy.property.community.VoteDetailActivity">
+
+
+
+        </activity>
+        <activity android:name="com.joyhome.nacity.app.photo.NeighborAlbumActivity">
+
+
+
+        </activity>
+        <activity
+            android:name=".neighborhood.NeighborLinkShowActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".neighborhood.TopicActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            />
+        <activity
+            android:name=".neighborhood.MyCareActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".neighborhood.MyNeighborActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".neighborhood.PostDetailActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            />
+        <activity
+        android:name=".neighborhood.NeighborJoinActivity"
+        android:hardwareAccelerated="false"
+        android:screenOrientation="portrait"
+        />
+        <activity
+            android:name=".person.MyNeighborJoinLikeDetailActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".community.NeighborVoteDetailActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".neighborhood.FansActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+
+            />
+        <activity
+            android:name=".neighborhood.CareActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+
+            />
+        <activity
+            android:name=".receiver.PushJumpActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/myTransparent"
+           android:launchMode="singleTask"
+            />
+        <activity
+            android:name=".receiver.ForceOfflineActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/myTransparent"
+            />
+        <activity
+            android:name=".neighborhood.InteractActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".neighborhood.CampaignActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity android:name=".neighborhood.InvestigateActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".myservice.FilterResultActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".myservice.MyFilterResultActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".myservice.TaskFilResultActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".myservice.FilterResultCommonActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".myservice.ExecuteNewActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/MyDialogStyleBottom"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".vehicle.SelectPositionActivity"
+
+            android:theme="@style/myTransparent"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".myservice.SelectServiceActivity"
+
+            android:theme="@style/myTransparent"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".vehicle.SelectInLegalActivity"
+
+            android:theme="@style/myTransparent"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".task.SelectPersonPopupWindow" android:theme="@style/MyDialogStyleBottom" />
+        <activity android:name="com.joy.property.task.CareActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustUnspecified|adjustPan"/>
+        <activity android:name="com.joy.property.task.ExecuteActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustUnspecified|adjustPan"/>
+        <!-- 个推SDK配置开始 -->
+        <!-- 配置的第三方参数属性 -->
+        <meta-data
+            android:name="PUSH_APPID"
+            android:value="C6UZZUwOft9Wiq3iKNiBH4" />
+        <meta-data
+            android:name="PUSH_APPSECRET"
+            android:value="WwpysGZs8b6BwFBucltCC1" />
+        <meta-data
+            android:name="PUSH_APPKEY"
+            android:value="GIbwmSNMAQ76ce5jM7OGyA" />
+        <meta-data
+            android:name="PUSH_GROUPID"
+            android:value="" />
+        <!-- 配置第三方Receiver -->
+        <!-- since 3.0.9 Required SDK 核心功能-->
+        <provider
+            android:authorities="com.joy.property.DataProvider"
+            android:name="cn.jpush.android.service.DataProvider"
+            android:exported="true"
+            />
+        <receiver
+            android:name=".receiver.PushMessageReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.C6UZZUwOft9Wiq3iKNiBH4" />
+            </intent-filter>
+        </receiver>
+        <!-- 强制下线服务 -->
+        <service android:name="com.joy.property.ForceOfflineService"
+            />
+        <!--配置SDK核心服务-->
+        <service
+            android:name="com.igexin.sdk.PushService"
+            android:exported="true"
+            android:label="NotificationCenter"
+            android:process=":pushservice"/>
+
+        <receiver android:name="com.igexin.sdk.PushReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="com.igexin.sdk.action.refreshls" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.igexin.sdk.PushManagerReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.pushmanager" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.igexin.sdk.PushActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:process=":pushservice"
+            android:taskAffinity="com.igexin.sdk.PushActivityTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <!-- 配置弹框activity -->
+        <activity
+            android:name="com.igexin.getuiext.activity.GetuiExtActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:process=":pushservice"
+            android:taskAffinity="android.task.myServicetask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <receiver
+            android:name="com.igexin.getuiext.service.PayloadReceiver"
+            android:exported="false">
+            <intent-filter>
+                <!-- 这个com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4固定，不能修改 -->
+                <action android:name="com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4" />
+                <!-- android:name="com.igexin.sdk.action.第三方的appId" -->
+                <action android:name="com.igexin.sdk.action.C6UZZUwOft9Wiq3iKNiBH4" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.igexin.getuiext.service.GetuiExtService"
+            android:process=":pushservice" />
+
+        <!-- 个推download模块配置-->
+        <service
+            android:name="com.igexin.download.DownloadService"
+            android:process=":pushservice" />
+        <receiver
+            android:name="com.igexin.download.DownloadReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <provider
+            android:name="com.igexin.download.DownloadProvider"
+            android:authorities="downloads.com.joy.property"
+            android:process=":pushservice" />
+        <!-- android:authorities="downloads.第三方包名" -->
+        <!-- ====================================================== -->
+
+
+        <!--友盟配置-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="55bb44dc67e58e3128001bd6"/>
+        <meta-data
+            android:name="design_width"
+            android:value="720"/>
+        <meta-data
+            android:name="design_height"
+            android:value="1280"/>
+        <!--填写推广渠道ID-->
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="悦服务" />
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <!--<meta-data-->
+            <!--android:name="com.google.android.gms.version"-->
+            <!--android:value="@integer/google_play_services_version" />-->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <service android:name="com.talkingdata.sdk.TDAntiCheatingService"
+            android:process="com.talkingdata.sdk.TDAntiCheatingService">  <!--用户质量评估Service可以配置在主进程或者单独进程-->
+            <intent-filter>
+                <action android:name="com.talkingdata.sdk.TDAntiCheatingService" />
+            </intent-filter>
+        </service>
+        <meta-data android:name="TD_APP_ID" android:value="00370512296343B392A7FE2E75CFBC21" />
+        <meta-data android:name="TD_CHANNEL_ID" android:value="YueService" />
+
+     <!-- 极光配置-->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
+        <!-- 若不启用该功能可删除该组件，将不拉起其他应用也不能被其他应用拉起 -->
+        <service
+            android:name="cn.jpush.android.service.DaemonService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter >
+                <action android:name="cn.jpush.android.intent.DaemonService" />
+                <category android:name="com.joy.property"/>
+            </intent-filter>
+        </service>
+
+         Required SDK核心功能
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true" >
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+                <category android:name="com.joy.property"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+         Required SDK核心功能
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.joy.property" />
+            </intent-filter>
+        </activity>
+        <!-- SDK核心功能-->
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:theme="@style/MyDialogStyle">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.joy.property" />
+            </intent-filter>
+        </activity>
+
+        <!-- Required SDK核心功能-->
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+
+        <!-- Required SDK核心功能-->
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
+
+         Required since 3.0.7
+         新的tag/alias接口结果返回需要开发者配置一个自定的广播
+         该广播需要继承JPush提供的JPushMessageReceiver类, 并如下新增一个 Intent-Filter
+        <!--<receiver-->
+            <!--android:name=".receiver.TalkReceiver"-->
+            <!--android:enabled="true" >-->
+            <!--<intent-filter>-->
+                <!--<action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />-->
+                <!--<category android:name="com.joy.property" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+
+         User defined. 用户自定义的广播接收器
+        <receiver
+            android:name=".receiver.TalkReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <!--Required 用户注册SDK的intent-->
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!--Required 用户接收SDK消息的intent-->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!--Required 用户接收SDK通知栏信息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!--Required 用户打开自定义通知栏的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <category android:name="com.joy.property" />
+            </intent-filter>
+        </receiver>
+
+
+        <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
+        <!-- Required. AppKey copied from Portal -->
+        <meta-data android:name="JPUSH_APPKEY" android:value="34ee257f8211a78068f79398"/>
+    </application>
+
+</manifest>

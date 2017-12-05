@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.zhy.autolayout.AutoLinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="80px">
+
+    </View>
+    <com.joy.property.shop.slide.CustScrollView2
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+<com.zhy.autolayout.AutoLinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/new_line_color"
+        android:layout_marginTop="29px"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        >
+
+    </View>
+<GridLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/gridView"
+    android:columnCount="1"
+
+    >
+
+
+</GridLayout>
+      <com.joyhome.nacity.app.util.htmlText.HtmlTextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/htmlText"
+          />
+
+</com.zhy.autolayout.AutoLinearLayout>
+    </com.joy.property.shop.slide.CustScrollView2>
+</com.zhy.autolayout.AutoLinearLayout>

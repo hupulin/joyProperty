@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                       xmlns:app="http://schemas.android.com/apk/res-auto"
+                                       android:orientation="vertical"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="match_parent"
+                                       android:background="#5f000000">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:layout_width="518px"
+            android:layout_height="254px"
+            android:background="@drawable/dialog_express_confirm_bg"
+            android:scaleType="fitXY"
+            android:id="@+id/code_register"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+        <ImageView
+            android:layout_width="106px"
+            android:layout_height="98px"
+            android:background="@drawable/dialog_express_icon"
+            android:layout_marginTop="40px"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="189px"
+            android:gravity="center"
+            android:id="@+id/dialogText"
+            android:layout_centerHorizontal="true"
+            android:textSize="24px"
+            android:textColor="@color/black"
+            android:text="此快递已录入！"/>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="520px"
+            android:layout_height="105px"
+
+            android:id="@+id/ll"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/code_register"
+            >
+
+            <Button
+                android:id="@+id/confirm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="24px"
+                android:layout_alignParentRight="true"
+                android:text="关闭( 3s )"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/dialogbutton_corners_bg"/>
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

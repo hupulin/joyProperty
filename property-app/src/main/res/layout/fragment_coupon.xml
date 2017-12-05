@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lv_PullToRefreshListView"
+        android:cacheColorHint="#00000000"
+        android:divider="#ffd5d5d5"
+
+        android:background="#f1f1f1"
+        android:dividerHeight="0.5dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="@color/transparent"
+        android:scrollbars="none"
+        android:smoothScrollbar="true" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/no_coupon_big"
+        app:layout_heightPercent="42.5%w"
+        android:id="@+id/noCoupon"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        app:layout_widthPercent="33.47%w"/>
+</com.zhy.android.percent.support.PercentRelativeLayout>

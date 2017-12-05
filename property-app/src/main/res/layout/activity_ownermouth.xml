@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/home_item_color">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/page_title_color_new">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_back"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/title2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/owner_mouth_title"
+            android:textColor="@color/home_item_color"
+            android:textSize="18sp" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <include
+        layout="@layout/activity_list_two"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_below="@+id/title"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="16.66%w"
+        app:layout_widthPercent="16.66%w"
+        android:background="@drawable/selector_park"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        app:layout_marginRightPercent="4.16%w"
+        app:layout_marginBottomPercent="12.5%w"
+        android:id="@+id/changePark"
+        android:visibility="gone"
+        />
+    <TextView
+        android:id="@+id/dialog"
+        android:layout_width="80.0dip"
+        android:layout_height="80.0dip"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:background="@drawable/voip_toast_bg"
+        android:gravity="center"
+        android:textColor="#ffffffff"
+        android:textSize="30.0dip"
+        android:visibility="invisible" />
+    <com.joy.property.task.SideBar
+        android:id="@+id/sideBar"
+        android:alpha="0"
+        android:layout_marginTop="5dp"
+        android:layout_width="20dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        app:layout_heightPercent="56%h"
+        android:background="@drawable/sidebar_bg_icon"
+        android:layout_height="match_parent" />
+</com.zhy.android.percent.support.PercentRelativeLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_about"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:background="@drawable/about_bg"
+    >
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/page_title_color_new">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_back"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/about_ours"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/home_item_color"
+            android:textSize="18sp" />
+    </RelativeLayout>
+<TextView
+    android:id="@+id/version_name"
+    android:layout_width="126px"
+    android:layout_height="45px"
+    android:layout_marginTop="1004px"
+    android:text=""
+    android:gravity="center"
+    android:background="@drawable/version_name_bg"
+    android:textColor="@color/text_color_white"
+    android:layout_centerHorizontal="true"
+    />
+    <TextView
+        android:id="@+id/tv_mail"
+        android:layout_marginTop="45px"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/version_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dcfw@naradares.com"
+        android:textColor="#999999"
+        android:textSize="28px"
+        />
+    <TextView
+        android:id="@+id/phone"
+        android:layout_marginTop="16px"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tv_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="400-103-7979"
+        android:textColor="#3bafda"
+        android:textSize="24px"
+        />
+</com.zhy.autolayout.AutoRelativeLayout>

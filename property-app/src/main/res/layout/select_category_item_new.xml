@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/white"
+    >
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="480px"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+
+        android:orientation="vertical"
+        android:id="@+id/allLayout"
+        >
+
+
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/houseKeeping"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="78px"
+                android:id="@+id/house_service"
+                android:layout_marginLeft="45px"
+                android:gravity="center_vertical"
+                android:textColor="#353535"
+                android:textSize="26px"
+                android:text="日常工单"/>
+            <ImageView
+                android:layout_width="15px"
+                android:layout_height="28px"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20px"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/place_select"/>
+        </com.zhy.autolayout.AutoRelativeLayout>
+        <View
+            android:layout_marginLeft="45px"
+            android:layout_width="675px"
+            android:layout_height="1px"
+
+            android:background="@color/new_line_color"
+            >
+        </View>
+
+
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="1"
+
+
+        android:id="@+id/gridView">
+
+    </GridLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

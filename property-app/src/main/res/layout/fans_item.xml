@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+android:background="@color/white"
+    android:id="@+id/interactItemLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<com.zhy.android.percent.support.PercentRelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_heightPercent="23.88%w"
+    >
+    <com.joy.library.utils.HeadImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="18.61%w"
+
+        app:layout_widthPercent="18.61%w"
+        app:layout_marginLeftPercent="3.05%w"
+        app:layout_marginStartPercent="3.05%w"
+        app:layout_marginTopPercent="2.63%w"
+        android:id="@+id/headImage"
+        android:background="@drawable/head_image"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/new_text_color"
+        app:layout_textSizePercent="4.44%w"
+        android:id="@+id/joinName"
+        android:layout_toRightOf="@+id/headImage"
+        android:layout_centerVertical="true"
+        app:layout_marginLeftPercent="3.05%w"
+        app:layout_marginStartPercent="3.05%w"
+        android:text="一生有你"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/page_title_color"
+        app:layout_textSizePercent="3.33%w"
+        app:layout_marginRightPercent="6.52%w"
+        app:layout_marginEndPercent="6.52%w"
+        app:layout_marginBottomPercent="3.61%w"
+        android:layout_alignParentRight="true"
+android:layout_centerVertical="true"
+        android:id="@+id/joinTime"
+        android:text="取消关注"/>
+    <com.joy.library.utils.HeadImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="5%w"
+android:visibility="gone"
+        app:layout_widthPercent="5%w"
+        app:layout_marginLeftPercent="18%w"
+        app:layout_marginTopPercent="15%w"
+        android:id="@+id/verified"
+        android:background="@drawable/verify01"
+        />
+</com.zhy.android.percent.support.PercentRelativeLayout>P
+</com.zhy.android.percent.support.PercentLinearLayout>

@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    >
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/page_title_color_new">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_back"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="车辆管理"
+            android:textColor="@color/home_item_color"
+            android:textSize="19sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        android:layout_marginBottom="50dp"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/car_icon"
+                android:layout_width="match_parent"
+                android:layout_height="203dp"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="117dp"
+                android:layout_below="@+id/car_icon"
+                android:background="@drawable/selector_record_bg">
+
+                <TextView
+                    android:id="@+id/number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/text00"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginLeft="34dp"
+                    android:padding="0dp"
+                    android:text="0次"
+                    android:textColor="@color/text_color03"
+                    android:textSize="49.5sp" />
+
+                <TextView
+                    android:id="@+id/text00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginLeft="35dp"
+                    android:text="(本车违停次数)"
+                    android:textColor="@color/text_color03"
+                    android:textSize="15sp" />
+
+
+                <ImageButton
+                    android:id="@+id/record"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/item07"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="35dp"
+                    android:background="@drawable/selector_record"
+                    android:contentDescription="@string/app_name" />
+
+                <TextView
+                    android:id="@+id/item07"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginRight="32dp"
+                    android:drawablePadding="11dp"
+                    android:text="记录违停"
+                    android:textColor="@color/home_item_color"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/relativeLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativeLayout"
+                android:background="#f0f8fb"
+                >
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="13.5dp"
+                    android:drawableLeft="@drawable/icon_04"
+                    android:drawablePadding="10dp"
+                    android:textColor="@color/text_color03"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/smtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13.5dp"
+                    android:layout_toRightOf="@+id/text"
+                    android:text="被访业主信息"
+                    android:textColor="@color/text_color03"
+                    android:textSize="17sp"/>
+
+                <TextView
+                    android:id="@+id/text01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="3dp"
+                    android:text="姓名："
+                    android:textColor="@color/text_color03"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/owner_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/text01"
+                    android:layout_toLeftOf="@+id/telephone"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="left"
+                    android:textColor="@color/home_text_01"
+                    android:textSize="15sp"
+                    android:layout_below="@+id/smtitle"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:id="@+id/text02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text01"
+                    android:layout_marginLeft="35dp"
+                    android:text="手机："
+                    android:textColor="@color/text_color03"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/text03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text02"
+                    android:layout_marginLeft="35dp"
+
+                    android:text="车位："
+
+                    android:textColor="@color/text_color03"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:id="@+id/place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text02"
+
+                    android:layout_toLeftOf="@+id/telephone"
+                    android:layout_toRightOf="@+id/text02"
+                    android:gravity="left"
+                    android:textColor="@color/home_text_01"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/owner_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text01"
+
+                    android:layout_toLeftOf="@+id/telephone"
+                    android:layout_toRightOf="@+id/text02"
+                    android:gravity="left"
+                    android:textColor="@color/home_text_01"
+                    android:textSize="15sp" />
+
+                <ImageButton
+                    android:id="@+id/telephone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/item08"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="35dp"
+                    android:background="@drawable/selector_phone_icon"
+                    android:contentDescription="@string/app_name" />
+
+                <TextView
+                    android:id="@+id/item08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/text01"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginTop="6dp"
+                    android:text="联系车主"
+                    android:textSize="15sp"
+                    android:textColor="#5c5c5c"
+                    />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout20"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="#f0f8fb"
+                android:layout_below="@+id/relativeLayout2"
+               >
+
+                <TextView
+                    android:id="@+id/text11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+
+                    android:text="房号："
+
+                    android:textColor="@color/text_color03"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/text12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text11"
+                    android:layout_marginLeft="35dp"
+
+                    android:text="来访时间："
+
+                    android:textColor="@color/text_color03"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/text13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text12"
+                    android:layout_marginLeft="35dp"
+
+                    android:text="离开时间："
+
+                    android:textColor="@color/text_color03"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/roomno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+
+                    android:layout_toRightOf="@+id/text11"
+
+                    android:gravity="left"
+                    android:textColor="@color/home_text_color"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/visitingtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text11"
+
+                    android:layout_toRightOf="@+id/text12"
+
+                    android:gravity="left"
+                    android:textColor="@color/home_text_color"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/departuretime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text12"
+
+                    android:layout_toRightOf="@+id/text13"
+
+                    android:gravity="left"
+                    android:textColor="@color/home_text_color"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/relativeLayout20"
+                android:layout_marginTop="20dp"
+                android:background="#f0f8fb"
+>
+
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="13.5dp"
+                    android:drawableLeft="@drawable/record_visitors_icon"
+                    android:drawablePadding="10dp"
+                    android:text="来访纪录"
+                    android:textColor="@color/text_color03"
+                    android:textSize="17sp" />
+
+                <ImageButton
+                    android:id="@+id/recordbutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="35dp"
+                    android:background="@drawable/record_visitors_button" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/edit_information"
+        android:layout_width="match_parent"
+        android:layout_height="49.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/selector_submit_bg"
+        android:text="编辑信息"
+        android:textColor="@color/home_item_color"
+        android:textSize="18sp" />
+
+    <RelativeLayout
+        android:id="@+id/place_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/title"
+        android:layout_marginEnd="117dp"
+        android:layout_marginRight="117dp"
+        android:layout_marginTop="712dp"
+        android:background="@color/text_color13">
+
+        <TextView
+            android:id="@+id/car_place_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="13dp"
+            android:drawableLeft="@drawable/icon_ic"
+            android:drawablePadding="10dp"
+            android:text="车位信息"
+            android:textColor="@color/text_color03"
+            android:textSize="17sp" />
+
+
+        <TextView
+            android:id="@+id/text05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/car_place_info"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="10dp"
+            android:text="编号："
+            android:textColor="@color/text_color03"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/placeNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/car_place_info"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/text05"
+            android:textColor="@color/home_text_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/text06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text05"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="6dp"
+            android:text="状态："
+            android:textColor="@color/text_color03"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/placeStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text05"
+            android:layout_marginTop="6dp"
+            android:layout_toRightOf="@+id/text05"
+            android:textColor="@color/home_text_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/text07"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text06"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="6dp"
+            android:paddingBottom="60dp"
+            android:text="有效期："
+            android:textColor="@color/text_color03"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/endTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text06"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="6dp"
+            android:layout_toRightOf="@+id/text07"
+            android:textColor="@color/home_text_color"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

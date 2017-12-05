@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+
+        android:id="@+id/popup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_good"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/ll_image"
+            app:layout_heightPercent="5.94%"
+
+            app:layout_widthPercent="24.03%"
+            android:layout_toLeftOf="@+id/btn_comment"
+            android:background="@drawable/selector_circle_good"
+            android:textColor="#95a5b0" />
+
+        <Button
+            android:id="@+id/btn_comment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="5.94%"
+
+            app:layout_widthPercent="24.03%"
+            android:layout_marginRight="38dp"
+            android:layout_alignParentRight="true"
+            android:layout_toLeftOf="@+id/comment_open"
+            android:background="@drawable/selector_circle_comment"/>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+
+</com.zhy.android.percent.support.PercentRelativeLayout>

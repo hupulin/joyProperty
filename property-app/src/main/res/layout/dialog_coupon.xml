@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout"
+    android:background="#5f000000">
+
+
+   <com.zhy.android.percent.support.PercentRelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       app:layout_heightPercent="78.61%w"
+       android:background="@color/white"
+       android:layout_alignParentBottom="true"
+       >
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           app:layout_heightPercent="11.94%w"
+           android:textColor="@color/white"
+           android:gravity="center"
+           android:background="@color/page_title_color"
+           android:layout_alignParentBottom="true"
+           app:layout_textSizePercent="3.88%w"
+           android:id="@+id/cancel"
+           android:text="关闭"/>
+       <com.zhy.android.percent.support.PercentRelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           app:layout_heightPercent="22.77%w"
+           android:id="@+id/rl"
+           >
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_centerHorizontal="true"
+               android:gravity="center"
+               android:id="@+id/storeName"
+               android:textColor="#353535"
+               app:layout_textSizePercent="4.86%w"
+               app:layout_marginTopPercent="6.16%w"
+               android:text="线上超市"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_centerHorizontal="true"
+               android:gravity="center"
+               android:textColor="#999999"
+               app:layout_textSizePercent="4.16%w"
+               app:layout_marginTopPercent="11.66%w"
+               android:text="领取优惠券"/>
+       </com.zhy.android.percent.support.PercentRelativeLayout>
+
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:layout_heightPercent="31.11%w"
+           android:layout_below="@+id/rl"
+           android:id="@+id/noCoupon"
+           android:layout_centerHorizontal="true"
+           android:background="@drawable/no_coupon_small"
+           app:layout_widthPercent="24.44%w"
+           />
+       <ListView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/rl"
+    android:id="@+id/listView"
+
+    android:layout_above="@+id/cancel">
+
+</ListView>
+
+   </com.zhy.android.percent.support.PercentRelativeLayout>
+
+
+
+</com.zhy.android.percent.support.PercentRelativeLayout>

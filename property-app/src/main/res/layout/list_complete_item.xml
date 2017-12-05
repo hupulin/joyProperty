@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:paddingBottom="8dp"
+        android:background="@drawable/selector_list_item_bg"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/servicebooking"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:text=""
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@string/app_name"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/category_03" />
+
+        <TextView
+            android:id="@+id/typeName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="什么类型"
+            app:layout_widthPercent="67.22%w"
+
+            android:textSize="14sp"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="53dp"/>
+        <TextView
+            android:id="@+id/times"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="年月日"
+            android:textColor="@color/text_color02"
+            android:textSize="11sp"
+            android:layout_alignBaseline="@+id/typeName"
+            android:layout_alignBottom="@+id/typeName"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp" />
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="几天"
+            android:textColor="@color/text_color02"
+            android:textSize="11sp"
+
+            android:layout_alignBottom="@+id/image"
+            android:layout_alignLeft="@+id/dates"
+            android:layout_alignStart="@+id/dates" />
+        <TextView
+            android:id="@+id/time_response"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="响应时间"
+            android:textColor="@color/text_col"
+            android:textSize="11sp"
+            android:layout_below="@+id/date"
+            android:layout_toRightOf="@+id/dates"
+            android:layout_toEndOf="@+id/dates" />
+
+
+
+        <TextView
+            android:id="@+id/Solves"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="响应速度："
+            android:textColor="@color/text_col"
+            android:textSize="11sp"
+            android:layout_above="@+id/time_dispose"
+            android:layout_alignLeft="@+id/Services"
+            android:layout_alignStart="@+id/Services" />
+
+        <TextView
+            android:id="@+id/Solve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="待评价"
+            android:textColor="@color/text_col"
+            android:textSize="11sp"
+            android:layout_above="@+id/time_dispose"
+            android:layout_alignLeft="@+id/Service"
+            android:layout_alignStart="@+id/Service" />
+
+
+
+        <TextView
+            android:id="@+id/time_dispose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="处理时间"
+            android:textColor="@color/text_col"
+            android:textSize="11sp"
+
+            android:layout_below="@+id/time_response"
+            android:layout_alignLeft="@+id/time_response"
+            android:layout_alignStart="@+id/time_response" />
+
+
+
+        <TextView
+            android:id="@+id/Satisfieds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="满  意  度："
+            android:textColor="@color/text_col"
+            android:textSize="11sp"
+            android:layout_alignTop="@+id/time_dispose"
+            android:layout_toLeftOf="@+id/Solve"
+            android:layout_toStartOf="@+id/Solve" />
+
+
+        <TextView
+            android:id="@+id/EvaluationItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="待评价"
+            android:textColor="@color/text_col"
+            android:textSize="11sp"
+
+            android:layout_alignTop="@+id/Satisfieds"
+            android:layout_alignLeft="@+id/Solve"
+            android:layout_alignStart="@+id/Solve" />
+
+
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="1dp"
+            android:layout_height="45dp"
+            android:background="#939393"
+            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/date"
+            android:layout_toRightOf="@+id/date"
+            android:layout_toEndOf="@+id/date" />
+
+        <TextView
+            android:id="@+id/date"
+            android:text="2016-06-02 08:00:00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_col"
+            android:textSize="11sp"
+            android:layout_alignTop="@+id/dates"
+            android:layout_toRightOf="@+id/dates"
+            android:layout_toEndOf="@+id/dates" />
+
+
+        <TextView
+            android:id="@+id/Services"
+            android:text="服务态度："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_col"
+            android:textSize="11sp"
+            android:layout_marginLeft="8dp"
+            android:layout_alignTop="@+id/view2"
+            android:layout_toRightOf="@+id/view2"
+            android:layout_toEndOf="@+id/view2" />
+        <TextView
+            android:id="@+id/Service"
+            android:text="待评价"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_col"
+            android:textSize="11sp"
+            android:layout_alignTop="@+id/Services"
+            android:layout_toRightOf="@+id/Services"
+            android:layout_toEndOf="@+id/Services" />
+
+        <TextView
+            android:id="@+id/dates"
+            android:text="提交时间："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_col"
+            android:textSize="11sp"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="53dp"
+
+            />
+        <!--android:drawableLeft="@drawable/warn"在TextView中添加图片-->
+        <!--android:textColor="#2481d9"-->
+
+        <TextView
+            android:id="@+id/Evalua"
+            android:text=""
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/EvaluationItem"
+            android:layout_toStartOf="@+id/EvaluationItem" />
+        <TextView
+            android:text="响应时间："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_col"
+            android:textSize="11sp"
+            android:id="@+id/textView2"
+            android:layout_alignBottom="@+id/time_response"
+            android:layout_alignLeft="@+id/dates"
+            android:layout_alignStart="@+id/dates" />
+
+        <TextView
+            android:text="处理时间："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_col"
+            android:textSize="11sp"
+            android:id="@+id/textView3"
+            android:layout_below="@+id/textView2"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_alignStart="@+id/textView2" />
+
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+</com.zhy.android.percent.support.PercentRelativeLayout>
+

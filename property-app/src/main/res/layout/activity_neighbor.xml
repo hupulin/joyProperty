@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joy.property.neighborhood.adapter.KeyboardListenRelativeLayout
+    android:id="@+id/keyboardRelativeLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+
+        android:orientation="vertical"
+
+        android:layout_width="match_parent"
+        android:fitsSystemWindows="true"
+        android:clipToPadding="true"
+        android:background="#fff"
+
+        android:layout_height="match_parent">
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:id="@+id/title"
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_heightPercent="11.11%w"
+            android:background="@color/page_title_color_new">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/selector_white_back_icon"
+                android:contentDescription="@string/app_name" />
+
+            <ImageView
+                android:id="@+id/iv_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toRightOf="@+id/iv_back"
+                android:background="@drawable/ic_back_line"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone" />
+            <com.zhy.android.percent.support.PercentRelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_heightPercent="6.66%w"
+
+                android:layout_centerInParent="true"
+
+                android:id="@+id/neighborShowTest"
+                android:background="@color/transparent"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="邻居圈"
+                    android:visibility="invisible"
+                    android:layout_marginLeft="2dp"
+                    android:id="@+id/apartmentTitle1"
+                    android:layout_centerVertical="true"
+
+                    android:textColor="@color/white"
+                    />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_centerVertical="true"
+                    app:layout_heightPercent="26.41%h"
+                    app:layout_widthPercent="50.94%h"
+                    android:layout_toRightOf="@+id/apartmentTitle1"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/neighbor_down"
+                    android:layout_marginLeft="2dp"
+android:visibility="invisible"
+                    />
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+            <com.zhy.android.percent.support.PercentRelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_heightPercent="6.66%w"
+
+                android:layout_centerInParent="true"
+
+                android:id="@+id/neighborShow"
+                android:background="@drawable/selector_neighbor_title"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   android:textSize="15sp"
+                    android:text="邻居圈"
+                    android:layout_marginLeft="2dp"
+                    android:id="@+id/apartmentTitle"
+                   android:layout_centerVertical="true"
+
+                    android:textColor="@color/white"
+              />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_centerVertical="true"
+                    app:layout_heightPercent="26.41%h"
+                    app:layout_widthPercent="50.94%h"
+                    android:layout_toRightOf="@+id/apartmentTitle"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/neighbor_down"
+android:layout_marginLeft="2dp"
+                    android:id="@+id/neighborShowIcon"
+                    />
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+            <com.zhy.android.percent.support.PercentRelativeLayout
+                android:layout_width="wrap_content"
+                android:id="@+id/myNeighbor"
+                android:layout_alignParentRight="true"
+                app:layout_widthPercent="12%w"
+
+                android:layout_height="match_parent">
+                <ImageView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_centerVertical="true"
+                    android:layout_centerInParent="true"
+                    app:layout_heightPercent="46.25%h"
+
+                    app:layout_widthPercent="37.5%h"
+                    android:background="@drawable/selector_neighbor_post"
+                    android:contentDescription="@string/app_name" />
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+        <View
+            android:layout_below="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#e6e6e6"
+            android:id="@+id/line"
+            app:layout_heightPercent="0.234%"
+            >
+
+        </View>
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:id="@+id/tpi"
+            android:layout_below="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#fff"
+            >
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent"
+                app:layout_heightPercent="10.83%w">
+                <com.zhy.android.percent.support.PercentRelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/releaseLayout"
+                    android:layout_weight="1">
+                    <com.zhy.android.percent.support.PercentRelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_textSizePercent="34%h"
+                            android:id="@+id/releaseText"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/page_title_color"
+                            android:text="按最新发布"
+                            />
+
+                    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+                </com.zhy.android.percent.support.PercentRelativeLayout>
+                <com.zhy.android.percent.support.PercentRelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/replyLayout"
+                    android:layout_weight="1">
+                    <com.zhy.android.percent.support.PercentRelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="按最新回复"
+
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/gray_text"
+                            android:layout_height="wrap_content"
+                            app:layout_textSizePercent="34%h"
+                            android:id="@+id/reply"
+                            />
+
+                    </com.zhy.android.percent.support.PercentRelativeLayout>
+                </com.zhy.android.percent.support.PercentRelativeLayout>
+            </com.zhy.android.percent.support.PercentLinearLayout>
+
+            <com.zhy.android.percent.support.PercentRelativeLayout
+                android:layout_width="0dp"
+
+                android:id="@+id/moveLine"
+                android:layout_height="1.5dp"
+                app:layout_widthPercent="50%w">
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@color/page_title_color"
+                    app:layout_widthPercent="45%w"
+                    app:layout_marginLeftPercent="15.33%w"
+
+                    >
+
+                </View>
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#e6e6e6"
+            android:id="@+id/line2"
+            android:layout_below="@+id/tpi"
+            app:layout_heightPercent="0.234%"
+            >
+
+        </View>
+        <RelativeLayout
+            android:id="@+id/ll_invite"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/transparent"
+            android:gravity="center_horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rl_invite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/circle_invite_ic"
+                    android:contentDescription="@string/app_name" />
+
+                <TextView
+                    android:id="@+id/tv01"
+android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_toRightOf="@+id/iv01"
+                    android:text="有邻居要加入！"
+                    android:textColor="#c2b6a6"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/live_qty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv01"
+                    android:layout_toRightOf="@+id/iv01"
+                    android:gravity="center"
+                    android:text="已经有0位邻居入住。"
+                    android:textColor="#c2b6a6"
+                    android:textSize="12sp" />
+
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginRight="25dp"
+                android:layout_toRightOf="@+id/rl_invite"
+                android:background="@drawable/circle_next_ic"
+                android:contentDescription="@string/app_name" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/line2"
+            android:id="@+id/news_layout"
+android:visibility="gone"
+            android:orientation="horizontal"
+            android:background="@drawable/neighbor_news_bg"
+            android:layout_gravity="center_horizontal">
+            <ImageView
+                android:layout_width="35dp"
+                android:id="@+id/news_image"
+                android:scaleType="fitXY"
+                android:background="@drawable/ic_launcher"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:id="@+id/news_qty"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_below="@+id/ll_invite"
+                android:layout_marginLeft="10dp"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:text="333"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white" />
+            <!--<ImageView-->
+            <!--android:layout_width="10dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:background="@drawable/neighbor_news_right"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_gravity="center"/>-->
+        </LinearLayout>
+        <android.support.v4.view.ViewPager
+
+            android:id="@+id/viewPager"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/news_layout" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="13.61%w"
+            android:background="@drawable/post_btn_bg"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            app:layout_widthPercent="13.61%w"
+            android:text="发帖"
+            android:textColor="@color/white"
+            app:layout_textSizePercent="4.44%w"
+            android:id="@+id/circle_entry"
+            android:alpha="0.7"
+            app:layout_marginRightPercent="5.8%w"
+            app:layout_marginBottomPercent="16.6%w"
+            />
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layout_marginLeftPercent="3.61%w"
+            app:layout_marginRightPercent="3.61%w"
+            android:textColor="@color/transparent"
+
+            app:layout_marginTopPercent="17.77%w"
+            android:text=""
+
+            app:layout_textSizePercent="4.16%w"
+            android:layout_alignParentBottom="true"
+            />
+        <TextView
+            android:id="@+id/commentContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_marginLeftPercent="18%w"
+            app:layout_marginRightPercent="3.61%w"
+            android:textColor="@color/transparent"
+
+
+            android:text=""
+
+            app:layout_textSizePercent="4.16%w"
+            android:layout_alignParentBottom="true"
+            />
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+</com.joy.property.neighborhood.adapter.KeyboardListenRelativeLayout>

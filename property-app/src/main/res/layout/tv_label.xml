@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="本周特价"
+    android:background="@drawable/specification_bg_press"
+    android:textColor="@color/page_title_color"
+
+android:paddingLeft="18px"
+    android:paddingRight="18px"
+    android:paddingTop="13px"
+    android:paddingBottom="13px"
+    android:layout_marginRight="12.5px"
+    android:layout_marginLeft="12.5px"
+    android:textSize="9sp"
+    />

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.joy.property.neighborhood.adapter.KeyboardListenRelativeLayout
+    android:id="@+id/keyboardRelativeLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:layout_width="match_parent">
+
+
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:id="@+id/title"
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="11.11%w"
+        android:background="@color/page_title_color_new">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_heightPercent="11.11%w"
+
+            app:layout_widthPercent="11.11%w"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/selector_white_back_icon"
+            android:contentDescription="@string/app_name" />
+
+        <ImageView
+            android:id="@+id/iv_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_toRightOf="@+id/iv_back"
+            android:background="@drawable/ic_back_line"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:text="个人主页"
+                android:layout_marginLeft="1dp"
+                android:id="@+id/titleText"
+
+                android:textColor="@color/white"
+                app:layout_textSizePercent="4.44%w" />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_heightPercent="9.45%w"
+                app:layout_widthPercent="18.24%w"
+                android:visibility="gone"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/neighbor_down"
+                app:layout_marginLeftPercent="9.45%w"
+                android:id="@+id/neighborShowIcon"
+                />
+
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/all"
+android:visibility="gone"
+            android:layout_alignParentRight="true"
+
+            android:layout_height="match_parent">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:gravity="center_vertical|right"
+               app:layout_textSizePercent="40%h"
+
+
+               app:layout_marginRightPercent="67.5%h"
+               android:textColor="@color/white"
+               android:layout_centerInParent="true"
+               android:text="全部"/>
+
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/new_line_color">
+
+        </View>
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/neighborShare"
+            android:visibility="gone"
+
+            android:layout_alignParentRight="true"
+
+            android:layout_height="match_parent">
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                app:layout_heightPercent="12.5%h"
+                android:layout_centerInParent="true"
+                app:layout_widthPercent="53.75%h"
+                android:background="@drawable/neighbor_share_icon"
+                android:contentDescription="@string/app_name" />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="11.94%w"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:gravity="center"
+
+        android:id="@+id/confirmJoin"
+        app:layout_textSizePercent="4.44%w"
+        android:background="@color/page_title_color"
+        android:text="我想说"/>
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        android:layout_above="@+id/confirmJoin"
+        android:id="@+id/listView">
+
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_marginLeftPercent="3.61%w"
+        app:layout_marginRightPercent="3.61%w"
+        android:textColor="@color/transparent"
+
+        app:layout_marginTopPercent="17.77%w"
+        android:text=""
+
+        app:layout_textSizePercent="4.16%w"
+        android:layout_alignParentBottom="true"
+        />
+    <!--<TextView-->
+        <!--android:id="@+id/content"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+
+        <!--app:layout_marginLeftPercent="3.61%w"-->
+        <!--app:layout_marginRightPercent="3.61%w"-->
+        <!--android:textColor="@color/transparent"-->
+
+        <!--app:layout_marginTopPercent="17.77%w"-->
+        <!--android:text=""-->
+
+        <!--app:layout_textSizePercent="4.16%w"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--/>-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/transparent"
+        app:layout_marginLeftPercent="7.5%w"
+        app:layout_marginTopPercent="5.27%w"
+        android:id="@+id/investigateContent"
+        app:layout_textSizePercent="4.16%w"
+        app:layout_marginRightPercent="7.5%w"
+android:layout_alignParentBottom="true"
+        android:maxLines="5"/>
+    <TextView
+        android:id="@+id/commentContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_marginLeftPercent="18%w"
+        app:layout_marginRightPercent="3.61%w"
+        android:textColor="@color/transparent"
+
+
+        android:text=""
+
+        app:layout_textSizePercent="4.16%w"
+        android:layout_alignParentBottom="true"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="16.66%w"
+        app:layout_widthPercent="16.66%w"
+        android:background="@drawable/selector_park"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        app:layout_marginRightPercent="4.16%w"
+        app:layout_marginBottomPercent="12.5%w"
+        android:id="@+id/changePark"
+        android:visibility="gone"
+        />
+</com.zhy.android.percent.support.PercentRelativeLayout>
+</com.joy.property.neighborhood.adapter.KeyboardListenRelativeLayout>

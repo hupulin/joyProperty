@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.zhy.android.percent.support.PercentRelativeLayout
+
+                android:id="@+id/layout_title"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_heightPercent="12.22%w"
+                android:background="@color/page_title_color"
+                >
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_back_icon"
+                    android:contentDescription="@string/app_name" />
+
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="全部商品"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_heightPercent="4.44%w"
+                    app:layout_widthPercent="5%w"
+                    android:background="@drawable/shop_channel"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    app:layout_marginRightPercent="3.61%w"
+                    android:id="@+id/shop_type"
+                    />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_heightPercent="6.11%w"
+                    app:layout_widthPercent="0.2778%w"
+                    android:background="@drawable/shop_divide_line"
+                   android:layout_toLeftOf="@+id/shop_type"
+                    android:layout_centerVertical="true"
+                    app:layout_marginRightPercent="4.16%w"
+                    android:id="@+id/divideLine"
+                    />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_heightPercent="9.44%w"
+                    app:layout_widthPercent="9.44%w"
+                    android:background="@drawable/shop_car"
+                    android:layout_toLeftOf="@+id/divideLine"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/shopCar"
+                    app:layout_marginRightPercent="2.58%w"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_heightPercent="2.63%w"
+                    app:layout_widthPercent="2.63%w"
+                    android:text="0"
+                    android:gravity="center"
+                    app:layout_textSizePercent="1.75%w"
+                    android:textColor="@color/white"
+                    android:background="@drawable/shop_car_bg"
+                    android:layout_alignParentRight="true"
+                    app:layout_marginTopPercent="3.18%w"
+                    app:layout_marginRightPercent="16.25%w"
+                  android:id="@+id/carNumber"
+                    />
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#d3d3d3"
+
+                android:layout_below="@+id/selling_right_four"
+
+                >
+            </View>
+            <com.zhy.android.percent.support.PercentRelativeLayout
+
+
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_heightPercent="12.22%w"
+                >
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_textSizePercent="3.75%w"
+                    app:layout_marginLeftPercent="19.44%w"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/page_title_color"
+                    android:id="@+id/newGoods"
+                    android:text="销量"/>
+                <com.zhy.android.percent.support.PercentLinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layout_marginLeftPercent="46.25%w">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_textSizePercent="32.14%h"
+                    android:layout_gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/new_text_color"
+                    android:id="@+id/price"
+
+                    android:text="价格"/>
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_heightPercent="23.8%h"
+                        app:layout_widthPercent="16.66%h"
+                        android:background="@drawable/shop_price_up"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/priceIcon"
+                        app:layout_marginLeftPercent="9.52%h"
+                        android:layout_gravity="center_vertical"
+                        />
+
+                </com.zhy.android.percent.support.PercentLinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_textSizePercent="3.75%w"
+                    app:layout_marginLeftPercent="72.91%w"
+
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/new_text_color"
+                    android:id="@+id/sales"
+                    android:text="新品"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/new_line_color"
+                    >
+                </View>
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_heightPercent="2.34375%w">
+
+            </com.zhy.android.percent.support.PercentLinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                
+                app:layout_heightPercent="1.66%w"
+                android:background="#f7f7f7"
+                >
+
+            </View>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#d3d3d3"
+                    android:visibility="gone"
+                    android:layout_below="@+id/selling_right_four"
+
+                    >
+                </View>
+<com.handmark.pulltorefresh.library.PullToRefreshListView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/listView"
+
+    >
+
+</com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+</com.zhy.android.percent.support.PercentLinearLayout>

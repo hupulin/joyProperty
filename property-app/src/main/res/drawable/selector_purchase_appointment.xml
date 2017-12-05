@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/purchase_appointment_press_ic" android:state_pressed="true"/>
+
+    <item android:state_enabled="false">
+    <shape android:shape="rectangle">
+    <solid android:color="#dedede"/>
+    <corners android:radius="5dp"/>
+</shape>
+
+    </item>
+    <item android:drawable="@drawable/purchase_appointment_ic"/>
+
+
+</selector>

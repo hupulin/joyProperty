@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#eeeeee"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/page_title_color"
+        app:layout_heightPercent="12.22%w"
+        >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_back_icon"
+            android:contentDescription="@string/app_name" />
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="悦购"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="4.44%w"
+            app:layout_widthPercent="5%w"
+            android:background="@drawable/shop_channel"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:layout_marginRightPercent="3.61%w"
+            android:id="@+id/shop_type"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="6.11%w"
+            app:layout_widthPercent="0.2778%w"
+            android:background="@drawable/shop_divide_line"
+            android:layout_toLeftOf="@+id/shop_type"
+            android:layout_centerVertical="true"
+            app:layout_marginRightPercent="4.16%w"
+            android:id="@+id/divideLine"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="9.44%w"
+            app:layout_widthPercent="9.44%w"
+            android:id="@+id/shoppingCar"
+            android:background="@drawable/shop_car"
+            android:layout_toLeftOf="@+id/divideLine"
+            android:layout_centerVertical="true"
+            app:layout_marginRightPercent="2.80%w"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="2.63%w"
+            app:layout_widthPercent="2.63%w"
+            android:text="0"
+            android:gravity="center"
+            app:layout_textSizePercent="1.75%w"
+            android:textColor="@color/white"
+            android:background="@drawable/shop_car_bg"
+            android:layout_alignParentRight="true"
+            app:layout_marginTopPercent="3.18%w"
+            android:id="@+id/carNumber"
+            app:layout_marginRightPercent="16.25%w"
+
+            />
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView">
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/un_listView">
+
+    <com.bigkoo.convenientbanner.ConvenientBanner
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+        android:id="@+id/autoRow"
+
+    app:layout_heightPercent="48.05%w"
+
+    >
+
+</com.bigkoo.convenientbanner.ConvenientBanner>
+<HorizontalScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/menuLayout"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+</HorizontalScrollView>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_heightPercent="1.66%w"
+    android:background="#f7f7f7"
+    android:visibility="gone"
+    >
+
+</View>
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/adLayout"
+            android:visibility="gone"
+            app:layout_heightPercent="50.55%w"
+            >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_widthPercent="38.05%w"
+                android:scaleType="fitXY"
+                android:id="@+id/sellingLayout"
+                />
+            <View
+                android:layout_width="0.75dp"
+                android:layout_height="match_parent"
+                android:background="#eeeeee"
+                android:id="@+id/left_line"
+                android:layout_toRightOf="@+id/sellingLayout"
+                >
+
+            </View>
+<ImageView
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_heightPercent="23.33%w"
+    app:layout_widthPercent="61.95%w"
+    android:scaleType="fitXY"
+    android:layout_toRightOf="@+id/left_line"
+    android:id="@+id/selling_right_one"
+    />
+
+
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_heightPercent="27%w"
+                app:layout_widthPercent="61.95%w"
+                android:scaleType="fitXY"
+                android:layout_toRightOf="@+id/left_line"
+                android:layout_below="@+id/selling_right_one"
+                android:id="@+id/selling_right_three"
+                />
+
+
+
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+        <com.joyhome.nacity.app.shop.adapter.ScrollViewWithListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:id="@+id/listView">
+
+        </com.joyhome.nacity.app.shop.adapter.ScrollViewWithListView>
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="查看全部商品"
+       android:background="#ffffff"
+       android:id="@+id/lookAllGoods"
+       android:gravity="center"
+       android:visibility="gone"
+       app:layout_heightPercent="11.11%w"
+      android:textColor="@color/page_title_color"
+       app:layout_marginBottomPercent="6%w"
+       app:layout_textSizePercent="4.72%w"
+       app:layout_marginTopPercent="2.77%w"
+
+       />
+    </com.zhy.android.percent.support.PercentLinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                app:layout_marginTopPercent="1.38%w"
+                android:id="@+id/searchGoods"
+                app:layout_heightPercent="8.05%w"
+                app:layout_widthPercent="90.27%w"
+                android:background="@drawable/bulk_search_bg"/>
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+    </ScrollView>
+</com.zhy.android.percent.support.PercentLinearLayout>

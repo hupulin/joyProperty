@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="38.88%w"
+        android:scaleType="fitXY"
+        android:id="@+id/imageView">
+
+    </ImageView>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="7.08%w"
+        android:background="@drawable/neighbor_lbt_short_icon"
+        app:layout_widthPercent="29.86%w"
+        app:layout_marginLeftPercent="3.33%w"
+        app:layout_marginTopPercent="26.8%w"
+        android:text="看看邻居怎么说"
+        android:id="@+id/lbtLeft"
+        android:textColor="@color/white"
+        android:gravity="center"
+        app:layout_textSizePercent="3.63%w"
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="7.08%w"
+        android:background="@drawable/neighbor_lbt_short_icon"
+        app:layout_widthPercent="20.41%w"
+
+        app:layout_marginTopPercent="26.8%w"
+        android:text="参加活动"
+        android:id="@+id/lbtRight"
+        android:textColor="@color/white"
+        android:gravity="center"
+        app:layout_textSizePercent="3.63%w"
+        />
+</com.zhy.android.percent.support.PercentRelativeLayout>

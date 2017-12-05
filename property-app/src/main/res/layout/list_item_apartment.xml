@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/transparent"
+        app:layout_heightPercent="13.23%w"
+        >
+
+
+        <TextView
+            android:id="@+id/city_name"
+            android:layout_width="wrap_content"
+            android:text=""
+            app:layout_textSizePercent="5.23%w"
+            android:textSize="16sp"
+            android:textColor="#999999"
+            android:layout_alignParentBottom="true"
+            app:layout_marginLeftPercent="2.46%w"
+            android:gravity="center_vertical"
+            app:layout_marginBottomPercent="2.76%w"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            app:layout_marginBottomPercent="2.96%w"
+            app:layout_marginRightPercent="3.38%w"
+            app:layout_heightPercent="5.23%w"
+
+            app:layout_widthPercent="2.76%w"
+
+            android:background="@drawable/neighbor_select_arrow"/>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+</com.zhy.android.percent.support.PercentRelativeLayout>

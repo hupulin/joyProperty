@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/home_item_color"
+
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/page_title_color_new">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:background="@drawable/selector_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="车辆管理"
+            android:textColor="@color/home_item_color"
+            android:textSize="19sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="189dp"/>
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/viewpager"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="-30dp"
+                android:text=""
+                android:background="@drawable/round_number_right_bg"
+                android:gravity="center_vertical|start"
+                android:textColor="@color/home_item_color" />
+
+            <TextView
+                android:id="@+id/tip_no"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/viewpager"
+                android:layout_marginTop="-30dp"
+                android:layout_toLeftOf="@+id/total"
+                android:background="@drawable/round_number_left_bg"
+                android:gravity="center_vertical|end"
+                android:text=""
+                android:textColor="@color/home_item_color" />
+
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewpager"
+                android:layout_marginTop="15dp"
+                android:paddingLeft="20dp"
+                android:text="违停地点："
+                android:textColor="@color/result_view" />
+
+            <TextView
+                android:id="@+id/place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/home_text_color" />
+
+
+            <TextView
+                android:id="@+id/text01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/place"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="违停小区："
+                android:textColor="@color/result_view" />
+
+            <TextView
+                android:id="@+id/apartment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text01"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/home_text_color" />
+
+
+            <TextView
+                android:id="@+id/text02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/apartment"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="违停时间："
+                android:textColor="@color/result_view" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text02"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/home_text_color" />
+
+            <TextView
+                android:id="@+id/text03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/time"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="违停描述：" />
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/text03"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="40dp"
+                android:textColor="@color/home_text_color" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

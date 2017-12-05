@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7F000000"
+    android:alpha="100"
+    >
+
+    <RelativeLayout
+        android:layout_above="@+id/btn_confirm"
+        android:background="@color/new_line_color"
+        android:layout_height="47dp"
+        android:id="@+id/cancel_layout"
+        android:layout_width="match_parent">
+        <TextView
+            android:gravity="center"
+            android:id="@+id/cancel"
+            android:layout_width="70dp"
+            android:text="取消"
+            android:textSize="17sp"
+            android:textColor="@color/home_text_color"
+            android:layout_height="47dp"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:text="已贴"
+        android:gravity="center"
+        android:textSize="17sp"
+        android:textColor="#97948f"
+        android:layout_above="@+id/btn_cancel"
+        android:background="@color/home_item_color"
+        android:layout_height="47dp" />
+    <View
+        android:layout_above="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/new_line_color"/>
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:text="未贴"
+        android:textSize="17sp"
+        android:textColor="#97948f"
+        android:layout_alignParentBottom="true"
+        android:background="@color/home_item_color"
+        android:layout_height="47dp" />
+</RelativeLayout>
+

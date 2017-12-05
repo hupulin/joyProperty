@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:src="@drawable/add_ic"
+        android:layout_gravity="center_horizontal" />
+</com.zhy.autolayout.AutoLinearLayout>

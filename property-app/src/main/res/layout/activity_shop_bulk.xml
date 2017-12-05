@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zhy.android.percent.support.PercentRelativeLayout
+
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="12.22%w"
+        android:background="@color/page_title_color"
+        >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_back_icon"
+            android:contentDescription="@string/app_name" />
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="物业团购"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="9.44%w"
+            app:layout_widthPercent="9.44%w"
+            android:id="@+id/shopCar"
+            android:background="@drawable/shop_car"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:layout_marginRightPercent="3.35%w"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="2.63%w"
+            app:layout_widthPercent="2.63%w"
+            android:text="0"
+            android:id="@+id/carNumber"
+            android:gravity="center"
+            android:textSize="8dp"
+            android:textColor="@color/white"
+            android:background="@drawable/shop_car_bg"
+            android:layout_alignParentRight="true"
+            app:layout_marginTopPercent="3.18%w"
+            app:layout_marginRightPercent="4.25%w"
+            />
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#d3d3d3"
+
+        android:layout_below="@+id/selling_right_four"
+
+        >
+    </View>
+    <com.Util.EasySlidingTabs
+        android:id="@+id/tpi"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        app:easyUnderlineHeight="0dp"
+        app:easyIndicatorHeight="@dimen/neighbor_indicator_height"
+        app:easyUnderlineColor="#e6e6e6"
+        app:easyIndicatorColor="@color/page_title_color"
+        app:easyTabTextColor="#646464"
+        app:easySelectedTagTextColor="@color/page_title_color"
+        app:easyTabBackground="@color/white"
+
+        android:background="#fff"
+
+ />
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewPager">
+
+    </android.support.v4.view.ViewPager>
+</com.zhy.android.percent.support.PercentLinearLayout>

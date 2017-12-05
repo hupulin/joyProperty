@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_textSizePercent="3.194%w"
+    app:layout_marginLeftPercent="3.47%w"
+    app:layout_marginTopPercent="3.33%w"
+    android:textColor="#a6a6a6"
+    android:text="配送快递:顺丰快递"
+    android:id="@+id/expressCompany"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_textSizePercent="3.194%w"
+        app:layout_marginLeftPercent="3.47%w"
+        app:layout_marginTopPercent="8.33%w"
+        android:textColor="#a6a6a6"
+
+        android:text="快递单号:1459430927"
+        android:id="@+id/expressNumber"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_textSizePercent="3.194%w"
+        app:layout_marginLeftPercent="53.47%w"
+        app:layout_marginTopPercent="3.33%w"
+        android:textColor="#a6a6a6"
+
+        android:text="配送快递:顺丰快递"
+        android:id="@+id/deliverName"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_textSizePercent="3.194%w"
+        app:layout_marginLeftPercent="3.47%w"
+        android:textColor="#a6a6a6"
+        app:layout_marginTopPercent="13.33%w"
+        android:text="物流具体信息:"
+       />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_textSizePercent="3.194%w"
+        app:layout_marginLeftPercent="53.47%w"
+        android:text="配送快递:顺丰快递"
+        android:textColor="#a6a6a6"
+        app:layout_marginTopPercent="8.33%w"
+        android:id="@+id/deliverPhone"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_textSizePercent="3.194%w"
+        android:text="\u3000\u3000\u3000\u3000\u3000\u3000\u3000配送快递:顺丰快递配送快递:顺丰快递配送快递:顺丰快递配送快递:顺丰快递"
+        app:layout_marginLeftPercent="3.47%w"
+        app:layout_marginRightPercent="3.47%w"
+
+        android:textColor="@color/page_title_color"
+        app:layout_marginTopPercent="13.33%w"
+        android:id="@+id/expressInformation"/>
+</com.zhy.android.percent.support.PercentRelativeLayout>

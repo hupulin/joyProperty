@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    >
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/page_title_color_new"
+        >
+
+        <ImageView
+            android:id="@+id/back"
+            android:contentDescription="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="车辆管理"
+            android:id="@+id/tv_title"
+            android:textColor="@color/home_item_color"
+            android:textSize="19sp" />
+        </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:layout_marginTop="505px"
+        android:background="@drawable/car_ic"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/license_left"
+        android:layout_width="100px"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:text="浙A"
+        android:background="@color/transparent"
+        android:maxLength="2"
+        android:textColor="@color/new_text_color"
+        android:layout_alignBottom="@+id/underline_01"
+        android:textSize="40px"
+        android:layout_marginBottom="10px"
+        android:layout_marginLeft="190px"
+        android:layout_marginStart="190px"
+        />
+
+<ImageView
+    android:layout_width="150px"
+    android:layout_height="11px"
+    android:id="@+id/underline_01"
+    android:src="@drawable/underline_01"
+    android:layout_marginLeft="150px"
+    android:layout_marginTop="736px"/>
+<ImageView
+    android:layout_width="32px"
+    android:layout_height="3px"
+    android:id="@+id/underline_02"
+    android:src="@drawable/underline_02"
+    android:layout_marginLeft="310px"
+    android:layout_marginTop="712px"/>
+    <ImageView
+    android:layout_width="235px"
+    android:layout_height="11px"
+    android:id="@+id/underline_03"
+    android:src="@drawable/underline_03"
+    android:layout_marginLeft="353px"
+    android:layout_marginTop="736px"/>
+
+        <EditText
+            android:id="@+id/license_right"
+            android:layout_width="175px"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/underline_03"
+            android:layout_marginBottom="10px"
+            android:layout_marginLeft="385px"
+            android:layout_marginStart="385px"
+            android:maxLength="5"
+            android:hint="车牌号"
+            android:text=""
+            android:focusable="true"
+            android:textColorHint="@color/text_color02"
+            android:digits="abcdefghjklmnpqrstuvwxyABCDEFGHJKLMNPQRSTUVWXYZ1234567890"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:textColor="@color/new_text_color"
+            android:textSize="40px" />
+
+    <Button
+        android:id="@+id/btn_find"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/selector_submit_bg"
+        android:text="查询车主信息"
+        android:textColor="@color/home_item_color"
+        android:textSize="19sp" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="16.66%w"
+        app:layout_widthPercent="16.66%w"
+        android:background="@drawable/selector_park"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="30px"
+        android:layout_marginBottom="90px"
+        android:id="@+id/changePark"
+        android:visibility="gone"
+        />
+    <android.inputmethodservice.KeyboardView
+        android:id="@+id/keyboard_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_alignParentBottom="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="#999999"
+        android:keyBackground="@drawable/btn_keyboard_key"
+        android:keyTextSize="16sp"
+        android:keyTextColor="#353535"
+        android:visibility="gone" />
+
+</com.zhy.autolayout.AutoRelativeLayout>

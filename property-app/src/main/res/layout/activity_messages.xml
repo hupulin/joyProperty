@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/page_title_color_new">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_back"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/message_title"
+            android:textColor="@color/home_item_color"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_below="@+id/rl_title"
+        android:background="#e6e6e6"
+        android:orientation="horizontal">
+
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:id="@+id/act_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/apartment_search_bg"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:layout_below="@+id/layout_title"
+
+
+                android:layout_centerInParent="true"
+
+
+                android:gravity="center"
+                android:text="请您输入姓名搜索"
+
+
+                android:textColor="#808080" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+
+                android:layout_centerVertical="true"
+
+                android:layout_marginRight="3dp"
+                android:layout_toLeftOf="@+id/tv1"
+                android:background="@drawable/inputs_line_icon"
+                app:layout_heightPercent="44.82%h"
+                app:layout_widthPercent="44.82%h" />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <include
+        layout="@layout/activity_list"
+        android:layout_marginRight="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll" />
+    <TextView
+        android:id="@+id/dialog"
+        android:layout_width="80.0dip"
+        android:layout_height="80.0dip"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:background="@drawable/voip_toast_bg"
+        android:gravity="center"
+        android:textColor="#ffffffff"
+        android:textSize="30.0dip"
+        android:visibility="invisible" />
+    <com.joy.property.task.SideBar
+        android:id="@+id/sideBar"
+        android:layout_below="@+id/ll"
+        android:layout_width="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="right|center"
+        android:layout_height="match_parent" />
+</RelativeLayout>

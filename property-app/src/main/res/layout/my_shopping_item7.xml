@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/new_line_color"
+        >
+
+    </View>
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="29.72%w"
+        android:background="@color/white"
+        app:layout_marginLeftPercent="3.33%w"
+        app:layout_marginTopPercent="1.66%w"
+        app:layout_marginBottomPercent="3.47%w"
+
+        >
+        <GridLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_widthPercent="60%w"
+            android:id="@+id/gridView"
+
+            >
+
+        </GridLayout>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="3.47%w"
+            app:layout_widthPercent="2.22%w"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:layout_marginEndPercent="4.44%w"
+            android:background="@drawable/shopping_arrow"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="件商品"
+            app:layout_marginEndPercent="8.05%w"
+            app:layout_marginTopPercent="9.72%w"
+            app:layout_textSizePercent="3.88%w"
+            android:textColor="#666666"
+            android:layout_alignParentRight="true"
+            android:id="@+id/tv"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="待收货"
+            app:layout_marginEndPercent="8.05%w"
+            app:layout_marginTopPercent="3.72%w"
+            app:layout_textSizePercent="3.61%w"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/page_title_color"
+            android:id="@+id/olderStatus"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            app:layout_marginTopPercent="9.72%w"
+            app:layout_textSizePercent="3.88%w"
+            android:textColor="@color/page_title_color"
+            android:layout_toLeftOf="@+id/tv"
+            android:id="@+id/goodsNumber"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="共计"
+            app:layout_marginTopPercent="9.72%w"
+            app:layout_textSizePercent="3.88%w"
+            android:textColor="#666666"
+            android:layout_toLeftOf="@+id/goodsNumber"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1335"
+            app:layout_marginTopPercent="15.55%w"
+            app:layout_textSizePercent="3.88%w"
+            android:textColor="@color/page_title_color"
+            android:layout_alignParentRight="true"
+            app:layout_marginEndPercent="8.05%w"
+            android:id="@+id/price"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="合计:"
+            app:layout_marginTopPercent="15.55%w"
+            app:layout_textSizePercent="3.88%w"
+            android:textColor="#353535"
+            android:layout_toLeftOf="@+id/price"
+            />
+
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+<com.zhy.android.percent.support.PercentLinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/expressLayout">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#d9d9d9">
+    </View>
+</com.zhy.android.percent.support.PercentLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#d9d9d9">
+    </View>
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/payLayout"
+        app:layout_heightPercent="10.83%w"
+        >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="如有疑问，请联系客服15168234205"
+    android:gravity="center"
+    android:layout_centerInParent="true"
+    app:layout_textSizePercent="3.61%w"
+    android:id="@+id/contactCustomService"
+    android:visibility="gone"
+    android:textColor="#353535"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_marginStartPercent="3.33%w"
+
+            android:text=""
+            android:gravity="center"
+            app:layout_textSizePercent="3.61%w"
+            app:layout_marginEndPercent="2.77%w"
+            android:textColor="@color/gray_text"
+            android:layout_centerVertical="true"
+            android:id="@+id/olderTime"
+          />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/pay_older_bg"
+            app:layout_heightPercent="7.5%w"
+            android:text="去支付"
+            android:gravity="center"
+            app:layout_textSizePercent="3.61%w"
+            app:layout_marginEndPercent="2.77%w"
+            android:textColor="@color/page_title_color"
+            android:layout_centerVertical="true"
+            android:id="@+id/payOlder"
+            app:layout_widthPercent="20.83%w"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/delect_older"
+            app:layout_heightPercent="7.5%w"
+            android:text="删除订单"
+            android:gravity="center"
+            app:layout_textSizePercent="3.61%w"
+            app:layout_marginEndPercent="2.77%w"
+            android:id="@+id/deleteOlder"
+            android:layout_centerVertical="true"
+
+            android:layout_toLeftOf="@+id/payOlder"
+            app:layout_widthPercent="20.83%w"/>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/new_line_color"
+        >
+
+    </View>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        app:layout_heightPercent="2.77%w"
+        android:background="#eeeeee"
+        >
+
+    </View>
+</com.zhy.android.percent.support.PercentLinearLayout>

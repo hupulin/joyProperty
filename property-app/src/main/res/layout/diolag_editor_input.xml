@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl_send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/msg_post_bgs"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/ll01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+
+                android:layout_toLeftOf="@+id/btn_send"
+                android:layout_centerVertical="true"
+                android:padding="0dp"
+                android:background="@drawable/input_msg_ic"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/like_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="2dp"
+                    android:maxLength="200"
+
+                    android:background="@drawable/login_edittext"
+                    android:hint="我想说..."
+                    android:textSize="14sp"/>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="9dp"
+                android:layout_marginRight="9dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/null_send_ic" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:id="@+id/propertyBulk"
+        app:layout_heightPercent="36.94%w"
+        app:layout_marginLeftPercent="1%w"
+        app:layout_marginTopPercent="1.2%w"
+        app:layout_marginBottomPercent="1.2%w"
+        app:layout_widthPercent="98.32%w"
+
+        />
+
+</com.zhy.android.percent.support.PercentRelativeLayout>

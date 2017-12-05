@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    >
+    <com.zhy.android.percent.support.PercentRelativeLayout
+    android:id="@+id/title_name"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_heightPercent="11.11%w"
+    android:background="@color/page_title_color">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="11.11%w"
+        app:layout_widthPercent="11.11%w"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/selector_back_icon"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:text="支付成功"
+        android:id="@+id/titleText"
+        android:textColor="@color/white"
+        app:layout_textSizePercent="4.44%w" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#d9d9d9">
+    </View>
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eeeeee">
+    <ImageView
+        android:id="@+id/iv_finish_payment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        app:layout_heightPercent="23.33%w"
+        app:layout_widthPercent="23.33%w"
+        app:layout_marginTopPercent="18.75%w"
+        android:src="@drawable/submit_finish"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/iv_finish_payment"
+            app:layout_marginTopPercent="4.44%w"
+            app:layout_textSizePercent="4.72%w"
+            android:textColor="@color/page_title_color"
+            android:text="支付成功！"/>
+        <Button
+            android:id="@+id/lookOlder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="9.58%w"
+            app:layout_widthPercent="36.25%w"
+            android:text=""
+            app:layout_textSizePercent="3.75%w"
+            android:textColor="#ffffff"
+            android:background="@drawable/bg_finish_payment"
+            app:layout_marginTopPercent="67.22%w"
+            app:layout_marginLeftPercent="8.61%w"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="9.58%w"
+            app:layout_widthPercent="36.25%w"
+            app:layout_marginTopPercent="67.22%w"
+            app:layout_marginLeftPercent="10.83%w"
+            android:text="返回悦购首页"
+            android:id="@+id/backMainPage"
+            app:layout_textSizePercent="3.75%w"
+            android:textColor="@color/page_title_color"
+            android:background="@drawable/bg_finish_payment02"
+            android:layout_toRightOf="@+id/lookOlder"
+            />
+</com.zhy.android.percent.support.PercentRelativeLayout>
+</com.zhy.android.percent.support.PercentLinearLayout>

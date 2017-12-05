@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<com.zhy.android.percent.support.PercentLinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/comment"
+    android:orientation="vertical">
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="16.81%w"
+        >
+        <com.joy.library.utils.HeadImageView
+            android:id="@+id/headImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_widthPercent="8.75%w"
+            app:layout_heightPercent="8.75%w"
+            app:layout_marginLeftPercent="3.89%w"
+            app:layout_marginTopPercent="4.31%w"
+            android:src="@drawable/my_family_icon"
+            android:contentDescription="@string/app_name"
+            />
+        <TextView
+            app:layout_textSizePercent="3.47%w"
+            app:layout_marginLeftPercent="2.78%w"
+            app:layout_marginTopPercent="7.5%w"
+            android:id="@+id/tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打转转"
+            android:layout_toRightOf="@+id/headImage"
+            />
+        <TextView
+            app:layout_marginLeftPercent="60.5%w"
+            app:layout_textSizePercent="3.47%w"
+            app:layout_marginTopPercent="7.22%w"
+            android:id="@+id/comment_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2017 06 02 17:38"
+            android:textColor="#999999"
+            />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <TextView
+        app:layout_marginLeftPercent="4.31%w"
+        app:layout_marginRightPercent="4.31%w"
+        android:id="@+id/comment_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="科比设备博大精深三打我就是哈开黑你们愿意等biangbiang面·"
+        android:layout_marginTop="4dp"
+        />
+    <TextView
+        app:layout_marginLeftPercent="4.31%w"
+        app:layout_marginTopPercent="3.89%w"
+        android:id="@+id/comment_description"
+        android:text="白色"
+        app:layout_marginBottomPercent="3.89%w"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</com.zhy.android.percent.support.PercentLinearLayout>
+</com.zhy.android.percent.support.PercentRelativeLayout>

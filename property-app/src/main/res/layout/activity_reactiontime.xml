@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.zhy.autolayout.AutoLinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+
+
+<com.zhy.autolayout.AutoLinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="382px"
+    android:orientation="vertical"
+    android:background="@drawable/react_time_bg"
+    >
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="30px"
+            >
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_back"
+                    android:contentDescription="@string/app_name" />
+
+                <TextView
+                    android:id="@+id/title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="@string/reactiontime_title"
+                    android:textColor="@color/home_item_color"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="列表"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/home_item_color"
+                    android:textSize="13sp" />
+
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tiltle_top"
+                />
+        </LinearLayout>
+        <!--app:easyIndicatorDrawable="@drawable/ic_back"-->
+
+
+            <com.Util.EasySlidingTabsReaction
+                android:layout_width="match_parent"
+                android:id="@id/tpi"
+
+                app:easyTabTextColor="@color/white"
+                app:easySelectedTagTextColor="@color/white"
+                app:easyShouldExpand="true"
+                app:easyUnderlineHeight="0dp"
+                app:easyTextAllCaps="true"
+                android:layout_height="55dp">
+
+            </com.Util.EasySlidingTabsReaction>
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        >
+
+        <ImageView
+            android:id="@+id/image_left"
+            android:layout_width="21px"
+            android:layout_height="21px"
+            android:background="@drawable/react_time_left"
+            app:layout_auto_basewidth="height"
+            android:layout_marginLeft="112px"
+            android:layout_centerVertical="true"
+            />
+
+        <ImageView
+            android:id="@+id/image_right"
+            android:layout_width="21px"
+            android:layout_height="21px"
+            android:background="@drawable/react_time_left"
+            app:layout_auto_basewidth="height"
+            android:layout_marginLeft="586px"
+            android:layout_centerVertical="true"
+            />
+
+        <ImageView
+            android:id="@+id/animation_image_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/react_time_center"
+            android:layout_centerHorizontal="true"
+            /> <ImageView
+            android:id="@+id/animation_image_02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/react_time_center"
+            android:layout_centerHorizontal="true"
+            />
+       </com.zhy.autolayout.AutoRelativeLayout>
+       </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.Util.MyViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@id/viewPager">
+        </com.Util.MyViewPager>
+</com.zhy.autolayout.AutoLinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="16.66%w"
+        app:layout_widthPercent="16.66%w"
+        android:background="@drawable/selector_park"
+        android:layout_alignParentRight="true"
+        app:layout_marginRightPercent="4.16%w"
+        android:layout_alignParentBottom="true"
+        app:layout_marginBottomPercent="12.5%w"
+        android:id="@+id/changePark"
+        android:visibility="gone"
+        />
+
+</com.zhy.android.percent.support.PercentRelativeLayout>
+
+

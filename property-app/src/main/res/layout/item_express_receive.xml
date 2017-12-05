@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                                     android:orientation="vertical"
+                                     android:background="@color/white"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="match_parent">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="255px">
+
+        <ImageView
+            android:layout_width="23px"
+            android:layout_height="31px"
+            android:layout_marginLeft="52px"
+            android:layout_marginTop="32px"
+            android:background="@drawable/location_icon"/>
+
+        <TextView
+            android:id="@+id/apartment_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="88px"
+            android:layout_marginTop="32px"
+            android:text="东方郡"
+            android:textColor="#464646"
+            android:textSize="32px"/>
+
+
+        <TextView
+            android:id="@+id/tv_expressNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/apartment_name"
+            android:layout_marginLeft="52px"
+            android:layout_marginTop="20px"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="快递单号："
+            android:textColor="@color/main_gray_text_color"
+            android:textSize="24px"/>
+
+        <TextView
+            android:id="@+id/expressNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/apartment_name"
+            android:layout_marginRight="15px"
+            android:layout_marginTop="20px"
+            android:layout_toLeftOf="@+id/express_icon"
+            android:layout_toRightOf="@+id/tv_expressNo"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/main_gray_text_color"
+            android:textSize="24px"/>
+
+        <com.joy.property.views.ShangshabanChangeTextSpaceView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_expressNo"
+            android:layout_marginLeft="52px"
+            android:layout_marginTop="10px"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="领取人："
+            android:textColor="@color/main_gray_text_color"
+            android:textSize="24px"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_expressNo"
+            android:layout_marginRight="15px"
+            android:layout_marginTop="10px"
+            android:layout_toLeftOf="@+id/express_icon"
+            android:layout_toRightOf="@+id/tv_expressNo"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="胡普林"
+            android:textColor="@color/main_gray_text_color"
+            android:textSize="24px"/>
+
+        <TextView
+            android:id="@+id/tv_phoneNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginLeft="52px"
+            android:layout_marginTop="10px"
+            android:text="手机号码："
+            android:textColor="@color/main_gray_text_color"
+            android:textSize="24px"
+            />
+
+        <TextView
+            android:id="@+id/phoneNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginTop="10px"
+            android:layout_toRightOf="@+id/tv_phoneNo"
+            android:text="18758168587"
+            android:textColor="@color/main_gray_text_color"
+            android:textSize="24px"/>
+
+        <ImageView
+            android:id="@+id/isRegister"
+            android:layout_width="77px"
+            android:layout_height="25px"
+            android:layout_alignBottom="@+id/tv_phoneNo"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@+id/phoneNo"
+            android:background="@drawable/register"/>
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_phoneNo"
+            android:layout_marginLeft="52px"
+            android:layout_marginTop="10px"
+            android:text="录入时间："
+            android:textColor="@color/main_gray_text_color"
+            android:textSize="24px"/>
+
+        <TextView
+            android:id="@+id/inputTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_phoneNo"
+            android:layout_marginTop="10px"
+            android:layout_toRightOf="@+id/tv_time"
+            android:text="2016.10.02 11 65"
+            android:textColor="@color/main_gray_text_color"
+            android:textSize="24px"/>
+
+        <ImageView
+            android:id="@+id/express_icon"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="56px"
+            android:layout_marginTop="40px"
+            android:scaleType="fitXY"
+            android:background="@drawable/express_image_bg"
+            />
+
+        <TextView
+            android:id="@+id/express_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/express_icon"
+            android:layout_marginRight="58px"
+            android:layout_marginTop="28px"
+            android:text="顺丰快递"
+            android:textColor="#3c4350"
+            android:textSize="32px"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="#dedede"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/resend_code"
+        android:gravity="center"
+        android:text="重发取件码"
+        android:background="@drawable/selector_express_receive"
+        android:textColor="#46b4d9"
+        android:layout_width="360px"
+        android:layout_height="68px"/>
+    <ImageView
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="69px"
+        android:background="@drawable/express_divide"/>
+    <TextView
+        android:id="@+id/get_express"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="取件"
+        android:background="@drawable/selector_express_receive"
+
+        android:textColor="#46b4d9"
+        android:layout_width="360px"
+        android:layout_height="68px"/>
+        <View
+            android:id="@+id/view_one"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/get_express"
+            android:layout_height="1px"
+            android:background="#ebebeb"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_below="@+id/view_one"
+            android:layout_height="12px"
+            android:background="#f0f0f0"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_height="1px"
+            android:background="#ebebeb"
+            />
+</com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout"
+    android:background="#5f000000">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+
+  android:layout_above="@+id/purchaseImage"
+    android:id="@+id/dismissLayout"
+    >
+
+</LinearLayout>
+
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_heightPercent="11.66%w"
+    android:textColor="@color/white"
+    android:gravity="center"
+    android:background="@color/page_title_color"
+    android:layout_alignParentBottom="true"
+    app:layout_textSizePercent="3.88%w"
+    android:id="@+id/confirmPurchase"
+    android:text="确定"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_heightPercent="26.38%w"
+        android:id="@+id/line0"
+        android:layout_above="@+id/confirmPurchase"
+        >
+
+    </View>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#eeeeee"
+        android:layout_above="@+id/line0"
+        android:id="@+id/line"
+
+        >
+
+    </View>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/rl"
+        android:background="@color/white"
+        android:layout_above="@+id/line"
+        app:layout_heightPercent="16.66%w">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="购买数量"
+            app:layout_textSizePercent="3.88%w"
+            app:layout_marginLeftPercent="2.77%w"
+            android:layout_centerVertical="true"
+            app:layout_marginBottomPercent="26.38%w"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="8.05%w"
+            app:layout_widthPercent="8.88%w"
+            android:background="@drawable/purchase_add"
+            android:layout_centerVertical="true"
+            android:id="@+id/purchaseAdd"
+
+            android:layout_alignParentRight="true"
+            app:layout_marginRightPercent="5%w"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="8.05%w"
+            app:layout_widthPercent="10.27%w"
+            android:background="@drawable/purchase_number_bg"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:id="@+id/purchaseNumber"
+            android:text="1"
+            app:layout_textSizePercent="4.16%w"
+            android:layout_toLeftOf="@+id/purchaseAdd"
+            app:layout_marginRightPercent="0.14%w"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="8.05%w"
+            app:layout_widthPercent="8.88%w"
+            android:background="@drawable/purchase_reduce"
+            android:layout_centerVertical="true"
+            android:id="@+id/purchaseReduce"
+
+        android:layout_toLeftOf="@+id/purchaseNumber"
+            app:layout_marginRightPercent="0.14%w"/>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#eeeeee"
+        android:layout_above="@+id/rl"
+        android:id="@+id/line1"
+        >
+    </View>
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="30.27%w"
+        android:layout_above="@+id/line1"
+        android:background="@color/white"
+        >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="科罗娜挂件"
+    android:textColor="@color/page_title_color"
+    android:id="@+id/purchaseName"
+    android:singleLine="true"
+    app:layout_textSizePercent="3.88%w"
+    app:layout_marginLeftPercent="38.61%w"
+    app:layout_marginTopPercent="7.33%w"
+    />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="库存99件"
+            android:textColor="#353535"
+            android:id="@+id/purchaseSurplus"
+            app:layout_textSizePercent="3.88%w"
+            app:layout_marginLeftPercent="38.61%w"
+            app:layout_marginTopPercent="13.33%w"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="5.55%w"
+            app:layout_widthPercent="5.55%w"
+            android:background="@drawable/purchase_close"
+            android:layout_alignParentRight="true"
+            app:layout_marginRightPercent="2.77%w"
+            app:layout_marginTopPercent="2.5%w"
+            android:id="@+id/purchaseClose"
+            />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="32.5%w"
+        app:layout_widthPercent="32.5%w"
+        app:layout_marginBottomPercent="58.19%w"
+        app:layout_marginLeftPercent="2.77%w"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/goods_small_pic_bg"
+        android:id="@+id/purchaseImageBg"
+      />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="30.83%w"
+        app:layout_widthPercent="30.83%w"
+        android:id="@+id/purchaseImage"
+        android:scaleType="centerCrop"
+        app:layout_marginBottomPercent="58.9%w"
+        app:layout_marginLeftPercent="3.71%w"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black"/>
+
+</com.zhy.android.percent.support.PercentRelativeLayout>

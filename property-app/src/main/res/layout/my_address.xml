@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    >
+    <com.zhy.android.percent.support.PercentRelativeLayout
+
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="12.22%w"
+        android:background="@color/page_title_color_new"
+        >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_back_icon"
+            android:contentDescription="@string/app_name" />
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="管理收货地址"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#a9a9a9"
+        android:id="@+id/line"
+        android:layout_below="@+id/layout_title">
+
+    </View>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="12.22%w"
+        android:layout_alignParentBottom="true"
+        android:text="添加新地址"
+        android:id="@+id/addAddress"
+        android:background="@color/page_title_color"
+        android:textColor="@color/white"
+        android:gravity="center"
+        app:layout_textSizePercent="4.72%w"
+        />
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout_title"
+        android:layout_above="@+id/addAddress"
+        android:id="@+id/no_address"
+        >
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/no_address"
+            android:layout_centerInParent="true"
+            app:layout_widthPercent="29.44%w"
+            app:layout_heightPercent="29.44%w"
+            />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layout_title"
+            android:layout_above="@+id/addAddress"
+            android:listSelector="#00000000"
+            android:id="@+id/listView">
+
+</ListView>
+
+</com.zhy.android.percent.support.PercentRelativeLayout>

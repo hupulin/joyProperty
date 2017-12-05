@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="11.5dp"
+        android:layout_marginRight="12sp"
+        android:layout_marginTop="13dp"
+        android:paddingBottom="24dp"
+        android:background="@drawable/selector_card_bg"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="63dp"
+            android:layout_marginTop="26dp"
+            android:contentDescription="@string/app_name"
+            android:background="@drawable/complaint_bg"
+            android:drawablePadding="11dp"
+            android:textColor="@color/home_item_color"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/apartment"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:layout_marginLeft="25dp"
+            android:textColor="@color/home_item_color"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/item01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="82dp"
+            android:layout_marginTop="25dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/red_ic"
+            android:drawablePadding="10dp"
+            android:text="待处理"
+            android:textColor="@color/home_item_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/item02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item01"
+            android:layout_marginLeft="82dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/yellow_ic"
+            android:drawablePadding="10dp"
+            android:text="处理中"
+            android:textColor="@color/home_item_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/item03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item02"
+            android:layout_marginLeft="82dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/green_ic"
+            android:drawablePadding="10dp"
+            android:text="已处理"
+            android:textColor="@color/home_item_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/item04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item03"
+
+            android:layout_marginLeft="82dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/crown_ic"
+            android:drawablePadding="10dp"
+            android:text="总投诉"
+            android:textColor="@color/home_item_color"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/praise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item04"
+
+            android:layout_marginLeft="82dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/crown_ic"
+            android:drawablePadding="10dp"
+            android:text="好评"
+            android:textColor="@color/home_item_color"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/praise"
+
+            android:layout_marginLeft="82dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/crown_ic"
+            android:drawablePadding="10dp"
+            android:text="中评"
+            android:textColor="@color/home_item_color"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/medium"
+            android:layout_marginLeft="82dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/crown_ic"
+            android:drawablePadding="10dp"
+            android:text="差评"
+            android:textColor="@color/home_item_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/pending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="25dp"
+            android:layout_toRightOf="@+id/item01"
+            android:text="nihao"
+            android:textColor="@color/home_item_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/processing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pending"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/item01"
+            android:text="buhao"
+            android:textColor="@color/home_item_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/processed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/processing"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/item01"
+            android:text="feicbuhao"
+            android:textColor="@color/home_item_color"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/complain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/processed"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/item01"
+            android:text="dfdfd"
+            android:textColor="@color/home_item_color"
+            android:textSize="15sp" />
+        <!--画笔-->
+        <com.joy.property.views.CustomView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/image" />
+    </RelativeLayout>
+</RelativeLayout>

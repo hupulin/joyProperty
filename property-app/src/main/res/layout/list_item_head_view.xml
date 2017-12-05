@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/ll_invite"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+       android:background="@color/transparent"
+        android:gravity="center_horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_invite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/circle_invite_ic"
+                android:contentDescription="@string/app_name" />
+
+            <TextView
+                android:id="@+id/tv01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="12dp"
+                android:layout_toRightOf="@+id/iv01"
+                android:text="有邻居要加入！"
+                android:textColor="#c2b6a6"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/live_qty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv01"
+                android:layout_toRightOf="@+id/iv01"
+                android:gravity="center"
+                android:text="已经有0位邻居入住。"
+                android:textColor="#c2b6a6"
+                android:textSize="12sp" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginRight="25dp"
+            android:layout_toRightOf="@+id/rl_invite"
+            android:background="@drawable/circle_next_ic"
+            android:contentDescription="@string/app_name" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/news_qty"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/ll_invite"
+        android:background="@drawable/selector_new_message_bg"
+        android:gravity="center"
+        android:text=""
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white" />
+
+
+</LinearLayout>

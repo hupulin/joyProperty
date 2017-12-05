@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_pressed="true" android:drawable="@drawable/login_forget_press_ic"></item>
+    <item android:state_enabled="false" android:drawable="@drawable/left_forget_ic"></item>
+    <item android:drawable="@drawable/left_forget_ic"></item>
+
+</selector>

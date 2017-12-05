@@ -1,0 +1,1343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:id="@+id/relativeLayout"
+
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <View
+        android:id="@+id/view1"
+        android:layout_width="wrap_content"
+        android:layout_height="5dp"
+        android:background="#f0f0f0"/>
+    <View
+        android:id="@+id/view7"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@+id/view1"
+        android:background="#8f8f8f"/>
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/view1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="120dp"
+            android:contentDescription="@string/app_name"
+            android:background="@drawable/rs_ic_house"
+            android:drawablePadding="11dp"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/rs_apartment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image"
+
+            android:layout_gravity="center"
+            android:text="入室维修"
+            android:layout_marginLeft="10dp"
+            android:textSize="17sp" />
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_height="1dp"
+        android:background="#b0b0b0">
+
+    </View>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/evaluate"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="22dp"
+
+
+
+        android:text="服务态度"
+        android:focusable="false"
+        android:id="@+id/button3"
+        android:textColor="@color/home_item_color"
+        android:layout_below="@+id/linearLayout"/>
+
+    <TextView
+        android:id="@+id/item01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view5"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="13dp"
+        android:drawableLeft="@drawable/good_ic"
+        android:drawablePadding="6dp"
+        android:text="好评率："
+        android:textSize="12sp" />
+    <TextView
+        android:id="@+id/rs_Service_good"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view5"
+        android:layout_toRightOf="@+id/item01"
+        android:layout_marginTop="13dp"
+        android:text="100.0%"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/item04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/soso_ic"
+        android:drawablePadding="6dp"
+        android:layout_marginTop="6dp"
+        android:text="中评率："
+        android:textSize="12sp"
+        android:layout_below="@+id/item01"
+        android:layout_toLeftOf="@+id/rs_Service_so"
+        android:layout_toStartOf="@+id/rs_Service_so" />
+
+    <TextView
+        android:id="@+id/rs_Service_so"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/item04"
+        android:layout_toRightOf="@+id/item01"
+        android:layout_toEndOf="@+id/item01" />
+
+
+    <TextView
+        android:id="@+id/item05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/bad_ic"
+        android:drawablePadding="6dp"
+        android:text="差评率："
+        android:layout_marginTop="6dp"
+        android:textSize="12sp"
+        android:layout_below="@+id/item04"
+        android:layout_alignLeft="@+id/item04"
+        android:layout_alignStart="@+id/item04" />
+
+    <TextView
+        android:id="@+id/rs_Service_bad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/item05"
+        android:layout_toRightOf="@+id/item05"
+        android:layout_toEndOf="@+id/item05" />
+
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/evaluate"
+        android:text="解决速度"
+        android:focusable="false"
+        android:textColor="@color/home_item_color"
+        android:layout_marginLeft="22dp"
+        android:layout_alignTop="@+id/button3"
+        android:layout_toRightOf="@+id/view3"
+        android:layout_toEndOf="@+id/view3" />
+
+
+
+    <TextView
+        android:id="@+id/item02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/good_ic"
+        android:drawablePadding="6dp"
+        android:text="好评率："
+        android:layout_marginLeft="9dp"
+        android:textSize="12sp"
+        android:layout_alignBaseline="@+id/rs_Service_good"
+        android:layout_alignBottom="@+id/rs_Service_good"
+        android:layout_toRightOf="@+id/view3"
+        android:layout_toEndOf="@+id/view3"
+        android:layout_marginStart="9dp" />
+    <TextView
+        android:id="@+id/rs_Solve_good"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/item02"
+        android:layout_toRightOf="@+id/item02"
+        android:layout_toEndOf="@+id/item02" />
+    <TextView
+        android:id="@+id/item07"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/soso_ic"
+        android:drawablePadding="6dp"
+        android:text="中评率："
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/rs_Service_so"
+        android:layout_toLeftOf="@+id/rs_Solve_so"
+        android:layout_toStartOf="@+id/rs_Solve_so" />
+    <TextView
+        android:id="@+id/rs_Solve_so"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/item07"
+        android:layout_toRightOf="@+id/item02"
+        android:layout_toEndOf="@+id/item02" />
+
+    <TextView
+        android:id="@+id/item08"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/bad_ic"
+        android:drawablePadding="6dp"
+        android:text="差评率："
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/rs_Service_bad"
+        android:layout_toLeftOf="@+id/rs_Solve_bad"
+        android:layout_toStartOf="@+id/rs_Solve_bad" />
+    <TextView
+        android:id="@+id/rs_Solve_bad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/item08"
+        android:layout_alignLeft="@+id/rs_Solve_so"
+        android:layout_alignStart="@+id/rs_Solve_so" />
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/evaluate"
+        android:text="满意度"
+        android:focusable="false"
+        android:layout_marginLeft="22dp"
+        android:textColor="@color/home_item_color"
+        android:layout_marginRight="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_alignTop="@+id/button4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/button5" />
+
+    <TextView
+        android:id="@+id/item03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/good_ic"
+        android:drawablePadding="6dp"
+        android:layout_marginLeft="8dp"
+        android:text="好评率："
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/rs_Service_good"
+        android:layout_toRightOf="@+id/view4"
+        android:layout_toEndOf="@+id/view4" />
+    <TextView
+        android:id="@+id/rs_good"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/item03"
+        android:layout_toRightOf="@+id/item03"
+        android:layout_toEndOf="@+id/item03" />
+
+
+    <TextView
+        android:id="@+id/item06"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/soso_ic"
+        android:drawablePadding="6dp"
+        android:text="中评率："
+        android:textSize="12sp"
+        android:layout_above="@+id/item05"
+        android:layout_alignLeft="@+id/item03"
+        android:layout_alignStart="@+id/item03" />
+    <TextView
+        android:id="@+id/rs_so"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/item06"
+        android:layout_toRightOf="@+id/item06"
+        android:layout_toEndOf="@+id/item06" />
+    <TextView
+        android:id="@+id/item09"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/bad_ic"
+        android:drawablePadding="6dp"
+        android:text="差评率："
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/rs_Solve_bad"
+        android:layout_toLeftOf="@+id/rs_bad"
+        android:layout_toStartOf="@+id/rs_bad" />
+    <TextView
+        android:id="@+id/rs_bad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/item09"
+        android:layout_alignLeft="@+id/rs_so"
+        android:layout_alignStart="@+id/rs_so" />
+
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/button4"
+        android:layout_marginTop="8dp"
+        android:layout_height="1dp"
+        android:background="#b0b0b0">
+
+    </View>
+    <View
+        android:id="@+id/view3"
+        android:layout_width="1dp"
+        android:layout_height="115dp"
+        android:background="#8f8f8f"
+        android:layout_below="@+id/view2"
+        android:layout_toRightOf="@+id/button3"
+        android:layout_toEndOf="@+id/button3"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="25dp" />
+    <View
+        android:id="@+id/view4"
+        android:layout_width="1dp"
+        android:layout_height="115dp"
+        android:background="#8f8f8f"
+        android:layout_below="@+id/view2"
+        android:layout_toRightOf="@+id/button4"
+        android:layout_toEndOf="@+id/button4"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="25dp" />
+    <View
+        android:id="@+id/view6"
+        android:layout_below="@+id/view4"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="#8f8f8f"/>
+
+
+
+
+
+
+
+
+
+
+    <View
+        android:id="@+id/gg_view"
+        android:layout_width="wrap_content"
+        android:layout_height="5dp"
+        android:layout_below="@+id/view6"
+        android:background="#f0f0f0"/>
+    <View
+        android:id="@+id/gg_view7"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@+id/gg_view"
+        android:background="#8f8f8f"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        android:id="@+id/gg_linearLayout"
+        android:layout_below="@+id/gg_view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:id="@+id/images"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="120dp"
+            android:contentDescription="@string/app_name"
+            android:background="@drawable/gg_ic_house"
+            android:drawablePadding="11dp"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/gg_apartment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/images"
+            android:layout_gravity="center"
+            android:text="公共维修"
+            android:layout_marginLeft="10dp"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/gg_view2"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/gg_linearLayout"
+        android:layout_height="1dp"
+        android:background="#b0b0b0">
+
+    </View>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/evaluate"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="22dp"
+        android:text="服务态度"
+        android:focusable="false"
+        android:id="@+id/gg_button1"
+        android:textColor="@color/home_item_color"
+        android:layout_below="@+id/gg_linearLayout"/>
+
+    <TextView
+        android:id="@+id/gg_item1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:drawableLeft="@drawable/good_ic"
+        android:drawablePadding="6dp"
+        android:text="好评率："
+        android:textSize="12sp"
+        android:layout_below="@+id/gg_button1"
+        android:layout_alignLeft="@+id/item05"
+        android:layout_alignStart="@+id/item05" />
+    <TextView
+        android:id="@+id/gg_Service_good"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+
+        android:layout_alignTop="@+id/gg_item1"
+        android:layout_toRightOf="@+id/gg_item1"
+        android:layout_toEndOf="@+id/gg_item1" />
+
+    <TextView
+        android:id="@+id/gg_item4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/soso_ic"
+        android:drawablePadding="6dp"
+        android:layout_marginTop="6dp"
+        android:text="中评率："
+        android:textSize="12sp"
+        android:layout_below="@+id/gg_item1"
+        android:layout_toLeftOf="@+id/gg_Service_so"
+        android:layout_toStartOf="@+id/gg_Service_so" />
+
+    <TextView
+        android:id="@+id/gg_Service_so"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/gg_item4"
+        android:layout_toRightOf="@+id/gg_item1"
+        android:layout_toEndOf="@+id/gg_item1" />
+
+
+    <TextView
+        android:id="@+id/gg_item5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/bad_ic"
+        android:drawablePadding="6dp"
+        android:text="差评率："
+        android:layout_marginTop="6dp"
+        android:textSize="12sp"
+        android:layout_below="@+id/gg_item4"
+        android:layout_alignLeft="@+id/gg_item4"
+        android:layout_alignStart="@+id/gg_item4" />
+
+    <TextView
+        android:id="@+id/gg_Service_bad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/gg_item5"
+        android:layout_toRightOf="@+id/gg_item5"
+        android:layout_toEndOf="@+id/gg_item5" />
+
+
+    <Button
+        android:id="@+id/gg_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/evaluate"
+        android:text="解决速度"
+        android:focusable="false"
+        android:textColor="@color/home_item_color"
+        android:layout_alignTop="@+id/gg_button1"
+        android:layout_toLeftOf="@+id/view4"
+        android:layout_toStartOf="@+id/view4" />
+
+
+
+    <TextView
+        android:id="@+id/gg_item2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/good_ic"
+        android:drawablePadding="6dp"
+        android:text="好评率："
+        android:textSize="12sp"
+        android:layout_alignBaseline="@+id/gg_item1"
+        android:layout_alignBottom="@+id/gg_item1"
+        android:layout_alignLeft="@+id/item08"
+        android:layout_alignStart="@+id/item08" />
+    <TextView
+        android:id="@+id/gg_Solve_good"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/gg_item2"
+        android:layout_toRightOf="@+id/gg_item2"
+        android:layout_toEndOf="@+id/gg_item2" />
+    <TextView
+        android:id="@+id/gg_item07"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/soso_ic"
+        android:drawablePadding="6dp"
+        android:text="中评率："
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/gg_Service_so"
+        android:layout_toLeftOf="@+id/gg_Solve_so"
+        android:layout_toStartOf="@+id/gg_Solve_so" />
+    <TextView
+        android:id="@+id/gg_Solve_so"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/gg_item07"
+        android:layout_toRightOf="@+id/gg_item2"
+        android:layout_toEndOf="@+id/gg_item2" />
+
+    <TextView
+        android:id="@+id/gg_item8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/bad_ic"
+        android:drawablePadding="6dp"
+        android:text="差评率："
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/gg_Service_bad"
+        android:layout_toLeftOf="@+id/gg_Solve_bad"
+        android:layout_toStartOf="@+id/gg_Solve_bad" />
+    <TextView
+        android:id="@+id/gg_Solve_bad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/gg_item8"
+        android:layout_alignLeft="@+id/gg_Solve_so"
+        android:layout_alignStart="@+id/gg_Solve_so" />
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/evaluate"
+        android:text="满意度"
+        android:focusable="false"
+        android:textColor="@color/home_item_color"
+        android:id="@+id/gg_button"
+        android:layout_alignTop="@+id/gg_button2"
+        android:layout_alignLeft="@+id/button5"
+        android:layout_alignStart="@+id/button5" />
+
+    <TextView
+        android:id="@+id/gg_item3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/good_ic"
+        android:drawablePadding="6dp"
+        android:text="好评率："
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/gg_Solve_good"
+        android:layout_toLeftOf="@+id/rs_bad"
+        android:layout_toStartOf="@+id/rs_bad" />
+    <TextView
+        android:id="@+id/gg_good"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/gg_item3"
+        android:layout_toRightOf="@+id/gg_item3"
+        android:layout_toEndOf="@+id/gg_item3" />
+
+
+    <TextView
+        android:id="@+id/gg_item6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/soso_ic"
+        android:drawablePadding="6dp"
+        android:text="中评率："
+        android:textSize="12sp"
+        android:layout_above="@+id/gg_item5"
+        android:layout_alignLeft="@+id/gg_item3"
+        android:layout_alignStart="@+id/gg_item3" />
+    <TextView
+        android:id="@+id/gg_so"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/gg_item6"
+        android:layout_toRightOf="@+id/gg_item6"
+        android:layout_toEndOf="@+id/gg_item6" />
+    <TextView
+        android:id="@+id/gg_item9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/bad_ic"
+        android:drawablePadding="6dp"
+        android:text="差评率："
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/gg_Solve_bad"
+        android:layout_toLeftOf="@+id/gg_bad"
+        android:layout_toStartOf="@+id/gg_bad" />
+    <TextView
+        android:id="@+id/gg_bad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/gg_item9"
+        android:layout_alignLeft="@+id/gg_so"
+        android:layout_alignStart="@+id/gg_so" />
+
+
+    <View
+        android:id="@+id/gg_view5"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/gg_button1"
+        android:background="#b0b0b0">
+
+    </View>
+    <View
+        android:id="@+id/gg_view3"
+        android:layout_width="1dp"
+        android:layout_height="115dp"
+        android:background="#8f8f8f"
+        android:layout_alignTop="@+id/gg_view2"
+        android:layout_alignLeft="@+id/view3"
+        android:layout_alignStart="@+id/view3" />
+    <View
+        android:id="@+id/gg_view4"
+        android:layout_width="1dp"
+        android:layout_height="115dp"
+        android:background="#8f8f8f"
+        android:layout_below="@+id/gg_linearLayout"
+        android:layout_alignLeft="@+id/view4"
+        android:layout_alignStart="@+id/view4" />
+    <View
+        android:id="@+id/view"
+        android:layout_below="@+id/gg_view4"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="#8f8f8f"/>
+
+
+
+
+
+
+
+    <View
+        android:id="@+id/ts_view"
+        android:layout_width="wrap_content"
+        android:layout_height="5dp"
+        android:layout_below="@+id/view"
+        android:background="#f0f0f0"/>
+
+
+
+
+    <View
+        android:id="@+id/ts_view7"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ts_view"
+        android:background="#8f8f8f"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        android:id="@+id/ts_linearLayout"
+        android:layout_below="@+id/ts_view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:id="@+id/ts_images"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="120dp"
+            android:contentDescription="@string/app_name"
+            android:background="@drawable/ts_ic_house"
+            android:drawablePadding="11dp"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/ts_apartment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/images"
+            android:layout_gravity="center"
+            android:text="投诉管理"
+            android:layout_marginLeft="10dp"
+            android:textSize="17sp" />
+    </LinearLayout>
+    <View
+        android:id="@+id/ts_view2"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/ts_linearLayout"
+        android:layout_height="1dp"
+        android:background="#b0b0b0">
+
+    </View>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/evaluate"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="22dp"
+        android:text="服务态度"
+        android:focusable="false"
+        android:id="@+id/ts_button1"
+        android:textColor="@color/home_item_color"
+        android:layout_below="@+id/ts_linearLayout"/>
+    <TextView
+        android:id="@+id/ts_item1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:drawableLeft="@drawable/good_ic"
+        android:drawablePadding="6dp"
+        android:text="好评率："
+        android:textSize="12sp"
+        android:layout_below="@+id/ts_button1"
+        android:layout_alignLeft="@+id/item05"
+        android:layout_alignStart="@+id/item05" />
+    <TextView
+        android:id="@+id/ts_Service_good"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/ts_item1"
+        android:layout_toRightOf="@+id/ts_item1"
+        android:layout_toEndOf="@+id/ts_item1" />
+
+    <TextView
+        android:id="@+id/ts_item4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/soso_ic"
+        android:drawablePadding="6dp"
+        android:layout_marginTop="6dp"
+        android:text="中评率："
+        android:textSize="12sp"
+        android:layout_below="@+id/ts_item1"
+        android:layout_toLeftOf="@+id/ts_Service_so"
+        android:layout_toStartOf="@+id/ts_Service_so" />
+
+    <TextView
+        android:id="@+id/ts_Service_so"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/ts_item4"
+        android:layout_toRightOf="@+id/ts_item1"
+        android:layout_toEndOf="@+id/ts_item1" />
+
+
+    <TextView
+        android:id="@+id/ts_item5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/bad_ic"
+        android:drawablePadding="6dp"
+        android:text="差评率："
+        android:layout_marginTop="6dp"
+        android:textSize="12sp"
+        android:layout_below="@+id/ts_item4"
+        android:layout_alignLeft="@+id/ts_item4"
+        android:layout_alignStart="@+id/ts_item4" />
+
+    <TextView
+        android:id="@+id/ts_Service_bad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/ts_item5"
+        android:layout_toRightOf="@+id/ts_item5"
+        android:layout_toEndOf="@+id/ts_item5" />
+
+
+    <Button
+        android:id="@+id/ts_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/evaluate"
+        android:text="解决速度"
+        android:focusable="false"
+        android:textColor="@color/home_item_color"
+        android:layout_alignTop="@+id/ts_button1"
+        android:layout_toLeftOf="@+id/view4"
+        android:layout_toStartOf="@+id/view4" />
+
+    <TextView
+        android:id="@+id/ts_item2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/good_ic"
+        android:drawablePadding="6dp"
+        android:text="好评率："
+        android:textSize="12sp"
+        android:layout_alignBaseline="@+id/ts_item1"
+        android:layout_alignBottom="@+id/ts_item1"
+        android:layout_alignLeft="@+id/item08"
+        android:layout_alignStart="@+id/item08" />
+    <TextView
+        android:id="@+id/ts_Solve_good"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/ts_item2"
+        android:layout_toRightOf="@+id/ts_item2"
+        android:layout_toEndOf="@+id/ts_item2" />
+    <TextView
+        android:id="@+id/ts_item07"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/soso_ic"
+        android:drawablePadding="6dp"
+        android:text="中评率："
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/ts_Service_so"
+        android:layout_toLeftOf="@+id/ts_Solve_so"
+        android:layout_toStartOf="@+id/ts_Solve_so" />
+    <TextView
+        android:id="@+id/ts_Solve_so"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/ts_item07"
+        android:layout_toRightOf="@+id/ts_item2"
+        android:layout_toEndOf="@+id/ts_item2" />
+
+    <TextView
+        android:id="@+id/ts_item8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/bad_ic"
+        android:drawablePadding="6dp"
+        android:text="差评率："
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/ts_Service_bad"
+        android:layout_toLeftOf="@+id/ts_Solve_bad"
+        android:layout_toStartOf="@+id/ts_Solve_bad" />
+    <TextView
+        android:id="@+id/ts_Solve_bad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/ts_item8"
+        android:layout_alignLeft="@+id/ts_Solve_so"
+        android:layout_alignStart="@+id/ts_Solve_so" />
+
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/evaluate"
+        android:text="满意度"
+        android:focusable="false"
+        android:textColor="@color/home_item_color"
+        android:id="@+id/ts_button3"
+        android:layout_alignTop="@+id/ts_button2"
+        android:layout_alignLeft="@+id/button5"
+        android:layout_alignStart="@+id/button5" />
+
+    <TextView
+        android:id="@+id/ts_item3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/good_ic"
+        android:drawablePadding="6dp"
+        android:text="好评率："
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/ts_Solve_good"
+        android:layout_toLeftOf="@+id/rs_bad"
+        android:layout_toStartOf="@+id/rs_bad" />
+    <TextView
+        android:id="@+id/ts_good"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/ts_item3"
+        android:layout_toRightOf="@+id/ts_item3"
+        android:layout_toEndOf="@+id/ts_item3" />
+
+    <TextView
+        android:id="@+id/ts_item6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/soso_ic"
+        android:drawablePadding="6dp"
+        android:text="中评率："
+        android:textSize="12sp"
+        android:layout_above="@+id/ts_item5"
+        android:layout_alignLeft="@+id/ts_item3"
+        android:layout_alignStart="@+id/ts_item3" />
+    <TextView
+        android:id="@+id/ts_so"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/ts_item6"
+        android:layout_toRightOf="@+id/ts_item6"
+        android:layout_toEndOf="@+id/ts_item6" />
+
+    <TextView
+        android:id="@+id/ts_item9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/bad_ic"
+        android:drawablePadding="6dp"
+        android:text="差评率："
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/ts_Solve_bad"
+        android:layout_toLeftOf="@+id/ts_bad"
+        android:layout_toStartOf="@+id/ts_bad" />
+    <TextView
+        android:id="@+id/ts_bad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.0%"
+        android:textSize="12sp"
+        android:layout_alignTop="@+id/ts_item9"
+        android:layout_alignLeft="@+id/ts_so"
+        android:layout_alignStart="@+id/ts_so" />
+
+    <View
+        android:id="@+id/ts_view5"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/ts_button1"
+        android:background="#b0b0b0">
+
+    </View>
+
+
+    <View
+        android:id="@+id/ts_view3"
+        android:layout_width="1dp"
+        android:layout_height="115dp"
+        android:background="#8f8f8f"
+        android:layout_below="@+id/ts_linearLayout"
+        android:layout_alignLeft="@+id/gg_view4"
+        android:layout_alignStart="@+id/gg_view4" />
+    <View
+        android:id="@+id/ts_view4"
+        android:layout_width="1dp"
+        android:layout_height="115dp"
+        android:background="#8f8f8f"
+        android:layout_below="@+id/ts_linearLayout"
+        android:layout_toLeftOf="@+id/gg_view3"
+        android:layout_toStartOf="@+id/gg_view3" />
+    <View
+        android:id="@+id/ts_view6"
+        android:layout_below="@+id/ts_view4"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="#8f8f8f"/>
+
+
+
+        <View
+            android:id="@+id/jg_view"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:layout_below="@+id/ts_view6"
+            android:background="#f0f0f0"/>
+        <View
+            android:id="@+id/jg_view7"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_below="@+id/jg_view"
+            android:background="#8f8f8f"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        android:id="@+id/jz_linearLayout"
+        android:layout_below="@+id/jg_view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+       >
+        <ImageView
+            android:id="@+id/jz_images"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="120dp"
+            android:contentDescription="@string/app_name"
+            android:background="@drawable/jz_ic_house"
+            android:drawablePadding="11dp"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/jz_apartment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/jz_images"
+            android:layout_gravity="center"
+            android:text="家政管理"
+            android:layout_marginLeft="10dp"
+            android:textSize="17sp" />
+    </LinearLayout>
+        <View
+            android:id="@+id/jz_view2"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/jz_linearLayout"
+            android:layout_height="1dp"
+            android:background="#b0b0b0">
+
+        </View>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/evaluate"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="22dp"
+            android:text="服务态度"
+            android:focusable="false"
+            android:id="@+id/jz_button1"
+            android:textColor="@color/home_item_color"
+            android:layout_below="@+id/jz_linearLayout"/>
+
+        <TextView
+            android:id="@+id/jz_item1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:drawableLeft="@drawable/good_ic"
+            android:drawablePadding="6dp"
+            android:text="好评率："
+            android:textSize="12sp"
+            android:layout_below="@+id/jz_button1"
+            android:layout_alignLeft="@+id/item05"
+            android:layout_alignStart="@+id/item05" />
+        <TextView
+            android:id="@+id/jz_Service_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.0%"
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/jz_item1"
+            android:layout_toRightOf="@+id/jz_item1"
+            android:layout_toEndOf="@+id/jz_item1" />
+
+        <TextView
+            android:id="@+id/jz_item4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/soso_ic"
+            android:drawablePadding="6dp"
+            android:layout_marginTop="6dp"
+            android:text="中评率："
+            android:textSize="12sp"
+            android:layout_below="@+id/jz_item1"
+            android:layout_toLeftOf="@+id/jz_Service_so"
+            android:layout_toStartOf="@+id/jz_Service_so" />
+
+        <TextView
+            android:id="@+id/jz_Service_so"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.0%"
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/jz_item4"
+            android:layout_toRightOf="@+id/jz_item1"
+            android:layout_toEndOf="@+id/jz_item1" />
+
+        <TextView
+            android:id="@+id/jz_item5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/bad_ic"
+            android:drawablePadding="6dp"
+            android:text="差评率："
+            android:layout_marginTop="6dp"
+            android:textSize="12sp"
+            android:layout_below="@+id/jz_item4"
+            android:layout_alignLeft="@+id/jz_item4"
+            android:layout_alignStart="@+id/jz_item4" />
+
+        <TextView
+            android:id="@+id/jz_Service_bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.0%"
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/jz_item5"
+            android:layout_toRightOf="@+id/jz_item5"
+            android:layout_toEndOf="@+id/jz_item5" />
+        <Button
+            android:id="@+id/jz_button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/evaluate"
+            android:text="解决速度"
+            android:focusable="false"
+            android:textColor="@color/home_item_color"
+            android:layout_alignTop="@+id/jz_button1"
+            android:layout_toLeftOf="@+id/view4"
+            android:layout_toStartOf="@+id/view4" />
+
+
+        <TextView
+            android:id="@+id/jz_item2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/good_ic"
+            android:drawablePadding="6dp"
+            android:text="好评率："
+            android:textSize="12sp"
+            android:layout_alignBaseline="@+id/jz_item1"
+            android:layout_alignBottom="@+id/jz_item1"
+            android:layout_alignLeft="@+id/item08"
+            android:layout_alignStart="@+id/item08" />
+        <TextView
+            android:id="@+id/jz_Solve_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.0%"
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/jz_item2"
+            android:layout_toRightOf="@+id/jz_item2"
+            android:layout_toEndOf="@+id/jz_item2" />
+
+        <TextView
+            android:id="@+id/jz_item07"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/soso_ic"
+            android:drawablePadding="6dp"
+            android:text="中评率："
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/jz_Service_so"
+            android:layout_toLeftOf="@+id/jz_Solve_so"
+            android:layout_toStartOf="@+id/jz_Solve_so" />
+        <TextView
+            android:id="@+id/jz_Solve_so"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.0%"
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/jz_item07"
+            android:layout_toRightOf="@+id/jz_item2"
+            android:layout_toEndOf="@+id/jz_item2" />
+
+        <TextView
+            android:id="@+id/jz_item8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/bad_ic"
+            android:drawablePadding="6dp"
+            android:text="差评率："
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/jz_Service_bad"
+            android:layout_toLeftOf="@+id/jz_Solve_bad"
+            android:layout_toStartOf="@+id/jz_Solve_bad" />
+        <TextView
+            android:id="@+id/jz_Solve_bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.0%"
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/jz_item8"
+            android:layout_alignLeft="@+id/jz_Solve_so"
+            android:layout_alignStart="@+id/jz_Solve_so" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/evaluate"
+            android:text="满意度"
+            android:focusable="false"
+            android:textColor="@color/home_item_color"
+            android:id="@+id/jz_button3"
+            android:layout_alignTop="@+id/jz_button2"
+            android:layout_alignLeft="@+id/button5"
+            android:layout_alignStart="@+id/button5" />
+
+
+        <TextView
+            android:id="@+id/jz_item3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/good_ic"
+            android:drawablePadding="6dp"
+            android:text="好评率："
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/jz_Solve_good"
+            android:layout_toLeftOf="@+id/rs_bad"
+            android:layout_toStartOf="@+id/rs_bad" />
+        <TextView
+            android:id="@+id/jz_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.0%"
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/jz_item3"
+            android:layout_toRightOf="@+id/jz_item3"
+            android:layout_toEndOf="@+id/jz_item3" />
+
+        <TextView
+            android:id="@+id/jz_item6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/soso_ic"
+            android:drawablePadding="6dp"
+            android:text="中评率："
+            android:textSize="12sp"
+            android:layout_above="@+id/jz_item5"
+            android:layout_alignLeft="@+id/jz_item3"
+            android:layout_alignStart="@+id/jz_item3" />
+        <TextView
+            android:id="@+id/jz_so"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.0%"
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/jz_item6"
+            android:layout_toRightOf="@+id/jz_item6"
+            android:layout_toEndOf="@+id/jz_item6" />
+
+
+        <TextView
+            android:id="@+id/jz_item9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/bad_ic"
+            android:drawablePadding="6dp"
+            android:text="差评率："
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/jz_Solve_bad"
+            android:layout_toLeftOf="@+id/jz_bad"
+            android:layout_toStartOf="@+id/jz_bad" />
+        <TextView
+            android:id="@+id/jz_bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.0%"
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/jz_item9"
+            android:layout_alignLeft="@+id/jz_so"
+            android:layout_alignStart="@+id/jz_so" />
+
+        <View
+            android:id="@+id/jz_view5"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/jz_button1"
+            android:background="#b0b0b0">
+
+        </View>
+
+
+
+        <View
+            android:id="@+id/jz_view3"
+            android:layout_width="1dp"
+            android:layout_height="115dp"
+            android:background="#8f8f8f"
+            android:layout_alignTop="@+id/jz_view2"
+            android:layout_alignLeft="@+id/view3"
+            android:layout_alignStart="@+id/view3" />
+
+        <View
+            android:id="@+id/jz_view4"
+            android:layout_width="1dp"
+            android:layout_height="115dp"
+            android:background="#8f8f8f"
+            android:layout_below="@+id/jz_linearLayout"
+            android:layout_alignLeft="@+id/view4"
+            android:layout_alignStart="@+id/view4" />
+
+
+
+
+        <View
+            android:id="@+id/jz_view"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:layout_below="@+id/view"
+            android:background="#f0f0f0"/>
+
+
+    </RelativeLayout>
+    </ScrollView>
+</com.zhy.android.percent.support.PercentRelativeLayout>

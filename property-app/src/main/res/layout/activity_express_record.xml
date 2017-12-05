@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="86px"
+        android:background="@color/page_title_color_new">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="86px"
+            android:layout_height="86px"
+
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/selector_back"
+            android:contentDescription="@string/app_name" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:text="录入记录"
+            android:id="@+id/titleText"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:divider="#00000000"
+        android:dividerHeight="0px"
+        android:id="@+id/listView">
+
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+</com.zhy.autolayout.AutoLinearLayout>

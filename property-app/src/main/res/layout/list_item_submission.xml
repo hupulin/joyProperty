@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingBottom="12dp"
+        android:background="@drawable/selector_list_item_bg"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/app_name"
+            android:layout_marginLeft="22dp"/>
+        <TextView
+            android:id="@+id/typeName"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="14dp"
+            android:textSize="17sp"
+            android:textColor="#5b4d4c"
+            android:layout_marginLeft="21dp"
+            android:layout_toRightOf="@+id/image"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="9dp"
+            android:layout_marginTop="15dp"
+            android:textColor="#979797"
+            android:maxLength="32"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/apartment_name"
+            android:layout_width="wrap_content"
+            android:textColor="#979797"
+            android:textSize="14sp"
+            android:layout_marginLeft="21dp"
+            android:layout_toRightOf="@+id/image"
+            android:layout_marginTop="11dp"
+            android:singleLine="true"
+            android:layout_below="@+id/typeName"
+            android:layout_marginRight="46dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/type_desc"
+            android:layout_width="wrap_content"
+            android:textColor="#979797"
+            android:textSize="14sp"
+            android:layout_marginLeft="21dp"
+            android:layout_toRightOf="@+id/image"
+            android:layout_marginTop="11dp"
+            android:layout_below="@+id/apartment_name"
+            android:layout_marginRight="46dp"
+            android:maxLines="2"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/image"
+            android:layout_below="@+id/type_desc"
+            android:layout_marginTop="14dp"
+            android:textSize="14sp"
+            android:layout_marginLeft="21dp"/>
+        <TextView
+            android:id="@+id/emergency"
+            android:layout_below="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/image"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp"
+            android:layout_marginLeft="21dp"/>
+        <TextView
+
+            android:id="@+id/serial_number"
+            android:layout_below="@+id/emergency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/image"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp"
+            android:layout_marginLeft="21dp"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

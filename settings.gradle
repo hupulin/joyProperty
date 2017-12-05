@@ -1,0 +1,1 @@
+include ':property-app', ':common-library', 'jinyi-library', ':photopicker'

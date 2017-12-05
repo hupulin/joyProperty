@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="neighbor_underline_height">4dp</dimen>
+    <dimen name="neighbor_indicator_height">2dp</dimen>
+    <dimen name="neighbor_indicator_textSize">15.5dp</dimen>
+    <dimen name="neighbor_message_width">37dp</dimen>
+    <dimen name="neighbor_message_height">28dp</dimen>
+    <dimen name="tpi_padding">36dp</dimen>
+</resources>

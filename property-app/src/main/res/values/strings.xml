@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="tag_first2">
+    </item>
+    <item type="id" name="tag_second2">
+    </item>
+    <string name="app_name">悦服务</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <!-- home -->
+    <string name="main_title">悦管家</string>
+    <string name="main_item01">任务大厅</string>
+    <string name="main_item02">访客验证</string>
+    <string name="main_item03">小区巡检</string>
+    <string name="main_item04">业主口碑</string>
+    <string name="main_item05">投诉管理</string>
+    <string name="main_item06">报修管理</string>
+    <string name="main_item07">小区房产</string>
+    <string name="main_item08">车辆管理</string>
+
+    <!-- task hall -->
+    <string name="task_title_left">任务大厅</string>
+    <string name="task_my_work">日常工单</string>
+    <string name="task_title_right">我的任务</string>
+    <string name="tack_tack_attention">特别关注</string>
+    <string name="task_detail_title"> 任务详情</string>
+    <string name="search_result"> 搜索结果</string>
+    <string name="task_detail_button">我要抢单</string>
+    <string name="task_deal_button">接受任务</string>
+    <string name="task_check_button">查看我的反馈</string>
+    <string name="task_check_reason">查看原因</string>
+    <string name="task_over">任务完成</string>
+    <string name="task_history_feedback"> 历史反馈</string>
+    <string name="task_feedback"> 历史反馈</string>
+    <string name="task_feedback_hint">我想说...</string>
+    <!-- message -->
+    <string name="message_title"> 消息中心</string>
+    <string name="reset_title"> 找回密码</string>
+    <!-- code -->
+    <string name="code">二维码</string>
+    <string name="verify_serial_number">编号认证</string>
+    <string name="verify_serial_number_hint">No. 访客编号:</string>
+    <string name="verify_button">验证身份</string>
+    <string name="verify_result">验证结果</string>
+    <string name="verify_result_item01">到访小区 :</string>
+    <string name="verify_result_item02">访客姓名 :</string>
+    <string name="verify_result_item03">业主手机 :</string>
+    <string name="verify_result_item04">业主门牌 :</string>
+    <string name="verify_result_item08">到访时间 :</string>
+    <string name="verify_result_item09">离开时间 :</string>
+    <string name="verify_result_item05">有效日期 :</string>
+    <string name="verify_result_item06">访客证的日期超出有效日期</string>
+    <string name="verify_result_item07">访客车牌 :</string>
+    <string name="verify_pass">通过</string>
+    <string name="verify_unpass_date">时间不符</string>
+    <string name="verify_unpass">出错了</string>
+    <string name="verify_pass_tip">核对信息无误,确认为我小区宾客</string>
+    <string name="verify_pass_date_tip">核对信息无误,确认为我小区宾客</string>
+    <string name="verify_unpass_tip">访客证不合法</string>
+    <string name="verify_unpass_date_tip">部分信息核对出错。</string>
+
+    <!-- 用户反馈 -->
+    <string name="user_feedback">用户反馈</string>
+    <!-- 免责声明 -->
+    <string name="disclaimer_title">免责声明</string>
+    <!-- 关于我们 -->
+    <string name="about_ours">关于悦服务</string>
+    <string name="info_back">再按一次,退出悦服务</string>
+    <string name="scan_tips">只支持悦嘉家访客证二维码扫描</string>
+    <!--login-->
+    <string name="login_no">账户</string>
+    <string name="login_password">密码</string>
+    <string name="login">登录</string>
+    <string name="send">点击获取验证码</string>
+    <string name="done">完成</string>
+    <string name="forget_password">忘记密码了？</string>
+    <string name="login_hint">账户  需通过本小区物业管理开通</string>
+    <string name="phone_hint">请输入手机号</string>
+    <string name="code_hint">请输入验证码</string>
+    <string name="new_hint">请设置新密码</string>
+    <string name="check_hint">请确认新密码</string>
+    <string name="scan_text">将访客证二维码放入方框内验证访客身份</string>
+    <!--inspection-->
+
+    <string name="inspection_title">小区巡检</string>
+    <string name="inspection_left">提报</string>
+    <string name="inspection_right">我的提报</string>
+    <string name="inspection_category">请选择提报类型</string>
+    <string name="inspection_apartment">请选择小区</string>
+    <string name="call_details_my_needs">我的需求:</string>
+    <string name="unsolved_hint">未得到解决的原因</string>
+    <string name="evaluation_edit_hint">我对这次呼叫的评价&#8230;</string>
+
+    <!--业主口碑-->
+
+    <string name="owner_mouth_title">业主口碑</string>
+    <string name="vehicle_inspect_manage">车辆巡检管理</string>
+    <!--投诉管理-->
+    <string name="complaint_management_title">投诉列表</string>
+    <string name="house_management_title">家政列表</string>
+    <!-- 登录界面 -->
+    <string name="login_user_right" translatable="false">下一步</string>
+    <string name="login_user_no" translatable="false">没找对?</string>
+    <string name="login_in" translatable="false">我住在</string>
+    <string name="login_register" translatable="false">注册</string>
+    <string name="login_into" translatable="false">登录</string>
+    <string name="login_phone" translatable="false">手机</string>
+    <string name="user_nickname" translatable="false">昵称</string>
+    <string name="login_forget_password" translatable="false">忘记密码</string>
+    <string name="reset_password" translatable="false">重置密码</string>
+    <string name="reset_login" translatable="false">重置并登陆</string>
+    <string name="login_register_apartment" translatable="false">门牌</string>
+    <string name="login_register_unit" translatable="false">幢</string>
+    <string name="login_register_room" translatable="false">室</string>
+    <string name="login_register_tip" translatable="false">我是业主，房产证在我名下</string>
+    <string name="login_host" translatable="false">我是业主家属</string>
+    <string name="login_tenant" translatable="false">我是租户</string>
+    <string name="login_register_tip1" translatable="false">您只会收到身份验证的短信，手机号码将成为您的登录账号</string>
+    <string name="login_register_tip2" translatable="false">我们刚将一条短信验证码发送到了</string>
+    <string name="login_register_next_step" translatable="false">下一步</string>
+    <string name="login_input_info" translatable="false">输入验证码</string>
+    <string name="login_register_login" translatable="false">完成并登录</string>
+    <string name="reset_password_tip" translatable="false">即将验证手机并重置密码</string>
+    <string name="reset_password_tip1" translatable="false">请验证并输入新密码</string>
+    <string name="reset_my_phone" translatable="false">我的手机号</string>
+    <string name="verification_code" translatable="false">验证码</string>
+    <string name="new_password" translatable="false">新密码</string>
+    <string name="register_remind_01" translatable="false">亲,您已经入驻了本小区,不可以重复注册哦!</string>
+    <string name="register_remind_02" translatable="false">糟糕！登录失败，输入的手机或密码似乎有问题</string>
+    <string name="register_remind_03" translatable="false">糟糕！注册失败。请检查您的手机号码和密码输入是否正确</string>
+    <string name="reset_remind_00" translatable="false">您的手机号码没有在本小区注册哦!</string>
+    <string name="info_loading" translatable="false">正在提交数据&#8230;</string>
+    <string name="error_error" translatable="false">亲,网络不给力哦!</string>
+    <string name="search_hint" translatable="false">没有?找找我的小区</string>
+    <string name="nick_name_hint" translatable="false">来让邻居们认识你吧!</string>
+    <string name="title_activity_poi_search_demo" translatable="false">PoiSearchDemo</string>
+    <string name="title_activity_apartment_list" translatable="false">ApartmentListActivity</string>
+    <!--home-->
+    <string name="home_neighbors_circle" translatable="false">邻居圈</string>
+    <string name="home_community_bulletin" translatable="false">家政服务</string>
+    <string name="home_check_and_check" translatable="false">查一查</string>
+    <string name="home_bulk" translatable="false">悦购</string>
+
+    <string name="home_visitor_badge" translatable="false">访客通行</string>
+    <string name="home_unit_door" translatable="false">房屋租售</string>
+
+    <string name="home_property_Center" translatable="false">物业服务</string>
+    <string name="home_property_service_tip" translatable="false">物业服务中心工作时间为8:30&#8211;17:30\n如在非工作时间请
+拨打物业值班电话:</string>
+    <!--导航-->
+    <string name="navigation_place" translatable="false">我正在 :</string>
+    <string name="navigation_share_apk" translatable="false">二维码分享</string>
+    <string name="navigation_check_update" translatable="false">检查更新</string>
+    <string name="navigation_disclaimer" translatable="false">服务协议</string>
+    <string name="navigation_feedback" translatable="false">用户反馈</string>
+    <string name="navigation_contact_us" translatable="false">关于悦嘉家</string>
+    <string name="navigation_login_out" translatable="false">注销</string>
+    <string name="navigation_share_tip01" translatable="false">和我一起开启悦嘉家！</string>
+    <string name="navigation_share_tip02" translatable="false">拉上小伙伴一起玩</string>
+
+    <!--property-->
+
+    <string name="property_i_submission" translatable="false">我要投诉</string>
+    <string name="property_call_detail" translatable="false">投诉记录</string>
+    <string name="property_edit_hint" translatable="false">我想说&#8230;</string>
+
+
+    <!-- 二级菜单数据对接  图片添加 -->
+
+    <string name="property_complaints" translatable="false">投诉</string>
+    <string name="property_repairs" translatable="false">报修</string>
+    <string name="property_services" translatable="false">服务</string>
+    <string name="property_submit" translatable="false">提交</string>
+
+    <!--我的呼叫-->
+    <string name="service_progress" translatable="false">服务进度:</string>
+    <string name="call_details_title" translatable="false">投诉详情</string>
+
+    <string name="leave_message_title" translatable="false">留言</string>
+
+    <!--查一查-->
+    <string name="check_check_title" translatable="false">查一查</string>
+
+    <!--小区频道-->
+
+    <string name="channel_village_headlines" translatable="false">园区公告</string>
+    <string name="channel_village_guide" translatable="false">办事指南</string>
+
+    <!-- 团点啥-->
+    <string name="bulk_title" translatable="false">团点啥</string>
+    <string name="bulk_comment_bulk" translatable="false">点评团购</string>
+    <string name="bulk_property_bulk" translatable="false">物业团购</string>
+    <string name="group_purchase_detail_title" translatable="false">团购详情</string>
+    <string name="group_purchase_amount" translatable="false">出售份数：</string>
+    <string name="group_purchase_date" translatable="false">截止时间：</string>
+    <string name="group_purchase_appointment" translatable="false">下单</string>
+    <!--访客证-->
+    <string name="guest_title" translatable="false">访客证</string>
+
+    <string name="guest_tip01" translatable="false">您的客人将收到通行二维码，用于在门卫处验证通行</string>
+    <string name="neighborhoodShops_title" translatable="false">街坊铺子</string>
+    <string name="neighborhoodShops_left" translatable="false">街坊铺子</string>
+    <string name="neighborhoodShops_right" translatable="false">街坊铺子</string>
+
+    <!--我的房产-->
+    <string name="information_house" translatable="false">我的发布</string>
+    <string name="rental_center" translatable="false">我的需求</string>
+    <string name="info_add_loading" translatable="false">正在上传数据&#8230;</string>
+
+    <!--个人中心-->
+    <string name="person_tip" translatable="false">您尚未验证身份，可体验部分功能。\n如需开启全部功能，请填写验证信息。
+</string>
+    <string name="self_verify_tip" translatable="false">您的真实信息仅供物业与您核实身份使用，不做其他用途，请放心填写！
+</string>
+    <string name="person_verifying" translatable="false">您已提交验证信息，请等待物业验证。</string>
+    <string name="person_verified" translatable="false">您已成为验证用户，欢迎开启所有功能。</string>
+    <string name="person_unverified" translatable="false">很抱歉，您尚未通过身份验证，\n如有疑问，请致电客服。</string>
+
+
+
+    <string name="check_img" translatable="false">图片</string>
+    <string name="quick_check_str_photograph" translatable="false">拍照</string>
+    <string name="quick_check_str_album" translatable="false">从相册选取</string>
+    <string name="quick_check_str_cancel" translatable="false">取消</string>
+    <string name="buy_insurance_str_fee" translatable="false">运费（元）</string>
+    <string name="buy_insurance_str_truck_num" translatable="false">车牌号</string>
+    <string name="buy_insurance_str_fast" translatable="false">快速投保</string>
+
+    <!--quick payment-->
+    <string name="quick_payment_tip" translatable="false">能在这收到物业的账单\n进行各种快捷缴费哟</string>
+    <string name="property_fee_bill" translatable="false">物业账单</string>
+    <string name="property_fee" translatable="false">金额:</string>
+    <string name="property_fee_title" translatable="false">快捷缴费</string>
+    <string name="property_fee_create_on" translatable="false">创建时间</string>
+    <string name="bill_detail" translatable="false">账单详情</string>
+    <string name="button_pay_bill" translatable="false">立即缴纳</string>
+    <!--代收快递-->
+    <string name="express_title" translatable="false">悦邮局</string>
+
+    <!--爱家小窝-->
+    <string name="ai_kia_hut_title" translatable="false">爱家小屋</string>
+    <string name="ai_kia_hut_tip_01" translatable="false">今日下单明日收到货\n沈姨的所有果蔬都是当日最鲜~</string>
+    <string name="ai_kia_hut_tip_02" translatable="false">早起十分钟，分秒必争\n健哥的早餐绝对准时送达哟~</string>
+    <string name="ai_kia_hut_tip_03" translatable="false">一分钱两分货\n小云只为你挑选最好的产品：)</string>
+    <string name="ai_kia_hut_tip_04" translatable="false">今日下单明日收到货\n沈姨的所有果蔬都是当日最鲜~</string>
+    <string name="look_down_read_detail" translatable="false">上拉(点击)显示详情</string>
+    <string name="item_shopping_cart" translatable="false">手慢一步，这个商品下架了&#8230;</string>
+    <string name="shop_table_text" translatable="false">您能在这里找到\n优质的美食和便捷的服务\n\n但是您的小区好像还未添加
+商品&#8230;\n请静候佳音 : )</string>
+
+    <!-- 邻居圈-->
+    <string name="neighborhood_post_help_tip" translatable="false"> *求助动态会于邻居圈内置顶一段时间 , 同时会\n  公布您的
+手机号码以方便联系</string>
+
+    <!-- 相册-->
+
+    <string name="_finish" translatable="false">完成</string>
+    <string name="invalidSD" translatable="false">sdcard无效或没有插入！</string>
+    <string name="photo" translatable="false">选择相册</string>
+    <string name="album" translatable="false">相册</string>
+    <string name="preview" translatable="false">预览</string>
+    <string name="unfinished" translatable="false">完成</string>
+    <string name="camera_cancel" translatable="false">取消</string>
+    <string name="no_photo" translatable="false">相册没有图片</string>
+
+
+    <string name="uninstall_alipay_app" translatable="false">您还没有安装支付宝哦</string>
+    <string name="housekeeping_service">家政服务</string>
+    <string name="finish">完成</string>
+    <string name="reactiontime_title">响应速度</string>
+
+    <string name="picker_sure">确定</string>
+    <string name="picker_cancel">取消</string>
+    <string name="picker_title">选择派单时间</string>
+    <string name="wechat_client_inavailable">目前您的微信版本过低或未安装微信，需要安装微信才能使用</string>
+    <string name="share_failed">分享失败</string>
+    <string name="picker_year">年</string>
+    <string name="picker_month">月</string>
+    <string name="picker_day">日</string>
+    <string name="picker_hour">时</string>
+    <string name="picker_minute">分</string>
+
+    
+
+</resources>

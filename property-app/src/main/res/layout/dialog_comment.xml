@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    >
+    <RelativeLayout
+        android:id="@+id/title01"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/page_title_color_new">
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_back"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:text="查看评价"
+            android:textColor="@color/home_item_color"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:background="@color/white"
+        android:layout_below="@+id/title01"
+        >
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="68px"
+        android:background="#f7f7f7"
+        android:id="@+id/rl_evaluate"
+        android:layout_toRightOf="@+id/titlesm"
+        android:layout_toEndOf="@+id/titlesm">
+        <ImageView
+            android:layout_width="21px"
+            android:layout_height="27px"
+            android:background="@drawable/evaluate_icon"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25px"/>
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="64px"
+            android:layout_width="wrap_content"
+            android:text="业主的评价"
+            android:layout_height="wrap_content"
+            android:textColor="#464646"
+            android:textSize="28px"
+            />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30px"
+        android:id="@+id/rl_remark"
+        android:layout_below="@+id/rl_evaluate">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40px"
+            android:textColor="#999999"
+            android:textSize="20px"
+            android:text="评价"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_centerVertical="true"
+            android:background="#e9e9e9"
+            android:layout_marginLeft="86px"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <TextView
+        android:id="@+id/evaluation_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_remark"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="30px"
+        android:textColor="@color/text_color04"
+        android:textSize="24px" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/evaluation_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:id="@+id/item01"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="服务态度："
+                android:textColor="@color/text_col"
+                android:textSize="14sp" />
+
+            <RatingBar
+                android:id="@+id/rb_rate01"
+                style="@style/RoomRatingBar"
+                android:layout_toRightOf="@+id/item01"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:isIndicator="true"
+                android:numStars="5" />
+
+            <TextView
+                android:id="@+id/tv_text01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="满意"
+                android:textSize="14sp"
+
+                android:textColor="@color/text_col"
+                android:layout_alignTop="@+id/rb_rate01"
+                android:layout_alignLeft="@+id/tv_text02"
+                android:layout_alignStart="@+id/tv_text02"
+                android:layout_marginTop="3dp"
+                android:layout_alignBottom="@+id/rb_rate01" />
+
+
+            <TextView
+                android:id="@+id/item02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="解决速度："
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/item01"
+                android:textColor="@color/text_col"
+                android:textSize="14sp" />
+
+            <RatingBar
+                android:id="@+id/rb_rate02"
+                style="@style/RoomRatingBar"
+                android:layout_toRightOf="@+id/item02"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/item01"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:isIndicator="true"
+                android:numStars="5" />
+            <TextView
+                android:id="@+id/tv_text02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="一般"
+                android:textSize="14sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/text_col"
+                android:layout_alignBottom="@+id/rb_rate02"
+                android:layout_toRightOf="@+id/rb_rate02"
+                android:layout_toEndOf="@+id/rb_rate02"
+                android:layout_alignTop="@+id/rb_rate02" />
+
+
+            <TextView
+                android:id="@+id/item03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:text="满意度："
+                android:layout_below="@+id/item02"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/text_col"
+                android:textSize="14sp" />
+
+            <RatingBar
+                android:id="@+id/rb_rate03"
+                style="@style/RoomRatingBar"
+                android:layout_toRightOf="@+id/item03"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="34dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/item02"
+                android:isIndicator="true"
+                android:numStars="5" />
+            <TextView
+                android:id="@+id/tv_text03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="差评"
+                android:textSize="14sp"
+                android:textColor="@color/text_col"
+                android:layout_marginTop="3dp"
+                android:layout_alignTop="@+id/rb_rate03"
+                android:layout_alignLeft="@+id/tv_text02"
+                android:layout_alignStart="@+id/tv_text02"
+                android:layout_alignBottom="@+id/rb_rate03" />
+
+            <TextView
+                android:id="@+id/satisfaction"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/item03"
+                android:gravity="center_horizontal"
+                android:textColor="@color/text_col"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="68px"
+        android:background="#f7f7f7"
+        android:layout_marginTop="20px"
+        android:id="@+id/rl_negative"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:layout_width="28px"
+            android:layout_height="27px"
+            android:background="@drawable/bad_evaluate"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25px"/>
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="64px"
+            android:layout_width="wrap_content"
+            android:text="差评原因"
+            android:layout_height="wrap_content"
+            android:textColor="#464646"
+            android:textSize="28px"
+            />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.joy.property.utils.flowlayout.TagFlowLayout
+        android:id="@+id/flowlayoutother"
+        android:layout_marginTop="16px"
+        android:layout_marginLeft="24px"
+        android:layout_below="@+id/rl_negative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    </com.joy.property.utils.flowlayout.TagFlowLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30px"
+        android:id="@+id/rl_remark_one"
+        android:layout_below="@+id/flowlayoutother">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40px"
+            android:textColor="#999999"
+            android:textSize="20px"
+            android:text="备注"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_centerVertical="true"
+            android:background="#e9e9e9"
+            android:layout_marginLeft="86px"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <TextView
+        android:id="@+id/remark_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_remark_one"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="30px"
+        android:textColor="@color/text_color04"
+        android:textSize="24px" />
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_below="@+id/remark_one"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    </ScrollView>
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_heightPercent="40.27%w"
+        android:id="@+id/investigateImage"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/new_text_color"
+        android:layout_below="@+id/investigateImage"
+        app:layout_marginLeftPercent="7.5%w"
+        app:layout_marginTopPercent="5.27%w"
+        android:id="@+id/investigateContent"
+        app:layout_textSizePercent="4.16%w"
+        app:layout_marginRightPercent="7.5%w"
+        android:maxLines="5"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/new_line_color"
+
+        android:id="@+id/line1"
+        app:layout_marginTopPercent="3.33%w"
+        android:layout_below="@+id/investigateContent">
+
+    </View>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_color_blue_light"
+        android:layout_above="@+id/line1"
+        app:layout_marginLeftPercent="7.5%w"
+        android:background="@color/white"
+        app:layout_textSizePercent="4.16%w"
+        android:layout_alignParentRight="true"
+        app:layout_marginRightPercent="7.5%w"
+        android:id="@+id/expandAll"
+        android:visibility="gone"
+        android:text="全文"
+        android:maxLines="5"/>
+</com.zhy.android.percent.support.PercentRelativeLayout>

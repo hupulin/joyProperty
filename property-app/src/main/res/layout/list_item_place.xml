@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/selector_list_item_bg">
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_marginLeftPercent="9.66%w"
+        app:layout_heightPercent="16.74%w"
+        >
+        <ImageView
+            android:background="@drawable/place_select"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:layout_marginRightPercent="4.29%w"
+            app:layout_heightPercent="6.65%w"
+            app:layout_widthPercent="3.56%w"
+            />
+</com.zhy.android.percent.support.PercentRelativeLayout>
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="match_parent"
+        android:text="women "
+        app:layout_textSizePercent="5.56%w"
+        app:layout_heightPercent="16.74%w"
+        android:gravity="center_vertical"
+        android:layout_height="0dp"
+        app:layout_marginLeftPercent="9.66%w"
+        />
+    <View
+        android:layout_below="@+id/type"
+        app:layout_marginLeftPercent="9.66%w"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#d9d9d9"/>
+
+</com.zhy.android.percent.support.PercentRelativeLayout>

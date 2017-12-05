@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+
+    android:layout_height="79px">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="78px"
+    android:text="地上"
+    android:id="@+id/positionName"
+    android:textSize="26px"
+    android:textColor="#353535"
+    android:layout_marginLeft="45px"
+    android:gravity="center_vertical"
+    />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/positionName"
+        android:background="#d9d9d9"
+        android:layout_marginLeft="45px"
+        >
+
+    </View>
+    <ImageView
+        android:layout_width="14px"
+        android:layout_height="26px"
+        android:id="@+id/nextIcon"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/login_next"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="30px"
+        />
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:id="@+id/title"
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="11.11%w"
+        android:background="@color/page_title_color_new">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_heightPercent="11.11%w"
+            app:layout_widthPercent="11.11%w"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/selector_white_back_icon"
+            android:contentDescription="@string/app_name" />
+
+        <ImageView
+            android:id="@+id/iv_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_toRightOf="@+id/iv_back"
+            android:background="@drawable/ic_back_line"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone" />
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="6.66%w"
+            app:layout_widthPercent="20.55%w"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:id="@+id/neighborShow"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:text="活动详情"
+                android:layout_marginLeft="1dp"
+
+                android:textColor="@color/white"
+                app:layout_textSizePercent="21.62%w" />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_heightPercent="9.45%w"
+                app:layout_widthPercent="18.24%w"
+                android:visibility="gone"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/neighbor_down"
+                app:layout_marginLeftPercent="9.45%w"
+                android:id="@+id/neighborShowIcon"
+                />
+        </com.zhy.android.percent.support.PercentLinearLayout>
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/all"
+            android:layout_alignParentRight="true"
+android:visibility="gone"
+
+            app:layout_widthPercent="17.11%w"
+            android:layout_height="match_parent">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:gravity="center_vertical|right"
+               app:layout_textSizePercent="40%h"
+
+               app:layout_marginRightPercent="67.5%h"
+               android:textColor="@color/white"
+               android:layout_centerInParent="true"
+               android:text="全部"/>
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="11.94%w"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:id="@+id/confirmJoin"
+        app:layout_textSizePercent="4.44%w"
+        android:background="@color/page_title_color"
+        android:text="我要报名"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+android:layout_above="@+id/confirmJoin"
+        >
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+    <ImageView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    app:layout_heightPercent="40.27%w"
+    android:scaleType="fitXY"
+    android:id="@+id/campaignImage"
+    />
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="活动时间：2016年8月21"-->
+        <!--android:id="@+id/campaignTime"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--app:layout_marginTopPercent="3.88%w"-->
+        <!--app:layout_textSizePercent="3.19%w"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textColor="@color/new_text_color"-->
+        <!--/>-->
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="活动地点：帝国大厦A001"-->
+        <!--android:id="@+id/campaignAddress"-->
+        <!--app:layout_marginLeftPercent="32.23%w"-->
+        <!--app:layout_marginTopPercent="3.88%w"-->
+        <!--app:layout_textSizePercent="3.19%w"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textColor="@color/new_text_color"-->
+        <!--/>-->
+        <com.joy.property.utils.htmlText.HtmlTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/htmlText"
+            app:layout_marginTopPercent="2.5%w"
+
+            />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+android:layout_marginTop="-10dp"
+        android:background="@color/new_line_color"
+
+        >
+
+    </View>
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/joinLayout"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="看大家都谁参与了:"
+
+            android:layout_gravity="center_horizontal"
+            app:layout_marginTopPercent="3.61%w"
+            app:layout_textSizePercent="3.75%w"
+            app:layout_marginLeftPercent="3.61%w"
+            android:textColor="@color/gray_text"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="5.27%w"
+
+            app:layout_widthPercent="5.27%w"
+            android:background="@drawable/campaign_owner_more"
+            app:layout_marginTopPercent="4.68%w"
+            android:layout_alignParentRight="true"
+            android:id="@+id/ownerMore"
+            app:layout_marginRightPercent="6.38%w"
+            />
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:id="@+id/recyclerView"
+            android:layout_height="0dp"
+            app:layout_heightPercent="18.88%w"
+            app:layout_marginTopPercent="9.44%w"
+            app:layout_marginLeftPercent="1.25%w"
+            app:layout_marginRightPercent="1.25%w"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/new_line_color"
+          android:layout_alignParentBottom="true"
+            >
+
+        </View>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_marginLeftPercent="3.5%w"
+            android:textColor="@color/new_text_color"
+            app:layout_textSizePercent="4.16%w"
+
+            app:layout_marginRightPercent="3.5%w"
+            android:id="@+id/campaignContent"
+            />
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    </ScrollView>
+
+</com.zhy.android.percent.support.PercentRelativeLayout>

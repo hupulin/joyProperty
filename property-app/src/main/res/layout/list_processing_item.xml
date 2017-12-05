@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingBottom="8dp"
+        android:background="@drawable/selector_list_item_bg"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:contentDescription="@string/app_name"
+             android:layout_centerVertical="true"
+            android:background="@drawable/category_03" />
+        <TextView
+            android:id="@+id/servicebooking"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:text=""
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/typeName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="什么类型"
+            android:layout_marginTop="17dp"
+            android:textSize="14sp"
+            android:layout_alignLeft="@+id/time"
+            android:layout_alignStart="@+id/time"
+            android:layout_toLeftOf="@+id/times"
+            android:layout_toStartOf="@+id/times" />
+        <TextView
+            android:id="@+id/times"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="几天"
+            android:textColor="@color/text_color02"
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/typeName"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="21dp"
+            android:layout_marginEnd="21dp" />
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/typeName"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="6dp"
+            android:text="几天"
+            android:layout_toRightOf="@+id/image"
+            android:textColor="@color/text_color02"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/time"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="6dp"
+            android:text="提交时间："
+            android:layout_toRightOf="@+id/image"
+            android:textColor="@color/text_col"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提交时间"
+            android:textColor="@color/text_col"
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/textView3"
+            android:layout_toRightOf="@+id/textView3"
+            android:layout_toEndOf="@+id/textView3" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/date"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="6dp"
+            android:text="响应时间："
+            android:layout_toRightOf="@+id/image"
+            android:textColor="@color/text_col"
+            android:textSize="12sp"
+            android:id="@+id/textView2" />
+        <TextView
+            android:id="@+id/time_response"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="响应时间"
+            android:textSize="12sp"
+            android:textColor="@color/text_color02"
+            android:layout_alignTop="@+id/textView2"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/time_replyTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ceshi"
+            android:textSize="12sp"
+            android:textColor="@color/text_color02"
+            android:layout_alignTop="@+id/textView2"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2" />
+
+
+    </RelativeLayout>
+
+
+    </RelativeLayout>
+

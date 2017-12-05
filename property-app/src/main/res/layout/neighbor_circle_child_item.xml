@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<com.zhy.android.percent.support.PercentLinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/typeListLayout"
+    android:background="@drawable/neighbor_child_item_bg"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_marginLeft="34dp"
+    android:layout_marginStart="34dp">
+<TextView
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_heightPercent="13.5%w"
+    app:layout_widthPercent="91.42%w"
+
+    android:text="首页"
+    android:textColor="#353535"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/selector_select_type"
+    android:id="@+id/newRelease"
+    app:layout_textSizePercent="8.83%w"
+    app:layout_marginTopPercent="8.83%w"
+    android:gravity="center"
+    />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="13.5%w"
+        app:layout_widthPercent="91.42%w"
+        android:id="@+id/care"
+        android:text="我的关注"
+        android:textColor="#353535"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/selector_select_type"
+        app:layout_textSizePercent="8.83%w"
+        app:layout_marginTopPercent="3.09%w"
+        android:gravity="center"
+
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="13.5%w"
+        app:layout_widthPercent="91.42%w"
+        android:id="@+id/newReply"
+        android:text="互动"
+        android:textColor="#353535"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/selector_select_type"
+        app:layout_textSizePercent="8.83%w"
+        app:layout_marginTopPercent="3.09%w"
+        android:gravity="center"
+
+        />
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        app:layout_widthPercent="91.42%w"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/white">
+
+    </View>
+    <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--app:layout_heightPercent="13.5%w"-->
+        <!--app:layout_widthPercent="91.42%w"-->
+
+        <!--android:text="最新回复"-->
+        <!--android:textColor="#353535"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:background="@color/transparent"-->
+        <!--app:layout_textSizePercent="8.83%w"-->
+        <!--app:layout_marginTopPercent="3.09%w"-->
+        <!--android:gravity="center"-->
+
+        <!--/>-->
+    <!--<TextView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--app:layout_heightPercent="13.5%w"-->
+        <!--app:layout_widthPercent="91.42%w"-->
+
+        <!--android:text="最新回复"-->
+        <!--android:textColor="#353535"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:background="@color/transparent"-->
+        <!--app:layout_textSizePercent="8.83%w"-->
+        <!--app:layout_marginTopPercent="3.09%w"-->
+        <!--android:gravity="center"-->
+
+        <!--/>-->
+</com.zhy.android.percent.support.PercentLinearLayout>
+</com.zhy.android.percent.support.PercentRelativeLayout>

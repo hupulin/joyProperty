@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ImageView
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_heightPercent="21.62%w"
+    app:layout_widthPercent="3.448%w"
+    android:background="@drawable/shop_channel_divice"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_marginLeftPercent="8.96%w"
+        android:id="@+id/channel_name"
+        android:textColor="#343434"
+        android:textStyle="bold"
+        android:layout_marginTop="-3dp"
+        app:layout_textSizePercent="17.44%w"
+        android:text="米面粮油"/>
+</com.zhy.android.percent.support.PercentLinearLayout>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/shape_self_verify_bg">
+    <TextView
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:visibility="gone"
+        android:textColor="#666666"
+        android:text="请选择日期"/>
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:padding="20dp">-->
+
+    <!--<com.joypark.nacity.login.widget.DatePicker-->
+    <!--android:id="@+id/dp_test"-->
+    <!--android:visibility="gone"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="3"-->
+    <!--android:gravity="center"-->
+    <!--android:layout_gravity="center_horizontal"/>-->
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_widthPercent="70%w"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.joy.property.myservice.widget.WheelView
+            android:id="@+id/year"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:layout_width="wrap_content"/>
+        <com.joy.property.myservice.widget.WheelView
+            android:id="@+id/month"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="2"
+            android:layout_width="0dp"/>
+        <com.joy.property.myservice.widget.WheelView
+            android:id="@+id/day"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_width="0dp"/>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#B2B2B2"/>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/tv_cancel"
+            android:layout_width="0dp"
+            android:layout_height="60px"
+            android:text="取消"
+
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@color/page_title_color"
+            android:textSize="16sp" />
+        <View
+            android:layout_width="1dp"
+            android:background="#B2B2B2"
+            android:layout_height="match_parent"></View>
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/tv_ok"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="60px"
+            android:text="确定"
+            android:background="@color/page_title_color"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+    <!--<View -->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="1dp"-->
+    <!--android:background="#f5f5f5"/>-->
+
+
+
+</com.zhy.android.percent.support.PercentLinearLayout>

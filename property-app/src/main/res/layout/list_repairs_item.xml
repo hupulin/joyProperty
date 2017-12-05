@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="#ecede5"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout">
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="120dp"
+            android:contentDescription="@string/app_name"
+            android:background="@drawable/title"
+            android:drawablePadding="11dp"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/apartment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image"
+
+            android:layout_gravity="center"
+            android:text="东方骏"
+            android:layout_marginLeft="10dp"
+            android:textSize="17sp" />
+    </LinearLayout>
+    <View
+        android:id="@+id/view4"
+        android:layout_below="@+id/linearLayout"
+        android:background="#706f79"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:id="@+id/linar"
+        android:layout_width="180dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="12dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/linare"
+        android:layout_toStartOf="@+id/linare">
+        <!--android:textColor="@color/home_item_color"-->
+
+        <TextView
+            android:id="@+id/item01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="42dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/red_ic"
+            android:drawablePadding="8dp"
+            android:text="待处理:"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/pending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/item01"
+            android:text="qqqqq"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linar"
+        android:weightSum="1"
+        android:id="@+id/linearLayout2"
+        android:layout_toLeftOf="@+id/linearLayout3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/item02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item01"
+            android:layout_marginLeft="42dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/yellow_ic"
+            android:drawablePadding="8dp"
+            android:text="处理中:"
+            android:layout_marginBottom="5dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/processing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pending"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/item01"
+            android:text="qqqq"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+    <View
+        android:id="@+id/view7"
+        android:layout_below="@+id/linearLayout2"
+        android:background="#706f79"
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/linar"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="bottom"
+        android:layout_alignBottom="@+id/linearLayout2"
+        android:id="@+id/linearLayout3"
+        android:layout_alignLeft="@+id/linare"
+        android:layout_alignStart="@+id/linare">
+        <TextView
+            android:id="@+id/item04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item03"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/crown_ic"
+            android:drawablePadding="8dp"
+            android:layout_marginLeft="15dp"
+            android:text="总单数:"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/repair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/processed"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/item01"
+            android:text=""
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linare"
+        android:layout_width="180dp"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="8dp"
+        android:gravity="bottom"
+        android:layout_above="@+id/linearLayout3"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+        <TextView
+            android:id="@+id/item03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item02"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/green_ic"
+            android:drawablePadding="8dp"
+            android:text="已处理:"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/processed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/processing"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/item01"
+            android:text="啊啊啊啊"
+            android:textSize="15sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout4"
+        android:weightSum="1"
+        android:layout_below="@+id/view7"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/linearLayout3"
+        android:layout_alignStart="@+id/linearLayout3">
+        <TextView
+            android:id="@+id/good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/goods"
+            android:drawablePadding="10dp"
+            android:layout_marginLeft="15dp"
+            android:text=""
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/so"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/zhongpin"
+            android:layout_marginLeft="15dp"
+            android:drawablePadding="10dp"
+            android:text=""
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/negative"
+            android:drawablePadding="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="20dp"
+            android:text=""
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_below="@+id/view3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+        <TextView
+            android:id="@+id/Service_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/goods"
+
+            android:layout_marginLeft="15dp"
+            android:text="服务好评：0.00%"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/Service_so"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/zhongpin"
+            android:layout_marginLeft="15dp"
+            android:text="服务中评：0.00%"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/Service_bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/negative"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="20dp"
+            android:text="服务差评：0.00%"
+            android:textSize="15sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_below="@+id/view3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/Solve_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/goods"
+            android:layout_marginLeft="15dp"
+            android:text="解决速度好评：0.00%"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/Solve_so"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/zhongpin"
+            android:layout_marginLeft="15dp"
+            android:text="解决速度中评：0.00%"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/Solve_bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/negative"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="20dp"
+            android:text="解决速度差评：0.00%"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+
+
+    <View
+        android:id="@+id/view1"
+        android:layout_below="@+id/linearLayout4"
+        android:background="#706f79"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <View
+        android:id="@+id/view2"
+        android:layout_below="@+id/view1"
+        android:background="#f0eff4"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <View
+        android:id="@+id/view3"
+        android:layout_below="@+id/view2"
+        android:background="#706f79"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <com.github.mikephil.charting.charts.PieChart
+        android:layout_width="187dp"
+        android:layout_height="92dp"
+        android:layout_gravity="right"
+        android:layout_weight="1.74"
+        android:id="@+id/spread_pie_chart"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/linearLayout2"
+        android:layout_toLeftOf="@+id/linearLayout3"
+        android:layout_toStartOf="@+id/linearLayout3"
+        android:layout_alignBottom="@+id/view3" />
+
+</RelativeLayout>
+

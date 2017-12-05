@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<com.zhy.autolayout.AutoLinearLayout
+    android:layout_width="match_parent"
+    android:layout_marginLeft="43.5px"
+    android:layout_marginRight="43.5px"
+    android:orientation="horizontal"
+    android:layout_height="160px">
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="好评率"
+            android:layout_alignParentBottom="true"
+            android:textSize="26px"
+            android:textColor="@color/new_text_color"
+           android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50px"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="41.2%"
+            android:layout_alignParentBottom="true"
+            android:textSize="40px"
+            android:textColor="#4eb07f"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="95px"
+            android:id="@+id/goodComment"
+            />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中评率"
+            android:layout_alignParentBottom="true"
+            android:textSize="26px"
+            android:textColor="@color/new_text_color"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50px"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="41.2%"
+            android:layout_alignParentBottom="true"
+            android:textSize="40px"
+            android:textColor="#f17834"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="95px"
+            android:id="@+id/middleComment"
+            />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="41.2%"
+            android:layout_alignParentBottom="true"
+            android:textSize="40px"
+            android:textColor="#e67979"
+            android:id="@+id/badComment"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="95px"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="差评率"
+            android:layout_alignParentBottom="true"
+            android:textSize="26px"
+            android:textColor="@color/new_text_color"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50px"
+            />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+
+</com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

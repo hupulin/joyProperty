@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+
+        android:background="@color/page_title_color">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/selector_back_icon"
+            android:contentDescription="@string/app_name" />
+
+        <ImageView
+            android:id="@+id/iv_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_toRightOf="@+id/iv_back"
+            android:background="@drawable/ic_back_line"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text=""
+            android:id="@+id/title"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/new_line_color"
+            android:layout_alignParentBottom="true"
+            >
+
+        </View>
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        >
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:id="@+id/adLayout"
+         android:visibility="gone"
+        >
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/adTitle"
+            app:layout_heightPercent="10.97%w"
+            >
+            <View
+                app:layout_marginTopPercent="6.11%w"
+                app:layout_marginRightPercent="6.11%w"
+                android:layout_width="0dp"
+                app:layout_widthPercent="4.17%w"
+                android:background="@color/home_text_01"
+
+                android:layout_toLeftOf="@+id/title_name"
+                android:layout_height="6px"
+                />
+            <TextView
+                app:layout_marginTopPercent="4.03%w"
+
+                android:id="@+id/title_name"
+                app:layout_textSizePercent="4.31%w"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/home_text_01"
+                android:text="南都特价"/>
+
+            <View
+                app:layout_marginTopPercent="6.11%w"
+                app:layout_marginLeftPercent="6.11%w"
+                android:layout_width="0dp"
+                app:layout_widthPercent="4.17%w"
+                android:layout_toRightOf="@+id/title_name"
+                android:layout_height="6px"
+                android:background="@color/home_text_01"
+                />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:id="@+id/adTime"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/adTitle"
+            app:layout_heightPercent="10.97%w">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="49px"
+                android:text="12"
+                android:minWidth="49px"
+                android:gravity="center"
+                android:padding="5px"
+                android:background="@color/black"
+                android:textColor="@color/white"
+                android:textSize="31px"
+                android:id="@+id/hour"
+                />
+            <TextView
+                android:layout_width="30px"
+                android:layout_height="49px"
+                android:text="时"
+                android:gravity="center"
+                android:layout_marginLeft="3px"
+                android:layout_marginRight="3px"
+                android:textColor="@color/black"
+                android:textSize="31px"
+                />
+            <TextView
+                android:layout_width="49px"
+                android:layout_height="49px"
+                android:text="12"
+                android:gravity="center"
+                android:background="@color/black"
+                android:textColor="@color/white"
+                android:textSize="31px"
+                android:id="@+id/minute"
+                />
+            <TextView
+                android:layout_width="30px"
+                android:layout_height="49px"
+                android:text="分"
+                android:gravity="center"
+                android:layout_marginLeft="3px"
+                android:layout_marginRight="3px"
+                android:textColor="@color/black"
+                android:textSize="31px"
+                />
+            <TextView
+                android:layout_width="49px"
+                android:layout_height="49px"
+                android:text="12"
+                android:gravity="center"
+                android:background="@color/black"
+                android:textColor="@color/white"
+                android:textSize="31px"
+                android:id="@+id/second"
+                />
+            <TextView
+                android:layout_width="30px"
+                android:layout_height="49px"
+                android:text="秒"
+                android:gravity="center"
+                android:layout_marginLeft="3px"
+                android:layout_marginRight="3px"
+                android:textColor="@color/black"
+                android:textSize="31px"
+                />
+            <TextView
+                android:layout_width="30px"
+                android:layout_height="49px"
+                android:text="4"
+                android:gravity="center"
+                android:background="@color/page_title_color"
+                android:textColor="@color/white"
+                android:textSize="31px"
+                android:id="@+id/millSecond"
+                />
+        </com.zhy.autolayout.AutoLinearLayout>
+        <ImageView
+            android:layout_below="@+id/adTime"
+            android:id="@+id/iv_ad"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_heightPercent="25.42%w"
+            android:scaleType="fitXY"
+            />
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+
+    <com.joyhome.nacity.app.shop.adapter.ScrollViewWithListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView"
+        >
+
+    </com.joyhome.nacity.app.shop.adapter.ScrollViewWithListView>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+</com.zhy.autolayout.AutoLinearLayout>

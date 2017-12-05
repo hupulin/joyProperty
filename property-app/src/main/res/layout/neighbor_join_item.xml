@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/interactItemLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<com.zhy.android.percent.support.PercentRelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_heightPercent="23.88%w"
+    >
+    <com.joy.library.utils.HeadImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="18.61%w"
+
+        app:layout_widthPercent="18.61%w"
+        app:layout_marginLeftPercent="3.33%w"
+        app:layout_marginStartPercent="3.33%w"
+        app:layout_marginTopPercent="2.63%w"
+        android:id="@+id/headImage"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/new_text_color"
+        app:layout_textSizePercent="4.34%w"
+        android:id="@+id/joinName"
+        app:layout_marginTopPercent="3.5%w"
+        android:layout_toRightOf="@+id/headImage"
+        app:layout_marginLeftPercent="3.05%w"
+        app:layout_marginStartPercent="3.05%w"
+        android:text="一生有你"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/new_text_color"
+        app:layout_textSizePercent="3.23%w"
+        android:id="@+id/commentedName"
+        android:singleLine="true"
+        android:layout_below="@+id/joinName"
+        app:layout_marginTopPercent="1.5%w"
+        android:layout_toRightOf="@+id/headImage"
+        app:layout_widthPercent="38.61%w"
+        app:layout_marginLeftPercent="3.05%w"
+        app:layout_marginStartPercent="3.05%w"
+        android:text="一生有你"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_marginLeftPercent="3.05%w"
+        android:textColor="@color/gray_text"
+        app:layout_textSizePercent="3.23%w"
+        android:layout_below="@+id/commentedName"
+        app:layout_marginTopPercent="1%w"
+        app:layout_marginRightPercent="6.38%w"
+        app:layout_marginBottomPercent="3.61%w"
+        app:layout_marginStartPercent="3.05%w"
+        android:layout_toRightOf="@+id/headImage"
+        android:id="@+id/joinTime"
+        android:text="2016.10.02 11 65参与"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="17.22%w"
+        android:layout_alignParentRight="true"
+        app:layout_widthPercent="28.33%w"
+        android:background="@color/list_divide_line"
+        android:textColor="@color/new_text_color"
+        app:layout_textSizePercent="3.23%w"
+        android:id="@+id/commentContent"
+        android:maxLines="4"
+        app:layout_marginTopPercent="4.16%w"
+        app:layout_marginRightPercent="5%w"
+        app:layout_marginEndPercent="5%w"
+android:paddingTop="5dp"
+android:paddingLeft="5dp"
+        app:layout_marginLeftPercent="3.05%w"
+        android:text="一生有你"/>
+    <com.joy.library.utils.HeadImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_heightPercent="5%w"
+        app:layout_widthPercent="5%w"
+        app:layout_marginLeftPercent="18%w"
+        app:layout_marginStartPercent="18%w"
+        app:layout_marginTopPercent="15%w"
+        android:id="@+id/verified"
+        android:background="@drawable/verify01"
+        />
+</com.zhy.android.percent.support.PercentRelativeLayout>P
+</com.zhy.android.percent.support.PercentLinearLayout>

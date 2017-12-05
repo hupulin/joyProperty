@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/feedback_evaluation_bg">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_marginLeft="10.5dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_corners_bg"
+        android:id="@+id/relativeLayout"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/tv_eva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28px"
+            android:layout_marginTop="34px"
+            android:text="填写差评原因:"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/evaluation_close"
+            android:layout_width="41px"
+            android:layout_height="31px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="28px"
+            android:contentDescription="@string/app_name"
+            android:layout_marginTop="34px"
+            android:background="@drawable/back_feedback" />
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="90px"
+            android:layout_height="90px"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@string/app_name"
+          />
+        <TextView
+            android:id="@+id/my_evaluation_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_eva"
+            android:layout_marginLeft="28px"
+            android:layout_marginTop="36px"
+            android:maxLength="100"
+            android:text="评价原因"
+            android:textColor="#666666"
+            android:textSize="24px" />
+
+
+        <com.joy.property.utils.flowlayout.TagFlowLayout
+            android:id="@+id/flowlayout"
+            android:layout_marginTop="14px"
+            app:max_select="-1"
+            android:layout_marginLeft="21px"
+            android:layout_below="@+id/my_evaluation_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+        </com.joy.property.utils.flowlayout.TagFlowLayout>
+
+
+        <TextView
+            android:id="@+id/other_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/flowlayout"
+            android:layout_marginLeft="28px"
+            android:layout_marginTop="28px"
+            android:maxLength="100"
+            android:text="其他原因"
+            android:textColor="#666666"
+            android:textSize="24px" />
+        <EditText
+            android:id="@+id/evaluation_content"
+            android:layout_width="match_parent"
+            android:layout_height="158px"
+            android:layout_below="@+id/other_content"
+            android:layout_marginTop="28px"
+            android:background="@drawable/dialogtextview_comment"
+            android:gravity="top"
+            android:maxLength="199"
+            android:textSize="18px"
+            android:layout_marginRight="28px"
+            android:layout_marginLeft="28px"
+            android:hint="@string/evaluation_edit_hint"
+            android:paddingLeft="12px"
+            android:paddingTop="10px"
+            android:textColorHint="#d9d9d9"
+            android:textColor="#464646" />
+        <Button
+
+            android:id="@+id/evaluation_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15px"
+            android:text="提交"
+            android:textSize="17sp"
+            android:layout_below="@+id/evaluation_content"
+            android:textColor="@color/home_item_color"
+            android:padding="5dp"
+            android:background="@drawable/dialogbutton_corners_bg"
+             />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

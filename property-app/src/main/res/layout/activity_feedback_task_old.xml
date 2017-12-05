@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color08"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/page_title_color_new"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_back"
+            android:contentDescription="@string/app_name" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_centerHorizontal="true"
+            android:text="进行反馈"
+            android:textColor="@color/home_item_color"
+            android:textSize="18sp" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_below="@+id/title"
+        android:layout_above="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:background="@color/white"
+        >
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:background="@color/home_item_color"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:background="@color/home_item_color"
+            android:gravity="top"
+            android:hint="@string/task_feedback_hint"
+            android:maxLength="200"
+            android:minHeight="165dp"
+            android:paddingLeft="25dp"
+            android:paddingTop="16dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="17dp"
+            android:text="还可以输入200字"
+            android:textColor="#bebebe" />
+
+
+
+
+
+    </LinearLayout>
+    <com.joy.property.task.MyGridView
+        android:id="@+id/gridView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="@dimen/space_size"
+
+        android:numColumns="4"
+        android:layout_marginTop="20dp"
+        android:verticalSpacing="@dimen/space_size" />
+    <View
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1" />
+    </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/selector_submit_bg"
+        android:text="提交"
+        android:textColor="@color/home_item_color"
+        android:textSize="19sp" />
+
+</com.zhy.autolayout.AutoRelativeLayout>

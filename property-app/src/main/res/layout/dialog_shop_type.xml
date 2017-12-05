@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/pup_layout"
+>
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/transparent"
+        app:layout_heightPercent="12.22%w"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/new_line_color">
+
+    </View>
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layout_marginLeftPercent="3.75%w"
+            app:layout_marginTopPercent="4.86%w"
+            app:layout_marginBottomPercent="1.11%w"
+
+            android:id="@+id/channel_group"
+            android:columnCount="3"
+            android:rowCount="3"
+            android:alpha="0.9"
+            android:background="@color/white">
+
+        </GridLayout>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <com.zhy.android.percent.support.PercentRelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#5f000000"
+        />
+</com.zhy.android.percent.support.PercentLinearLayout>
+

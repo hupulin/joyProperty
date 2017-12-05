@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+
+
+
+        android:background="@color/new_line_color">
+
+    </View>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_marginLeftPercent="4.44%w"
+    android:text="包裹一"
+    android:textColor="@color/page_title_color"
+    app:layout_marginTopPercent="3.05%w"
+    app:layout_textSizePercent="4.44%w"
+    android:id="@+id/expressName"/>
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ll"
+        app:layout_marginTopPercent="10.27%w"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="包裹一"
+            app:layout_marginLeftPercent="4.44%w"
+            android:textColor="#6a6a6a"
+
+            app:layout_textSizePercent="3.33%w"
+            android:id="@+id/expressCompany"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="包裹一"
+            android:textColor="#6a6a6a"
+
+            app:layout_textSizePercent="3.33%w"
+            android:id="@+id/deliverName"/>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/ll"
+        android:id="@+id/ll2"
+        app:layout_marginTopPercent="1.94%w"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="包裹一"
+            app:layout_marginLeftPercent="4.44%w"
+            app:layout_textSizePercent="3.33%w"
+            android:textColor="#6a6a6a"
+
+            android:id="@+id/expressNumber"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="包裹一"
+            app:layout_textSizePercent="3.33%w"
+            android:textColor="#6a6a6a"
+
+            app:layout_marginBottomPercent="3%w"
+            android:id="@+id/phone"/>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/ll2"
+        app:layout_marginLeftPercent="5%w"
+        android:id="@+id/divideLine"
+        android:background="@color/new_line_color">
+
+    </View>
+</com.zhy.android.percent.support.PercentRelativeLayout>

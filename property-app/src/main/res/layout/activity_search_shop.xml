@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:id="@+id/title_name"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="11.11%w"
+        android:background="@color/page_title_color">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_heightPercent="11.11%w"
+            app:layout_widthPercent="11.11%w"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/selector_back_icon"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:text="搜索"
+            android:id="@+id/titleText"
+            android:textColor="@color/white"
+            app:layout_textSizePercent="4.44%w" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/new_line_color"
+       />
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_heightPercent="12.22%w"
+        >
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_search_shop"
+        app:layout_marginTopPercent="2.08%w"
+        app:layout_marginLeftPercent="4.86%w"
+        app:layout_widthPercent="63.75%w"
+        app:layout_heightPercent="8.06%w"
+        >
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_heightPercent="5.01%w"
+            app:layout_widthPercent="5.01%w"
+            android:layout_centerVertical="true"
+            android:background="@drawable/shop_search_ic"
+            app:layout_marginLeftPercent="3.92%w"
+            />
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_toRightOf="@+id/iv_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:hint="搜索你想要的内容"
+            app:layout_marginLeftPercent="1.74%w"
+            app:layout_textSizePercent="5.22%w"
+            android:textColorHint="#999999"
+            android:textColor="#999999"
+            />
+</com.zhy.android.percent.support.PercentRelativeLayout>
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#353535"
+            android:text="取消"
+            app:layout_marginTopPercent="3.89%w"
+            app:layout_marginRightPercent="4.17%w"
+            app:layout_textSizePercent="3.33%w"
+            android:layout_alignParentRight="true"
+            />
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:visibility="gone"
+    >
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/magnifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_marginTopPercent="27.08%w"
+        app:layout_heightPercent="26.81%w"
+        app:layout_widthPercent="27.08%w"
+        android:background="@drawable/ic_magnifier"
+        />
+    <TextView
+        android:layout_below="@+id/magnifier"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#999999"
+        app:layout_marginTopPercent="9.44%w"
+        app:layout_textSizePercent="4.44%w"
+        android:layout_gravity="center_horizontal"
+        android:text="没有你找的结果"/>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/new_line_color"
+        />
+    <com.zhy.android.percent.support.PercentRelativeLayout
+
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="12.22%w"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_textSizePercent="3.75%w"
+
+            app:layout_marginLeftPercent="72.91%w"
+            android:layout_centerVertical="true"
+            android:textColor="@color/new_text_color"
+            android:id="@+id/sales"
+            android:text="销量"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_textSizePercent="3.75%w"
+            app:layout_marginLeftPercent="19.44%w"
+            android:layout_centerVertical="true"
+            android:textColor="@color/home_text_01"
+            android:id="@+id/newGoods"
+            android:text="新品"/>
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_marginLeftPercent="46.25%w">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_textSizePercent="32.14%h"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:textColor="@color/new_text_color"
+                android:id="@+id/price"
+
+                android:text="价格"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_heightPercent="23.8%h"
+                app:layout_widthPercent="16.66%h"
+                android:background="@drawable/shop_price_up"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/priceIcon"
+                app:layout_marginLeftPercent="9.52%h"
+                android:layout_gravity="center_vertical"
+                />
+
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/new_line_color"
+            >
+
+        </View>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_heightPercent="2.34375%w">
+
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_heightPercent="1.66%w"
+        android:background="#f7f7f7"
+        >
+
+    </View>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#d3d3d3"
+        android:visibility="gone"
+        android:layout_below="@+id/selling_right_four"
+
+        >
+    </View>
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listView"
+            >
+
+        </com.handmark.pulltorefresh.library.PullToRefreshListView>
+<com.zhy.android.percent.support.PercentLinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_marginTopPercent="28.05%w"
+    android:orientation="vertical"
+    android:visibility="gone"
+    android:id="@+id/noSearch"
+    >
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_heightPercent="26.80%w"
+        app:layout_widthPercent="27.08%w"
+        app:layout_marginTopPercent="2.18%w"
+         android:layout_gravity="center_horizontal"
+        android:background="@drawable/bg_search_shop01"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/new_line_color"
+        app:layout_textSizePercent="4.72%w"
+        app:layout_marginTopPercent="10.27%w"
+        android:text="没有您要找的结果"/>
+</com.zhy.android.percent.support.PercentLinearLayout>
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+
+
+
+</com.zhy.android.percent.support.PercentLinearLayout>

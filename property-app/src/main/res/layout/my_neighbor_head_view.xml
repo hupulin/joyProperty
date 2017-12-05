@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+
+        android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/pageImage"
+        app:layout_heightPercent="46.52%w"
+        android:background="@drawable/main_page_bg"
+        />
+        <com.joy.library.utils.HeadImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="22.77%w"
+
+            app:layout_widthPercent="22.77%w"
+            app:layout_marginLeftPercent="3.47%w"
+            app:layout_marginTopPercent="21.94%w"
+            android:id="@+id/headImageBg"
+            android:background="@drawable/head_view_bg"
+            />
+        <com.joy.library.utils.HeadImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="21%w"
+android:scaleType="fitXY"
+            app:layout_widthPercent="21%w"
+            app:layout_marginLeftPercent="4.26%w"
+            app:layout_marginTopPercent="22.23%w"
+            android:id="@+id/headImage"
+android:background="@drawable/head_image"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_toRightOf="@+id/headImageBg"
+            app:layout_marginLeftPercent="3.33%w"
+            android:id="@+id/nickName"
+            app:layout_marginTopPercent="30.18%w"
+            app:layout_textSizePercent="4.4%w"
+            android:text=""/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="6.8%w"
+            android:layout_alignParentRight="true"
+android:visibility="gone"
+            app:layout_widthPercent="12.08%w"
+            app:layout_marginRightPercent="4.72%w"
+            app:layout_marginTopPercent="37.81%w"
+            android:id="@+id/careOther"
+            android:background="@drawable/care_other_icon"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cancelCare"
+            android:layout_alignParentRight="true"
+            app:layout_marginTopPercent="37.81%w"
+            android:textColor="@color/white"
+            app:layout_textSizePercent="4.16%w"
+       android:visibility="gone"
+            app:layout_marginRightPercent="6.52%w"
+            app:layout_marginBottomPercent="3.05%w"
+            android:text="取消关注"/>
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_below="@+id/pageImage"
+        app:layout_heightPercent="10.83%w"
+
+android:id="@+id/tab"
+        >
+
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_widthPercent="20.2%w"
+            android:id="@+id/join"
+            app:layout_marginLeftPercent="14.11%w"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray_text"
+                android:layout_centerVertical="true"
+
+                app:layout_textSizePercent="38.5%h"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="参与"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/red_point_icon"
+                app:layout_heightPercent="18%h"
+                app:layout_widthPercent="18%h"
+                app:layout_marginTopPercent="25%h"
+                android:text=""
+                android:id="@+id/joinPoint"
+android:visibility="gone"
+                app:layout_textSizePercent="20%h"
+                android:gravity="center"
+                android:textColor="@color/white"
+                app:layout_marginLeftPercent="120%h"
+
+             />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_widthPercent="20.2%w"
+            android:id="@+id/care"
+            app:layout_marginLeftPercent="39.38%w"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray_text"
+                android:layout_centerVertical="true"
+                app:layout_textSizePercent="38.5%h"
+                android:layout_centerInParent="true"
+                android:text="关注"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/red_point_icon"
+
+                android:text=""
+                app:layout_heightPercent="18%h"
+                app:layout_widthPercent="18%h"
+                app:layout_marginTopPercent="25%h"
+                android:id="@+id/carePoint"
+                android:visibility="gone"
+                app:layout_textSizePercent="20%h"
+                android:gravity="center"
+                android:textColor="@color/white"
+                app:layout_marginLeftPercent="120%h"
+     />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_widthPercent="20.2%w"
+            app:layout_marginLeftPercent="64.38%w"
+            android:id="@+id/fans"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray_text"
+                android:layout_centerVertical="true"
+                app:layout_textSizePercent="38.5%h"
+                android:layout_centerInParent="true"
+                android:text="粉丝"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/red_point_icon"
+                app:layout_heightPercent="18%h"
+                app:layout_widthPercent="18%h"
+                app:layout_marginTopPercent="25%h"
+                android:text=""
+                android:id="@+id/investigatePoint"
+                android:visibility="gone"
+                app:layout_textSizePercent="20%h"
+                android:gravity="center"
+                android:textColor="@color/white"
+                app:layout_marginLeftPercent="120%h"
+           />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d4d4d4"
+            android:layout_marginBottom="1.5dp"
+            android:layout_alignParentBottom="true"
+            >
+
+        </View>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+</com.zhy.android.percent.support.PercentRelativeLayout>
+
+</com.zhy.android.percent.support.PercentLinearLayout>

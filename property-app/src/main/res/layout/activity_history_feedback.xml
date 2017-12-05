@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:background="@color/white"
+    >
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/page_title_color_new">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_back"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_centerHorizontal="true"
+            android:text="@string/task_history_feedback"
+            android:textColor="@color/home_item_color"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <ScrollView
+
+        android:layout_below="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:id="@+id/scrollView"
+        >
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/icon_01"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="21dp"
+        android:layout_toRightOf="@+id/icon"
+        android:text="我的反馈 :"
+        android:textColor="@color/text_color07"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/title"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="21dp"
+        android:drawableLeft="@drawable/time_ic"
+        android:drawablePadding="4dp"
+        android:text="14:29"
+        android:textColor="@color/text_color02" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="21dp"
+        android:layout_toLeftOf="@+id/time"
+        android:text="2014.12.12"
+        android:textColor="@color/text_color02" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/icon"
+        android:layout_marginLeft="31dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="13dp"
+        android:textColor="@color/text_color04"
+        android:textSize="14sp" />
+
+    <com.wefika.flowlayout.FlowLayout
+        android:id="@+id/flowLayout"
+        android:layout_marginLeft="40px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/content"
+        android:orientation="horizontal"/>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="68px"
+        android:background="#f7f7f7"
+        android:layout_marginTop="20px"
+        android:id="@+id/rl_evaluate"
+        android:layout_below="@+id/flowLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+<ImageView
+    android:layout_width="21px"
+    android:layout_height="27px"
+    android:background="@drawable/bad_evaluate"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="25px"/>
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="64px"
+            android:layout_width="wrap_content"
+            android:text="对业主的评价"
+            android:layout_height="wrap_content"
+            android:textColor="#464646"
+            android:textSize="28px"
+            />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.joy.property.utils.flowlayout.TagFlowLayout
+        android:id="@+id/flowlayoutother"
+        android:layout_marginTop="16px"
+        android:layout_marginLeft="24px"
+        android:layout_below="@+id/rl_evaluate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    </com.joy.property.utils.flowlayout.TagFlowLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30px"
+        android:id="@+id/rl_remark"
+        android:layout_below="@+id/flowlayoutother">
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="40px"
+         android:textColor="#999999"
+         android:textSize="20px"
+         android:text="备注"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_centerVertical="true"
+            android:background="#e9e9e9"
+            android:layout_marginLeft="86px"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <TextView
+        android:id="@+id/remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_remark"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="30px"
+        android:textColor="@color/text_color04"
+        android:textSize="24px" />
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_below="@+id/remark"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </ScrollView>
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

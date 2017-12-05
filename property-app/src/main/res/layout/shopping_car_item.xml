@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="1.66%w"
+        android:id="@+id/activityLine"
+        android:background="#f1f1f1"
+        android:visibility="gone"
+        >
+
+    </View>
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/activityLine"
+        android:id="@+id/shopInfo"
+
+        android:background="@color/white"
+        app:layout_heightPercent="10.83%w">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/new_line_color"
+            android:layout_alignParentBottom="true"
+            />
+
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/activityLine"
+            app:layout_widthPercent="12.77%w"
+
+
+            >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_heightPercent="39.13%w"
+                app:layout_widthPercent="39.13%w"
+                android:layout_centerVertical="true"
+                app:layout_marginLeftPercent="3.47%w"
+
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                android:background="@drawable/shopping_car_circle"/>
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="线上超市"
+            android:textColor="#353535"
+            android:id="@+id/storeName"
+            android:layout_centerVertical="true"
+            app:layout_marginLeftPercent="3.47%w"
+            app:layout_textSizePercent="3.75%w"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_widthPercent="30%w"
+            android:gravity="right|center_vertical"
+            app:layout_paddingRightPercent="4.31%w"
+            android:textColor="#353535"
+            android:id="@+id/tv_edit"
+            android:text="编辑"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:layout_marginLeftPercent="12.22%w"
+            app:layout_textSizePercent="3.75%w"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="4.02%w"
+            app:layout_widthPercent="2.36%w"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/storeName"
+            app:layout_marginLeftPercent="2.16%w"
+            android:id="@+id/storeNameArrow"
+            android:visibility="gone"
+            android:background="@drawable/shopping_car_arrow"/>
+
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_widthPercent="50%w"
+            android:id="@+id/getCouponLayout"
+            android:layout_alignParentRight="true"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="领券"
+                android:textColor="#353535"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/coupons"
+                app:layout_marginRightPercent="6.94%w"
+                app:layout_textSizePercent="6.66%w"
+                />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/shopInfo"
+        android:id="@+id/goodInfo"
+        app:layout_heightPercent="27.64%w"
+        android:background="@color/white"
+        >
+        <!--android:background="#f8f8f8"-->
+
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_heightPercent="27.64%w"
+            android:background="@color/transparent"
+            android:id="@+id/editSpecification"
+            android:visibility="gone"
+            >
+            <TextView
+                app:layout_marginTopPercent="4.31%w"
+                app:layout_marginRightPercent="5.55%w"
+                android:textColor="#999999"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已选择：1380ml"
+                android:layout_alignParentRight="true"
+                android:drawableRight="@drawable/arrow_up"
+                android:id="@+id/editSelectSpecification"
+                />
+
+            <ImageView
+                android:layout_alignParentRight="true"
+                app:layout_marginBottomPercent="4.44%w"
+                android:layout_alignParentBottom="true"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_heightPercent="9.72%w"
+                app:layout_widthPercent="13.19%w"
+                android:background="@drawable/purchase_add_new"
+                android:id="@+id/purchaseAdd"
+                app:layout_marginRightPercent="4.31%w"
+
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_heightPercent="9.72%w"
+                app:layout_widthPercent="18.33%w"
+                android:textColor="@color/new_text_color"
+                android:background="@drawable/purchase_number_bg_new"
+                android:gravity="center"
+                android:id="@+id/purchaseNumber"
+                android:text="1"
+                app:layout_marginBottomPercent="4.44%w"
+                android:layout_alignParentBottom="true"
+                app:layout_textSizePercent="3.2%w"
+                android:layout_toLeftOf="@+id/purchaseAdd"
+                />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_toLeftOf="@+id/purchaseNumber"
+                app:layout_marginBottomPercent="4.44%w"
+                android:layout_alignParentBottom="true"
+                app:layout_heightPercent="9.72%w"
+                app:layout_widthPercent="13.19%w"
+                android:background="@drawable/purchase_reduce_new"
+                android:id="@+id/purchaseReduce"
+                />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_widthPercent="12.77%w"
+            android:id="@+id/selectGoodsLayout"
+
+            >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_heightPercent="39.13%w"
+                app:layout_widthPercent="39.13%w"
+                android:background="@drawable/shopping_car_circle"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/goodsSelect"
+
+                />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_heightPercent="4.30%w"
+            app:layout_widthPercent="9.58%w"
+            android:background="@drawable/shopping_car_unuse"
+            app:layout_marginLeftPercent="1.38%w"
+            app:layout_marginTopPercent="11.11%w"
+            android:visibility="gone"
+            android:id="@+id/canUse"
+            />
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_heightPercent="21.80%w"
+            app:layout_widthPercent="21.80%w"
+
+            app:layout_marginLeftPercent="12.77%w"
+            app:layout_marginTopPercent="3.05%w"
+            android:background="@drawable/shape_iv_bg"
+            android:id="@+id/goodsImageLayout"
+            >
+            <ImageView
+                android:layout_width="155px"
+                android:layout_height="155px"
+                android:layout_centerInParent="true"
+                android:id="@+id/goodsImage"
+                />
+        </com.zhy.autolayout.AutoRelativeLayout>
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/goodsImageLayout"
+            app:layout_marginLeftPercent="2.78%w"
+            app:layout_marginTopPercent="4%w"
+            android:id="@+id/noEditLayout"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="孤品代购古着罕见罕见可爱别致"
+                android:maxLines="2"
+
+                android:id="@+id/goodsName"
+                android:textColor="#353535"
+                android:singleLine="true"
+                android:textSize="27px"
+
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="配送费:"
+                android:textSize="23px"
+                app:layout_marginLeftPercent="2.78%w"
+                android:layout_marginTop="10px"
+                android:textColor="#999999"
+                android:id="@+id/trafficExpense"
+                android:layout_below="@+id/label"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="灰绿色"
+                android:id="@+id/label"
+                android:layout_below="@+id/goodsName"
+                android:textSize="23px"
+                app:layout_marginLeftPercent="2.69%w"
+                android:layout_marginTop="10px"
+                android:textColor="#999999"
+
+                android:layout_toRightOf="@+id/goodsImageLayout"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/carAdd"
+                app:layout_textSizePercent="3.75%w"
+                android:textColor="#363636"
+                android:text="1"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                app:layout_marginTopPercent="4.86%w"
+                android:layout_marginRight="32px"
+                android:id="@+id/carNumber"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/carNumber"
+                app:layout_textSizePercent="3.75%w"
+                android:textColor="#363636"
+                android:text="x"
+                android:gravity="center"
+
+                app:layout_marginTopPercent="4.86%w"
+
+
+
+                />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="890.00"
+            app:layout_textSizePercent="3.47%w"
+            app:layout_marginLeftPercent="3.19%w"
+            app:layout_marginTopPercent="19.78%w"
+            android:textColor="@color/new_text_color"
+            android:id="@+id/price"
+            android:layout_toRightOf="@+id/goodsImageLayout"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_heightPercent="3.75%w"
+            app:layout_widthPercent="9.58%w"
+            android:textStyle="bold"
+            app:layout_marginTopPercent="22.22%w"
+            app:layout_marginLeftPercent="2.05%w"
+            android:text="8.5折"
+            android:layout_toRightOf="@+id/price"
+            android:id="@+id/discount"
+            android:gravity="center"
+            app:layout_textSizePercent="2.40%w"
+            android:textColor="@color/white"
+            android:background="@drawable/shop_onsell_bg"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x1"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            app:layout_textSizePercent="2.77%w"
+            app:layout_marginRightPercent="3.47%w"
+            app:layout_marginBottomPercent="6.38%w"
+            android:id="@+id/goodsNumber"
+            android:visibility="gone"
+            />
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/new_line_color"
+
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/divideLine"
+            >
+        </View>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/new_line_color"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"
+            android:id="@+id/divideLine_01"
+            >
+        </View>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="13.05%w"
+
+        android:id="@+id/bulkLayout"
+        android:layout_below="@+id/goodInfo"
+        >
+        <ImageView
+            android:layout_width="36px"
+            android:layout_height="36px"
+
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="28px"
+            android:id="@+id/shopSelect"
+            android:background="@drawable/shopping_car_circle"/>
+        <TextView
+            android:layout_width="200px"
+            android:layout_height="match_parent"
+            android:text="全选"
+            android:id="@+id/selectStoreLayout"
+            android:layout_centerVertical="true"
+
+            android:gravity="center"
+            android:textColor="#353535"
+
+            app:layout_textSizePercent="30px"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="合计:"
+            android:id="@+id/tv"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            app:layout_marginLeftPercent="26.38%w"
+            android:textColor="#999999"
+            app:layout_textSizePercent="3.88%w"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¥"
+            app:layout_marginTopPercent="4.75%w"
+            android:textColor="@color/page_title_color"
+            android:textSize="29px"
+            android:id="@+id/priceLeftIcon"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/goodsPrice"
+            android:layout_marginRight="6px"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0."
+            android:layout_centerVertical="true"
+            android:textColor="@color/page_title_color"
+            app:layout_textSizePercent="3.88%w"
+            android:id="@+id/priceLeft"
+            android:visibility="gone"
+            android:layout_toRightOf="@+id/priceLeftIcon"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:layout_centerVertical="true"
+            android:textColor="@color/page_title_color"
+            android:textSize="29px"
+            android:layout_toLeftOf="@+id/containTraffic"
+            android:id="@+id/goodsPrice"
+
+            android:layout_marginRight="6px"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(不含运费)"
+            android:layout_toLeftOf="@+id/balanceLayout"
+            android:layout_centerVertical="true"
+            android:textColor="#999999"
+            android:textSize="22px"
+            android:layout_marginRight="20px"
+            android:id="@+id/containTraffic"
+            app:layout_marginLeftPercent="53.05%w"
+
+            />
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="200px"
+            android:layout_height="match_parent"
+
+            android:layout_alignParentRight="true"
+            android:background="@color/gray_text"
+            app:layout_marginLeftPercent="55.55%w"
+            android:id="@+id/balanceLayout"
+            >
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+
+                    android:gravity="center"
+                    android:text="结算("
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/white"
+                    android:layout_centerInParent="true"
+                    app:layout_textSizePercent="29.78%h"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="0"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/white"
+                    android:layout_centerInParent="true"
+                    app:layout_textSizePercent="29.78%h"
+                    android:id="@+id/goodsCount"
+
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text=")"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/white"
+                    android:layout_centerInParent="true"
+                    app:layout_textSizePercent="29.78%h"
+
+
+                    />
+            </com.zhy.android.percent.support.PercentLinearLayout>
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/new_line_color"
+
+
+            android:id="@+id/divideLine2"
+            android:layout_alignParentBottom="true"
+            >
+        </View>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.android.percent.support.PercentRelativeLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/commentLayout">
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/rl"
+        app:layout_marginTopPercent="4.16%w"
+        app:layout_heightPercent="9.02%w">
+        <com.joy.library.utils.HeadImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+            app:layout_widthPercent="9.02%w"
+            app:layout_marginLeftPercent="4.16%w"
+            app:layout_marginRightPercent="3.33%w"
+            android:background="@drawable/my_family_icon"
+            android:id="@+id/head_image"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TODD"
+            android:textColor="@color/new_text_color"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/head_image"
+            app:layout_marginLeftPercent="1.66%w"
+            app:layout_textSizePercent="4.32%w"
+            android:id="@+id/commenter_name"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评价时间:2016-06-03 09:39"
+            android:layout_toRightOf="@+id/head_image"
+            app:layout_marginLeftPercent="1.66%w"
+            app:layout_textSizePercent="2.77%w"
+            android:id="@+id/comment_time"
+            android:layout_alignParentBottom="true"
+            android:textColor="#999999"
+            />
+
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="好评"
+        android:layout_alignParentRight="true"
+        app:layout_marginRightPercent="2.66%w"
+        app:layout_textSizePercent="4.06%w"
+        android:id="@+id/comment_result"
+        app:layout_marginTopPercent="4.16%w"
+        android:textColor="#353535"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#353535"
+        android:layout_below="@+id/rl"
+        app:layout_marginLeftPercent="4.16%w"
+        app:layout_textSizePercent="3.47%w"
+        app:layout_marginTopPercent="3.47%w"
+        android:id="@+id/comment_content"
+        app:layout_marginRightPercent="2.66%w"
+        />
+    <GridLayout
+        android:layout_below="@+id/comment_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="24.3%w"
+        android:id="@+id/gridView"
+        app:layout_marginTopPercent="5.55%w"
+        android:visibility="gone"
+        app:layout_marginLeftPercent="4.16%w"
+        android:columnCount="3">
+
+    </GridLayout>
+    <View
+        android:layout_below="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="4.16%w"
+        >
+
+    </View>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <com.joyhome.nacity.app.util.htmlText.HtmlTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/htmlText"
+        app:layout_marginTopPercent="2.5%w"
+
+        />
+</com.zhy.android.percent.support.PercentRelativeLayout>

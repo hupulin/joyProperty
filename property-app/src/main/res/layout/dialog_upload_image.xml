@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7F000000"
+    android:alpha="100"
+    >
+
+
+    <Button
+        android:id="@+id/btn_camera"
+        android:layout_width="match_parent"
+        android:text="相机拍照"
+        android:textSize="17sp"
+        android:layout_above="@+id/line2"
+        android:textColor="@color/home_text_color"
+        android:background="@color/home_item_color"
+        android:layout_height="47dp" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_above="@+id/btn_album"
+        android:layout_width="match_parent"
+        android:background="#d7d7d7"
+        android:layout_height="0.5dp" />
+
+    <Button
+        android:id="@+id/btn_album"
+        android:layout_width="match_parent"
+        android:text="相册上传"
+        android:textSize="17sp"
+        android:layout_above="@+id/line"
+        android:textColor="@color/home_text_color"
+        android:background="@color/home_item_color"
+        android:layout_height="47dp" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:background="#343434"
+        android:layout_above="@+id/btn_cancel"
+        android:layout_height="7dp" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:text="取消"
+        android:textSize="17sp"
+        android:textColor="#97948f"
+        android:layout_alignParentBottom="true"
+        android:background="@color/home_item_color"
+        android:layout_height="47dp" />
+</RelativeLayout>
+

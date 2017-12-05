@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/feedback_evaluation_bg">
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="169dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/dialog_corners_bg">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="400px"
+            android:id="@+id/layout"
+            android:layout_centerHorizontal="true"
+            android:layout_height="128dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="任务大厅有新增任务喔，\n请及时派单 ! ! !"
+                android:textColor="#5b4d4c"
+                android:id="@+id/title_name"
+                android:layout_centerInParent="true"
+                android:textSize="18sp" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+           android:layout_below="@+id/layout"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_go"
+                android:layout_width="wrap_content"
+                android:layout_height="41dp"
+                android:layout_weight="1"
+                android:background="@drawable/dialogbutton_corners_bg_left"
+                android:text="前往"
+                android:layout_marginRight="1dp"
+                android:textColor="@color/home_item_color"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/btn_close"
+                android:layout_width="wrap_content"
+                android:layout_height="41dp"
+                android:layout_weight="1"
+                android:background="@drawable/dialogbutton_corners_bg_right"
+                android:text="关闭"
+                android:textColor="@color/home_item_color"
+                android:textSize="17sp" />
+        </LinearLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,174 @@
+{
+    "android_gradle_plugin_version": "1.3.0",
+    "apk_path": "E:\\YuePro\\property-app\\build\\outputs\\apk\\property-app-debug.apk",
+    "apt": {
+        
+    },
+    "apt_libraries": {
+        "dagger": false,
+        "butterknife": false
+    },
+    "auto_dependency": true,
+    "build_cache_dir": "E:\\YuePro\\property-app\\build\\freeline",
+    "build_directory": "E:\\YuePro\\property-app\\build",
+    "build_script": "gradlew.bat :property-app:assembleDebug",
+    "build_script_work_directory": "",
+    "build_tools_directory": "C:\\Users\\xz\\AppData\\Local\\Android\\sdk\\build-tools\\23.0.1",
+    "build_tools_version": "23.0.1",
+    "compile_sdk_directory": "C:\\Users\\xz\\AppData\\Local\\Android\\sdk\\platforms\\android-23",
+    "compile_sdk_version": "android-23",
+    "databinding": [
+        
+    ],
+    "databinding_compiler_jar": "",
+    "databinding_modules": [
+        
+    ],
+    "debug_package": "com.joy.property",
+    "exclude_dep_res_paths": [
+        
+    ],
+    "extra_dep_res_paths": [
+        
+    ],
+    "freeline_cache_dir": "E:\\YuePro",
+    "freeline_gradle_plugin_version": "0.8.4",
+    "java_home": "C:\\Program Files\\Java\\jdk1.8.0_60",
+    "launcher": "com.joy.property.login.SplashActivity",
+    "main_assets_directory": [
+        "E:\\YuePro\\property-app\\src\\debug\\assets",
+        "E:\\YuePro\\property-app\\src\\main\\assets"
+    ],
+    "main_jniLibs_directory": [
+        "E:\\YuePro\\property-app\\src\\debug\\jniLibs",
+        "E:\\YuePro\\property-app\\libs"
+    ],
+    "main_jni_directory": [
+        "E:\\YuePro\\property-app\\src\\debug\\jni",
+        "E:\\YuePro\\property-app\\src\\main\\jni"
+    ],
+    "main_manifest_path": "E:\\YuePro\\property-app\\src\\main\\AndroidManifest.xml",
+    "main_project_dir": "property-app",
+    "main_project_name": "property-app",
+    "main_r_path": "E:\\YuePro\\property-app\\build\\generated\\source\\r\\debug\\R.java",
+    "main_res_directory": [
+        "E:\\YuePro\\property-app\\src\\debug\\res",
+        "E:\\YuePro\\property-app\\src\\main\\res"
+    ],
+    "main_src_directory": [
+        "E:\\YuePro\\property-app\\src\\debug\\java",
+        "E:\\YuePro\\property-app\\src\\main\\java"
+    ],
+    "module_dependencies": {
+        "common-library": [
+            "jinyi-library"
+        ],
+        "jinyi-library": [
+            
+        ],
+        "property-app": [
+            "jinyi-library",
+            "common-library"
+        ]
+    },
+    "modules": [
+        {
+            "name": "property-app",
+            "path": "E:\\YuePro\\property-app"
+        },
+        {
+            "name": "jinyi-library",
+            "path": "E:\\YuePro\\jinyi-library"
+        },
+        {
+            "name": "common-library",
+            "path": "E:\\YuePro\\common-library"
+        }
+    ],
+    "package": "com.joy.property",
+    "product_flavor": "",
+    "project_source_sets": {
+        "common-library": {
+            "main_assets_directory": [
+                "E:\\YuePro\\common-library\\src\\release\\assets",
+                "E:\\YuePro\\common-library\\assets"
+            ],
+            "main_jniLibs_directory": [
+                "E:\\YuePro\\common-library\\src\\release\\jniLibs",
+                "E:\\YuePro\\common-library\\libs"
+            ],
+            "main_jni_directory": [
+                "E:\\YuePro\\common-library\\src\\release\\jni",
+                "E:\\YuePro\\common-library\\src\\main\\jni"
+            ],
+            "main_manifest_path": "E:\\YuePro\\common-library\\src\\main\\AndroidManifest.xml",
+            "main_res_directory": [
+                "E:\\YuePro\\common-library\\src\\release\\res",
+                "E:\\YuePro\\common-library\\src\\main\\res"
+            ],
+            "main_src_directory": [
+                "E:\\YuePro\\common-library\\src\\release\\java",
+                "E:\\YuePro\\common-library\\src\\main\\java"
+            ]
+        },
+        "jinyi-library": {
+            "main_assets_directory": [
+                "E:\\YuePro\\jinyi-library\\src\\release\\assets",
+                "E:\\YuePro\\jinyi-library\\src\\main\\assets"
+            ],
+            "main_jniLibs_directory": [
+                "E:\\YuePro\\jinyi-library\\src\\release\\jniLibs",
+                "E:\\YuePro\\jinyi-library\\src\\main\\jniLibs"
+            ],
+            "main_jni_directory": [
+                "E:\\YuePro\\jinyi-library\\src\\release\\jni",
+                "E:\\YuePro\\jinyi-library\\src\\main\\jni"
+            ],
+            "main_manifest_path": "E:\\YuePro\\jinyi-library\\src\\main\\AndroidManifest.xml",
+            "main_res_directory": [
+                "E:\\YuePro\\jinyi-library\\src\\release\\res",
+                "E:\\YuePro\\jinyi-library\\src\\main\\res"
+            ],
+            "main_src_directory": [
+                "E:\\YuePro\\jinyi-library\\src\\release\\java",
+                "E:\\YuePro\\jinyi-library\\src\\main\\java"
+            ]
+        },
+        "property-app": {
+            "main_assets_directory": [
+                "E:\\YuePro\\property-app\\src\\debug\\assets",
+                "E:\\YuePro\\property-app\\src\\main\\assets"
+            ],
+            "main_jniLibs_directory": [
+                "E:\\YuePro\\property-app\\src\\debug\\jniLibs",
+                "E:\\YuePro\\property-app\\libs"
+            ],
+            "main_jni_directory": [
+                "E:\\YuePro\\property-app\\src\\debug\\jni",
+                "E:\\YuePro\\property-app\\src\\main\\jni"
+            ],
+            "main_manifest_path": "E:\\YuePro\\property-app\\src\\main\\AndroidManifest.xml",
+            "main_res_directory": [
+                "E:\\YuePro\\property-app\\src\\debug\\res",
+                "E:\\YuePro\\property-app\\src\\main\\res"
+            ],
+            "main_src_directory": [
+                "E:\\YuePro\\property-app\\src\\debug\\java",
+                "E:\\YuePro\\property-app\\src\\main\\java"
+            ]
+        }
+    },
+    "project_type": "gradle",
+    "retrolambda": {
+        "property-app": {
+            "enabled": true,
+            "mainClass": "net.orfjackal.retrolambda.Main",
+            "rtJar": "C:\\Program Files\\Java\\jdk1.8.0_60/jre/lib/rt.jar",
+            "supportIncludeFiles": false,
+            "targetJar": "C:\\Users\\xz\\.gradle\\caches\\modules-2\\files-2.1\\net.orfjackal.retrolambda\\retrolambda\\2.0.2\\dcf507a8e79c004d7a04c73472fffc6bd853d3f2\\retrolambda-2.0.2.jar"
+        }
+    },
+    "root_dir": "E:\\YuePro",
+    "sdk_directory": "C:\\Users\\xz\\AppData\\Local\\Android\\sdk",
+    "use_jdk8": false
+}

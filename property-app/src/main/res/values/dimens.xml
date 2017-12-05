@@ -1,0 +1,35 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="title_text_size"> 10sp</dimen>
+    <dimen name="circle_indicator_radius">5sp</dimen>
+    <dimen name="popup_to＿top">48dp</dimen>
+    <dimen name="price_font_size">20sp</dimen>
+    <dimen name="below_line">0.5dp</dimen>
+    <dimen name="guide_ship_font_size">17sp</dimen>
+    <dimen name="guide_ship_to_right">19sp</dimen>
+    <dimen name="guide_ship_to_top">28sp</dimen>
+    <dimen name="life_pay_cost_font_size">13sp</dimen>
+    <dimen name="wheel_text_size">12sp</dimen>
+    <dimen name="neighbor_underline_height">2dp</dimen>
+    <dimen name="neighbor_indicator_height">3dp</dimen>
+    <dimen name="neighbor_indicator_textSize">8dp</dimen>
+    <dimen name="neighbor_indicator_LeftPadding">16sp</dimen>
+    <dimen name="neighbor_indicator_RightPadding">16sp</dimen>
+    <dimen name="neighbor_message_width">19dp</dimen>
+    <dimen name="neighbor_message_height">14dp</dimen>
+
+    <dimen name="ui_10_dip">10dp</dimen>
+    <dimen name="side_letter_bar_letter_size">12sp</dimen>
+
+    <dimen name="picker_default_text_size">12sp</dimen>
+    <dimen name="picker_toolbar_height">40dp</dimen>
+    <dimen name="picker_dialog_height">190dp</dimen>
+    <dimen name="textview_default_padding">5dp</dimen>
+    <dimen name="picker_line_width">1dp</dimen>
+    <dimen name="picker_line_mar">15dp</dimen>
+    <dimen name="picker_height">230dp</dimen>
+
+</resources>

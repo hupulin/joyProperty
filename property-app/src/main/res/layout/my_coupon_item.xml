@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout"
+    android:background="#f7f7f7">
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="20%w"
+        app:layout_marginLeftPercent="1.38%w"
+        android:id="@+id/item_coupon"
+        app:layout_marginRightPercent="1.38%w"
+        android:background="@drawable/conpon_left_bg">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/useCondition"
+            android:textColor="#353535"
+            app:layout_marginLeftPercent="2.5%w"
+            app:layout_marginTopPercent="2.05%w"
+            app:layout_textSizePercent="3.88%w"
+            android:text="使用限制:满500使用"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/useRange"
+            android:textColor="#b8b8b8"
+            android:layout_below="@+id/useCondition"
+            app:layout_marginLeftPercent="2.5%w"
+            app:layout_marginTopPercent="1.8%w"
+            app:layout_textSizePercent="3.33%w"
+            android:singleLine="true"
+            app:layout_marginRightPercent="32.55%w"
+            android:text="使用范围:粮油米面频道"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/useTime"
+            android:textColor="#b8b8b8"
+
+            android:layout_below="@+id/useRange"
+            app:layout_marginLeftPercent="2.5%w"
+            app:layout_marginTopPercent="1.8%w"
+            app:layout_textSizePercent="3.33%w"
+
+
+            android:text="使用时间:2016.06.30-20166.07.30"/>
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="0dp"
+            app:layout_widthPercent="30.55%w"
+            android:layout_alignParentRight="true"
+            android:layout_height="0dp"
+            app:layout_heightPercent="21%w"
+            android:id="@+id/amount_layout"
+            android:background="@drawable/coupon_right_un_use_bg">
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerInParent="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    app:layout_textSizePercent="20.83%h"
+                    android:text="¥ "/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    app:layout_textSizePercent="40.16%h"
+                    android:text="50"
+                    android:id="@+id/couponAmount"/>
+            </com.zhy.android.percent.support.PercentLinearLayout>
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+</com.zhy.android.percent.support.PercentRelativeLayout>

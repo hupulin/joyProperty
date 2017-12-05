@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/feedback_evaluation_bg"
+android:id="@+id/parent"
+    android:orientation="vertical"
+    >
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="554px"
+        android:layout_height="377px"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="350px"
+        android:background="@drawable/expect_time_bg"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="102px">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@color/white"
+                android:text="预计完成时间"
+                android:textColor="#464646"
+                android:textSize="32px" />
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="#eeeeee" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:id="@+id/expectTime"
+            android:layout_centerHorizontal="true"
+            android:textSize="32px"
+            android:textColor="#464646"
+            android:layout_marginTop="46px"
+            android:text="12213123"
+            />
+
+        <TextView
+            android:id="@+id/tv_sure"
+            android:layout_width="294px"
+            android:layout_height="78px"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="36px"
+            android:background="@drawable/bg_sure"
+            android:gravity="center"
+            android:text="关闭"
+            android:textColor="#ffffff"
+            android:textSize="30px" />
+
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoLinearLayout>

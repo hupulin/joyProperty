@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parent"
+    android:background="#5f000000">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        >
+        <ImageView
+            android:layout_width="519px"
+            android:layout_height="254px"
+            android:background="@drawable/dialog_top_bg"
+            android:scaleType="fitXY"
+            android:id="@+id/code_register"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+        <ProgressBar
+             android:layout_marginTop="47px"
+            android:id="@+id/progressBar"
+
+            style="@style/myProgressDialog"
+            android:indeterminateDuration="1000"
+            android:layout_centerHorizontal="true"
+            android:layout_width="76px"
+            android:layout_height="76px"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+          android:textSize="24px"
+            android:gravity="center"
+            android:id="@+id/dialogText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="158px"
+            android:textColor="@color/black"
+            android:text="检测到系统更新"/>
+        <ProgressBar
+            android:id="@+id/progressbar_two"
+            android:layout_marginTop="214px"
+            style="@style/myProgressHorizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_width="362px"
+            android:layout_height="14px"
+            />
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="519px"
+            android:layout_height="107px"
+
+            android:background="@drawable/bg_update"
+            android:id="@+id/ll"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/code_register"
+            >
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerInParent="true"
+             android:textColor="@color/white"
+             android:textSize="24px"
+             android:text="正在更新..."/>
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

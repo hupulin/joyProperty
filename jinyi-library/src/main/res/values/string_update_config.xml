@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="update_server">http://www.jinyi-app.com/AppUpdate/iHome/</string>
+    <string name="update_appname">iHome</string>
+    <string name="update_json_version">android-update.html</string>
+    <string name="update_server_name">iHome</string>
+    <string name="update_package_name">com.jinyi.ihome</string>
+
+</resources>

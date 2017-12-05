@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/gray_bg"
+    >
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="1px"
+      android:background="@color/new_line_color"
+      >
+
+  </View>
+        <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="68px"
+        android:orientation="horizontal"
+
+        android:layout_below="@+id/line1"
+        android:background="@color/white"
+        >
+        <ImageView
+            android:id="@+id/image"
+            android:layout_marginLeft="238px"
+            android:layout_width="45px"
+            android:layout_height="45px"
+            android:layout_gravity="center_vertical"
+
+            android:contentDescription="@string/app_name"
+            android:background="@drawable/images"
+
+            />
+        <TextView
+            android:id="@+id/apartmentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image"
+            android:layout_gravity="center"
+            android:text="东方"
+           android:layout_marginLeft="29px"
+
+            />
+    </com.zhy.autolayout.AutoLinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/new_line_color"
+
+        >
+
+    </View>
+
+<com.zhy.autolayout.AutoLinearLayout
+    android:layout_width="match_parent"
+
+    android:orientation="horizontal"
+    android:id="@+id/bannerTitle"
+    android:background="@color/white"
+    android:layout_height="48px">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="#62bfe1"
+        android:layout_weight="1"
+        android:text="服务态度"
+        android:gravity="center"
+        android:focusable="false"
+        android:id="@+id/serviceAttitude"
+        android:textColor="@color/white"
+        android:textSize="26px"
+    />
+    <TextView
+        android:id="@+id/solveSpeed"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:textSize="26px"
+        android:gravity="center"
+        android:text="解决速度"
+        android:focusable="false"
+        android:layout_weight="1"
+        android:textColor="@color/gray_text"
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+
+        android:text="满意度"
+        android:layout_weight="1"
+        android:focusable="false"
+
+        android:textSize="26px"
+        android:textColor="@color/gray_text"
+
+
+        android:gravity="center"
+        android:id="@+id/satisfaction" />
+</com.zhy.autolayout.AutoLinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/new_line_color"
+        >
+
+    </View>
+
+
+
+<com.bigkoo.convenientbanner.ConvenientBanner
+    android:layout_width="match_parent"
+    android:layout_height="160px"
+    android:id="@+id/autoRow"
+    android:background="@color/white"
+    android:descendantFocusability="blocksDescendants"
+    >
+
+</com.bigkoo.convenientbanner.ConvenientBanner>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/new_line_color"
+        android:layout_marginBottom="12px"
+
+        >
+
+    </View>
+</com.zhy.autolayout.AutoLinearLayout>
+

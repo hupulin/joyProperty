@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#f0eff5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:id="@+id/title_name"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="11.11%w"
+        android:background="@color/page_title_color">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_heightPercent="11.11%w"
+            app:layout_widthPercent="11.11%w"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/selector_back_icon"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:text="我的钱包"
+            android:id="@+id/titleText"
+            android:textColor="@color/white"
+            app:layout_textSizePercent="4.44%w" />
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_text">
+    </View>
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="4.17%w"
+        android:background="#f0eff5">
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_text">
+    </View>
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="21.39%w"
+        android:background="#ffffff">
+    <ImageView
+        android:id="@+id/iv_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="16.67%w"
+        app:layout_widthPercent="16.67%w"
+        android:scaleType="centerCrop"
+        app:layout_marginLeftPercent="5.56%w"
+        app:layout_marginTopPercent="2.36%w"
+        />
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_textSizePercent="5.56%w"
+            android:textColor="#353535"
+            android:layout_toRightOf="@+id/iv_head"
+            app:layout_marginLeftPercent="8.61%w"
+            app:layout_marginTopPercent="8.61%w"
+            android:text="我的"
+            />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_text">
+    </View>
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="4.17%w"
+        android:background="#f0eff5">
+
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_text">
+    </View>
+
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/myCouponLayout"
+        app:layout_heightPercent="11.94%w"
+        android:background="#ffffff">
+        <TextView
+            android:id="@+id/my_voucher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_textSizePercent="3.89%w"
+            android:textColor="#353535"
+            app:layout_marginLeftPercent="4.44%w"
+            android:layout_centerVertical="true"
+            android:text="我的现金抵扣券"/>
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/house_next_ic"
+            app:layout_marginRightPercent="4.44%w"
+            app:layout_heightPercent="4.03%w"
+            app:layout_widthPercent="2.36%w"/>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray_text">
+    </View>
+
+</com.zhy.android.percent.support.PercentLinearLayout>

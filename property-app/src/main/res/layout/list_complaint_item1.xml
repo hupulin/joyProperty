@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+
+    >
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="#ffffff"
+        >
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:id="@+id/topLine"
+            android:layout_above="@+id/linearLayout"
+            android:background="@color/new_line_color"/>
+
+        <com.zhy.autolayout.AutoLinearLayout
+           android:layout_below="@+id/topLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
+            android:background="#f9f9f9"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="41px"
+                android:layout_height="45px"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+
+                android:contentDescription="@string/app_name"
+                android:background="@drawable/title"
+                android:drawablePadding="11dp"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/apartment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center"
+                android:text="东方骏"
+                android:layout_marginLeft="5dp"
+                android:textSize="17sp" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:id="@+id/view4"
+        android:layout_below="@+id/linearLayout"
+        android:background="#d9d9d9"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:id="@+id/linar"
+
+        android:layout_width="180dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="12dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/linare"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_toStartOf="@+id/linare">
+        <!--android:textColor="@color/home_item_color"-->
+
+        <TextView
+            android:id="@+id/item01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="42dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/red_ic"
+            android:drawablePadding="8dp"
+            android:text="待处理:"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/pending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/item01"
+            android:text="qqqqq"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linar"
+        android:weightSum="1"
+        android:id="@+id/linearLayout2"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_toLeftOf="@+id/linearLayout3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/item02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item01"
+            android:layout_marginLeft="42dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/yellow_ic"
+            android:drawablePadding="8dp"
+            android:text="处理中:"
+            android:layout_marginBottom="5dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/processing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pending"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/item01"
+            android:text="qqqq"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+    <View
+        android:id="@+id/view7"
+        android:layout_below="@+id/linearLayout2"
+        android:background="#d9d9d9"
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/linar"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="bottom"
+        android:layout_alignBottom="@+id/linearLayout2"
+        android:id="@+id/linearLayout3"
+        android:layout_alignLeft="@+id/linare"
+        android:layout_alignStart="@+id/linare">
+        <TextView
+            android:id="@+id/item04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item03"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/crown_ic"
+            android:drawablePadding="8dp"
+            android:layout_marginLeft="15dp"
+            android:text="总单数:"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/complain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/processed"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/item01"
+            android:text=""
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linare"
+        android:layout_width="180dp"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_marginTop="8dp"
+        android:gravity="bottom"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_above="@+id/linearLayout3"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+        <TextView
+            android:id="@+id/item03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item02"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/image"
+            android:drawableLeft="@drawable/green_ic"
+            android:drawablePadding="8dp"
+            android:text="已处理:"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/processed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/processing"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/item01"
+            android:text=""
+            android:textSize="15sp" />
+    </LinearLayout>
+
+<com.bigkoo.convenientbanner.ConvenientBanner
+    android:layout_below="@+id/view7"
+    android:layout_width="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:id="@+id/lbt"
+    android:background="@color/white"
+    android:layout_height="130dp">
+
+</com.bigkoo.convenientbanner.ConvenientBanner>
+    <View
+        android:id="@+id/view8"
+        android:layout_below="@+id/lbt"
+        android:background="#d9d9d9"
+
+        android:layout_width="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_height="1px"/>
+        <View
+
+            android:layout_below="@+id/view8"
+            android:background="#f0f0f0"
+
+            android:layout_width="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            android:layout_height="20px"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>
+

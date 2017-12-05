@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="popup_to＿top">48dp</dimen>
+    <dimen name="price_font_size">20sp</dimen>
+    <dimen name="below_line">0.5dp</dimen>
+    <dimen name="guide_ship_font_size">17sp</dimen>
+    <dimen name="guide_ship_to_right">19sp</dimen>
+    <dimen name="guide_ship_to_top">28sp</dimen>
+    <dimen name="life_pay_cost_font_size">13sp</dimen>
+    <dimen name="wheel_text_size">12sp</dimen>
+    <dimen name="neighbor_underline_height">2dp</dimen>
+    <dimen name="neighbor_indicator_height">3dp</dimen>
+    <dimen name="neighbor_indicator_textSize">8dp</dimen>
+    <dimen name="neighbor_indicator_LeftPadding">16sp</dimen>
+    <dimen name="neighbor_indicator_RightPadding">16sp</dimen>
+    <dimen name="neighbor_message_width">19dp</dimen>
+    <dimen name="neighbor_message_height">14dp</dimen>
+    <dimen name="tpi_padding">19dp</dimen>
+</resources>

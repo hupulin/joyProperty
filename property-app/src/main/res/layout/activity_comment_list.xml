@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="12.22%w"
+        android:background="@color/page_title_color"
+        >
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_back_icon"
+            android:contentDescription="@string/app_name" />
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="全部评价"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView"
+        android:listSelector="@color/transparent"
+        android:layout_below="@+id/layout_title"
+       >
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="33.88%w"
+        android:id="@+id/noData"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/goods_purchase_layout"
+        app:layout_widthPercent="26.66%w"
+        app:layout_marginBottomPercent="2%w"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/no_data"
+        />
+</com.zhy.android.percent.support.PercentRelativeLayout>

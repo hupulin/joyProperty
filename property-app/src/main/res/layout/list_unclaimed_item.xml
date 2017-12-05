@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingBottom="8dp"
+        android:background="@drawable/selector_list_item_bg"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:contentDescription="@string/app_name"
+             android:layout_centerVertical="true"
+            android:background="@drawable/category_03" />
+
+        <TextView
+            android:id="@+id/typeName"
+            android:singleLine="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:text="什么类型"
+            android:layout_marginTop="17dp"
+            android:layout_toRightOf="@+id/image"
+            android:textSize="14sp"
+            android:layout_toLeftOf="@+id/date"
+            android:layout_toStartOf="@+id/date" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/typeName"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="6dp"
+            android:text="几天"
+            android:layout_toRightOf="@+id/image"
+            android:textColor="@color/text_color02"
+            android:textSize="12sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/time_response"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/time"-->
+            <!--android:layout_marginLeft="24dp"-->
+            <!--android:layout_marginTop="6dp"-->
+            <!--android:text="响应时间"-->
+            <!--android:layout_toRightOf="@+id/image"-->
+            <!--android:textColor="@color/text_color02"-->
+            <!--android:textSize="12sp" />-->
+        <!--<TextView-->
+            <!--android:id="@+id/time_dispose"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/time_response"-->
+            <!--android:layout_marginLeft="24dp"-->
+            <!--android:layout_marginTop="6dp"-->
+            <!--android:text="处理时间"-->
+            <!--android:layout_toRightOf="@+id/image"-->
+            <!--android:textColor="@color/text_color02"-->
+            <!--android:textSize="12sp" />-->
+
+        <TextView
+            android:id="@+id/date"
+            android:text="年"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="11dp"
+            android:textColor="@color/text_color02"
+            android:layout_marginTop="17dp"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+
+    </RelativeLayout>
+

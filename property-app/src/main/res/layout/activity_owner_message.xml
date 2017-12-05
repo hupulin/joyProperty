@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:background="#fff8f8f8">
+
+    <RelativeLayout
+        android:id="@+id/ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/page_title_color_new">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:background="@drawable/selector_white_back" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:text="消息"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_title">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/headImage"
+                android:layout_width="47dp"
+                android:contentDescription="@string/app_name"
+                android:layout_height="47dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="12.5dp"
+                android:background="@drawable/user_head_image_bg"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/postOwner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7.5dp"
+                android:layout_marginTop="13dp"
+                android:layout_toRightOf="@+id/headImage"
+                android:text="萝卜"
+                android:textColor="#95a5b0"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/ll_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/postOwner"
+                android:layout_marginLeft="7.5dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/headImage"
+                android:background="@drawable/image_news_bg"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/post_image"
+                    android:contentDescription="@string/app_name"
+                    android:layout_width="52dp"
+                    android:layout_marginLeft="6dp"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="52dp" />
+
+                <TextView
+                    android:id="@+id/post_content"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:textColor="#595151" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_content"
+                android:layout_marginLeft="61dp"
+                android:layout_marginTop="10dp"
+                android:text="昨天 10:20"
+                android:textColor="#979797"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/time"
+                android:text="删除"
+                android:textColor="#95a5b0"
+                android:textSize="12sp" />
+
+
+            <Button
+                android:id="@+id/comment_open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_content"
+                android:layout_marginRight="11dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_toLeftOf="@+id/btn_comment"
+                android:background="@drawable/selector_comment_open"/>
+
+            <ImageView
+                android:id="@+id/triangle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/delete"
+                android:layout_marginLeft="25dp"
+                android:contentDescription="@string/app_name"
+                android:layout_marginTop="34dp"
+                android:background="@drawable/triangle_ic" />
+
+            <com.wefika.flowlayout.FlowLayout
+                android:id="@+id/fl_image"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/triangle"
+                android:layout_marginLeft="8.5dp"
+                android:background="@drawable/circle_good_bg">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/selector_good"/>
+            </com.wefika.flowlayout.FlowLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fl_image"
+                android:layout_marginLeft="8.5dp"
+                android:layout_marginRight="11dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:visibility="invisible"/>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
