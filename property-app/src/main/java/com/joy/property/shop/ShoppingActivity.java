@@ -94,6 +94,8 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
     private RelativeLayout adLayout;
     private ActivityTimeTo activityTimeInfo=new ActivityTimeTo();
     private boolean onStop;
+    private ImageView easyToHome;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,6 +145,7 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
         millSecond = (TextView) findViewById(R.id.millSecond);
         titleName = (TextView) findViewById(R.id.title_name);
         adLayout = (RelativeLayout) findViewById(R.id.adLayout);
+        easyToHome= (ImageView) findViewById(R.id.easyToHome);
         adLayout.setOnClickListener(this);
     }
 
@@ -671,6 +674,24 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
         });
         threadTime.start();
     }
+    /**
+     *
+     * 设置到家
+     */
+    public void easyToHome(MainInfoDettailTo detailTo ) {
+
+        easyToHome.setVisibility(View.VISIBLE);
+
+        Picasso.with(getThisContext()).load(MainApp.getPicassoImagePath(detailTo.getPicUrl())).into(easyToHome);
+
+        easyToHome.setOnClickListener(v -> {
+            Intent intent = new Intent(getThisContext(), EasyToHomeActivity.class);
+            intent.putExtra("thirdPartyAccessId", detailTo.getInsideForwordId() + "");
+            intent.putExtra("LayoutTitle",detailTo.getLayoutName());
+            startActivity(intent);
+            goToAnimation(1);
+        });
+    }
 
 
     /**
@@ -687,10 +708,13 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
 
                     if (msg.getData() != null && msg.getData().getList() != null && msg.getData().getList().size() > 0) {
                         MainInfoDettailTo firstDetail=msg.getData().getList().get(0);
-                        if (msg.getData().getList().size()>1){
+                        if (msg.getData().getList().size()>0){
 
-                            setHyMarket(101==firstDetail.getInsideForwordId()?msg.getData().getList().get(1):msg.getData().getList().get(0));
-                            setElectricRepair(101==firstDetail.getInsideForwordId()?msg.getData().getList().get(0):msg.getData().getList().get(1));
+//                            setHyMarket(101==firstDetail.getInsideForwordId()?msg.getData().getList().get(1):msg.getData().getList().get(0));
+//                            setElectricRepair(101==firstDetail.getInsideForwordId()?msg.getData().getList().get(0):msg.getData().getList().get(1));
+                            Observable.from(msg.getData().getList()).filter(mainInfoDettailTo -> mainInfoDettailTo.getInsideForwordId()==100).subscribe(mainInfoDettailTo -> setHyMarket(mainInfoDettailTo));
+                            Observable.from(msg.getData().getList()).filter(mainInfoDettailTo -> mainInfoDettailTo.getInsideForwordId()==101).subscribe(mainInfoDettailTo -> setElectricRepair(mainInfoDettailTo));
+                            Observable.from(msg.getData().getList()).filter(mainInfoDettailTo -> mainInfoDettailTo.getInsideForwordId()==103).subscribe(mainInfoDettailTo -> easyToHome(mainInfoDettailTo));
                         }else {
                             if (101==firstDetail.getInsideForwordId())
                                 setElectricRepair(firstDetail);

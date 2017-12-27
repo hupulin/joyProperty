@@ -35,7 +35,7 @@
             android:layout_marginLeft="32px"
             android:layout_marginRight="32px"
             android:textColor="@color/gray_text"
-            android:text="检测到系统更新我就是季度地价ID基督教低价低价的记得记得绝地拉拉阿拉"/>
+            android:text=""/>
 
         <TextView
             android:layout_width="match_parent"

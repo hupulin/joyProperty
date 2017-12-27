@@ -32,7 +32,7 @@ import retrofit.mime.TypedOutput;
 /**
  * Created by warrior on 14/10/15
  */
-public class ApiClient {
+public class  ApiClient {
 
     static RestAdapter adapter;
     static Context mContext;
@@ -49,7 +49,6 @@ public class ApiClient {
      * 新服务器地址http://139.129.166.169:9000/ihome
      *http://s0.joyhomenet.com:9040/park
      */
-
     static String URL="http://s1.joyhomenet.com:9040/ihome" ;
 //    static String URL="http://thome.joyhomenet.com:89/ihome" ;
 

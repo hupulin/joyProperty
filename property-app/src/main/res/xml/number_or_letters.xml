@@ -81,10 +81,11 @@
 	
 	<Row >
 	    <Key android:codes="-1"	android:keyLabel="省份"
+			 android:horizontalGap="1%p"
 	        android:keyWidth="13%p" android:keyEdgeFlags="left"
 			 android:isModifier="true" android:isSticky="true"  />
 		<Key android:codes="90" android:keyLabel="Z"
-		     android:horizontalGap="3%p" android:keyWidth="8%p"/>
+		     android:horizontalGap="2%p" android:keyWidth="8%p"/>
 		<Key android:codes="88" android:keyLabel="X"
 		     android:horizontalGap="2%p" android:keyWidth="8%p" />
 		<Key android:codes="67" android:keyLabel="C"
@@ -100,7 +101,7 @@
 		     />
 		<Key  android:codes="-3"
 			 android:keyEdgeFlags="right" android:keyIcon="@drawable/remove_edittext_data"
-			 android:horizontalGap="3%p" android:keyWidth="13%p"
+			 android:horizontalGap="2%p" android:keyWidth="13%p"
 			 android:isRepeatable="true" />
 	</Row>
         

@@ -8,7 +8,7 @@
 
     <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="255px">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="23px"
@@ -83,59 +83,92 @@
             android:textColor="@color/main_gray_text_color"
             android:textSize="24px"/>
 
-        <TextView
-            android:id="@+id/tv_phoneNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
+        <com.zhy.autolayout.AutoLinearLayout
             android:layout_below="@+id/tv_name"
+            android:layout_width="match_parent"
             android:layout_marginLeft="52px"
-            android:layout_marginTop="10px"
-            android:text="手机号码："
-            android:textColor="@color/main_gray_text_color"
-            android:textSize="24px"
-            />
+            android:layout_marginBottom="20px"
+android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/item_code"
+                android:layout_marginTop="10px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_remark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="取件密码："
+                    android:textColor="@color/main_gray_text_color"
+                    android:textSize="24px"/>
+                <TextView
+                    android:id="@+id/remark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_remark"
+                    android:text="234ddd"
+                    android:textColor="@color/main_gray_text_color"
+                    android:textSize="24px"/>
+            </com.zhy.autolayout.AutoRelativeLayout>
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_below="@+id/tv_name"
+                android:layout_marginTop="10px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_phoneNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="手机号码："
+                    android:textColor="@color/main_gray_text_color"
+                    android:textSize="24px"
+                    />
 
-        <TextView
-            android:id="@+id/phoneNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_name"
-            android:layout_marginTop="10px"
-            android:layout_toRightOf="@+id/tv_phoneNo"
-            android:text="18758168587"
-            android:textColor="@color/main_gray_text_color"
-            android:textSize="24px"/>
+                <TextView
+                    android:id="@+id/phoneNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_remark"
+                    android:layout_toRightOf="@+id/tv_phoneNo"
+                    android:text="18758168587"
+                    android:textColor="@color/main_gray_text_color"
+                    android:textSize="24px"/>
 
-        <ImageView
-            android:id="@+id/isRegister"
-            android:layout_width="77px"
-            android:layout_height="25px"
-            android:layout_alignBottom="@+id/tv_phoneNo"
-            android:layout_marginLeft="20px"
-            android:layout_toRightOf="@+id/phoneNo"
-            android:background="@drawable/register"/>
+                <ImageView
+                    android:id="@+id/isRegister"
+                    android:layout_width="77px"
+                    android:layout_height="25px"
+                    android:layout_alignBottom="@+id/tv_phoneNo"
+                    android:layout_marginLeft="20px"
+                    android:layout_toRightOf="@+id/phoneNo"
+                    android:background="@drawable/register"/>
+            </com.zhy.autolayout.AutoRelativeLayout>
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_marginTop="10px"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="录入时间："
+                    android:textColor="@color/main_gray_text_color"
+                    android:textSize="24px"/>
 
-        <TextView
-            android:id="@+id/tv_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_phoneNo"
-            android:layout_marginLeft="52px"
-            android:layout_marginTop="10px"
-            android:text="录入时间："
-            android:textColor="@color/main_gray_text_color"
-            android:textSize="24px"/>
+                <TextView
+                    android:id="@+id/inputTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_time"
+                    android:text="2016.10.02 11 65"
+                    android:textColor="@color/main_gray_text_color"
+                    android:textSize="24px"/>
+            </com.zhy.autolayout.AutoRelativeLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
 
-        <TextView
-            android:id="@+id/inputTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_phoneNo"
-            android:layout_marginTop="10px"
-            android:layout_toRightOf="@+id/tv_time"
-            android:text="2016.10.02 11 65"
-            android:textColor="@color/main_gray_text_color"
-            android:textSize="24px"/>
+
 
         <ImageView
             android:id="@+id/express_icon"
@@ -160,16 +193,16 @@
             android:textColor="#3c4350"
             android:textSize="32px"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_alignParentBottom="true"
-            android:background="#dedede"/>
+
     </com.zhy.autolayout.AutoRelativeLayout>
 
     <com.zhy.autolayout.AutoRelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="83px">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#dedede"/>
     <TextView
         android:id="@+id/resend_code"
         android:gravity="center"
@@ -177,7 +210,7 @@
         android:background="@drawable/selector_express_receive"
         android:textColor="#46b4d9"
         android:layout_width="360px"
-        android:layout_height="68px"/>
+        android:layout_height="69px"/>
     <ImageView
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
@@ -192,7 +225,7 @@
 
         android:textColor="#46b4d9"
         android:layout_width="360px"
-        android:layout_height="68px"/>
+        android:layout_height="69px"/>
         <View
             android:id="@+id/view_one"
             android:layout_width="match_parent"

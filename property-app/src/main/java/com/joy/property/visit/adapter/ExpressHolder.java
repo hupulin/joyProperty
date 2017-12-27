@@ -20,6 +20,13 @@ public class ExpressHolder {
     private TextView name;
     private TextView receiveTime;
 
+    private TextView  remark;
+
+    public TextView getRemark() {
+        if (remark==null)
+            remark= (TextView) view.findViewById(R.id.remark);
+        return remark;
+    }
 
     private TextView inputTime;
     private ImageView expressImage;

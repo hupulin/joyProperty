@@ -125,6 +125,14 @@
                         android:layout_height="0dp"
                         app:layout_heightPercent="23.61%w"
                         app:layout_marginTopPercent="1.38%w"
+                        android:id="@+id/easyToHome"
+                        android:visibility="gone"
+                        />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_heightPercent="23.61%w"
+                        app:layout_marginTopPercent="1.38%w"
                         android:id="@+id/hyMarket"
                         android:visibility="gone"
                         />

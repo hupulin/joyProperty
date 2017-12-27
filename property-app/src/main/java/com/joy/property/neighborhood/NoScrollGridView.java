@@ -1,4 +1,4 @@
-	package com.joy.property.neighborhood;
+package com.joy.property.neighborhood;
 
 import android.content.Context;
 import android.util.AttributeSet;

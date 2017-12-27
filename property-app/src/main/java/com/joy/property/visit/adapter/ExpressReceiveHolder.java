@@ -2,11 +2,12 @@ package com.joy.property.visit.adapter;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.joy.property.R;
 
-/**
+/**待领取
  *  拍照领取快递 * 领取快递列表
 
  * Created by usb on 2017/8/1.
@@ -21,12 +22,21 @@ import com.joy.property.R;
         private TextView  expressName;
         private TextView  expressNo;
         private TextView  inputTime;
+    private TextView  remark;
+
+    public TextView getRemark() {
+        if (remark==null)
+            remark= (TextView) view.findViewById(R.id.remark);
+        return remark;
+    }
+
+
     private TextView  resendCode;
     private TextView  receiveName;
-        private TextView  getExpress;
-        private ImageView expressImage;
-        private ImageView isRegister;
-        private ImageView selectExpress;
+    private TextView  getExpress;
+    private ImageView expressImage;
+    private ImageView isRegister;
+    private ImageView selectExpress;
 
         public TextView getExpressName() {
             if (expressName==null)
@@ -94,6 +104,13 @@ import com.joy.property.R;
             if (apartmentName==null)
                 apartmentName= (TextView) view.findViewById(R.id.apartment_name);
             return apartmentName;
+        }
+    private RelativeLayout  itemCode;
+
+    public RelativeLayout getItemCode() {
+            if (itemCode==null)
+                itemCode= (RelativeLayout) view.findViewById(R.id.item_code);
+            return itemCode;
         }
 
 

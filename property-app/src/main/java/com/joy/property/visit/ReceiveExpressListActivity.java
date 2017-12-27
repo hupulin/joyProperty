@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -33,6 +34,8 @@ import com.joy.library.fragment.CustomDialogFragment;
 import com.joy.property.R;
 import com.joy.property.base.BaseActivity;
 import com.joy.property.utils.CustomDialog;
+import com.joy.property.utils.KeyboardUtilExpress;
+import com.joy.property.utils.KeyboardUtilGetExpress;
 import com.joy.property.visit.adapter.ExpressReceiveAdapter;
 import com.joy.property.visit.adapter.ExpressRecordAdapter;
 import com.lidong.photopicker.Image;
@@ -55,16 +58,18 @@ public class ReceiveExpressListActivity extends BaseActivity implements View.OnC
     private int                pageIndex     = 1;
     private String      apartmentSid    ;
     private String      mCodeNo    ;
+    private String      length    ;
     private List<ExpressNewTo> expressToList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_express_record_list);
+        initIntentData();
 
         initView();
         getPhotoLimit(); 
 
-        initIntentData();
         initData(1);
         refresh();
     }
@@ -110,7 +115,8 @@ public class ReceiveExpressListActivity extends BaseActivity implements View.OnC
     private void initIntentData() {
         apartmentSid=getIntent().getStringExtra("apartmentSid");
         mCodeNo=getIntent().getStringExtra("mCodeNo");
-        Log.i("数据", "apartmentSid"+apartmentSid+"mCodeNo"+mCodeNo);
+        length=getIntent().getStringExtra("no");
+        Log.i("333333", "length——————————3333"+getIntent().getStringExtra("no"));
     }
     private ImageView camera;
     private TextView noData;
@@ -118,7 +124,7 @@ public class ReceiveExpressListActivity extends BaseActivity implements View.OnC
     private void initView() {
         listView = (PullToRefreshListView) findViewById(R.id.listView);
         listView.setMode(PullToRefreshBase.Mode.BOTH);
-        adapter = new ExpressReceiveAdapter(getThisContext());
+        adapter = new ExpressReceiveAdapter(getThisContext(),length);
         listView.setAdapter(adapter);
         adapter.setList(expressToList);
         findViewById(R.id.back).setOnClickListener(this);
@@ -127,7 +133,6 @@ public class ReceiveExpressListActivity extends BaseActivity implements View.OnC
         camera =(ImageView)findViewById(R.id.camera);
         noData =(TextView)findViewById(R.id.noData);
         findViewById(R.id.receive_history).setOnClickListener(this);
-//
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -147,10 +152,17 @@ public class ReceiveExpressListActivity extends BaseActivity implements View.OnC
         });
         adapter.SetGetExpressListener(new ExpressReceiveAdapter.GetExpressListener() {
             @Override
-            public void OnGetExpressListener(String expressSid) {
-                receiveExpressDialogShow(expressSid);
+            public void OnGetExpressListener(String expressSid, String remark) {
+                if("6".equals(length)){
+                    //显示取件码
+                    receiveExpressDialogShow(expressSid,remark);
+                }else{
+                    receiveExpressDialogShow(expressSid);
+
+                }
 
             }
+
         });
     }
 
@@ -200,27 +212,27 @@ public class ReceiveExpressListActivity extends BaseActivity implements View.OnC
         dialog.show();
     }
 
-    private void receiveExpressDialogShow(String sid) {
+    private void receiveExpressDialogShow(String sid,String remark) {
         final CustomDialog dialog = new CustomDialog(this, R.layout.dialog_receive_express, R.style.myDialogTheme);
         Button btn_go = (Button) dialog.findViewById(R.id.btn_go);
-        EditText codeNo = (EditText) dialog.findViewById(R.id.codeNo);
-        codeNo.setFocusable(true);
-        codeNo.setFocusableInTouchMode(true);
-        codeNo.requestFocus();
+//        EditText codeNo = (EditText) dialog.findViewById(R.id.codeNo);
+//        codeNo.setFocusable(true);
+//        codeNo.setFocusableInTouchMode(true);
+//        codeNo.requestFocus();
         dialog.findViewById(R.id.parent).setOnClickListener(v -> dialog.dismiss());
         Button btn_close = (Button) dialog.findViewById(R.id.btn_close);
         btn_go.setOnClickListener((View v) -> {
-            if(TextUtils.isEmpty(codeNo.getText().toString())){
-                ToastShowLong(ReceiveExpressListActivity.this,"请输入取件码"+codeNo.getText());
-                return;
-            }
+//            if(TextUtils.isEmpty(codeNo.getText().toString())){
+//                ToastShowLong(ReceiveExpressListActivity.this,"请输入取件码"+codeNo.getText());
+//                return;
+//            }
             ApartmentApi api = ApiClient.create(ApartmentApi.class);
             final CustomDialogFragment dialogFragment = new CustomDialogFragment();
             dialogFragment.show(getSupportFragmentManager(),"");
             ReceiveExpressParam param=new ReceiveExpressParam();
             param.setHandleUserSid(mUserHelper.getSid());
             param.setExpressSids(sid);
-            param.setExpressRemark(codeNo.getText().toString());
+            param.setExpressRemark(remark);
             Log.i("数据", "param: "+param.toString());
             api.receiveExpress(param, new HttpCallback<MessageTo>(getThisContext()) {
                         @Override
@@ -342,7 +354,78 @@ public class ReceiveExpressListActivity extends BaseActivity implements View.OnC
                 }
         );
     }
+    private void receiveExpressDialogShow(String sid) {
+        final CustomDialog dialog = new CustomDialog(this, R.layout.dialog_receive_express_code, R.style.myDialogTheme);
+        Button btn_go = (Button) dialog.findViewById(R.id.btn_go);
+        EditText codeNo = (EditText) dialog.findViewById(R.id.codeNo);
+        codeNo.setFocusable(true);
+        codeNo.setFocusableInTouchMode(true);
+        codeNo.requestFocus();
+        dialog.findViewById(R.id.parent).setOnClickListener(v -> dialog.dismiss());
+        Button btn_close = (Button) dialog.findViewById(R.id.btn_close);
+        KeyboardUtilGetExpress keyboardUtil = new KeyboardUtilGetExpress(ReceiveExpressListActivity.this,dialog, codeNo);
+        codeNo.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.i("2222", "onTouch: 左边");
+                keyboardUtil.hideSoftInputMethod();
+                keyboardUtil.showKeyboard();
+                return false;
+            }
+        });
+        btn_go.setOnClickListener((View v) -> {
+            if(TextUtils.isEmpty(codeNo.getText().toString())){
+                ToastShowLong(ReceiveExpressListActivity.this,"请输入取件码"+codeNo.getText());
+                return;
+            }
+            if(keyboardUtil.isShow())
+                keyboardUtil.hideKeyboard();
+            ApartmentApi api = ApiClient.create(ApartmentApi.class);
+            final CustomDialogFragment dialogFragment = new CustomDialogFragment();
+            dialogFragment.show(getSupportFragmentManager(),"");
+            ReceiveExpressParam param=new ReceiveExpressParam();
+            param.setHandleUserSid(mUserHelper.getSid());
+            param.setExpressSids(sid);
+            param.setExpressRemark(codeNo.getText().toString());
+            Log.i("数据", "param: "+param.toString());
+            api.receiveExpress(param, new HttpCallback<MessageTo>(getThisContext()) {
+                        @Override
+                        public void success(MessageTo msg, Response response) {
+                            Log.i("数据", "success: "+msg.toString());
 
+                            dialogFragment.dismiss();
+                            if (msg.getSuccess() == 0) {
+                                Log.i("数据", "success: ");
+                                ToastShowLong(ReceiveExpressListActivity.this,"领取成功！");
+                                initData(1);
+                            } else {
+                                Toast.makeText(getThisContext(),
+                                        msg.getMsg(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void failure(RetrofitError error) {
+                            dialogFragment.dismissAllowingStateLoss();
+                            Log.i("数据", "failure: "+error.toString());
+                            super.failure(error);
+                        }
+                    }
+            );
+
+            dialog.dismiss();
+        });
+        btn_close.setOnClickListener((View v) -> {
+            if(keyboardUtil.isShow())
+                keyboardUtil.hideKeyboard();
+            dialog.dismiss();
+
+        });
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
+
+        dialog.show();
+    }
     @Override
     protected void onResume() {
         Log.i("0000", "onResume: ");

@@ -279,6 +279,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".shop.ShoppingActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".shop.EasyToHomeActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".shop.HyCaiChangActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".shop.CampaignListActivity"

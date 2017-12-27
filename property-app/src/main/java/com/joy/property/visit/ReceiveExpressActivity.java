@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -23,6 +24,7 @@ import com.joy.property.R;
 import com.joy.property.base.BaseActivity;
 import com.joy.property.inspection.adapter.ApartmentAdapter;
 import com.joy.property.utils.CustomDialog;
+import com.joy.property.utils.KeyboardUtilExpress;
 import com.joy.property.visit.view.*;
 
 import java.util.ArrayList;
@@ -43,6 +45,7 @@ public class ReceiveExpressActivity extends BaseActivity implements View.OnClick
     private ImageView       search;
     private String                           codeNo;
 
+    private KeyboardUtilExpress keyboardUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,16 +102,30 @@ public class ReceiveExpressActivity extends BaseActivity implements View.OnClick
         findViewById(R.id.search_input).setOnClickListener(this);
         findViewById(R.id.receive_history).setOnClickListener(this);
         apartmentName=(TextView) findViewById(R.id.tv_apartment_name);
-
+        keyboardUtil = new KeyboardUtilExpress(this, mCodeNo);
+        mCodeNo.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.i("2222", "onTouch: 左边");
+                mCodeNo.requestFocus();
+                keyboardUtil.hideSoftInputMethod();
+                keyboardUtil.showKeyboard();
+                return false;
+            }
+        });
     }
     private static final int    Mars    = 0;
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.layout_01:
+                if(keyboardUtil.isShow())
+                    keyboardUtil.hideKeyboard();
                 selectApartmentDialog();
                 break;
             case R.id.search:
+                if(keyboardUtil.isShow())
+                    keyboardUtil.hideKeyboard();
 //                selectApartmentDialog();
                 Intent intent1=new Intent(getThisContext(), com.joy.property.visit.view.CaptureActivity.class);
                 intent1.putExtra("type","2");
@@ -117,20 +134,28 @@ public class ReceiveExpressActivity extends BaseActivity implements View.OnClick
                 startActivityForResult(intent1, Mars);
                 break;
             case R.id.back:
+
                 onBackPressed();
                 goToAnimation(2);
                 break;
             case R.id.receive_history:
+                if(keyboardUtil.isShow())
+                    keyboardUtil.hideKeyboard();
                 startActivity(new Intent(this,ReceiveExpressRecordActivity.class));
                 break;
             case R.id.search_input:
+                if(keyboardUtil.isShow())
+                    keyboardUtil.hideKeyboard();
                 if (checking())
                     return;
                 Intent intent=new Intent(this,ReceiveExpressListActivity.class);
                 intent.putExtra("apartmentSid",apartment.getApartmentSid());
                 if(!TextUtils.isEmpty(mCodeNo.getText().toString())){
                     intent.putExtra("mCodeNo",mCodeNo.getText().toString());
+                    intent.putExtra("no",mCodeNo.getText().length()+"");
+                    Log.i("333333", "length1111——————————"+mCodeNo.getText().toString().length());
                 }
+                Log.i("333333", "length2222——————————"+mCodeNo.getText().toString().length());
                 startActivity(intent);
                 break;
         }

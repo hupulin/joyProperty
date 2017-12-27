@@ -130,6 +130,16 @@
         android:textColor="@color/main_gray_text_color"
         android:textSize="24px"
        />
+    <TextView
+        android:id="@+id/remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="取件密码：341gge"
+        android:layout_marginLeft="186px"
+        android:layout_marginTop="18px"
+        android:textColor="@color/main_gray_text_color"
+        android:textSize="24px"
+       />
 
 
 

@@ -51,8 +51,9 @@ public class ReceiveExpressRecordAdapter  extends ModeListAdapter<ExpressNewTo> 
         holder.getApartmentName().setText(mode.getApartmentName());
         if(mode.getExpressIcon()!=null){
             Picasso.with(mContext).load(MainApp.getPicassoImagePath(mode.getExpressIcon()+".png")).into(holder.getExpressImage());
-        }
-        if(mode.getExpressCompany()!=null){
+        }if(mode.getExpressRemark()!=null){
+            holder.getRemark().setText(mode.getExpressRemark());
+        }if(mode.getExpressCompany()!=null){
             holder.getApartmentName().setText(mode.getApartmentName());
         } if(mode.getExpressNo()!=null){
             holder.getExpressNo().setText(mode.getExpressNo());

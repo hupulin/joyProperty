@@ -143,7 +143,7 @@ public class UpdateView {
                     forceUpdate = object.getInt("forceUpdate");
                     appSize = object.getString("appSize");
                 } catch (Exception e) {
-                    newVerCode = -1;
+                     newVerCode = -1;
                     newVerName = "";
                     return false;
                 }
@@ -217,7 +217,7 @@ public class UpdateView {
             btnCancel.setText("退出");
 
         }
-//        dialogText.setText("检测到系统更新 "+"大小："+appSize+"MB");
+//      dialogText.setText("检测到系统更新 "+"大小："+appSize+"MB");
         dialogText.setText(newVerName);
         btnAdd.setOnClickListener(v -> {
              mDialog = new CustomDialog(mContext, R.layout.dialog_download, R.style.myDialogTheme);

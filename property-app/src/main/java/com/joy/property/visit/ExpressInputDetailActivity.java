@@ -24,7 +24,7 @@ import com.squareup.picasso.Picasso;
 import com.wefika.flowlayout.FlowLayout;
 
 /**
- * Created by usb on 2017/8/1.
+ *  Created by usb on 2017/8/1.
  */
 
 public class ExpressInputDetailActivity extends BaseActivity implements View.OnClickListener {
@@ -41,6 +41,7 @@ public class ExpressInputDetailActivity extends BaseActivity implements View.OnC
     private TextView expressNo;
     private TextView inputTime;
     private TextView receiveTime;
+    private TextView remark;
     private TextView name;
     private String type;
     private LinearLayout llName;
@@ -58,20 +59,22 @@ public class ExpressInputDetailActivity extends BaseActivity implements View.OnC
         type=getIntent().getStringExtra("type");
         if(TextUtils.isEmpty(mExpressRecordTo.getExpressImages())){
             divideLine.setVisibility(View.GONE);
-        }
-        if("1".equals(type)){
+        }if("1".equals(type)){
             llName.setVisibility(View.GONE);
         }else if("2".equals(type)){
             llName.setVisibility(View.VISIBLE);
-        }
-        if(mExpressRecordTo.getModifiedOn()==null||mExpressRecordTo.getModifiedOn().equals(mExpressRecordTo.getCreatedOn())){
+        }if("1".equals(type)){
+            remark.setVisibility(View.GONE);
+        }else if("2".equals(type)){
+            remark.setVisibility(View.VISIBLE);
+            remark.setText("取件密码："+mExpressRecordTo.getExpressRemark());
+        }if(mExpressRecordTo.getModifiedOn()==null||mExpressRecordTo.getModifiedOn().equals(mExpressRecordTo.getCreatedOn())){
             Log.i("数据", "还没领取时间: ");
             receiveTime.setVisibility(View.GONE);
         }else{
             Log.i("数据", "有领取时间: ");
             receiveTime.setVisibility(View.VISIBLE);
-        }
-        if(TextUtils.isEmpty(mExpressRecordTo.getReceivePhoto())){
+        }if(TextUtils.isEmpty(mExpressRecordTo.getReceivePhoto())){
             tvReceive.setVisibility(View.GONE);
             flowLayoutReceive.setVisibility(View.GONE);
         }
@@ -181,6 +184,7 @@ public class ExpressInputDetailActivity extends BaseActivity implements View.OnC
         flowLayoutReceive = (FlowLayout) findViewById(R.id.flowLayout_other);
         expressIcon = (ImageView) findViewById(R.id.express_icon);
         expressName = (TextView) findViewById(R.id.express_company);
+        remark = (TextView) findViewById(R.id.remark);
         tvReceive = (TextView) findViewById(R.id.tv_receive);
         apartmentName = (TextView) findViewById(R.id.express_apartment);
         expressNo = (TextView) findViewById(R.id.expressNo);

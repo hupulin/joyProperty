@@ -24,9 +24,11 @@ import com.squareup.picasso.Picasso;
 
 public class ExpressReceiveAdapter extends ModeListAdapter<ExpressNewTo> {
     private Context mContext;
-    public ExpressReceiveAdapter(Context context) {
+    private String length;
+    public ExpressReceiveAdapter(Context context,String length) {
         super(context);
         this.mContext = context;
+        this.length = length;
     }
 
 
@@ -49,13 +51,22 @@ public class ExpressReceiveAdapter extends ModeListAdapter<ExpressNewTo> {
         tv.setSpacing(12.5f);
         tv.setText("领取人：");
         ExpressNewTo mode=mList.get(position);
-
         holder.getApartmentName().setText(mode.getApartmentName());
+        if("6".equals(length)){
+            //显示取件码
+            holder.getItemCode().setVisibility(View.VISIBLE);
+        }else{
+            holder.getItemCode().setVisibility(View.GONE);
+
+        }
         if(mode.getExpressIcon()!=null){
             Picasso.with(mContext).load(MainApp.getPicassoImagePath(mode.getExpressIcon()+".png")).into(holder.getExpressImage());
         }
         if(mode.getExpressCompany()!=null){
             holder.getApartmentName().setText(mode.getApartmentName());
+
+        }if(mode.getExpressRemark()!=null){
+            holder.getRemark().setText(mode.getExpressRemark());
 
         } if(mode.getExpressNo()!=null){
             holder.getExpressNo().setText(mode.getExpressNo());
@@ -83,7 +94,7 @@ public class ExpressReceiveAdapter extends ModeListAdapter<ExpressNewTo> {
         holder.getGetExpress().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getExpressListener.OnGetExpressListener(mode.getExpressSid());
+                getExpressListener.OnGetExpressListener(mode.getExpressSid(),mode.getExpressRemark());
             }
         });
         if(1==mode.getIsRegister()){
@@ -109,6 +120,6 @@ public class ExpressReceiveAdapter extends ModeListAdapter<ExpressNewTo> {
         this.getExpressListener=listener;
     }
     public interface GetExpressListener{
-        void OnGetExpressListener(String expressSid);
+        void OnGetExpressListener(String expressSid,String remark);
     }
 }

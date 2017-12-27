@@ -1,39 +1,33 @@
 package com.joy.property.utils;
 
-/**
- *  Created by usb on 2017/4/25.
- */
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import android.app.Activity;
 import android.content.Context;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
-import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
 import android.text.Editable;
 import android.text.InputType;
-import android.util.Log;
 import android.view.View;
-
 import android.view.WindowManager;
 import android.widget.EditText;
 
 import com.joy.property.R;
 
-public class KeyboardUtil {
-    private Context mContext;
-    private Activity mActivity;
-    public KeyboardView mKeyboardView;
-    private EditText mEdit;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+public class KeyboardUtilExpress {
+    private Context      mContext;
+    private Activity     mActivity;
+    public  KeyboardView mKeyboardView;
+    private EditText     mEdit;
     /**
      * 省份简称键盘
      */
-    private Keyboard province_keyboard;
+    private Keyboard     province_keyboard;
     /**
      * 数字与大写字母键盘
      */
-    private Keyboard number_keyboar;
+    private Keyboard     number_keyboar;
 
     /**
      * 软键盘切换判断
@@ -44,22 +38,22 @@ public class KeyboardUtil {
      */
     private String reg = "[\\u4e00-\\u9fa5]";
 
-    public KeyboardUtil(Activity activity, EditText edit) {
+    public KeyboardUtilExpress(Activity activity, EditText edit) {
         mActivity = activity;
         mContext = (Context) activity;
         mEdit=null;
         mEdit = edit;
-        province_keyboard = new Keyboard(mContext, R.xml.province_abbreviation);
-        number_keyboar = new Keyboard(mContext, R.xml.number_or_letters);
+        province_keyboard = new Keyboard(mContext, R.xml.number);
+        number_keyboar = new Keyboard(mContext, R.xml.number_or_letters_express);
         mKeyboardView = (KeyboardView) activity
                 .findViewById(R.id.keyboard_view);
-        mKeyboardView.setKeyboard(province_keyboard);
+        mKeyboardView.setKeyboard(number_keyboar);
         mKeyboardView.setEnabled(true);
         mKeyboardView.setPreviewEnabled(false);
         mKeyboardView.setOnKeyboardActionListener(listener);
     }
 
-    private OnKeyboardActionListener listener = new OnKeyboardActionListener() {
+    private KeyboardView.OnKeyboardActionListener listener = new KeyboardView.OnKeyboardActionListener() {
         @Override
         public void swipeUp() {
         }
@@ -111,7 +105,7 @@ public class KeyboardUtil {
                 editable.insert(start, Character.toString((char) primaryCode));
                 // 判断第一个字符是否是中文,是，则自动切换到数字软键盘
                 if (mEdit.getText().toString().matches(reg)) {
-                    changeKeyboard(true);
+//                    changeKeyboard(true);
                 }
             }
         }
@@ -119,7 +113,6 @@ public class KeyboardUtil {
 
     /**
      * 按切换键时切换软键盘
-     *
      */
     public void changeKeyboard() {
         if (isChange) {
@@ -207,3 +200,4 @@ public class KeyboardUtil {
     }
 
 }
+

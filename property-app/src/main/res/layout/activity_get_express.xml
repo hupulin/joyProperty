@@ -135,5 +135,19 @@
         android:id="@+id/search_input"
 
         />
-
+    <android.inputmethodservice.KeyboardView
+        android:id="@+id/keyboard_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:paddingTop="1dp"
+        android:layout_alignParentBottom="true"
+        android:focusable="true"
+        android:shadowRadius="0.0"
+        android:focusableInTouchMode="true"
+        android:background="#D1D5D7"
+        android:keyBackground="@drawable/btn_keyboard_key"
+        android:keyTextSize="16sp"
+        android:keyTextColor="#353535"
+        android:visibility="gone" />
 </com.zhy.autolayout.AutoRelativeLayout>
