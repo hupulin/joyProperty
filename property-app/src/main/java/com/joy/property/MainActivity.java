@@ -1803,7 +1803,7 @@ if (mUserHelperBulk.getUserInfoTo()!=null)
         //南都物业
 //      param.setOldCommunityId("b4a87080-5b85-4438-9b39-44aa456cdf00");
 //       幸福家园
-//     param.setOldCommunityId("a241b63a-df3c-43a8-a7fd-477e5f950d9f");
+    param.setOldCommunityId("a241b63a-df3c-43a8-a7fd-477e5f950d9f");
 
         param.setOldUserId(mUserHelper.getSid());
         com.joyhome.nacity.app.util.CustomDialogFragment dialogFragment=new com.joyhome.nacity.app.util.CustomDialogFragment();

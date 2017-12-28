@@ -71,7 +71,7 @@ public class ApiClientBulk {
 
 
         RestAdapter.Builder builder = new RestAdapter.Builder()
-                .setEndpoint("http://proshop.joyhomenet.com:8081/ihome")
+                .setEndpoint(ApiUrlUtil.BULK_BASE_URL)
 
                 .setConverter(new JacksonConverter())
 

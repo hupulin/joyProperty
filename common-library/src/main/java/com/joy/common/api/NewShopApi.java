@@ -473,8 +473,15 @@ public interface NewShopApi {
 
     @GET("/api/layoutApp/selectLayoutAppVoList")
     void getMainPageInfo(@Query("layoutType") String layoutType, @Query("communityId") String communityId, Callback<MessageTo<MainInfoTo>> callback);
-   @GET("/api/layoutApp/selectLayoutAppVoList")
-    void getMainPageInfo(@Query("layoutType") String layoutType,@Query("version") String version  , @Query("communityId") String communityId, Callback<MessageTo<MainInfoTo>> callback);
+
+    /***
+     * 获取花样菜场和啄木鸟
+     *
+     * @return
+     */
+
+    @GET("/api/layoutApp/selectLayoutAppVoList")
+    void getMarketMainPageInfo(@Query("layoutType") String layoutType, @Query("communityId") String communityId, @Query("version") String version, Callback<MessageTo<MainInfoTo>> callback);
 
     /***
      * 获取图文详情

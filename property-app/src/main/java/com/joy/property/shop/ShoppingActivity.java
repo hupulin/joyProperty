@@ -682,7 +682,7 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
 
         NewShopApi api = ApiClientBulk.create(NewShopApi.class);
 
-        api.getMainPageInfo("4", mUserHelperBulk.getUserInfoTo().getApartmentSid(), "4.0", new HttpCallback<MessageTo<MainInfoTo>>(this) {
+        api.getMarketMainPageInfo("4", mUserHelperBulk.getUserInfoTo().getApartmentSid(), "4.0", new HttpCallback<MessageTo<MainInfoTo>>(this) {
             @Override
             public void success(MessageTo<MainInfoTo> msg, Response response) {
 
