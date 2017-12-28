@@ -97,6 +97,7 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
     private ActivityTimeTo activityTimeInfo=new ActivityTimeTo();
     private boolean onStop;
     private ConvenientBanner thirdPart;
+    private boolean onDestory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,6 +154,7 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
     private void setAutoRow() {
 
         NewShopApi api = ApiClientBulk.create(NewShopApi.class);
+        System.out.println(mUserHelperBulk.getSid()+"userSid============");
         api.getMainPageInfo("1", mUserHelperBulk.getUserInfoTo().getApartmentSid(), new HttpCallback<MessageTo<MainInfoTo>>(this) {
             @Override
             public void success(MessageTo<MainInfoTo> msg, Response response) {
@@ -534,6 +536,7 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
         if (carNumber!=null)
             CarNumberUtil.getCarNumber(mUserHelperBulk.getSid(),getThisContext(),carNumber);
         onStop=false;
+
     }
 
     @Override
@@ -541,6 +544,7 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
         super.onDestroy();
         autoRow.stopTurning();
          PublicWay.activityList.remove(this);
+        onDestory=true;
         new Handler().removeCallbacks(threadTime);
 
     }
@@ -625,11 +629,11 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
         leaveTime=startTime-DateUtil.cureentMillis();
         leaveTime=leaveTime*1000;
         threadTime = new Thread(() -> {
-            for (;leaveTime>0&&!onStop;) {
+            for (;leaveTime>0&&!onDestory;) {
 
                 leaveTime = leaveTime - 100;
                 System.out.println("-------------线程------------" + leaveTime);
-
+                if (!onStop)
                 runOnUiThread(() -> {
                     hour.setText(leaveTime/1000/3600+"");
                     minute.setText((leaveTime/1000/60-leaveTime/1000/3600*60)+"");
@@ -649,7 +653,7 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
 
                             leaveTime = leaveTime - 100;
                             System.out.println("-------------线程------------" + leaveTime);
-
+                            if (!onStop)
                             runOnUiThread(() -> {
                                 hour.setText(leaveTime / 1000 / 3600 + "");
                                 minute.setText((leaveTime / 1000 / 60 - leaveTime / 1000 / 3600 * 60) + "");
@@ -752,7 +756,6 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
 
 
     }
-
 
 
 }
