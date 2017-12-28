@@ -120,30 +120,21 @@
                         >
 
                     </View>
-                    <ImageView
+                    <com.zhy.autolayout.AutoLinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        app:layout_heightPercent="23.61%w"
-                        app:layout_marginTopPercent="1.38%w"
-                        android:id="@+id/easyToHome"
-                        android:visibility="gone"
-                        />
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        app:layout_heightPercent="23.61%w"
-                        app:layout_marginTopPercent="1.38%w"
-                        android:id="@+id/hyMarket"
-                        android:visibility="gone"
-                        />
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        app:layout_heightPercent="23.61%w"
-                        app:layout_marginTopPercent="1.38%w"
-                        android:id="@+id/electric_repair"
-                        android:visibility="gone"
-                        />
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        >
+
+
+                        <com.bigkoo.convenientbanner.ConvenientBanner
+                            android:id="@+id/third_part"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginBottom="24px"
+                            android:layout_marginTop="14px" />
+                    </com.zhy.autolayout.AutoLinearLayout>
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0dp"

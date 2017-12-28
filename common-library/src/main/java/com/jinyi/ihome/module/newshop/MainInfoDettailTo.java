@@ -66,6 +66,9 @@ public class MainInfoDettailTo {
     private Object createUserName;
     private Object graphicDetails;
     private int menuType;
+    private String minPicUrl;
+
+
     public String getId() {
         return id;
     }
@@ -265,7 +268,16 @@ public class MainInfoDettailTo {
     public void setMenuType(int menuType) {
         this.menuType = menuType;
     }
-/**
+
+    public String getMinPicUrl() {
+        return minPicUrl;
+    }
+
+    public void setMinPicUrl(String minPicUrl) {
+        this.minPicUrl = minPicUrl;
+    }
+
+    /**
      * id : 98
      * layoutName : mock
      * picUrl : mock

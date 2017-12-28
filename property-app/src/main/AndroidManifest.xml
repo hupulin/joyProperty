@@ -281,8 +281,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".shop.EasyToHomeActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".shop.HyCaiChangActivity"
-            android:screenOrientation="portrait"/>
         <activity android:name=".shop.CampaignListActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".shop.CommentListActivity"
@@ -369,6 +367,9 @@
         <activity android:name=".person.MyNeighborJoinDetailActivity"
             android:screenOrientation="portrait"/>
 
+
+        <activity android:name=".shop.ThirdPartActivity"
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".neighborhood.NeighborhoodCircleNewsActivity"
             android:screenOrientation="portrait"

@@ -1,8 +1,10 @@
 package com.joy.property.shop;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -50,6 +52,7 @@ import com.joy.property.R;
 import com.joy.property.base.BaseActivity;
 import com.joy.property.shop.adapter.HotActivityAdapter;
 import com.joy.property.shop.adapter.HotAdapter;
+import com.joy.property.shop.adapter.ThirdPartHolderView;
 import com.joy.property.shop.shoputil.CarNumberUtil;
 import com.joyhome.nacity.app.photo.util.PublicWay;
 import com.joyhome.nacity.app.propertyCenter.NetworkImageHolderView;
@@ -81,8 +84,7 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
     private TextView carNumber;
     private LinearLayout menuLayout;
     private List<MainInfoDettailTo> shopAdList = new ArrayList<>();
-    private ImageView hyMarket;
-    private ImageView electricRepair;
+
     private ImageView activityImage;
     private TextView hour;
     private TextView minute;
@@ -94,21 +96,21 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
     private RelativeLayout adLayout;
     private ActivityTimeTo activityTimeInfo=new ActivityTimeTo();
     private boolean onStop;
-    private ImageView easyToHome;
-
+    private ConvenientBanner thirdPart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_new);
         initView();
         getActivityData();
-        getHyMarket();
+
 
         setAutoRow();
         getChannel();
 
         getType();
         getUserInfo();
+        getThirdPart();
         //  getAdPosition();
         // addMenu();
       PublicWay.activityList.add(this);
@@ -137,16 +139,15 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
         searchGoods= (ImageView)findViewById(R.id.searchGoods);
         searchGoods.setOnClickListener(this);
         activityImage = (ImageView) findViewById(R.id.iv_ad);
-        hyMarket = (ImageView) findViewById(R.id.hyMarket);
-        electricRepair = (ImageView) findViewById(R.id.electric_repair);
         hour = (TextView) findViewById(R.id.hour);
         minute = (TextView) findViewById(R.id.minute);
         second = (TextView) findViewById(R.id.second);
         millSecond = (TextView) findViewById(R.id.millSecond);
         titleName = (TextView) findViewById(R.id.title_name);
         adLayout = (RelativeLayout) findViewById(R.id.adLayout);
-        easyToHome= (ImageView) findViewById(R.id.easyToHome);
+
         adLayout.setOnClickListener(this);
+        thirdPart = (ConvenientBanner) findViewById(R.id.third_part);
     }
 
     private void setAutoRow() {
@@ -294,10 +295,10 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
             @Override
             public void success(MessageToBulk<List<CategoryChannelTo>> msg, Response response) {
                 if (msg.getCode() == 0) {
-                    Log.i("2222", "msg: "+msg.toString());
+                    Log.i("2222", "msg: " + msg.toString());
 
                     shopList.clear();
-                    System.out.println(msg.getCommunityCategoryGoodsVoList()+"很长");
+                    System.out.println(msg.getCommunityCategoryGoodsVoList() + "很长");
                     if (msg.getCommunityCategoryGoodsVoList() != null)
                         shopList.addAll(msg.getCommunityCategoryGoodsVoList());
                     //  setShopList();
@@ -307,7 +308,7 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
                     adapter.notifyDataSetChanged();
 
                     listView.setOnItemClickListener((adapterView, view, position, l) -> {
-                        if (shopList.get(position).getGoodsApiVolist().size()==0)
+                        if (shopList.get(position).getGoodsApiVolist().size() == 0)
                             return;
                         Intent intent = new Intent(getThisContext(), ShopMoreType.class);
                         CategoryTo categoryTo = new CategoryTo();
@@ -329,7 +330,7 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
 
             @Override
             public void failure(RetrofitError error) {
-                Log.i("2222", "failure: "+error.toString());
+                Log.i("2222", "failure: " + error.toString());
                 System.out.println(error.toString() + "error");
             }
         });
@@ -444,7 +445,7 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
     }
 
     public void getMyShopCarNumber() {
-      CarNumberUtil.getCarNumber(mUserHelperBulk.getSid(),getThisContext(),carNumber);
+      CarNumberUtil.getCarNumber(mUserHelperBulk.getSid(), getThisContext(), carNumber);
     }
 
     private void setJumpActivity() {
@@ -559,8 +560,8 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
                         setActivityTitle(msg.getActivityList().get(0).getActivityVo());
                         setActivityView(msg.getActivityList().get(0).getActivityVo().getActivityGoodsVoList());
 
-                        Log.i("222", "success: "+msg.getActivityList().get(0).getActivityVo().toString());
-                        Log.i("222", "success: "+msg.getActivityList().get(0).getActivityVo().getActivityGoodsVoList().toString());
+                        Log.i("222", "success: " + msg.getActivityList().get(0).getActivityVo().toString());
+                        Log.i("222", "success: " + msg.getActivityList().get(0).getActivityVo().getActivityGoodsVoList().toString());
                     } else
                         adLayout.setVisibility(View.GONE);
                 }
@@ -583,7 +584,7 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
             Intent intent = new Intent(getThisContext(), SideGoodsDetailActivity.class);
             intent.putExtra("GoodsSid", activityList.get(position).getActivityGoodsId());
             intent.putExtra("ActivityGoods", true);
-            intent.putExtra("ActivityTimeInfo" ,activityTimeInfo);
+            intent.putExtra("ActivityTimeInfo", activityTimeInfo);
             startActivity(intent);
             goToAnimation(1);
 
@@ -675,53 +676,27 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
         threadTime.start();
     }
     /**
-     *
-     * 设置到家
+     * 获取第三方H5数据
      */
-    public void easyToHome(MainInfoDettailTo detailTo ) {
+    public void getThirdPart() {
 
-        easyToHome.setVisibility(View.VISIBLE);
-
-        Picasso.with(getThisContext()).load(MainApp.getPicassoImagePath(detailTo.getPicUrl())).into(easyToHome);
-
-        easyToHome.setOnClickListener(v -> {
-            Intent intent = new Intent(getThisContext(), EasyToHomeActivity.class);
-            intent.putExtra("thirdPartyAccessId", detailTo.getInsideForwordId() + "");
-            intent.putExtra("LayoutTitle",detailTo.getLayoutName());
-            startActivity(intent);
-            goToAnimation(1);
-        });
-    }
-
-
-    /**
-     * 花样菜场
-     */
-    public void getHyMarket(){
-        System.out.println(mUserHelperBulk.getUserInfoTo().getApartmentSid() + "userSid");
         NewShopApi api = ApiClientBulk.create(NewShopApi.class);
-        api.getMainPageInfo("4","2.0", mUserHelperBulk.getUserInfoTo().getApartmentSid(), new HttpCallback<MessageTo<MainInfoTo>>(this) {
+
+        api.getMainPageInfo("4", mUserHelperBulk.getUserInfoTo().getApartmentSid(), "4.0", new HttpCallback<MessageTo<MainInfoTo>>(this) {
             @Override
             public void success(MessageTo<MainInfoTo> msg, Response response) {
 
                 if (msg.getSuccess() == 0) {
 
                     if (msg.getData() != null && msg.getData().getList() != null && msg.getData().getList().size() > 0) {
-                        MainInfoDettailTo firstDetail=msg.getData().getList().get(0);
-                        if (msg.getData().getList().size()>0){
 
-//                            setHyMarket(101==firstDetail.getInsideForwordId()?msg.getData().getList().get(1):msg.getData().getList().get(0));
-//                            setElectricRepair(101==firstDetail.getInsideForwordId()?msg.getData().getList().get(0):msg.getData().getList().get(1));
-                            Observable.from(msg.getData().getList()).filter(mainInfoDettailTo -> mainInfoDettailTo.getInsideForwordId()==100).subscribe(mainInfoDettailTo -> setHyMarket(mainInfoDettailTo));
-                            Observable.from(msg.getData().getList()).filter(mainInfoDettailTo -> mainInfoDettailTo.getInsideForwordId()==101).subscribe(mainInfoDettailTo -> setElectricRepair(mainInfoDettailTo));
-                            Observable.from(msg.getData().getList()).filter(mainInfoDettailTo -> mainInfoDettailTo.getInsideForwordId()==103).subscribe(mainInfoDettailTo -> easyToHome(mainInfoDettailTo));
-                        }else {
-                            if (101==firstDetail.getInsideForwordId())
-                                setElectricRepair(firstDetail);
-                            else
-                                setHyMarket(firstDetail);
-                        }
-//
+                        if (msg.getData().getList().size() > 0) {
+
+                            thirdPartLayout(msg.getData().getList());
+
+                        } else
+                            thirdPart.setVisibility(View.GONE);
+
                     }
                 }
 
@@ -736,31 +711,48 @@ public class ShoppingActivity extends BaseActivity implements OnItemClickListene
         });
 
     }
-    public void setHyMarket(MainInfoDettailTo detailTo){
-        hyMarket.setVisibility(View.VISIBLE);
-        Picasso.with(getThisContext()).load(MainApp.getPicassoImagePath(detailTo.getPicUrl())).into(hyMarket);
 
-        hyMarket.setOnClickListener(v -> {
-            Intent intent = new Intent(getThisContext(), HyCaiChangActivity.class);
-            intent.putExtra("thirdPartyAccessId", detailTo.getInsideForwordId() + "");
-            intent.putExtra("LayoutTitle",detailTo.getLayoutName());
-            startActivity(intent);
-            goToAnimation(1);
-        });
+
+    /**
+     * 第三方接入布局
+     */
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    public void thirdPartLayout(List<MainInfoDettailTo> infoList) {
+
+        if (infoList.size() > 4) {
+            thirdPart.setMinimumHeight((int) (getScreenWidth() * 370 / 720));
+        } else
+            thirdPart.setMinimumHeight((int) (getScreenWidth() * 175 / 720));
+        if (infoList.size() <=8)
+            thirdPart.setCanLoop(false);
+        else
+            thirdPart.setPageIndicator(new int[]{R.drawable.shop_third_part_page_indicator_focused, R.drawable.shop_third_part_ic_page_indicator});
+        List<List<MainInfoDettailTo>> holdList = new ArrayList<>();
+        for (int i = 0; i < infoList.size() / 8 + (infoList.size() % 8 > 0 ? 1 : 0); i++) {
+            List<MainInfoDettailTo> infoDettailTos = new ArrayList<>();
+            for (int j = 0; j < 8 && (i * 8 + j) < infoList.size(); j++)
+                infoDettailTos.add(infoList.get(i * 8 + j));
+            holdList.add(infoDettailTos);
+
+        }
+        String transforemerName = ForegroundToBackgroundTransformer.class.getSimpleName();
+        try {
+            Class cls = Class.forName("com.ToxicBakery.viewpager.transforms." + transforemerName);
+            ABaseTransformer transforemer = (ABaseTransformer) cls.newInstance();
+            thirdPart.getViewPager().setPageTransformer(true, transforemer);
+            if (transforemerName.equals("StackTransformer")) {
+                thirdPart.setScrollDuration(1200);
+            }
+
+            thirdPart.setPages(ThirdPartHolderView::new, holdList);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+
     }
-    public void setElectricRepair(MainInfoDettailTo detailTo ) {
 
-        electricRepair.setVisibility(View.VISIBLE);
 
-        Picasso.with(getThisContext()).load(MainApp.getPicassoImagePath(detailTo.getPicUrl())).into(electricRepair);
-
-        electricRepair.setOnClickListener(v -> {
-            Intent intent = new Intent(getThisContext(), HyCaiChangActivity.class);
-            intent.putExtra("thirdPartyAccessId", detailTo.getInsideForwordId() + "");
-            intent.putExtra("LayoutTitle",detailTo.getLayoutName());
-            startActivity(intent);
-            goToAnimation(1);
-        });
-    }
 
 }
