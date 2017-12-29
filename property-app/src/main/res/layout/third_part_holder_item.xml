@@ -20,6 +20,7 @@
             android:layout_height="93px"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitXY"
+            android:background="@drawable/shop_third_part_loading"
             app:layout_auto_basewidth="height" />
 
         <TextView
