@@ -420,4 +420,8 @@
     <color name="navigation_text_color">#041417</color>
     <color name="neighbor_text_color">#818a8c</color>
     <color name="page_title_color_new">#4fb2d6</color>
+
+    <color name="sign_button">#facb38</color>
+    <color name="selector_sign_submit_press">#d6ad30</color>
+    <color name="selector_sign_submit">#facb38</color>
 </resources>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parent"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="196px"
+        android:background="@color/white"
+
+        android:orientation="vertical"
+        android:paddingLeft="54px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34px"
+            android:text="签到时间  16:25"
+            android:textColor="#424242"
+            android:textSize="42px"
+            android:textStyle="bold"
+            android:id="@+id/sign_time"
+
+            />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16px">
+
+            <View
+                android:layout_width="25px"
+                android:layout_height="33px"
+                android:background="@drawable/work_sign_position_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12px"
+                android:text="东方郡东区2幢3单元20楼"
+                android:textColor="#999999"
+                android:id="@+id/sign_position"
+                android:layout_gravity="center_vertical"
+                android:textSize="24px" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14px"
+            android:text="工作内容：维修水管"
+            android:textColor="#999999"
+            android:id="@+id/work_content"
+            android:textSize="24px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="54px">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+
+            android:background="#d9d9d9" />
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/remark_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="备注："
+                android:textColor="#424242"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/remark_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="54px"
+                android:layout_toRightOf="@+id/remark_text"
+                android:background="@color/transparent"
+                android:gravity="top"
+
+                android:maxLength="100"
+                android:text="一切正常"
+
+                android:textColor="#424242"
+                android:textSize="28px" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/remark_content"
+                android:layout_marginBottom="28px"
+                android:layout_marginTop="28px"
+                android:layout_marginRight="40px"
+                android:scrollbars="none">
+
+
+                <GridLayout
+                    android:id="@+id/grid_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:minHeight="110px"
+                    android:paddingRight="54px">
+
+                </GridLayout>
+            </HorizontalScrollView>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10px"
+        android:background="@color/transparent" />
+</com.zhy.autolayout.AutoLinearLayout>

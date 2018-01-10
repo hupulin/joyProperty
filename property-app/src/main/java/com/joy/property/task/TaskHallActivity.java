@@ -102,7 +102,7 @@ public class TaskHallActivity extends BaseActivity implements
                 .setCyclic(false)
                 .build();
         setLists("杭州市");
-        setListsPark("");
+
         if (PublicWay.currentActivity.get("TaskHallActivity")!=null) {
             PublicWay.currentActivity.get("TaskHallActivity").finish();
 

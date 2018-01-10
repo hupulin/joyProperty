@@ -139,7 +139,7 @@ public class  ApiClient {
      * */
     public static String getVersion() {
         try {
-            
+
             PackageManager manager = mContext.getPackageManager();
             PackageInfo info = manager.getPackageInfo(mContext.getPackageName(), 0);
             return info.versionName;

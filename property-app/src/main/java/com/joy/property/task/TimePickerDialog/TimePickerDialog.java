@@ -21,6 +21,7 @@ import com.joy.property.task.TimePickerDialog.data.Type;
 import com.joy.property.task.TimePickerDialog.data.WheelCalendar;
 import com.joy.property.task.TimePickerDialog.listener.OnDateSetListener;
 
+import java.text.ParseException;
 import java.util.Calendar;
 
 /**
@@ -131,7 +132,11 @@ public class TimePickerDialog extends DialogFragment implements View.OnClickList
 
         mCurrentMillSeconds = calendar.getTimeInMillis();
         if (mPickerConfig.mCallBack != null) {
-            mPickerConfig.mCallBack.onDateSet(this, mCurrentMillSeconds);
+            try {
+                mPickerConfig.mCallBack.onDateSet(this, mCurrentMillSeconds);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }
         dismiss();
     }

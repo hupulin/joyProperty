@@ -5,6 +5,8 @@
     <permission
         android:name="com.joy.property.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="com.joy.property.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -32,6 +34,8 @@
     <uses-feature android:name="android.hardware.camera2.CameraManager"/>
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
     <!--创建快捷方式权限-->
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
@@ -173,6 +177,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".common.LongPictureShowActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".worksign.photo.zoom.SignGalleryActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".login.LoginActivity"
             android:screenOrientation="portrait"
@@ -281,6 +287,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".shop.EasyToHomeActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".shop.ThirdPartActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".shop.CampaignListActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".shop.CommentListActivity"
@@ -368,8 +376,28 @@
             android:screenOrientation="portrait"/>
 
 
-        <activity android:name=".shop.ThirdPartActivity"
+        <activity android:name=".worksign.WorkSignActivity"
+
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".worksign.OfflineUploadActivity"
+
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".worksign.SignRecordActivity"
+
+            android:screenOrientation="portrait"/>
+
+
+        <activity android:name=".worksign.SignSubmitActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"/>
+
+
+        <activity android:name=".worksign.WorkContentActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"/>
+
 
         <activity android:name=".neighborhood.NeighborhoodCircleNewsActivity"
             android:screenOrientation="portrait"
@@ -480,6 +508,12 @@
 
         <activity
             android:name=".community.NeighborVoteDetailActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".worksign.SignDetailActivity"
             android:hardwareAccelerated="false"
             android:screenOrientation="portrait"
             />
@@ -776,6 +810,8 @@
             android:exported="false" >
         </service>
 
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"> </service>
+
         <!-- Required SDK核心功能-->
         <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
 
@@ -814,6 +850,11 @@
         <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
         <!-- Required. AppKey copied from Portal -->
         <meta-data android:name="JPUSH_APPKEY" android:value="34ee257f8211a78068f79398"/>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="v7QGFMKiiBqOElSU0V5eYg1BGpRweoir" >
+        </meta-data>
     </application>
 
 </manifest>

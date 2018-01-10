@@ -43,7 +43,7 @@ public class ThirdPartHolderView implements Holder<List<MainInfoDettailTo>> {
             MainInfoDettailTo detailTo = data.get(i);
             View mView = View.inflate(context, R.layout.third_part_holder_item, null);
 
-            Glide.with(context).load(MainApp.getImagePath(detailTo.getMinPicUrl())).into(((ImageView) mView.findViewById(R.id.third_part_image)));
+            Glide.with(context).load(MainApp.getImagePath(detailTo.getMinPicUrl())).placeholder(R.drawable.shop_third_part_loading).error(R.drawable.shop_third_part_loading).into(((ImageView) mView.findViewById(R.id.third_part_image)));
             ((TextView) mView.findViewById(R.id.third_part_name)).setText(detailTo.getLayoutName());
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
             if (i % 4 == 0) {

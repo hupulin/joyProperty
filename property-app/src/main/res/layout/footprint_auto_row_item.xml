@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:layout_marginLeft="24px"
+        android:layout_marginRight="24px"
+
+        android:background="#3bafd9"
+        android:orientation="horizontal">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="65px"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/sign_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2月3日"
+                android:textColor="#ffffff"
+                android:textSize="24px"
+
+                />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/sign_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24px"
+                    android:text="完成签到4次"
+                    android:textColor="#ffffff"
+                    android:textSize="25px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="120px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30px"
+            android:background="#ffffff" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="400px"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+
+                android:layout_marginLeft="30px">
+
+                <View
+                    android:layout_width="20px"
+                    android:layout_height="20px"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/white_circle_icon"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/detail_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8px"
+                    android:text="2017年11月21日"
+                    android:textColor="#ffffff"
+                    android:textSize="24px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="12dp"
+                android:layout_marginLeft="34px"
+                android:layout_marginTop="5px"
+                android:text="东方郡东区2幢3单元20楼"
+                android:textColor="#ffffff"
+                android:textSize="21px" />
+
+            <TextView
+                android:id="@+id/work_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5px"
+                android:layout_marginLeft="34px"
+                android:layout_marginTop="5px"
+                android:text="工作内容：维修水管"
+                android:textColor="#ffffff"
+                android:textSize="21px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/footprint_detail_layout"
+            android:layout_width="50px"
+            android:layout_height="match_parent"
+           >
+
+            <View
+                android:layout_width="28px"
+                android:layout_height="41px"
+                android:layout_centerInParent="true"
+                android:background="@drawable/sign_right_arrow_icon" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

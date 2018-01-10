@@ -8,7 +8,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.TimeZone;
 
 public class DateUtil {
@@ -25,7 +27,8 @@ public class DateUtil {
 	public final static String mFormatDateString2 = "yyyy.MM.dd HH:mm";
 	public final static String mFormatDateTimeString = "yyyy.MM.dd HH:mm:ss";
 	public final static String mDateTimeFormatStringNoSecond = "yyyy.MM.dd HH:mm";
-
+	public final static String mDateTimeFormatStringNoSecondSign = "yyyy年MM月dd日 HH:mm";
+	public final static String mWorkDate = "yyyy年MM月dd日";
 	public final static String mFormatTimeShort = "HH:mm";
 	public final static String mFormatDateShort ="MM月dd日";
 	public final static String mFormatDateShort1 ="MM-dd";
@@ -37,6 +40,23 @@ public class DateUtil {
 	 * @return
 	 */
 
+	public  static String getTime(){
+		long time=System.currentTimeMillis()/1000;//获取系统时间的10位的时间戳
+		String  str=String.valueOf(time);
+		return str;
+	}
+
+	/**
+	 * 获取指定日期时间戳
+	 *
+	 * @return
+	 */
+
+	public  static String getLongDateTime(long time){
+
+		String  str=String.valueOf(time/1000);
+		return str;
+	}
 
 	public static String getFormatTime(String format) {
 		TimeZone timeZone = TimeZone.getDefault();
@@ -77,7 +97,9 @@ public class DateUtil {
 
 		return mDate ;
 
-	}public static Date getFormatDateExpectTime(String date){
+	}
+
+	public static Date getFormatDateExpectTime(String date){
 
 		mFormatDateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm",Locale.ENGLISH);
 
@@ -459,12 +481,135 @@ public class DateUtil {
 		return sdf.format(new Date(mills))+" "+start;
 	}
 
+	public static Map<String, Date> getLastWeek() {
+		// TODO Auto-generated method stub
+		Map<String, Date> map = new HashMap<String, Date>();
+		Calendar cal = Calendar.getInstance();
+		int n = cal.get(Calendar.DAY_OF_WEEK) - 1;
+		if (n == 0) {
+			n = 7;
+		}
+		cal.add(Calendar.DATE, -(7 + (n - 1)));// 上周一的日期
+		Date monday = cal.getTime();
+		map.put("monday", monday);
 
+		cal.add(Calendar.DATE, 1);
+		Date tuesday = cal.getTime();
+		map.put("tuesday", tuesday);
+
+		cal.add(Calendar.DATE, 1);
+		Date wednesday = cal.getTime();
+		map.put("wednesday", wednesday);
+
+		cal.add(Calendar.DATE, 1);
+		Date thursday = cal.getTime();
+		map.put("thursday", thursday);
+
+		cal.add(Calendar.DATE, 1);
+		Date friday = cal.getTime();
+		map.put("friday", friday);
+
+		cal.add(Calendar.DATE, 1);
+		Date saturday = cal.getTime();
+		map.put("saturday", saturday);
+
+		cal.add(Calendar.DATE, 1);
+		Date sunday = cal.getTime();
+		map.put("sunday", sunday);
+		return map;
+	}
 
 
 
 	public static long cureentMillis(){
 
 		return System.currentTimeMillis()/1000;
+	}
+
+	public static String getLastDayOfMonth(int year, int month,boolean select) {
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, year);
+		cal.set(Calendar.MONTH, month-(select?1:0));
+		cal.set(Calendar.DAY_OF_MONTH,cal.getActualMaximum(Calendar.DATE));
+		return  new   SimpleDateFormat( "yyyy-MM-dd").format(cal.getTime());
+	}
+	public static String getFirstDayOfMonth(int year, int month,boolean select) {
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, year);
+		cal.set(Calendar.MONTH, month-(select?1:0));
+		cal.set(Calendar.DAY_OF_MONTH,cal.getMinimum(Calendar.DATE));
+		return   new   SimpleDateFormat( "yyyy-MM-dd").format(cal.getTime());
+	}
+
+
+
+
+
+
+
+
+	// date类型转换为String类型
+	// formatType格式为yyyy-MM-dd HH:mm:ss//yyyy年MM月dd日 HH时mm分ss秒
+	// data Date类型的时间
+	public static String dateToString(Date data, String formatType) {
+		return new SimpleDateFormat(formatType).format(data);
+	}
+
+	// long类型转换为String类型
+	// currentTime要转换的long类型的时间
+	// formatType要转换的string类型的时间格式
+	public static String longToString(long currentTime, String formatType) {
+		Date date = null; // long类型转成Date类型
+		try {
+			date = longToDate(currentTime, formatType);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		String strTime = dateToString(date, formatType); // date类型转成String
+		return strTime;
+	}
+
+	// string类型转换为date类型
+	// strTime要转换的string类型的时间，formatType要转换的格式yyyy-MM-dd HH:mm:ss//yyyy年MM月dd日
+	// HH时mm分ss秒，
+	// strTime的时间格式必须要与formatType的时间格式相同
+	public static Date stringToDate(String strTime, String formatType)
+			throws ParseException {
+		SimpleDateFormat formatter = new SimpleDateFormat(formatType);
+		Date date = null;
+		date = formatter.parse(strTime);
+		return date;
+	}
+
+	// long转换为Date类型
+	// currentTime要转换的long类型的时间
+	// formatType要转换的时间格式yyyy-MM-dd HH:mm:ss//yyyy年MM月dd日 HH时mm分ss秒
+	public static Date longToDate(long currentTime, String formatType)
+			throws ParseException {
+		Date dateOld = new Date(currentTime); // 根据long类型的毫秒数生命一个date类型的时间
+		String sDateTime = dateToString(dateOld, formatType); // 把date类型的时间转换为string
+		Date date = stringToDate(sDateTime, formatType); // 把String类型转换为Date类型
+		return date;
+	}
+
+	// string类型转换为long类型
+	// strTime要转换的String类型的时间
+	// formatType时间格式
+	// strTime的时间格式和formatType的时间格式必须相同
+	public static long stringToLong(String strTime, String formatType)
+			throws ParseException {
+		Date date = stringToDate(strTime, formatType); // String类型转成date类型
+		if (date == null) {
+			return 0;
+		} else {
+			long currentTime = dateToLong(date); // date类型转成long类型
+			return currentTime;
+		}
+	}
+
+	// date类型转换为long类型
+	// date要转换的date类型的时间
+	public static long dateToLong(Date date) {
+		return date.getTime();
 	}
 }

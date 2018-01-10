@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg"
+    android:clipToPadding="true"
+
+    android:fitsSystemWindows="true">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="96px"
+        android:background="@color/page_title_color_new">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_back"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/title2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/work_sign"
+            android:textColor="@color/home_item_color"
+            android:textSize="18sp" />
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:id="@+id/offline_upload"
+            android:layout_marginRight="102px"
+            >
+            <View
+                android:layout_width="31px"
+                android:layout_marginLeft="35px"
+                android:layout_height="31px"
+                android:layout_marginRight="24px"
+                android:layout_centerVertical="true"
+                android:id="@+id/offline_upload_icon"
+                android:background="@drawable/sign_offline_upload_un_select"
+
+                />
+        </com.zhy.autolayout.AutoRelativeLayout>
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:id="@+id/sign_bind"
+            android:layout_marginRight="12px"
+            >
+            <View
+                android:layout_width="31px"
+                android:layout_marginLeft="24px"
+                android:layout_height="35px"
+                android:layout_marginRight="24px"
+                android:layout_centerVertical="true"
+                android:background="@drawable/sign_rebind_icon"
+
+                />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:layout_above="@+id/select_layout"
+        android:layout_below="@+id/title" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/select_layout"
+        android:layout_width="match_parent"
+        android:layout_height="116px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/sign_button">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/sign_button_layout"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="47px"
+                android:layout_height="40px"
+
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="21px"
+                android:background="@drawable/sign_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10px"
+                android:text="@string/work_sign"
+                android:textColor="@color/white"
+                android:textSize="26px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/footprint_layout"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:alpha="0.5"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="42px"
+                android:layout_height="44px"
+
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="21px"
+                android:background="@drawable/footprint_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10px"
+                android:text="@string/footprint"
+                android:textColor="@color/white"
+                android:textSize="26px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/check_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="true"
+       android:visibility="gone"
+        android:fitsSystemWindows="true"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="72px"
+            android:text="绑定"
+            android:textColor="#000000"
+            android:textSize="32px"
+            android:textStyle="bold" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="272px"
+            android:orientation="vertical"
+
+            >
+
+            <View
+                android:layout_width="276px"
+                android:layout_height="285px"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/sign_check_device_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="87px"
+                android:text="首次登录"
+                android:id="@+id/title_text"
+                android:textColor="#000000"
+                android:textSize="30px" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="48px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="是否将"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="张三(15168234205)"
+                    android:id="@+id/user_name"
+                    android:textColor="#3bafda"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 绑定"
+                    android:id="@+id/rebind_text"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="48px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="与  "
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="请选择所在小区 >"
+                    android:id="@+id/apartment_name"
+                    android:textColor="#3bafda"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 小区"
+                    android:textColor="#999999"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="53px"
+                android:text="巡更系统绑定"
+                android:textColor="#000000"
+                android:textSize="32px"
+                android:textStyle="bold" />
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="160px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="确定"
+                    android:id="@+id/confirm"
+                    android:textColor="#3bafda"
+                    android:textSize="36px"
+                   android:paddingRight="170px"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="取消"
+                    android:id="@+id/cancel"
+                    android:textColor="#999999"
+                    android:paddingLeft="170px"
+                    android:textSize="36px" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

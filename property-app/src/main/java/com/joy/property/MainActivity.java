@@ -123,6 +123,7 @@ import com.joy.property.views.MyScrollViewMain;
 import com.joy.property.visit.ReceiveExpressActivity;
 import com.joy.property.visit.SerialNumberActivity;
 import com.joy.property.visit.view.CaptureActivity;
+import com.joy.property.worksign.WorkSignActivity;
 import com.joyhome.nacity.app.photo.util.PublicWay;
 import com.joyhome.nacity.app.propertyCenter.NetworkImageHolderView;
 import com.umeng.analytics.MobclickAgent;
@@ -700,6 +701,11 @@ public class MainActivity extends SlidingFragmentActivity implements
                             }else if (TextUtils.equals(menuTo.getCode(), "A016")) {
                                 //车辆巡检管理
                                 startActivity(new Intent(getThisContext(), ReceiveExpressActivity.class));
+
+                            }else if (TextUtils.equals(menuTo.getCode(), "A017")) {
+                                //车辆巡检管理
+                                startActivity(new Intent(getThisContext(), WorkSignActivity.class));
+
 
                             }
                             else if (TextUtils.equals(menuTo.getCode(), "A0")) {
@@ -1801,9 +1807,9 @@ if (mUserHelperBulk.getUserInfoTo()!=null)
         NewShopApi api= ApiClientBulk.create(NewShopApi.class);
         BulkUserInfoParam param=new BulkUserInfoParam();
         //南都物业
-//      param.setOldCommunityId("b4a87080-5b85-4438-9b39-44aa456cdf00");
+    //  param.setOldCommunityId("b4a87080-5b85-4438-9b39-44aa456cdf00");
 //       幸福家园
-    param.setOldCommunityId("a241b63a-df3c-43a8-a7fd-477e5f950d9f");
+   param.setOldCommunityId("a241b63a-df3c-43a8-a7fd-477e5f950d9f");
 
         param.setOldUserId(mUserHelper.getSid());
         com.joyhome.nacity.app.util.CustomDialogFragment dialogFragment=new com.joyhome.nacity.app.util.CustomDialogFragment();

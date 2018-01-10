@@ -279,7 +279,9 @@
     <string name="picker_day">日</string>
     <string name="picker_hour">时</string>
     <string name="picker_minute">分</string>
+    <string name="work_sign">签到</string>
+    <string name="footprint">足迹</string>
+    <string name="work_content">工作内容</string>
 
-    
 
 </resources>

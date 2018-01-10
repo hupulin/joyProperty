@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f8f8"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/worker_name"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="#e3fefd"
+        android:gravity="center"
+        android:text="2017年11月22日  工程部 王师傅"
+        android:textColor="#333333"
+        android:textSize="28px" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/last_sign_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginBottom="40px"
+            android:layout_marginLeft="95px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42px"
+                android:text="上次签到时间"
+                android:textColor="#424242"
+                android:id="@+id/last_sign_time"
+                android:textSize="28px" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="90px">
+
+                <View
+                    android:layout_width="25px"
+                    android:layout_height="33px"
+                    android:background="@drawable/work_sign_position_icon" />
+
+                <TextView
+                    android:id="@+id/last_sign_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12px"
+                    android:text="东方郡东区2幢3单元20楼"
+                    android:textColor="#999999"
+                    android:textSize="24px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="138px">
+
+                <TextView
+                    android:id="@+id/last_work_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12px"
+                    android:text=""
+
+                    android:textColor="#999999"
+                    android:textSize="24px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
+                    android:background="@drawable/sign_select_time_shape"
+                    android:paddingBottom="3px"
+                    android:paddingLeft="8px"
+                    android:paddingRight="8px"
+                    android:paddingTop="3px"
+                    android:id="@+id/look_detail"
+                    android:text="查看详情"
+                    android:textColor="#3bafda"
+                    android:textSize="24px" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/sign_card_bg"
+            android:layout_width="545px"
+            android:layout_height="632px"
+            android:layout_below="@+id/last_sign_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60px"
+            android:background="@drawable/selector_work_sign_card"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50px">
+
+                <View
+                    android:layout_width="25px"
+                    android:layout_height="33px"
+                    android:background="@drawable/work_sign_position_icon" />
+
+                <TextView
+                    android:id="@+id/sign_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12px"
+                    android:text="东方郡东区2幢3单元20楼"
+                    android:textColor="#424242"
+                    android:textSize="24px" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/click_mask"
+                android:layout_width="545px"
+                android:layout_height="532px"
+
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/transparent" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/sign_click"
+                android:layout_width="381px"
+                android:layout_height="381px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="110px"
+                android:background="@drawable/selector_work_sign_circle"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="140px"
+                    android:text="@string/work_sign"
+                    android:textColor="#424242"
+                    android:textSize="44px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_horizontal"
+                    android:text="16:25:45"
+                    android:id="@+id/current_time"
+                    android:textColor="#bdbdbd"
+                    android:textSize="28px" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_alignParentBottom="true">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="20px"
+                        android:layout_height="20px"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/work_sign_add_icon"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/work_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12px"
+                        android:hint="工作内容"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="28px" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <TextView
+                android:id="@+id/sign_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="114px"
+                android:text="今日还未签到"
+                android:textColor="#bdbdbd"
+                android:textSize="25px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoLinearLayout>
