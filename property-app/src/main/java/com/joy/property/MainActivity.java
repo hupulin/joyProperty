@@ -179,6 +179,7 @@ public class MainActivity extends SlidingFragmentActivity implements
     private ConvenientBanner autoRow;
     private RelativeLayout parent;
     private boolean isFirstRegisterEventBus=true;
+    private RelativeLayout bottomView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -304,17 +305,13 @@ public class MainActivity extends SlidingFragmentActivity implements
         mHomeMore.setOnClickListener(this);
         TextView mHomeNews = (TextView) findViewById(R.id.home_news);
         mHomeNews.setOnClickListener(this);
+        bottomView = (RelativeLayout) findViewById(R.id.view);
+
         parent = (RelativeLayout) findViewById(R.id.parent);
         findViewById(R.id.visitnew_top).setOnClickListener(this);
         findViewById(R.id.villagenew_top).setOnClickListener(this);
         myScrollView = (MyScrollViewMain) findViewById(R.id.my_scrollview);
-        myScrollView.setOnScrollUpListener(new MyScrollViewMain.OnScrollUpListener() {
-            @Override
-            public void onScrollUp() {
-                Log.i("22222", "onScrollup: 抬起了");
-                myScrollView.fullScroll(ScrollView.FOCUS_UP);
-            }
-        });
+        myScrollView.smoothScrollTo(0,20);
         myScrollView.setOnScrollListener(new MyScrollViewMain.OnScrollListener() {
             @Override
             public void onScroll(int scrollY) {
@@ -615,13 +612,27 @@ public class MainActivity extends SlidingFragmentActivity implements
                         }
 
                         Log.i("2222", "success: "+list.size()+menuToList.toString());
-                        if(list.size()<12){
+                        if(list.size()!=12){
                             if (list != null || list.size() != 0) {
                                 GroupMenuTo groupMenuTo = new GroupMenuTo();
                                 groupMenuTo.setName("敬请期待");
                                 groupMenuTo.setCode("A" + 0);
                                 list.add(groupMenuTo);
                             }
+
+                        }
+                        if(list.size()>12){
+                            bottomView.setVisibility(View.GONE );
+
+                        }else{
+                            myScrollView.setOnScrollUpListener(new MyScrollViewMain.OnScrollUpListener() {
+                                @Override
+                                public void onScrollUp() {
+                                    Log.i("22222", "onScrollup: 抬起了");
+                                    myScrollView.fullScroll(ScrollView.FOCUS_UP);
+                                }
+                            });
+                            bottomView.setVisibility(View.VISIBLE);
 
                         }
                         menuToList.addAll(list);

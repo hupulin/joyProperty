@@ -419,6 +419,8 @@ android:background="@color/white"
 
     </RelativeLayout>
             <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/view"
+
                 android:layout_below="@+id/gridView"
                 android:layout_width="match_parent"
                 android:layout_height="60px"
