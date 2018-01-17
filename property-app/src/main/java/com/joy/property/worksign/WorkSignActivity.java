@@ -126,7 +126,7 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
             }, 1000);
             return;
         }
-       
+
         netTimeCount = 0;
         if (NetTimeUtil.getSignNetTime() == 0)
             NetTimeUtil.setSignNetTime();
