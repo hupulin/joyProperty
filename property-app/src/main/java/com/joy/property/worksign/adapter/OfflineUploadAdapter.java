@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
@@ -48,7 +49,7 @@ public class OfflineUploadAdapter extends ModeListAdapter<SignSubmitJsonTo> {
         }
         holder.getGridView().removeAllViews();
         SignSubmitJsonTo mode = gson.fromJson(gson.toJson(mList.get(position)), SignSubmitJsonTo.class);
-
+        System.out.println(mode+"mode====");
         if (mode.getImageList().size() > 0) {
 
             for (int i = 0; i < mode.getImageList().size(); i++) {
@@ -81,13 +82,14 @@ public class OfflineUploadAdapter extends ModeListAdapter<SignSubmitJsonTo> {
 
         holder.getRemarkContent().setText(mode.getSignNote());
         holder.getSignPosition().setText(mode.getAddress());
-        holder.getSignTime().setText("签到时间：" + DateUtil.longToString(Long.valueOf(mode.getSignTime()) * 1000, DateUtil.mFormatTimeShort));
+        holder.getSignTime().setText("签到时间：" + DateUtil.longToString(Long.valueOf(mode.getSignTime()) * 1000, DateUtil.mDateTimeFormatStringNoSecond));
         holder.getWorkContent().setText("工作内容：" + (TextUtils.isEmpty(mode.getJobStr()) ? "未选择" : mode.getJobStr()));
         holder.getUpload().setOnClickListener(v -> {
             if (listener != null) {
-                listener.uploadClick(position);
+                listener.uploadClick(position,holder.getUpload());
                 holder.getUploadIcon().setVisibility(View.GONE);
                 holder.getUploadLoading().setVisibility(View.VISIBLE);
+                holder.getUpload().setEnabled(false);
             }
         });
         return row;
@@ -96,7 +98,7 @@ public class OfflineUploadAdapter extends ModeListAdapter<SignSubmitJsonTo> {
     public UploadClickListener listener;
 
     public interface UploadClickListener {
-        void uploadClick(int position);
+        void uploadClick(int position, RelativeLayout uploadBtn);
     }
 
     public void setUploadClick(UploadClickListener listener) {

@@ -175,6 +175,8 @@ public class MainApp extends BaseApplication {
     public static String getImagePath(String path) {
         if (path == null)
             return "";
+        if (path.contains("http://7xk6y7.com2.z0.glb.qiniucdn.com/"))
+            return path;
         return DefaultValue.IMAGE_URI + path;
 
     }

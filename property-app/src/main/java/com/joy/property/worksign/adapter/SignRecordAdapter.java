@@ -2,6 +2,7 @@ package com.joy.property.worksign.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -74,8 +75,21 @@ public class SignRecordAdapter extends ModeListAdapter<SignRecordTo.SignListTo> 
 
         holder.getRemarkContent().setText(mode.getRemark());
         holder.getSignPosition().setText(mode.getAddress());
-        holder.getSignTime().setText("签到时间："+ DateUtil.getDateString(DateUtil.getFormatDateLongTime(mode.getCreatetime()), DateUtil.mFormatTimeShort));
+        holder.getSignTime().setText("签到时间："+ DateUtil.getDateString(DateUtil.getFormatDateLongTime(mode.getCreatetime()), DateUtil.mDateTimeFormatStringNoSecond));
         holder.getWorkContent().setText("工作内容："+mode.getWork_cont());
+        if (mode.getStatus()==2){
+            holder.getRecordStatue().setBackgroundResource(R.drawable.sign_record_abnormal_bg);
+            holder.getRecordStatue().setText("异常");
+            holder.getRecordStatue().setTextColor(Color.parseColor("#e8b619"));
+        }else if (mode.getStatus()==3){
+            holder.getRecordStatue().setBackgroundResource(R.drawable.sign_record_invalid_bg);
+            holder.getRecordStatue().setText("失效");
+            holder.getRecordStatue().setTextColor(Color.parseColor("#fa6363"));
+        }else {
+            holder.getRecordStatue().setBackgroundResource(R.drawable.sign_record_normal_bg);
+            holder.getRecordStatue().setText("正常");
+            holder.getRecordStatue().setTextColor(Color.parseColor("#3bafda"));
+        }
         holder.getParent().setOnClickListener(v -> {
             Intent intent=new Intent(mContext,SignDetailActivity.class);
                     intent.putExtra("SignSid",mode.getId());

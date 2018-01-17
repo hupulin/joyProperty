@@ -179,6 +179,9 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".worksign.photo.zoom.SignGalleryActivity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".worksign.PostImageDetailActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".login.LoginActivity"
             android:screenOrientation="portrait"

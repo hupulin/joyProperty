@@ -5,15 +5,43 @@
     android:background="#f5f8f8"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/worker_name"
+    <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100px"
-        android:background="#e3fefd"
-        android:gravity="center"
-        android:text="2017年11月22日  工程部 王师傅"
-        android:textColor="#333333"
-        android:textSize="28px" />
+        android:background="#e3fefd">
+
+
+
+        <com.joy.property.worksign.adapter.MarqueeView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="180px"
+            android:layout_marginRight="180px"
+
+
+            >
+
+
+            <TextView
+                android:id="@+id/worker_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+
+                android:focusableInTouchMode="true"
+                android:marqueeRepeatLimit="marquee_forever"
+
+
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="#333333"
+                android:textSize="14sp" />
+        </com.joy.property.worksign.adapter.MarqueeView>
+    </com.zhy.autolayout.AutoRelativeLayout>
+    /
+
 
     <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
@@ -26,17 +54,17 @@
             android:id="@+id/last_sign_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:layout_marginBottom="40px"
-            android:layout_marginLeft="95px">
+            android:layout_marginLeft="95px"
+            android:visibility="gone">
 
             <TextView
+                android:id="@+id/last_sign_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="42px"
                 android:text="上次签到时间"
                 android:textColor="#424242"
-                android:id="@+id/last_sign_time"
                 android:textSize="28px" />
 
             <com.zhy.autolayout.AutoLinearLayout
@@ -78,6 +106,7 @@
                     android:textSize="24px" />
 
                 <TextView
+                    android:id="@+id/look_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -90,7 +119,6 @@
                     android:paddingLeft="8px"
                     android:paddingRight="8px"
                     android:paddingTop="3px"
-                    android:id="@+id/look_detail"
                     android:text="查看详情"
                     android:textColor="#3bafda"
                     android:textSize="24px" />
@@ -160,13 +188,13 @@
                     android:textSize="44px" />
 
                 <TextView
+                    android:id="@+id/current_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10px"
                     android:gravity="center_horizontal"
                     android:text="16:25:45"
-                    android:id="@+id/current_time"
                     android:textColor="#bdbdbd"
                     android:textSize="28px" />
             </com.zhy.autolayout.AutoLinearLayout>

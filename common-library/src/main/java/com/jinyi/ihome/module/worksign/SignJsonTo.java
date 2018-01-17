@@ -39,7 +39,7 @@ public class SignJsonTo {
     private String ParkName;
     private int FristCheck;
     private String EqList;
-
+    private int Page;
 
 
     public String getAppVersion() {
@@ -224,6 +224,14 @@ public class SignJsonTo {
 
     public void setEqList(String eqList) {
         EqList = eqList;
+    }
+
+    public int getPage() {
+        return Page;
+    }
+
+    public void setPage(int page) {
+        Page = page;
     }
 
     @Override

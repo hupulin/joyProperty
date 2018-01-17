@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.Util.signencode.SXHttpUtils;
 import com.Util.signencode.aes.WLHSecurityUtils;
@@ -28,12 +30,14 @@ import com.joy.property.utils.ACache;
 import com.joy.property.worksign.adapter.OfflineUploadAdapter;
 import com.joy.property.worksign.adapter.SignBaseParam;
 import com.joy.property.worksign.adapter.SignSubmitJsonTo;
+import com.joyhome.nacity.app.MainApp;
 import com.joyhome.nacity.app.photo.util.Bimp;
 import com.joyhome.nacity.app.photo.util.ImageItem;
 import com.joyhome.nacity.app.util.CustomDialogFragment;
 import com.qiniu.android.http.ResponseInfo;
 import com.qiniu.android.storage.UpCompletionHandler;
 import com.qiniu.android.storage.UploadManager;
+import com.ta.utdid2.android.utils.NetworkUtils;
 
 import org.json.JSONObject;
 
@@ -46,6 +50,8 @@ import java.util.UUID;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import rx.Observable;
+
+import static com.joy.property.R.id.all_upload;
 
 /**
  * Created by xzz on 2017/12/29.
@@ -62,6 +68,9 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
     private List<SignSubmitJsonTo> cacheSubmitList;
 
     private boolean isAllUpload;
+    private RelativeLayout uploadBtn;
+    private CustomDialogFragment        dialogFragment = new CustomDialogFragment();
+    private TextView allUpload;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +104,7 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
         System.out.println(new Gson().toJson(jsonTo) + "json");
         Map<String, String> params = new HashMap<>();
         params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(OfflineUploadActivity.this, "http://nd.alipayer.cn/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestPostData(OfflineUploadActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 if (result == null)
@@ -118,7 +127,8 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
                         }
                     adapter.setList(cacheSubmitList);
                     listView.setAdapter(adapter);
-                    adapter.setUploadClick(position -> {
+                    adapter.setUploadClick((position,upload) -> {
+                        uploadBtn=upload;
                         cacheJsonTo = cacheSubmitList.get(position);
                         sendSubmitData(cacheJsonTo);
                         isAllUpload = false;
@@ -128,7 +138,8 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
 
             @Override
             public void onLoadError() {
-
+                adapter.setList(cacheSubmitList);
+                listView.setAdapter(adapter);
             }
         });
     }
@@ -139,8 +150,8 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
         adapter.setList(cacheSubmitList);
         listView.setAdapter(adapter);
         listView.setDividerHeight(0);
-        findViewById(R.id.all_upload).setOnClickListener(this);
-
+        allUpload = (TextView) findViewById(all_upload);
+        allUpload.setOnClickListener(this);
         findViewById(R.id.back).setOnClickListener(v -> {
             finish();
             goToAnimation(2);
@@ -166,9 +177,13 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
      * 上传照片路径处理
      */
     public void sendSubmitData(SignSubmitJsonTo mCacheJsonTo) {
+         if (!NetworkUtils.isConnectInternet(getThisContext())){
+             ToastShowLong(getThisContext(),"没有连接网络");
+             return;
+         }
 
         if (cacheSubmitList != null && cacheSubmitList.size() > 0) {
-
+            dialogFragment.show(getSupportFragmentManager(),"");
             if (mCacheJsonTo == null) {
                 cacheJsonTo = cacheSubmitList.get(0);
                 cacheSubmitList.get(0).setAllUpload(true);
@@ -197,9 +212,12 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
         param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
         Map<String, String> params = new HashMap<>();
         params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(OfflineUploadActivity.this, "http://nd.alipayer.cn/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestPostData(OfflineUploadActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
+                dialogFragment.dismiss();
+                if (uploadBtn!=null)
+                uploadBtn.setEnabled(true);
                 SignMessageTo msg = new Gson().fromJson(new String(WLHSecurityUtils.decrypt(result.getBytes())), SignMessageTo.class);
 
                 System.out.println(msg + "msg=========");
@@ -211,8 +229,10 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
                             adapter.notifyDataSetChanged();
                             if (isAllUpload) {
                                 sendSubmitData(null);
-                                if (cacheSubmitList.size() == 0)
+                                if (cacheSubmitList.size() == 0) {
+                                    allUpload.setEnabled(true);
                                     ToastShowLong(getThisContext(), "全部签到上传成功");
+                                }
                             } else
                                 ToastShowLong(getThisContext(), "签到上传成功");
 
@@ -222,6 +242,7 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
 
 
                 } else {
+
                     ToastShowLong(getThisContext(), msg.getReason());
                     if (msg.getReason() != null && msg.getReason().contains("设备不存在")) {
                         for (int i = 0; i < cacheSubmitList.size(); i++) {
@@ -241,6 +262,9 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
             @Override
             public void onLoadError() {
                 adapter.notifyDataSetChanged();
+                dialogFragment.dismiss();
+                if (uploadBtn!=null)
+                uploadBtn.setEnabled(true);
             }
         });
     }
@@ -260,7 +284,7 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
                     if (Bimp.tempSelectBitmap.size() > 0) {
                         for (ImageItem imageItem : Bimp.tempSelectBitmap) {
                             String mStr = UUID.randomUUID().toString();
-                            uploadImagePath = uploadImagePath + mStr + ",";
+                            uploadImagePath = uploadImagePath +"http://7xk6y7.com2.z0.glb.qiniucdn.com/" + mStr+",";
                             uploadManager.put(Bimp.getImageUri(imageItem.imagePath, false, false), mStr, token, OfflineUploadActivity.this, null);
                         }
                     }
@@ -271,7 +295,7 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
             @Override
             public void failure(RetrofitError error) {
                 adapter.notifyDataSetChanged();
-                adapter.notifyDataSetChanged();
+                dialogFragment.dismiss();
             }
         });
     }
@@ -280,7 +304,7 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
     public void complete(String key, ResponseInfo info, JSONObject response) {
         mCount++;
         if (mCount == Bimp.tempSelectBitmap.size()) {
-
+            Bimp.tempSelectBitmap.clear();
             submit(cacheJsonTo);
         }
     }
@@ -295,8 +319,9 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.all_upload:
+            case all_upload:
                 isAllUpload = true;
+                allUpload.setEnabled(false);
                 sendSubmitData(null);
                 break;
         }

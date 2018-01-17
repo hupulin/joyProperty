@@ -36,6 +36,7 @@ import com.joy.property.task.TimePickerDialog.listener.OnDateSetListener;
 import com.joy.property.worksign.SignRecordActivity;
 import com.joy.property.worksign.adapter.FootprintHolderView;
 import com.joy.property.worksign.adapter.SignBaseParam;
+import com.joyhome.nacity.app.util.CustomDialogFragment;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -65,18 +66,27 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
     private TextView week;
     private TextView month;
     private ConvenientBanner autoRow;
-    private Handler handler=new Handler();
-    private List<MyPrintTo.TimeslistBean> autoRowTimeList=new ArrayList<>();
-    private  int lastPosition;
+    private Handler handler = new Handler();
+    private List<MyPrintTo.TimeslistBean> autoRowTimeList = new ArrayList<>();
+    private int lastPosition;
     private TextView topTime;
+    private long netTime;
+    private LinearLayout autoRowLayout;
+    private TextView totalSignNumber;
 
+
+    public FootprintFragment(long netTime) {
+        this.netTime = netTime;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         rootView = inflater.inflate(R.layout.fragment_footprint, container, false);
         findView();
-        getData(DateUtil.getDateString(DateUtil.mFormatDateString), DateUtil.getDateString(DateUtil.mFormatDateString));
+        System.out.println(netTime + "netTime===");
+
+        getData((DateUtil.longToString(netTime, DateUtil.mFormatDateString)), DateUtil.longToString(netTime, DateUtil.mFormatDateString));
         return rootView;
     }
 
@@ -98,13 +108,16 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
         selectTime.setOnClickListener(this);
         autoRow = (ConvenientBanner) rootView.findViewById(R.id.auto_row);
         topTime = (TextView) rootView.findViewById(R.id.top_time);
+        autoRowLayout = (LinearLayout) rootView.findViewById(R.id.auto_row_layout);
+        totalSignNumber = (TextView) rootView.findViewById(R.id.total_sign_number);
 
     }
 
 
     private void getData(String startTime, String endTime) {
-
-
+        System.out.println(startTime + "==" + endTime);
+        CustomDialogFragment dialogFragment = new CustomDialogFragment();
+        dialogFragment.show(getFragmentManager(), "");
         TelephonyManager tm = (TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE);
         String IMEI = tm.getDeviceId();
         SignJsonTo jsonTo = new SignJsonTo();
@@ -121,70 +134,89 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
 
         Map<String, String> params = new HashMap<>();
         params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(getActivity(), "http://nd.alipayer.cn/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestPostData(getActivity(), "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
+                dialogFragment.dismiss();
                 SignMessageTo<MyPrintTo> msg = new Gson().fromJson(new String(WLHSecurityUtils.decrypt(result.getBytes())), SignMessageTo.class);
                 MyPrintTo myPrintTo = new Gson().fromJson(new Gson().toJson(msg.getResultContent()), MyPrintTo.class);
                 if (myPrintTo != null && myPrintTo.getTimeslist() != null && myPrintTo.getTypelist() != null)
-                    initView(myPrintTo,startTime,endTime);
+                    initView(myPrintTo, startTime, endTime);
 
                 System.out.println(msg + "myPrintTo");
             }
 
             @Override
             public void onLoadError() {
-
+                dialogFragment.dismiss();
             }
         });
     }
 
 
-    public void initView(MyPrintTo myPrintTo,String startTime,String endTime) {
-         lastPosition=0;
+    public void initView(MyPrintTo myPrintTo, String startTime, String endTime) {
+        lastPosition = 0;
+        autoRowTimeList.clear();
+        autoRowTimeList.add(null);
+        //因为动画，轮播图只加三个数据，首次进入的时候，如果第一个时间段没有打卡记录，展示最后一次打卡数据
+        if (myPrintTo.getTimeslist().get(0).getBktotal() == 0) {
+            for (int i = myPrintTo.getTimeslist().size() - 1; i >= 0; i--) {
+                if (myPrintTo.getTimeslist().get(i).getBktotal() > 0) {
+                    autoRowTimeList.add(myPrintTo.getTimeslist().get(i));
+                    break;
+                }
+            }
+        } else
+            autoRowTimeList.add(myPrintTo.getTimeslist().get(0));
 
-        setAutoRow(myPrintTo.getTimeslist(),1,startTime,endTime);
-        //     Toast.makeText(getThisContext(), DateUtil.getDateString(DateUtil.getLastWeek().get("monday"), DateUtil.mWorkDate) + "=====" + DateUtil.getDateString(DateUtil.getLastWeek().get("sunday"), DateUtil.mWorkDate), Toast.LENGTH_LONG).show();
+
+        autoRowTimeList.add(myPrintTo.getTimeslist().get(1));
+        setAutoRow(autoRowTimeList, 1, startTime, endTime);
         final SmoothLineChartView chartView = (SmoothLineChartView) rootView.findViewById(R.id.smoothChartView);
 
         RelativeLayout.LayoutParams layoutParams;
         if (signType == 0) {
-            layoutParams = new RelativeLayout.LayoutParams((int) (getScreenWidthPixels(getThisContext()) * 2396.0 / 720), (int) (getScreenWidthPixels(getThisContext()) * 420.0 / 720));
-            layoutParams.setMargins((int) (getScreenWidthPixels(getThisContext()) * -98.0 / 720), 0, 0, 0);
+            layoutParams = new RelativeLayout.LayoutParams((int) (getScreenWidthPixels(getThisContext()) * 2214.0 / 720), (int) (getScreenWidthPixels(getThisContext()) * 420.0 / 720));
+            layoutParams.setMargins((int) (getScreenWidthPixels(getThisContext()) * -7.0 / 720), 0, 0, 0);
         } else if (signType == 1) {
-            layoutParams = new RelativeLayout.LayoutParams((int) (getScreenWidthPixels(getThisContext()) * 860.0 / 720), (int) (getScreenWidthPixels(getThisContext()) * 420.0 / 720));
-            layoutParams.setMargins((int) (getScreenWidthPixels(getThisContext()) * -95.0 / 720), 0, 0, 0);
+            layoutParams = new RelativeLayout.LayoutParams((int) (getScreenWidthPixels(getThisContext()) * 685.0 / 720), (int) (getScreenWidthPixels(getThisContext()) * 420.0 / 720));
+            layoutParams.setMargins((int) (getScreenWidthPixels(getThisContext()) * -7.0 / 720), 0, 0, 0);
 
         } else {
             if (myPrintTo.getTimeslist().size() == 31)
-                layoutParams = new RelativeLayout.LayoutParams((int) (getScreenWidthPixels(getThisContext()) * 3020.0 / 720), (int) (getScreenWidthPixels(getThisContext()) * 420.0 / 720));
+                layoutParams = new RelativeLayout.LayoutParams((int) (getScreenWidthPixels(getThisContext()) * 2844.0 / 720), (int) (getScreenWidthPixels(getThisContext()) * 420.0 / 720));
             else if (myPrintTo.getTimeslist().size() == 30)
-                layoutParams = new RelativeLayout.LayoutParams((int) (getScreenWidthPixels(getThisContext()) * 2930.0 / 720), (int) (getScreenWidthPixels(getThisContext()) * 420.0 / 720));
+                layoutParams = new RelativeLayout.LayoutParams((int) (getScreenWidthPixels(getThisContext()) * 2753.0 / 720), (int) (getScreenWidthPixels(getThisContext()) * 420.0 / 720));
             else if (myPrintTo.getTimeslist().size() == 29)
-                layoutParams = new RelativeLayout.LayoutParams((int) (getScreenWidthPixels(getThisContext()) * 2840.0 / 720), (int) (getScreenWidthPixels(getThisContext()) * 420.0 / 720));
+                layoutParams = new RelativeLayout.LayoutParams((int) (getScreenWidthPixels(getThisContext()) * 2665.0 / 720), (int) (getScreenWidthPixels(getThisContext()) * 420.0 / 720));
             else
-                layoutParams = new RelativeLayout.LayoutParams((int) (getScreenWidthPixels(getThisContext()) * 2761.0 / 720), (int) (getScreenWidthPixels(getThisContext()) * 420.0 / 720));
+                layoutParams = new RelativeLayout.LayoutParams((int) (getScreenWidthPixels(getThisContext()) * 2577.0 / 720), (int) (getScreenWidthPixels(getThisContext()) * 420.0 / 720));
 
-            layoutParams.setMargins((int) (getScreenWidthPixels(getThisContext()) * -96.0 / 720), 0, 0, 0);
+            layoutParams.setMargins((int) (getScreenWidthPixels(getThisContext()) * -7.0 / 720), 0, 0, 0);
         }
 
 
         chartView.setLayoutParams(layoutParams);
         chartView.setCustomBorder(true);
-        chartView.setSelectPosition(1);
+        chartView.setSelectPosition(0);
         chartView.setTextColor(Color.WHITE);
         chartView.setTextSize(10);
         chartView.setTextOffset(4);
 
         chartView.enableShowTag(true);
         chartView.enableDrawArea(true);
-        chartView.setLineColor(Color.parseColor("#FFDCDCDC"));
+        chartView.setLineColor(Color.parseColor("#00000000"));
         chartView.setCircleColor(Color.parseColor("#FFfbcc3b"));
         chartView.setInnerCircleColor(Color.parseColor("#ffffff"));
         chartView.setNodeStyle(SmoothLineChartView.NODE_STYLE_RING);
         List<Float> data = new ArrayList<>();
-        data.add(-1f);
+//        data.add(-1f);
         List<String> x = new ArrayList<>();
+
+
+        /**
+         * 添加时间分割线
+         */
         timeLayout.removeAllViews();
         timeLayout.addView(View.inflate(getThisContext(), R.layout.footprint_time_item, null));
         for (int i = 0; i < myPrintTo.getTimeslist().size(); i++) {
@@ -204,6 +236,8 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
             timeLayout.addView(timeView);
 
         }
+        //最下面类型信息
+        totalSignNumber.setText("在本段时间内您一共签到" + myPrintTo.getTotalsign() + "次");
         workContentLayout.removeAllViews();
         for (int i = 0; i < myPrintTo.getTypelist().size(); i++) {
             View mView = View.inflate(getThisContext(), R.layout.footpring_work_content_item, null);
@@ -212,60 +246,61 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
             ((TextView) mView.findViewById(R.id.sign_count)).setText(typeTo.getTpnum() + "");
             workContentLayout.addView(mView);
         }
-       if (signType==0)
-        topTime.setText(myPrintTo.getTimeslist().get(0).getBkey().substring(5)+"至"+myPrintTo.getTimeslist().get(myPrintTo.getTimeslist().size()-1).getBkey().substring(5));
-      else
-           topTime.setText(myPrintTo.getTimeslist().get(0).getBkey()+"至"+myPrintTo.getTimeslist().get(myPrintTo.getTimeslist().size()-1).getBkey());
-        data.add(-2f);
 
-        x.add("3-12");
-        x.add("3-12");
+        if (signType == 0)
+            topTime.setText(myPrintTo.getTimeslist().get(0).getBkey().substring(5) + "至" + myPrintTo.getTimeslist().get(myPrintTo.getTimeslist().size() - 1).getBkey().substring(5));
+        else
+            topTime.setText(myPrintTo.getTimeslist().get(0).getBkey() + "至" + myPrintTo.getTimeslist().get(myPrintTo.getTimeslist().size() - 1).getBkey());
+//        data.add(-1f);
+//
+//        x.add("3-12");
+//        x.add("3-12");
 
 
         chartView.setData(data, x);
         chartView.setMaxY(maxTotal + 10);
         chartView.setMinY(0);
 
-
+      /*
+       足迹上的点点击
+       */
         chartView.setOnChartClickListener((position, value) -> {
-            MyPrintTo.TimeslistBean timeTo = myPrintTo.getTimeslist().get(position - 1);
-             if (position==lastPosition)
-                 return;
+            MyPrintTo.TimeslistBean timeTo = myPrintTo.getTimeslist().get(position);
+            if (position == lastPosition)
+                return;
             autoRowTimeList.clear();
             autoRowTimeList.add(null);
-            if (lastPosition<position){
+            if (lastPosition < position) {
 
 
                 autoRowTimeList.add(myPrintTo.getTimeslist().get(autoRow.getCurrentItem()));
                 autoRowTimeList.add(timeTo);
-                setAutoRow(autoRowTimeList,1,startTime,endTime);
+                setAutoRow(autoRowTimeList, 1, startTime, endTime);
 
                 handler.postDelayed(() -> {
                     autoRow.setcurrentitem(2);
-                },100);
+                }, 100);
 
             }
-            if (lastPosition>position){
+            if (lastPosition > position) {
 
                 autoRowTimeList.add(timeTo);
                 autoRowTimeList.add(myPrintTo.getTimeslist().get(autoRow.getCurrentItem()));
-                setAutoRow(autoRowTimeList,2,startTime,endTime);
+                setAutoRow(autoRowTimeList, 2, startTime, endTime);
 
                 handler.postDelayed(() -> {
                     autoRow.setcurrentitem(1);
-                },100);
+                }, 100);
 
 
             }
 
-            lastPosition=position;
+            lastPosition = position;
 //
 
 
             recordListSid = timeTo.getBkey();
         });
-
-
 
 
     }
@@ -285,12 +320,10 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
 
     @Override
     public void onDateSet(TimePickerDialog timePickerView, long millseconds) throws ParseException {
-        //Toast.makeText(getThisContext(),DateUtil.longToString(timePickerView.getCurrentMillSeconds(),DateUtil.mDateFormatString),Toast.LENGTH_LONG).show();
         if (signType == 0)
             getData(DateUtil.longToString(millseconds, DateUtil.mFormatDateString), DateUtil.longToString(millseconds, DateUtil.mFormatDateString));
         else
-            //   getData(DateUtil.getFirstDayOfMonth(2018,3),DateUtil.getLastDayOfMonth(2018,3));
-            getData(DateUtil.getFirstDayOfMonth(Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(0, 4)), Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(6, 7)), true), DateUtil.getLastDayOfMonth(Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(0, 4)), Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(6, 7)), true));
+            getData(DateUtil.getFirstDayOfMonth(Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(0, 4)), Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(6, 7)), true, netTime), DateUtil.getLastDayOfMonth(Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(0, 4)), Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(6, 7)), true, netTime));
     }
 
     @Override
@@ -302,7 +335,8 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
                 month.setTextColor(Color.parseColor("#999999"));
                 signType = 0;
                 selectTime.setVisibility(View.VISIBLE);
-                getData(DateUtil.getDateString(DateUtil.mFormatDateString), DateUtil.getDateString(DateUtil.mFormatDateString));
+                getData((DateUtil.longToString(netTime, DateUtil.mFormatDateString)), DateUtil.longToString(netTime, DateUtil.mFormatDateString));
+
                 break;
             case R.id.week:
                 day.setTextColor(Color.parseColor("#999999"));
@@ -310,7 +344,7 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
                 month.setTextColor(Color.parseColor("#999999"));
                 selectTime.setVisibility(View.GONE);
                 signType = 1;
-                getData(DateUtil.getDateString(DateUtil.getLastWeek().get("monday"), DateUtil.mFormatDateString), DateUtil.getDateString(DateUtil.getLastWeek().get("sunday"), DateUtil.mFormatDateString));
+                getData(DateUtil.getDateString(DateUtil.getLastWeek(netTime).get("monday"), DateUtil.mFormatDateString), DateUtil.getDateString(DateUtil.getLastWeek(netTime).get("sunday"), DateUtil.mFormatDateString));
                 break;
             case R.id.month:
                 day.setTextColor(Color.parseColor("#999999"));
@@ -318,7 +352,7 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
                 month.setTextColor(Color.parseColor("#333333"));
                 signType = 2;
                 selectTime.setVisibility(View.VISIBLE);
-                getData(DateUtil.getFirstDayOfMonth(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), false), DateUtil.getLastDayOfMonth(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), false));
+                getData(DateUtil.getFirstDayOfMonth(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), false, netTime), DateUtil.getLastDayOfMonth(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), false, netTime));
                 break;
             case R.id.select_time:
                 selectTime(signType);
@@ -326,8 +360,13 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
         }
     }
 
-    public void setAutoRow(List<MyPrintTo.TimeslistBean>timeList,int currentPosition,String startDate,String endDate){
-        String transformerName =  CubeOutTransformer.class.getSimpleName();
+    public void setAutoRow(List<MyPrintTo.TimeslistBean> timeList, int currentPosition, String startDate, String endDate) {
+        autoRowLayout.removeAllViews();
+        autoRow = new ConvenientBanner(getThisContext(), true);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(getScreenWidthPixels(getThisContext()), (int) (getScreenWidthPixels(getThisContext()) * 200.0 / 720));
+        autoRow.setLayoutParams(layoutParams);
+        autoRowLayout.addView(autoRow);
+        String transformerName = CubeOutTransformer.class.getSimpleName();
         try {
             Class cls = Class.forName("com.ToxicBakery.viewpager.transforms." + transformerName);
             ABaseTransformer transformer = (ABaseTransformer) cls.newInstance();
@@ -345,16 +384,16 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
             e.printStackTrace();
         }
 
-      autoRow.setCanLoop(false);
+        autoRow.setCanLoop(false);
         autoRow.setManualPageable(false);
 
         autoRow.setPages(new CBViewHolderCreator<FootprintHolderView>() {
             @Override
             public FootprintHolderView createHolder() {
 
-                SignRecordInfoTo recordInfoTo=new SignRecordInfoTo();
+                SignRecordInfoTo recordInfoTo = new SignRecordInfoTo();
                 recordInfoTo.setFootprintType(signType);
-                recordInfoTo.setStartDate( startDate);
+                recordInfoTo.setStartDate(startDate);
                 recordInfoTo.setEndDate(endDate);
                 recordInfoTo.setUserName(SignFragment.getWokerNameInfo());
                 return new FootprintHolderView(recordInfoTo);
@@ -364,5 +403,16 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
         autoRow.setcurrentitem(currentPosition);
     }
 
+    /**
+     * 从其它页面，都要刷新足迹
+     */
+    public void reLoadingData() {
+        if (signType == 0)
+            getData((DateUtil.longToString(netTime, DateUtil.mFormatDateString)), DateUtil.longToString(netTime, DateUtil.mFormatDateString));
+        else if (signType == 1)
+            getData(DateUtil.getDateString(DateUtil.getLastWeek(netTime).get("monday"), DateUtil.mFormatDateString), DateUtil.getDateString(DateUtil.getLastWeek(netTime).get("sunday"), DateUtil.mFormatDateString));
+        else if (signType == 2)
+            getData(DateUtil.getFirstDayOfMonth(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), false, netTime), DateUtil.getLastDayOfMonth(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), false, netTime));
 
+    }
 }

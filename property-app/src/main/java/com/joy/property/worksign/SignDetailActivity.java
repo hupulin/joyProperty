@@ -1,12 +1,14 @@
 package com.joy.property.worksign;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.Util.signencode.SXHttpUtils;
 import com.Util.signencode.aes.WLHSecurityUtils;
@@ -33,9 +35,15 @@ public class SignDetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_detail_record);
+        setBack();
         getData();
 
 
+    }
+
+    private void setBack() {
+
+        findViewById(R.id.back).setOnClickListener(v -> {finish();goToAnimation(2);});
     }
 
     private void getData() {
@@ -52,7 +60,7 @@ public class SignDetailActivity extends BaseActivity {
         System.out.println(new Gson().toJson(jsonTo));
         Map<String, String> params = new HashMap<>();
         params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(SignDetailActivity.this, "http://nd.alipayer.cn/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestPostData(SignDetailActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 SignMessageTo<SignRecordTo.SignListTo> msg = new Gson().fromJson(new String(WLHSecurityUtils.decrypt(result.getBytes())), SignMessageTo.class);
@@ -72,8 +80,8 @@ public class SignDetailActivity extends BaseActivity {
     }
 
     private void initView(SignRecordTo.SignListTo recordTo) {
-        findViewById(R.id.back).setOnClickListener(v -> {finish();goToAnimation(2);});
-        ((TextView) findViewById(R.id.sign_time)).setText("签到时间：" + DateUtil.getDateString(DateUtil.getFormatDateLongTime(recordTo.getCreatetime()), DateUtil.mFormatTimeShort));
+
+        ((TextView) findViewById(R.id.sign_time)).setText("签到时间：" + DateUtil.getDateString(DateUtil.getFormatDateLongTime(recordTo.getCreatetime()), DateUtil.mDateTimeFormatStringNoSecond));
         ((TextView) findViewById(R.id.work_content)).setText("工作内容：" + recordTo.getWork_cont());
         ((TextView) findViewById(R.id.sign_position)).setText(recordTo.getAddress());
         ((TextView) findViewById(R.id.remark_content)).setText(recordTo.getRemark());
@@ -87,14 +95,23 @@ public class SignDetailActivity extends BaseActivity {
                 ImageView imageView = new ImageView(getThisContext());
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-                params.width = (int) (getScreenWidthPixels(getThisContext()) * 106.0 / 720);
-                params.height = (int) (getScreenWidthPixels(getThisContext()) * 106.0 / 720);
-                if (i != 0)
-                    params.leftMargin = (int) (getScreenWidthPixels(getThisContext()) * 12.0 / 720);
-                else
+                params.width = (int) (getScreenWidth() * (170.5 / 720));
+                params.height = (int) (getScreenWidth() * (170.5 / 720));
+                if (i % 3 == 0)
                     params.leftMargin = 0;
+                else
+                    params.leftMargin = (int) (getScreenWidth() * 50.0 / 720);
+                params.bottomMargin = (int) (getScreenWidth() * 30.0 / 720);
                 imageView.setLayoutParams(params);
+
                 Glide.with(getThisContext()).load(MainApp.getImagePath(imageList[i])).into(imageView);
+                imageView.setTag(imageList[i]);
+                imageView.setOnClickListener(v -> {
+                    Intent intent = new Intent(this, PostImageDetailActivity.class);
+                    intent.putExtra("CurrentPath", (String) v.getTag());
+                    intent.putExtra("PathList", recordTo.getWork_img());
+                    startActivity(intent);
+                });
                 girdView.addView(imageView);
             }
         }

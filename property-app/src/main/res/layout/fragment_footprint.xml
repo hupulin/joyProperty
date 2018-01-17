@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="70px"
+                    android:layout_marginRight="60px"
                     android:background="@drawable/sign_select_time_shape"
                     android:paddingBottom="5px"
                     android:paddingLeft="10px"
@@ -134,10 +134,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-48px"
-                android:background="#ffffff">
+                android:id="@+id/auto_row_layout"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+
 
                 <com.bigkoo.convenientbanner.ConvenientBanner
                     android:id="@+id/auto_row"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="200px">
 
@@ -162,6 +167,7 @@
                     android:layout_marginLeft="8px"
                     android:text="在本段时间内您一共签到0次"
                     android:textColor="#333333"
+                    android:id="@+id/total_sign_number"
                     android:textSize="25px" />
             </com.zhy.autolayout.AutoLinearLayout>
 

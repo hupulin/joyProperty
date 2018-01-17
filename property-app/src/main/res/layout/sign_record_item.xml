@@ -13,18 +13,37 @@
 
         android:orientation="vertical"
         android:paddingLeft="54px">
+   <com.zhy.autolayout.AutoLinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="34px"
+       >
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="34px"
-            android:text="签到时间  16:25"
-            android:textColor="#424242"
-            android:textSize="42px"
-            android:textStyle="bold"
-            android:id="@+id/sign_time"
+           android:text="签到时间  16:25"
+           android:textColor="#424242"
+           android:textSize="42px"
+           android:textStyle="bold"
+           android:id="@+id/sign_time"
 
-            />
+           />
+       <TextView
+           android:layout_width="70px"
+           android:layout_height="32px"
+          android:layout_gravity="center_vertical"
+           android:layout_marginLeft="26px"
+           android:text="正常"
+           android:textColor="#3bafda"
+           android:textSize="22px"
+           android:textStyle="bold"
+           android:id="@+id/record_statue"
+           android:background="@drawable/sign_record_normal_bg"
+           android:gravity="center"
+           />
+
+   </com.zhy.autolayout.AutoLinearLayout>
 
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="wrap_content"

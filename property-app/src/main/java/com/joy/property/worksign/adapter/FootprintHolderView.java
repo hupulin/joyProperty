@@ -42,7 +42,7 @@ public class FootprintHolderView implements Holder<MyPrintTo.TimeslistBean > {
 
              ((TextView) holdView.findViewById(R.id.work_content)).setText("工作内容：" + timeTo.getWorkContent());
              if (timeTo.getBlock().length() > 10) {
-                 ((TextView) holdView.findViewById(R.id.sign_date)).setText(DateUtil.formatDateString(DateUtil.mFormatDateShort, timeTo.getBlock().substring(0, 10)));
+                 ((TextView) holdView.findViewById(R.id.sign_date)).setText(timeTo.getBlock().substring(10));
                  ((TextView) holdView.findViewById(R.id.detail_date)).setText(DateUtil.getDateString(DateUtil.getFormatDateExpectTime((timeTo.getBlock().substring(0, 10) + " " + timeTo.getBlock().substring(11) + ":00")), DateUtil.mDateTimeFormatStringNoSecondSign));
              } else {
                  ((TextView) holdView.findViewById(R.id.sign_date)).setText(timeTo.getBlock());
@@ -50,6 +50,14 @@ public class FootprintHolderView implements Holder<MyPrintTo.TimeslistBean > {
              }
              ((TextView) holdView.findViewById(R.id.address)).setText(timeTo.getWorkPlace());
              ((TextView) holdView.findViewById(R.id.sign_count)).setText("签到" + timeTo.getBktotal() + "次");
+
+             if (timeTo.getBktotal()>0){
+                 holdView.findViewById(R.id.sign_info_layout).setVisibility(View.VISIBLE);
+                 holdView.findViewById(R.id.sign_no_info_layout).setVisibility(View.GONE);
+             }else {
+                 holdView.findViewById(R.id.sign_info_layout).setVisibility(View.GONE);
+                 holdView.findViewById(R.id.sign_no_info_layout).setVisibility(View.VISIBLE);
+             }
 
              holdView.findViewById(R.id.footprint_detail_layout).setOnClickListener(v -> {
                  Intent intent = new Intent(context, SignRecordActivity.class);

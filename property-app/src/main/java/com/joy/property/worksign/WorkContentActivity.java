@@ -64,6 +64,7 @@ public class WorkContentActivity extends BaseActivity {
         jsonTo.setDeviceId("1909DCFD-243D-2F68-233A-250C9C9B571E");
         jsonTo.setTradeType("GetJobList");
         jsonTo.setOpenId(mUserHelper.getSid());
+        jsonTo.setParkName(getIntent().getStringExtra("ParkName"));
         jsonTo.setUniqueStr(((TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId());
         SignBaseParam param = new SignBaseParam();
         CustomDialogFragment customDialogFragment=new CustomDialogFragment();
@@ -72,7 +73,7 @@ public class WorkContentActivity extends BaseActivity {
 
         Map<String, String> params = new HashMap<String, String>();
         params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(WorkContentActivity.this, "http://nd.alipayer.cn/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestPostData(WorkContentActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 customDialogFragment.dismiss();

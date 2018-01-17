@@ -24,6 +24,7 @@ public class SignRecordHolder {
     private RelativeLayout upload;
     private MKLoader uploadLoading;
     private View uploadIcon;
+    private TextView recordStatue;
 
 
 
@@ -80,5 +81,10 @@ public class SignRecordHolder {
         return uploadIcon;
     }
 
+    public TextView getRecordStatue(){
+        if (recordStatue==null)
+            recordStatue= (TextView) view.findViewById(R.id.record_statue);
+        return recordStatue;
+    }
 
 }

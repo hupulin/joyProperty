@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.Util.signencode.SXHttpUtils;
 import com.Util.signencode.aes.WLHSecurityUtils;
 import com.google.gson.Gson;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.jinyi.ihome.module.worksign.SignJsonTo;
 import com.jinyi.ihome.module.worksign.SignMessageTo;
@@ -21,6 +22,7 @@ import com.joy.property.R;
 import com.joy.property.base.BaseActivity;
 import com.joy.property.worksign.adapter.SignBaseParam;
 import com.joy.property.worksign.adapter.SignRecordAdapter;
+import com.joyhome.nacity.app.util.CustomDialogFragment;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -38,22 +40,39 @@ public class SignRecordActivity extends BaseActivity {
     private SignRecordAdapter mAdapter;
     private List<SignRecordTo.SignListTo> signList = new ArrayList<>();
     private SignRecordInfoTo recordInfoTo;
+    private int pageIndex=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_record);
         initView();
-        getData();
+        getData(pageIndex);
         addHeadView();
     }
 
 
     private void initView() {
         refreshListView = (PullToRefreshListView) findViewById(R.id.listView);
-        findViewById(R.id.back).setOnClickListener(v -> {finish();goToAnimation(2);});
+        findViewById(R.id.back).setOnClickListener(v -> {
+            finish();
+            goToAnimation(2);
+        });
 
+       refreshListView.setMode(PullToRefreshBase.Mode.BOTH);
+        refreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+                pageIndex=1;
+                getData(pageIndex);
+            }
 
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+                pageIndex++;
+                getData(pageIndex);
+            }
+        });
     }
 
     private void addHeadView() {
@@ -70,60 +89,52 @@ public class SignRecordActivity extends BaseActivity {
         listView.setDividerHeight(0);
 
         mAdapter = new SignRecordAdapter(this);
-
-
+        mAdapter.setList(signList);
+        listView.setAdapter(mAdapter);
 
     }
 
-    private void getData() {
-
+    private void getData(int page) {
+        CustomDialogFragment dialogFragment=new CustomDialogFragment();
+        dialogFragment.show(getSupportFragmentManager(),"");
         recordInfoTo = (SignRecordInfoTo) getIntent().getSerializableExtra("SignRecordInfo");
         SignJsonTo jsonTo = new SignJsonTo();
-
         jsonTo.setTradeType("GetReportDetail");
-
         jsonTo.setReportType(recordInfoTo.getFootprintType());
-        System.out.println(recordInfoTo +"recordTo");
         jsonTo.setStartDate(recordInfoTo.getStartDate());
         jsonTo.setEndDate(recordInfoTo.getEndDate());
         jsonTo.setUniqueStr(((TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId());
-       jsonTo.setOpenId(mUserHelper.getSid());
-        System.out.println(new Gson().toJson(jsonTo)+"json");
-
+        jsonTo.setOpenId(mUserHelper.getSid());
+        jsonTo.setPage(page);
         SignBaseParam param = new SignBaseParam();
         param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
-
         Map<String, String> params = new HashMap<>();
         params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(SignRecordActivity.this, "http://nd.alipayer.cn/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestPostData(SignRecordActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
+                dialogFragment.dismiss();
+                refreshListView.onRefreshComplete();
                 SignMessageTo<SignRecordTo> msg = new Gson().fromJson(new String(WLHSecurityUtils.decrypt(result.getBytes())), SignMessageTo.class);
-                System.out.println(msg + "msg====");
-
                 SignRecordTo myPrintTo = new Gson().fromJson(new Gson().toJson(msg.getResultContent()), SignRecordTo.class);
-                if (myPrintTo==null)
+                if (myPrintTo == null)
                     return;
-                signList = myPrintTo.getSignlist();
 
-                System.out.println(signList + "myPrintTo");
-                mAdapter.setList(signList);
-                listView.setAdapter(mAdapter);
+                if (pageIndex==1) {
+                    signList.clear();
+                    signList.addAll(myPrintTo.getSignlist());
+
+                }
+                else
+                    signList.addAll(myPrintTo.getSignlist());
+
                 mAdapter.notifyDataSetChanged();
-                listView.setOnItemClickListener((parent, view, position, id) -> {
-
-//                    Intent intent=new Intent(getThisContext(),SignDetailActivity.class);
-//                    intent.putExtra("SignSid",(new Gson().fromJson(new Gson().toJson(signList.get(position-1)),SignRecordTo.SignListTo.class)).getId());
-//                    startActivity(intent);
-                    goToAnimation(1);
-                });
-                mAdapter.notifyDataSetChanged();
-
             }
 
             @Override
             public void onLoadError() {
-
+                refreshListView.onRefreshComplete();
+                dialogFragment.dismiss();
             }
         });
     }

@@ -2,6 +2,7 @@ package com.Util.signencode;
 
 
 import android.app.Activity;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -51,7 +52,7 @@ public class SXHttpUtils {
                     OutputStream outputStream = httpURLConnection.getOutputStream();//这里抛异常
                     outputStream.write(requestData.getBytes("UTF-8"));
 
-                    int response = httpURLConnection.getResponseCode();//获取服务器的响应码
+                    final int response = httpURLConnection.getResponseCode();//获取服务器的响应码
                     if (response == HttpURLConnection.HTTP_OK) {
                         InputStream inputStream = httpURLConnection.getInputStream();
                         final String result = dealResponseResult(inputStream);
@@ -67,6 +68,7 @@ public class SXHttpUtils {
                             @Override
                             public void run() {
                                 listerner.onLoadError();
+                                System.out.println(response+"respone============");
                             }
                         });
 
@@ -77,8 +79,10 @@ public class SXHttpUtils {
                         @Override
                         public void run() {
                             listerner.onLoadError();
+                            Toast.makeText(context, "网络异常", Toast.LENGTH_LONG).show();
                         }
                     });
+
 
                 }
             }

@@ -5,12 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -22,40 +25,31 @@ import com.Util.signencode.aes.WLHSecurityUtils;
 import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.jinyi.ihome.infrastructure.MessageTo;
 import com.jinyi.ihome.module.worksign.CheckDeviceTo;
 import com.jinyi.ihome.module.worksign.SignApartmentTo;
 import com.jinyi.ihome.module.worksign.SignJsonTo;
 import com.jinyi.ihome.module.worksign.SignMessageTo;
-import com.joy.common.api.ApiClient;
-import com.joy.common.api.HttpCallback;
-import com.joy.common.api.VendorApi;
+
 import com.joy.library.fragment.CustomDialogFragment;
 import com.joy.property.R;
 import com.joy.property.base.BaseActivity;
+import com.joy.property.base.EventBusEvent;
 import com.joy.property.utils.ACache;
 import com.joy.property.utils.CustomDialog;
+import com.joy.property.utils.NetTimeUtil;
 import com.joy.property.utils.StatuBarUtil;
 import com.joy.property.worksign.adapter.SignApartmentAdapter;
 import com.joy.property.worksign.adapter.SignBaseParam;
 import com.joy.property.worksign.adapter.SignSubmitJsonTo;
 import com.joy.property.worksign.fragment.FootprintFragment;
 import com.joy.property.worksign.fragment.SignFragment;
-import com.joyhome.nacity.app.photo.util.Bimp;
-import com.joyhome.nacity.app.photo.util.ImageItem;
-import com.qiniu.android.http.ResponseInfo;
-import com.qiniu.android.storage.UpCompletionHandler;
-import com.qiniu.android.storage.UploadManager;
 
-import org.json.JSONObject;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-
-import retrofit.client.Response;
 
 
 /**
@@ -73,6 +67,13 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
     private boolean isRebind;
     private View offLineIcon;
     private List<SignSubmitJsonTo> cacheSubmitList;
+    private Handler handler = new Handler();
+    private int netTimeCount = 0;//获取网络时间次数
+    private CustomDialogFragment loadingDialog;
+    private TextView signTitle;
+    private RelativeLayout signBind;
+    private RelativeLayout offlineUpload;
+    private FootprintFragment footprintFragment;
 
 
     @Override
@@ -81,7 +82,8 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
         setContentView(R.layout.activity_work_sign);
         findView();
         checkDevice();
-       getCacheData();
+        getCacheData();
+        NetTimeUtil.initNetTime();
 
     }
 
@@ -93,7 +95,7 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
         signButtonLayout.setOnClickListener(this);
         footprintLayout.setOnClickListener(this);
         offLineIcon = findViewById(R.id.offline_upload_icon);
-        findViewById(R.id.back).setOnClickListener(v -> {finish();goToAnimation(2);});
+        findViewById(R.id.back).setOnClickListener(this);
         ((TextView) findViewById(R.id.user_name)).setText(mUserHelper.getUserInfoTo().getName() + "(" + mUserHelper.getPhone() + ")");
         apartmentName = (TextView) findViewById(R.id.apartment_name);
         apartmentName.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
@@ -101,14 +103,34 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.cancel).setOnClickListener(this);
         findViewById(R.id.confirm).setOnClickListener(this);
         checkLayout = (RelativeLayout) findViewById(R.id.check_layout);
-        findViewById(R.id.sign_bind).setOnClickListener(this);
-        findViewById(R.id.offline_upload).setOnClickListener(this);
+        checkLayout.setOnClickListener(this);
+        signBind = (RelativeLayout) findViewById(R.id.sign_bind);
+        signBind.setOnClickListener(this);
+        offlineUpload = (RelativeLayout) findViewById(R.id.offline_upload);
+        offlineUpload.setOnClickListener(this);
+        signTitle = (TextView) findViewById(R.id.sign_title);
     }
 
-    private void initFragment() {
-        signFragment = new SignFragment();
+    /***
+     *如果三次还没有获取到网络时间，就跳过网络时间
+     */
+    private void initFragment(long netTime, String parkName) {
+        if (NetTimeUtil.getSignNetTime() == 0 && netTimeCount < 10) {
+            System.out.println(netTimeCount + "count");
+            handler.postDelayed(() -> {
+                initFragment(netTime, parkName);
+                netTimeCount++;
+            }, 1000);
+            return;
+        }
+        netTimeCount = 0;
+        if (NetTimeUtil.getSignNetTime() == 0)
+            NetTimeUtil.setSignNetTime();
+        loadingDialog.dismiss();
+        signFragment = new SignFragment(parkName);
+        footprintFragment = new FootprintFragment(NetTimeUtil.getSignNetTime());
         fragmentList.add(signFragment);
-        fragmentList.add(new FootprintFragment());
+        fragmentList.add(footprintFragment);
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -122,9 +144,16 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
                 if (position != 0) {
                     signButtonLayout.setAlpha((float) 0.5);
                     footprintLayout.setAlpha(1);
+                    signTitle.setText("我的足迹");
+                    offlineUpload.setVisibility(View.GONE);
+                    signBind.setVisibility(View.GONE);
+
                 } else {
                     footprintLayout.setAlpha((float) 0.5);
                     signButtonLayout.setAlpha(1);
+                    signTitle.setText("签到");
+                    offlineUpload.setVisibility(View.VISIBLE);
+                    signBind.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -162,7 +191,7 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
                 getApartment();
                 break;
             case R.id.confirm:
-                submitDevice(null,isRebind?0:1);
+                submitDevice(null, isRebind ? 0 : 1);
                 break;
             case R.id.cancel:
                 if (!isRebind) {
@@ -176,12 +205,21 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
                 signRebind();
                 break;
             case R.id.offline_upload:
-                if (cacheSubmitList!=null&&cacheSubmitList.size()>0){
-                   startActivity(new Intent(getThisContext(),OfflineUploadActivity.class));
+                if (cacheSubmitList != null && cacheSubmitList.size() > 0) {
+                    startActivity(new Intent(getThisContext(), OfflineUploadActivity.class));
                     goToAnimation(1);
+
+
+                } else {
+                    ToastShowLong(getThisContext(), "没有未提交的签到");
+                }
+                break;
+            case R.id.back:
+                if (viewPager.getCurrentItem() == 1)
+                    viewPager.setCurrentItem(0);
+                else {
                     finish();
-                }else {
-                    ToastShowLong(getThisContext(),"没有未提交的签到");
+                    goToAnimation(2);
                 }
 
                 break;
@@ -205,6 +243,9 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
     }
 
     public void checkDevice() {
+        loadingDialog = new CustomDialogFragment();
+        loadingDialog.show(getSupportFragmentManager(), "");
+        NetTimeUtil.initNetTime();
         SignJsonTo jsonTo = new SignJsonTo();
         jsonTo.setDeviceId("1909DCFD-243D-2F68-233A-250C9C9B571E");
         jsonTo.setTradeType("GetCheck");
@@ -217,21 +258,25 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
         System.out.println(new Gson().toJson(jsonTo) + "json");
         Map<String, String> params = new HashMap<>();
         params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(WorkSignActivity.this, "http://nd.alipayer.cn/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestPostData(WorkSignActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
+                loadingDialog.dismiss();
+                System.out.println(result + "device================");
                 SignMessageTo<CheckDeviceTo> msg = new Gson().fromJson(new String(WLHSecurityUtils.decrypt(result.getBytes())), SignMessageTo.class);
 
 
                 if (msg.getResultCode() == 0) {
                     CheckDeviceTo checkDeviceTo = new Gson().fromJson(new Gson().toJson(msg.getResultContent()), CheckDeviceTo.class);
-                    if (checkDeviceTo.getStatus() == 0)
-                        initFragment();
-                    else if (checkDeviceTo.getStatus() == 1 && TextUtils.isEmpty(checkDeviceTo.getParkName())) {
+
+                    if (checkDeviceTo.getStatus() == 0) {
+                        loadingDialog.show(getSupportFragmentManager(), "");
+                        initFragment(NetTimeUtil.getSignNetTime(), checkDeviceTo.getParkName());
+                    } else if (checkDeviceTo.getStatus() == 1 && TextUtils.isEmpty(checkDeviceTo.getParkName())) {
                         checkLayout.setVisibility(View.VISIBLE);
                         StatuBarUtil.setStatueBarWhiteColor(getWindow());
                     } else if (checkDeviceTo.getStatus() == 2) {
-                        submitDeviceDialog(checkDeviceTo.getParkName(), "您新的设备正在审核中，再次提交审核");
+                        checkDeviceDialog(checkDeviceTo.getParkName(), "您新的设备正在审核中");
                     } else
                         submitDeviceDialog(checkDeviceTo.getParkName(), "您在新的设备登录巡更，需提交审核");
 
@@ -242,7 +287,7 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
 
             @Override
             public void onLoadError() {
-
+                loadingDialog.dismiss();
             }
         });
     }
@@ -267,7 +312,7 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
         System.out.println(new Gson().toJson(jsonTo) + "json");
         Map<String, String> params = new HashMap<>();
         params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(WorkSignActivity.this, "http://nd.alipayer.cn/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestPostData(WorkSignActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 SignMessageTo<List<SignApartmentTo>> msg = new Gson().fromJson(new String(WLHSecurityUtils.decrypt(result.getBytes())), SignMessageTo.class);
@@ -305,13 +350,40 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
     }
 
     /**
-     * 是否申请更换手机对话框
+     * 审核是否申请更换手机对话框
      */
+    public void checkDeviceDialog(String parkName, String title) {
+        CustomDialog alertDialog = new CustomDialog(getThisContext(), R.layout.dialog_submit_device, R.style.myDialogTheme);
+        ((TextView) alertDialog.findViewById(R.id.title)).setText(title);
+        Button confirm = (Button) alertDialog.findViewById(R.id.btn_confirm);
+        confirm.setBackgroundResource(R.drawable.sign_check_confirm_button_bg);
+        confirm.setText("知道了");
+        alertDialog.findViewById(R.id.is_submit_text).setVisibility(View.INVISIBLE);
+        confirm.setOnClickListener(v -> {
+
+            alertDialog.dismiss();
+            handler.postDelayed(() -> {
+                finish();
+                goToAnimation(2);
+            }, 1500);
+        });
+        alertDialog.findViewById(R.id.btn_close).setVisibility(View.GONE);
+        alertDialog.show();
+        alertDialog.setOnKeyListener((dialog, keyCode, event) -> {
+            if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+                finish();
+                goToAnimation(2);
+                return true;
+            } else
+                return false;
+        });
+    }
+
     public void submitDeviceDialog(String parkName, String title) {
         CustomDialog alertDialog = new CustomDialog(getThisContext(), R.layout.dialog_submit_device, R.style.myDialogTheme);
         ((TextView) alertDialog.findViewById(R.id.title)).setText(title);
         alertDialog.findViewById(R.id.btn_confirm).setOnClickListener(v -> {
-            submitDevice(parkName,0);
+            submitDevice(parkName, 0);
             alertDialog.dismiss();
         });
         alertDialog.findViewById(R.id.btn_close).setOnClickListener(v -> {
@@ -322,14 +394,17 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
     }
 
     //type 1第一次绑定 0其它情况绑定
-    public void submitDevice(String parkName,int type) {
-        if (parkName == null) {
+    public void submitDevice(String parkName, int type) {
+     
+
+        if (TextUtils.isEmpty(parkName)) {
             if (TextUtils.isEmpty(apartmentName.getText().toString())) {
                 ToastShowLong(getThisContext(), "请选择绑定小区");
                 return;
             }
         }
 
+        NetTimeUtil.initNetTime();
         SignJsonTo jsonTo = new SignJsonTo();
         jsonTo.setDeviceId("1909DCFD-243D-2F68-233A-250C9C9B571E");
         jsonTo.setTradeType("POSTCheck");
@@ -343,14 +418,23 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
         System.out.println(new Gson().toJson(jsonTo) + "json");
         Map<String, String> params = new HashMap<>();
         params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(WorkSignActivity.this, "http://nd.alipayer.cn/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestPostData(WorkSignActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 SignMessageTo msg = new Gson().fromJson(new String(WLHSecurityUtils.decrypt(result.getBytes())), SignMessageTo.class);
                 if (msg.getResultCode() == 0) {
-                    Toast.makeText(getThisContext(), "绑定小区成功", Toast.LENGTH_LONG).show();
+                    System.out.println(msg + "========data");
                     checkLayout.setVisibility(View.GONE);
-                    initFragment();
+                    if (type == 1) {
+                        initFragment(NetTimeUtil.getSignNetTime(), apartmentName.getText().toString());
+                        Toast.makeText(getThisContext(), "绑定小区成功", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getThisContext(), "设备提交审核成功", Toast.LENGTH_LONG).show();
+                        handler.postDelayed(() -> {
+                            finish();
+                            goToAnimation(2);
+                        }, 1500);
+                    }
                 } else
                     Toast.makeText(getThisContext(), msg.getReason(), Toast.LENGTH_LONG).show();
 
@@ -368,6 +452,7 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
     protected void onRestart() {
         super.onRestart();
         signFragment.getData(null);
+        footprintFragment.reLoadingData();
         getCacheData();
     }
 
@@ -376,14 +461,23 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
      */
     public void getCacheData() {
         cacheSubmitList = JSON.parseArray(new ACache().getAsString("SignSubmitJson"), SignSubmitJsonTo.class);
-        if (cacheSubmitList!=null&&cacheSubmitList.size()>0)
+        if (cacheSubmitList != null && cacheSubmitList.size() > 0)
             offLineIcon.setBackgroundResource(R.drawable.sign_offline_upload_select);
         else
             offLineIcon.setBackgroundResource(R.drawable.sign_offline_upload_un_select);
 
     }
 
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            if (viewPager.getCurrentItem() == 1) {
+                viewPager.setCurrentItem(0);
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
 
 }

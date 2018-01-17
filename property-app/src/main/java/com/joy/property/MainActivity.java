@@ -703,7 +703,7 @@ public class MainActivity extends SlidingFragmentActivity implements
                                 startActivity(new Intent(getThisContext(), ReceiveExpressActivity.class));
 
                             }else if (TextUtils.equals(menuTo.getCode(), "A017")) {
-                                //车辆巡检管理
+                                //巡更
                                 startActivity(new Intent(getThisContext(), WorkSignActivity.class));
 
 
@@ -1329,8 +1329,8 @@ public class MainActivity extends SlidingFragmentActivity implements
 
         MobclickAgent.onResume(this);
         Log.i("2222", "onResume: "+1111);
-        getAdInfoTop();
-        getAdInfo();
+//        getAdInfoTop();
+//        getAdInfo();
         //开始翻滚
         lbt.startTurning(3000);
         autoRow.startTurning(5000);

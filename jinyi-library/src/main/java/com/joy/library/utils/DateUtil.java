@@ -481,10 +481,11 @@ public class DateUtil {
 		return sdf.format(new Date(mills))+" "+start;
 	}
 
-	public static Map<String, Date> getLastWeek() {
+	public static Map<String, Date> getLastWeek(long netTime) {
 		// TODO Auto-generated method stub
 		Map<String, Date> map = new HashMap<String, Date>();
 		Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(netTime);
 		int n = cal.get(Calendar.DAY_OF_WEEK) - 1;
 		if (n == 0) {
 			n = 7;
@@ -526,15 +527,17 @@ public class DateUtil {
 		return System.currentTimeMillis()/1000;
 	}
 
-	public static String getLastDayOfMonth(int year, int month,boolean select) {
+	public static String getLastDayOfMonth(int year, int month,boolean select,long netTime) {
 		Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(netTime);
 		cal.set(Calendar.YEAR, year);
 		cal.set(Calendar.MONTH, month-(select?1:0));
 		cal.set(Calendar.DAY_OF_MONTH,cal.getActualMaximum(Calendar.DATE));
 		return  new   SimpleDateFormat( "yyyy-MM-dd").format(cal.getTime());
 	}
-	public static String getFirstDayOfMonth(int year, int month,boolean select) {
+	public static String getFirstDayOfMonth(int year, int month,boolean select,long netTime) {
 		Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(netTime);
 		cal.set(Calendar.YEAR, year);
 		cal.set(Calendar.MONTH, month-(select?1:0));
 		cal.set(Calendar.DAY_OF_MONTH,cal.getMinimum(Calendar.DATE));

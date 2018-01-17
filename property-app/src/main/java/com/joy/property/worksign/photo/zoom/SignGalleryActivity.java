@@ -19,6 +19,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.joy.property.R;
+import com.joy.property.base.EventBusEvent;
+import com.joy.property.neighborhood.RefreshEvent;
 import com.joyhome.nacity.app.base.BaseActivity;
 import com.joyhome.nacity.app.photo.AlbumActivity;
 import com.joyhome.nacity.app.photo.ImageFile;
@@ -27,6 +29,8 @@ import com.joyhome.nacity.app.photo.util.Bimp;
 import com.joyhome.nacity.app.photo.util.ImageItem;
 import com.joyhome.nacity.app.photo.util.PublicWay;
 import com.joyhome.nacity.app.photo.zoom.ViewPagerFixed;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
@@ -204,8 +208,10 @@ public class SignGalleryActivity extends BaseActivity {
                 Intent intent = new Intent();
                 setResult(Activity.RESULT_OK);
                 PublicWay.activityList.clear();
+                EventBus.getDefault().post(new EventBusEvent<>("DeleteAllPicture",location));
                 finish();
             } else {
+                EventBus.getDefault().post(new EventBusEvent<>("DeletePosition",location));
                 Bimp.tempSelectBitmap.remove(location);
                 Bimp.max--;
                 pager.removeAllViews();
@@ -241,26 +247,7 @@ public class SignGalleryActivity extends BaseActivity {
         }
     }
 
-    /**
-     * 监听返回按钮
-     */
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
 
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (position == 1) {
-                this.finish();
-                intent.setClass(SignGalleryActivity.this, AlbumActivity.class);
-                startActivity(intent);
-            } else if (position == 2) {
-                this.finish();
-                intent.setClass(SignGalleryActivity.this, ShowAllPhoto.class);
-                intent.putExtra("number",num);
-                startActivity(intent);
-            }
-        }
-        return true;
-    }
 
 
     class MyPageAdapter extends PagerAdapter {
@@ -314,5 +301,16 @@ public class SignGalleryActivity extends BaseActivity {
             return arg0 == arg1;
         }
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getKeyCode()==KeyEvent.KEYCODE_BACK){
+            intent = new Intent();
+            setResult(Activity.RESULT_OK);
+            PublicWay.activityList.clear();
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

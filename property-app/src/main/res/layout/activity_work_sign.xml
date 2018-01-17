@@ -22,7 +22,7 @@
             android:contentDescription="@string/app_name" />
 
         <TextView
-            android:id="@+id/title2"
+            android:id="@+id/sign_title"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
@@ -224,9 +224,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="请选择所在小区 >"
+                    android:text=""
                     android:id="@+id/apartment_name"
                     android:textColor="#3bafda"
+                    android:hint="请选择所在小区 >"
+                    android:textColorHint="#3bafda"
                     android:textSize="28px" />
 
                 <TextView

@@ -55,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="400px"
+            android:id="@+id/sign_info_layout"
             android:layout_gravity="center_vertical"
             android:orientation="vertical">
 
@@ -106,6 +107,24 @@
                 android:textSize="21px" />
         </com.zhy.autolayout.AutoLinearLayout>
 
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="400px"
+        android:visibility="gone"
+        android:id="@+id/sign_no_info_layout"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8px"
+            android:text="暂无签到内容"
+            android:textColor="#ffffff"
+            android:textSize="28px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
         <com.zhy.autolayout.AutoRelativeLayout
             android:id="@+id/footprint_detail_layout"
             android:layout_width="50px"
@@ -113,8 +132,8 @@
            >
 
             <View
-                android:layout_width="28px"
-                android:layout_height="41px"
+                android:layout_width="15px"
+                android:layout_height="25px"
                 android:layout_centerInParent="true"
                 android:background="@drawable/sign_right_arrow_icon" />
         </com.zhy.autolayout.AutoRelativeLayout>

@@ -2,6 +2,7 @@ package com.joy.property.worksign.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Network;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.Util.signencode.SXHttpUtils;
 import com.Util.signencode.aes.WLHSecurityUtils;
@@ -25,11 +27,13 @@ import com.jinyi.ihome.module.worksign.SignMessageTo;
 import com.joy.library.utils.DateUtil;
 import com.joy.property.R;
 import com.joy.property.base.BaseFragment;
+import com.joy.property.utils.NetTimeUtil;
 import com.joy.property.worksign.SignDetailActivity;
 import com.joy.property.worksign.SignSubmitActivity;
 import com.joy.property.worksign.WorkContentActivity;
 import com.joy.property.worksign.adapter.SignBaseParam;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -62,6 +66,11 @@ public class SignFragment extends BaseFragment implements View.OnClickListener {
     };
     private TextView currentTime;
     private Thread timeThread;
+    private String parkName;
+
+    public SignFragment(String parkName) {
+        this.parkName = parkName;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -82,6 +91,7 @@ public class SignFragment extends BaseFragment implements View.OnClickListener {
         mLocationClient.setLocOption(option);
         mLocationClient.start();
         setCountTime();
+
         return rootView;
     }
 
@@ -137,6 +147,7 @@ public class SignFragment extends BaseFragment implements View.OnClickListener {
                     Intent intent = new Intent(getThisContext(), SignSubmitActivity.class);
                     intent.putExtra("WorkContent", workContent.getText().toString());
                     intent.putExtra("DeviceId", deviceId);
+                    intent.putExtra("ParkName",parkName);
                     intent.putExtra("SignAddress", signAddress.getText().toString());
                     startActivity(intent);
 
@@ -146,8 +157,9 @@ public class SignFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.sign_card_bg:
                 handler.postDelayed(() -> {
-
-                    startActivityForResult(new Intent(getThisContext(), WorkContentActivity.class), 10);
+                    Intent intent = new Intent(getThisContext(), WorkContentActivity.class);
+                    intent.putExtra("ParkName", parkName);
+                    startActivityForResult(intent, 10);
                     goToAnimation(1);
                 }, 200);
                 break;
@@ -168,6 +180,7 @@ public class SignFragment extends BaseFragment implements View.OnClickListener {
         jsonTo.setDeviceId("1909DCFD-243D-2F68-233A-250C9C9B571E");
         jsonTo.setTradeType("GetHome");
         jsonTo.setEqId(macAddress);
+
         jsonTo.setOpenId(mUserHelper.getSid());
         jsonTo.setUniqueStr(((TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId());
         SignBaseParam param = new SignBaseParam();
@@ -175,22 +188,24 @@ public class SignFragment extends BaseFragment implements View.OnClickListener {
         System.out.println(new Gson().toJson(jsonTo) + "json");
         Map<String, String> params = new HashMap<>();
         params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(getActivity(), "http://nd.alipayer.cn/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestPostData(getActivity(), "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 if (result == null)
                     return;
 
                 SignMessageTo<SignMainPageTo> msg = new Gson().fromJson(new String(WLHSecurityUtils.decrypt(result.getBytes())), SignMessageTo.class);
-                System.out.println(msg + "msg========");
+
                 if (msg == null)
                     return;
                 if (msg.getResultCode() == 0) {
-                   SignMainPageTo signMainPageTo = new Gson().fromJson(new Gson().toJson(msg.getResultContent()), SignMainPageTo.class);
+                    SignMainPageTo signMainPageTo = new Gson().fromJson(new Gson().toJson(msg.getResultContent()), SignMainPageTo.class);
                     if (signMainPageTo == null)
                         return;
-                    workerName.setText(DateUtil.getDateString(DateUtil.mWorkDate) + "  " + signMainPageTo.getBranchname() + "：" + signMainPageTo.getUsername());
-                    workerNameInfo=workerName.getText().toString();
+
+                    workerName.setText(DateUtil.longToString(NetTimeUtil.getSignNetTime(), DateUtil.mFormatDateString) + "  " + signMainPageTo.getBranchname() + "：" + signMainPageTo.getUsername() + "  " + parkName);
+
+                    workerNameInfo = DateUtil.longToString(NetTimeUtil.getSignNetTime(), DateUtil.mFormatDateString) + "  " + signMainPageTo.getBranchname() + "：" + signMainPageTo.getUsername() + "  " + parkName;
                     if (signMainPageTo.getSignnum() > 0) {
                         signRecord.setText("今日一共签到" + signMainPageTo.getSignnum() + "次");
                         setLastSignLayout(signMainPageTo);
@@ -223,7 +238,7 @@ public class SignFragment extends BaseFragment implements View.OnClickListener {
         }
     }
 
-    public static String getWokerNameInfo(){
+    public static String getWokerNameInfo() {
         return workerNameInfo;
     }
 

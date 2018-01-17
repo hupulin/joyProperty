@@ -463,6 +463,7 @@ public class NavigationFragment extends BaseFragment
 
         UserApi api = ApiClient.create(UserApi.class);
         String id = mUserHelper.getSid();
+        System.out.println(id+"/"+s);
         api.updateOwnerIcon(id, s, new HttpCallback<MessageTo<UserInfoTo>>(getThisContext()) {
             @Override
             public void success(MessageTo<UserInfoTo> msg, Response response) {
