@@ -23,7 +23,7 @@ import com.joyhome.nacity.app.photo.util.ImageItem;
 /**
  * Created by xz on 2016/7/12.
  **/
-public class OfflineUploadAdapter extends ModeListAdapter<SignSubmitJsonTo> {
+public class OfflineUploadAdapter extends ModeListAdapter<com.jinyi.ihome.module.worksign.SignSubmitJsonTo> {
     private Context mContext;
     private Gson gson;
 

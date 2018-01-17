@@ -121,7 +121,6 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
         TelephonyManager tm = (TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE);
         String IMEI = tm.getDeviceId();
         SignJsonTo jsonTo = new SignJsonTo();
-        jsonTo.setDeviceId("1909DCFD-243D-2F68-233A-250C9C9B571E");
         jsonTo.setTradeType("GetReport");
         jsonTo.setUniqueStr(mUserHelper.getSid());
         jsonTo.setReportType(signType);
@@ -129,12 +128,8 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
         jsonTo.setOpenId(mUserHelper.getSid());
         jsonTo.setUniqueStr(IMEI);
         jsonTo.setEndDate(endTime);
-        SignBaseParam param = new SignBaseParam();
-        param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
 
-        Map<String, String> params = new HashMap<>();
-        params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(getActivity(), "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestPostData(getActivity(),jsonTo, new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 dialogFragment.dismiss();

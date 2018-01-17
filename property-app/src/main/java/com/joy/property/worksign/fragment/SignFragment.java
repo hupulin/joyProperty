@@ -177,18 +177,13 @@ public class SignFragment extends BaseFragment implements View.OnClickListener {
     public void getData(String macAddress) {
         deviceId = macAddress;
         SignJsonTo jsonTo = new SignJsonTo();
-        jsonTo.setDeviceId("1909DCFD-243D-2F68-233A-250C9C9B571E");
         jsonTo.setTradeType("GetHome");
         jsonTo.setEqId(macAddress);
 
         jsonTo.setOpenId(mUserHelper.getSid());
         jsonTo.setUniqueStr(((TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId());
-        SignBaseParam param = new SignBaseParam();
-        param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
-        System.out.println(new Gson().toJson(jsonTo) + "json");
-        Map<String, String> params = new HashMap<>();
-        params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(getActivity(), "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+
+        SXHttpUtils.requestPostData(getActivity(),jsonTo, new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 if (result == null)

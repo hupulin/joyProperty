@@ -76,6 +76,7 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
     private FootprintFragment footprintFragment;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,7 +86,9 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
         getCacheData();
         NetTimeUtil.initNetTime();
 
+
     }
+
 
 
     private void findView() {
@@ -123,6 +126,7 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
             }, 1000);
             return;
         }
+       
         netTimeCount = 0;
         if (NetTimeUtil.getSignNetTime() == 0)
             NetTimeUtil.setSignNetTime();
@@ -197,8 +201,10 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
                 if (!isRebind) {
                     finish();
                     goToAnimation(2);
-                } else
+                } else {
                     checkLayout.setVisibility(View.GONE);
+                    StatuBarUtil.setStatueBarBlueColor(getWindow());
+                }
 
                 break;
             case R.id.sign_bind:
@@ -247,18 +253,11 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
         loadingDialog.show(getSupportFragmentManager(), "");
         NetTimeUtil.initNetTime();
         SignJsonTo jsonTo = new SignJsonTo();
-        jsonTo.setDeviceId("1909DCFD-243D-2F68-233A-250C9C9B571E");
         jsonTo.setTradeType("GetCheck");
-
-        jsonTo.setUniqueStr(((TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId());
+       jsonTo.setUniqueStr(getDeviceUid());
         jsonTo.setOpenId(mUserHelper.getSid());
-        //    jsonTo.setParkName("幸福家园");
-        SignBaseParam param = new SignBaseParam();
-        param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
-        System.out.println(new Gson().toJson(jsonTo) + "json");
-        Map<String, String> params = new HashMap<>();
-        params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(WorkSignActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+
+        SXHttpUtils.requestPostData(WorkSignActivity.this, jsonTo, new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 loadingDialog.dismiss();
@@ -288,6 +287,7 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void onLoadError() {
                 loadingDialog.dismiss();
+                showSignNetError();
             }
         });
     }
@@ -301,18 +301,12 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
         dialogFragment.show(getSupportFragmentManager(), "");
         final ListView mList = (ListView) dialog.findViewById(R.id.list);
         SignJsonTo jsonTo = new SignJsonTo();
-        jsonTo.setDeviceId("1909DCFD-243D-2F68-233A-250C9C9B571E");
         jsonTo.setTradeType("GetProjects");
-
-        jsonTo.setUniqueStr(((TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId());
+        jsonTo.setUniqueStr(getDeviceUid());
         jsonTo.setOpenId(mUserHelper.getSid());
-        //    jsonTo.setParkName("幸福家园");
-        SignBaseParam param = new SignBaseParam();
-        param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
-        System.out.println(new Gson().toJson(jsonTo) + "json");
-        Map<String, String> params = new HashMap<>();
-        params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(WorkSignActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+
+
+        SXHttpUtils.requestPostData(WorkSignActivity.this, jsonTo, new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 SignMessageTo<List<SignApartmentTo>> msg = new Gson().fromJson(new String(WLHSecurityUtils.decrypt(result.getBytes())), SignMessageTo.class);
@@ -395,7 +389,7 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
 
     //type 1第一次绑定 0其它情况绑定
     public void submitDevice(String parkName, int type) {
-     
+
 
         if (TextUtils.isEmpty(parkName)) {
             if (TextUtils.isEmpty(apartmentName.getText().toString())) {
@@ -406,26 +400,21 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
 
         NetTimeUtil.initNetTime();
         SignJsonTo jsonTo = new SignJsonTo();
-        jsonTo.setDeviceId("1909DCFD-243D-2F68-233A-250C9C9B571E");
         jsonTo.setTradeType("POSTCheck");
-
-        jsonTo.setUniqueStr(((TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId());
+        jsonTo.setUniqueStr(getDeviceUid());
         jsonTo.setOpenId(mUserHelper.getSid());
         jsonTo.setFristCheck(type);
         jsonTo.setParkName(parkName == null ? apartmentName.getText().toString() : parkName);
-        SignBaseParam param = new SignBaseParam();
-        param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
-        System.out.println(new Gson().toJson(jsonTo) + "json");
-        Map<String, String> params = new HashMap<>();
-        params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(WorkSignActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestPostData(WorkSignActivity.this,  jsonTo, new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 SignMessageTo msg = new Gson().fromJson(new String(WLHSecurityUtils.decrypt(result.getBytes())), SignMessageTo.class);
                 if (msg.getResultCode() == 0) {
-                    System.out.println(msg + "========data");
+
                     checkLayout.setVisibility(View.GONE);
+                    StatuBarUtil.setStatueBarBlueColor(getWindow());
                     if (type == 1) {
+                        loadingDialog.show(getSupportFragmentManager(),"");
                         initFragment(NetTimeUtil.getSignNetTime(), apartmentName.getText().toString());
                         Toast.makeText(getThisContext(), "绑定小区成功", Toast.LENGTH_LONG).show();
                     } else {

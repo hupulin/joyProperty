@@ -1,13 +1,11 @@
 package com.jinyi.ihome.module.worksign;
 
-import android.content.Context;
-import android.telephony.TelephonyManager;
-
+import java.util.List;
 
 /**
  * Created by xzz on 2017/12/28.
  */
-public class SignJsonTo {
+public class SignSubmitJsonTo {
 
     /**
      * AppVersion : 1.0.0
@@ -23,9 +21,9 @@ public class SignJsonTo {
     private String AppVersion="1.0.0";
     private String OsVersion="1.0.0";
     private String TermType="Android";
-    private String DeviceId;
+    private String DeviceId="1909DCFD-243D-2F68-233A-250C9C9B571E";
     private String BrandCode="NACITYRES";
-    private String UniqueStr= "";
+    private String UniqueStr;
     private String TradeType;
     private String OpenId="NACITYRES";
     private String EqId="1512092252";
@@ -41,9 +39,10 @@ public class SignJsonTo {
     private int SignId;
     private String SignTime;
     private String ParkName;
-    private int FristCheck;
-    private String EqList;
-    private int Page;
+    private List<String>imageList;
+    private boolean isAllUpload;
+    private String address;
+
 
 
     public String getAppVersion() {
@@ -214,33 +213,34 @@ public class SignJsonTo {
         ParkName = parkName;
     }
 
-    public int getFristCheck() {
-        return FristCheck;
+    public List<String> getImageList() {
+        return imageList;
     }
 
-    public void setFristCheck(int fristCheck) {
-        FristCheck = fristCheck;
+    public void setImageList(List<String> imageList) {
+        this.imageList = imageList;
     }
 
-    public String getEqList() {
-        return EqList;
+
+    public boolean isAllUpload() {
+        return isAllUpload;
     }
 
-    public void setEqList(String eqList) {
-        EqList = eqList;
+    public void setAllUpload(boolean allUpload) {
+        isAllUpload = allUpload;
     }
 
-    public int getPage() {
-        return Page;
+    public String getAddress() {
+        return address;
     }
 
-    public void setPage(int page) {
-        Page = page;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override
     public String toString() {
-        return "SignJsonTo{" +
+        return "SignSubmitJsonTo{" +
                 "AppVersion='" + AppVersion + '\'' +
                 ", OsVersion='" + OsVersion + '\'' +
                 ", TermType='" + TermType + '\'' +
@@ -259,7 +259,10 @@ public class SignJsonTo {
                 ", StartDate='" + StartDate + '\'' +
                 ", EndDate='" + EndDate + '\'' +
                 ", BKey='" + BKey + '\'' +
-                ", SignId='" + SignId + '\'' +
+                ", SignId=" + SignId +
+                ", SignTime='" + SignTime + '\'' +
+                ", ParkName='" + ParkName + '\'' +
+                ", imageList=" + imageList +
                 '}';
     }
 }

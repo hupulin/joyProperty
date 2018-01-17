@@ -65,15 +65,10 @@ public class WorkContentActivity extends BaseActivity {
         jsonTo.setTradeType("GetJobList");
         jsonTo.setOpenId(mUserHelper.getSid());
         jsonTo.setParkName(getIntent().getStringExtra("ParkName"));
-        jsonTo.setUniqueStr(((TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId());
-        SignBaseParam param = new SignBaseParam();
+        jsonTo.setUniqueStr(getDeviceUid());
         CustomDialogFragment customDialogFragment=new CustomDialogFragment();
         customDialogFragment.show(getSupportFragmentManager(),"");
-        param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
-
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(WorkContentActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestPostData(WorkContentActivity.this, jsonTo, new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 customDialogFragment.dismiss();
@@ -90,6 +85,7 @@ public class WorkContentActivity extends BaseActivity {
             @Override
             public void onLoadError() {
             customDialogFragment.dismiss();
+                showSignNetError();
             }
         });
     }

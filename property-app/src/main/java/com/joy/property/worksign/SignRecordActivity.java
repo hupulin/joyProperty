@@ -103,14 +103,11 @@ public class SignRecordActivity extends BaseActivity {
         jsonTo.setReportType(recordInfoTo.getFootprintType());
         jsonTo.setStartDate(recordInfoTo.getStartDate());
         jsonTo.setEndDate(recordInfoTo.getEndDate());
-        jsonTo.setUniqueStr(((TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId());
+        jsonTo.setUniqueStr(getDeviceUid());
         jsonTo.setOpenId(mUserHelper.getSid());
         jsonTo.setPage(page);
-        SignBaseParam param = new SignBaseParam();
-        param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
-        Map<String, String> params = new HashMap<>();
-        params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(SignRecordActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+
+        SXHttpUtils.requestPostData(SignRecordActivity.this,  jsonTo, new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 dialogFragment.dismiss();
@@ -135,6 +132,7 @@ public class SignRecordActivity extends BaseActivity {
             public void onLoadError() {
                 refreshListView.onRefreshComplete();
                 dialogFragment.dismiss();
+                showSignNetError();
             }
         });
     }

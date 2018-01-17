@@ -20,6 +20,8 @@ import com.jinyi.ihome.module.worksign.SignContentTo;
 import com.jinyi.ihome.module.worksign.SignJsonTo;
 import com.jinyi.ihome.module.worksign.SignMainPageTo;
 import com.jinyi.ihome.module.worksign.SignMessageTo;
+
+import com.jinyi.ihome.module.worksign.SignSubmitJsonTo;
 import com.joy.common.api.ApiClient;
 import com.joy.common.api.HttpCallback;
 import com.joy.common.api.VendorApi;
@@ -29,7 +31,7 @@ import com.joy.property.base.BaseActivity;
 import com.joy.property.utils.ACache;
 import com.joy.property.worksign.adapter.OfflineUploadAdapter;
 import com.joy.property.worksign.adapter.SignBaseParam;
-import com.joy.property.worksign.adapter.SignSubmitJsonTo;
+
 import com.joyhome.nacity.app.MainApp;
 import com.joyhome.nacity.app.photo.util.Bimp;
 import com.joyhome.nacity.app.photo.util.ImageItem;
@@ -98,13 +100,9 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
         jsonTo.setTradeType("GetMacAes");
         jsonTo.setEqList(macAddressList);
         jsonTo.setOpenId(mUserHelper.getSid());
-        jsonTo.setUniqueStr(((TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId());
-        SignBaseParam param = new SignBaseParam();
-        param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
-        System.out.println(new Gson().toJson(jsonTo) + "json");
-        Map<String, String> params = new HashMap<>();
-        params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(OfflineUploadActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        jsonTo.setUniqueStr(getDeviceUid());
+
+        SXHttpUtils.requestPostData(OfflineUploadActivity.this,jsonTo, new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 if (result == null)
@@ -140,6 +138,7 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
             public void onLoadError() {
                 adapter.setList(cacheSubmitList);
                 listView.setAdapter(adapter);
+                showSignNetError();
             }
         });
     }
@@ -163,7 +162,7 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
      * 获取缓存数据
      */
     private void getData() {
-        cacheSubmitList = JSON.parseArray(new ACache().getAsString("SignSubmitJson"), SignSubmitJsonTo.class);
+        cacheSubmitList = JSON.parseArray(new ACache().getAsString(mUserHelper.getSid()+"SignSubmitJson"), SignSubmitJsonTo.class);
 
 
         if (cacheSubmitList != null && cacheSubmitList.size() > 0) {
@@ -207,12 +206,8 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
     private void submit(SignSubmitJsonTo jsonTo) {
 
         jsonTo.setImgToken(uploadImagePath.substring(0, uploadImagePath.length() - 1));
-        System.out.println(new Gson().toJson(jsonTo) + "jsonTo");
-        SignBaseParam param = new SignBaseParam();
-        param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
-        Map<String, String> params = new HashMap<>();
-        params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(OfflineUploadActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+
+        SXHttpUtils.requestSubmitPostData(OfflineUploadActivity.this, jsonTo, new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 dialogFragment.dismiss();
@@ -225,7 +220,7 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
                     for (int i = 0; i < cacheSubmitList.size(); i++) {
                         if (cacheSubmitList.get(i).getSignTime().equals(jsonTo.getSignTime())) {
                             cacheSubmitList.remove(i);
-                            new ACache().put("SignSubmitJson", JSON.toJSONString(cacheSubmitList));
+                            new ACache().put(mUserHelper.getSid()+"SignSubmitJson", JSON.toJSONString(cacheSubmitList));
                             adapter.notifyDataSetChanged();
                             if (isAllUpload) {
                                 sendSubmitData(null);
@@ -248,7 +243,7 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
                         for (int i = 0; i < cacheSubmitList.size(); i++) {
                             if (cacheSubmitList.get(i).getSignTime().equals(jsonTo.getSignTime())) {
                                 cacheSubmitList.remove(i);
-                                new ACache().put("SignSubmitJson", JSON.toJSONString(cacheSubmitList));
+                                new ACache().put(mUserHelper.getSid()+"SignSubmitJson", JSON.toJSONString(cacheSubmitList));
                                 adapter.notifyDataSetChanged();
                                 if (isAllUpload)
                                     sendSubmitData(null);
@@ -296,6 +291,7 @@ public class OfflineUploadActivity extends BaseActivity implements UpCompletionH
             public void failure(RetrofitError error) {
                 adapter.notifyDataSetChanged();
                 dialogFragment.dismiss();
+
             }
         });
     }
