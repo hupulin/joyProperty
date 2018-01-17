@@ -717,7 +717,6 @@ public class MainActivity extends SlidingFragmentActivity implements
                                 //巡更
                                 startActivity(new Intent(getThisContext(), WorkSignActivity.class));
 
-
                             }
                             else if (TextUtils.equals(menuTo.getCode(), "A0")) {
                                 //敬请期待

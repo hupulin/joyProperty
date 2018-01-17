@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -197,5 +198,13 @@ public class BaseActivity extends FragmentActivity {
             }
         }
         super.onRestart();
+    }
+
+    protected void showSignNetError(){
+        Toast.makeText(getThisContext(), "网络异常", Toast.LENGTH_LONG).show();
+    }
+
+    protected String getDeviceUid(){
+        return ((TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
     }
 }

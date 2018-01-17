@@ -21,7 +21,7 @@ public class SignSubmitJsonTo {
     private String AppVersion="1.0.0";
     private String OsVersion="1.0.0";
     private String TermType="Android";
-    private String DeviceId;
+    private String DeviceId="1909DCFD-243D-2F68-233A-250C9C9B571E";
     private String BrandCode="NACITYRES";
     private String UniqueStr;
     private String TradeType;

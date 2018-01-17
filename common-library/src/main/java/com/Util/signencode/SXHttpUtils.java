@@ -4,6 +4,12 @@ package com.Util.signencode;
 import android.app.Activity;
 import android.widget.Toast;
 
+import com.Util.signencode.aes.WLHSecurityUtils;
+import com.google.gson.Gson;
+import com.jinyi.ihome.module.worksign.SignBaseParam;
+import com.jinyi.ihome.module.worksign.SignJsonTo;
+import com.jinyi.ihome.module.worksign.SignSubmitJsonTo;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,6 +17,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -24,16 +31,20 @@ public class SXHttpUtils {
          * Function  :   发送Post请求到服务器
          * Param     :   params请求体内容，encode编码格式
          */
-    public static void requestPostData(final Activity context, final String strUrlPath, final Map<String, String> params, final String encode, final LoadListener listerner) {
+    public static void requestPostData(final Activity context, final SignJsonTo jsonTo , final LoadListener listerner) {
 
         //获得请求体
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String requestData = getRequestData(params, encode).toString();
 
+                SignBaseParam param = new SignBaseParam();
+                param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
+                Map<String, String> params = new HashMap<>();
+                params.put("ParamData", param.getParamData());
+                String requestData = getRequestData(params,  "UTF-8").toString();
                 try {
-                    URL url = new URL(strUrlPath);
+                    URL url = new URL("http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html");
                     HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                     httpURLConnection.setConnectTimeout(3000);//设置连接超时时间
 //            httpURLConnection.setDoInput(true);//打开输入流，以便于从服务器获取数据
@@ -79,7 +90,78 @@ public class SXHttpUtils {
                         @Override
                         public void run() {
                             listerner.onLoadError();
-                            Toast.makeText(context, "网络异常", Toast.LENGTH_LONG).show();
+
+                        }
+                    });
+
+
+                }
+            }
+        }).start();
+
+
+    }
+
+    public static void requestSubmitPostData(final Activity context, final SignSubmitJsonTo jsonTo , final LoadListener listerner) {
+
+        //获得请求体
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                SignBaseParam param = new SignBaseParam();
+                param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
+                Map<String, String> params = new HashMap<>();
+                params.put("ParamData", param.getParamData());
+                String requestData = getRequestData(params,  "UTF-8").toString();
+                try {
+                    URL url = new URL("http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html");
+                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                    httpURLConnection.setConnectTimeout(3000);//设置连接超时时间
+//            httpURLConnection.setDoInput(true);//打开输入流，以便于从服务器获取数据
+                    httpURLConnection.setRequestMethod("POST");//设置POST提交
+//            httpURLConnection.setUseCaches(false);//设置 不能使用缓存
+//            httpURLConnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+                    byte[] data = requestData.getBytes("utf-8");
+                    //设置请求体长度
+//            httpURLConnection.setRequestProperty("Content-Length",String.valueOf(data.length)+"");
+                    //至少要设置的两个请求头
+                    httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                    httpURLConnection.setRequestProperty("Content-Length", data.length + "");
+
+                    httpURLConnection.setDoOutput(true);//打卡输出流，便于提交数据
+                    //获取输出流，向服务器写入数据
+                    OutputStream outputStream = httpURLConnection.getOutputStream();//这里抛异常
+                    outputStream.write(requestData.getBytes("UTF-8"));
+
+                    final int response = httpURLConnection.getResponseCode();//获取服务器的响应码
+                    if (response == HttpURLConnection.HTTP_OK) {
+                        InputStream inputStream = httpURLConnection.getInputStream();
+                        final String result = dealResponseResult(inputStream);
+                        context.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                listerner.onLoadSuccess(result);
+                            }
+                        });
+
+                    } else
+                        context.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                listerner.onLoadError();
+                                System.out.println(response+"respone============");
+                            }
+                        });
+
+                } catch (Exception e) {
+//            e.printStackTrace();
+                    System.out.println(e + "errrrrrrrrrrrr");
+                    context.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            listerner.onLoadError();
+
                         }
                     });
 

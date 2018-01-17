@@ -29,6 +29,7 @@ import com.jinyi.ihome.infrastructure.MessageTo;
 import com.jinyi.ihome.module.worksign.SignAddressTo;
 import com.jinyi.ihome.module.worksign.SignJsonTo;
 import com.jinyi.ihome.module.worksign.SignMessageTo;
+import com.jinyi.ihome.module.worksign.SignSubmitJsonTo;
 import com.joy.common.api.ApiClient;
 import com.joy.common.api.HttpCallback;
 import com.joy.common.api.VendorApi;
@@ -40,8 +41,7 @@ import com.joy.property.base.EventBusEvent;
 import com.joy.property.constant.Constant;
 import com.joy.property.utils.ACache;
 import com.joy.property.utils.NetTimeUtil;
-import com.joy.property.worksign.adapter.SignBaseParam;
-import com.joy.property.worksign.adapter.SignSubmitJsonTo;
+
 import com.joy.property.worksign.fragment.SignFragment;
 import com.joy.property.worksign.photo.zoom.SignGalleryActivity;
 import com.joyhome.nacity.app.MainApp;
@@ -98,6 +98,7 @@ public class SignSubmitActivity extends BaseActivity implements UpCompletionHand
 
     private TextView signTime;
     private SignAddressTo deviceAddressTo;//当前扫描到的蓝牙设备位置信息
+    private String devicePower="100%";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -326,14 +327,13 @@ public class SignSubmitActivity extends BaseActivity implements UpCompletionHand
                     return;
                 }
                 jsonTo = new SignSubmitJsonTo();
-                jsonTo.setDeviceId("1909DCFD-243D-2F68-233A-250C9C9B571E");
+
                 jsonTo.setTradeType("PostSign");
-                jsonTo.setUniqueStr(((TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId());
+                jsonTo.setUniqueStr(getDeviceUid());
                 jsonTo.setOpenId(mUserHelper.getSid());
                 jsonTo.setImageList(imageList);
                 jsonTo.setParkName(getIntent().getStringExtra("ParkName"));
-                //     jsonTo.setImgToken("http://img.mingxing.com/upload/attach/2017/10-10/306932-Y4Qk6j.jpg,http://img.mingxing.com/upload/attach/2017/10-10/306932-Y4Qk6j.jpg,http://img.mingxing.com/upload/attach/2017/10-10/306932-Y4Qk6j.jpg,http://img.mingxing.com/upload/attach/2017/10-10/306932-Y4Qk6j.jpg,http://img.mingxing.com/upload/attach/2017/10-10/306932-Y4Qk6j.jpg");
-                jsonTo.setSignNote(remarkContent.getText().toString());
+                jsonTo.setSignNote(TextUtils.isEmpty(remarkContent.getText().toString())?"未填写":remarkContent.getText().toString());
                 jsonTo.setJobStr(TextUtils.isEmpty(getIntent().getStringExtra("WorkContent")) ? "未选择" : getIntent().getStringExtra("WorkContent"));
                 jsonTo.setEqMark(deviceId);
                 jsonTo.setSignTime(DateUtil.getTime());
@@ -346,12 +346,12 @@ public class SignSubmitActivity extends BaseActivity implements UpCompletionHand
 
                 } else {
                     submit.setEnabled(false);
-                    List<SignSubmitJsonTo> jsonList = JSON.parseArray(new ACache().getAsString("SignSubmitJson"), SignSubmitJsonTo.class);
+                    List<SignSubmitJsonTo> jsonList = JSON.parseArray(new ACache().getAsString(mUserHelper.getSid()+"SignSubmitJson"), SignSubmitJsonTo.class);
                     if (jsonList == null)
                         jsonList = new ArrayList<>();
                     jsonList.add(jsonTo);
 
-                    new ACache().put("SignSubmitJson", JSON.toJSONString(jsonList));
+                    new ACache().put(mUserHelper.getSid()+"SignSubmitJson", JSON.toJSONString(jsonList));
                     ToastShowLong(getThisContext(), "签到已存本地，请在3个小时内在签到首页上传");
                     handler.postDelayed(() -> {
                         Bimp.tempSelectBitmap.clear();
@@ -373,20 +373,13 @@ public class SignSubmitActivity extends BaseActivity implements UpCompletionHand
     private void submit(SignSubmitJsonTo jsonTo) {
 
         jsonTo.setSignTime(DateUtil.getLongDateTime(NetTimeUtil.getSignNetTime()));
-        System.out.println(new Gson().toJson(jsonTo) + "jsonTo");
-        SignBaseParam param = new SignBaseParam();
-
         jsonTo.setImgToken(stringBuilder.toString().substring(0, stringBuilder.toString().length() - 1));
+        jsonTo.setEqEy(devicePower);
 
-        param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
-
-        Map<String, String> params = new HashMap<>();
-        params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(SignSubmitActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestSubmitPostData(SignSubmitActivity.this, jsonTo, new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 SignMessageTo msg = new Gson().fromJson(new String(WLHSecurityUtils.decrypt(result.getBytes())), SignMessageTo.class);
-                System.out.println(msg + "msg======");
                 dialogFragment.dismiss();
                 if (msg.getResultCode() == 0) {
                     com.joy.property.utils.CustomDialog alertDialog = new com.joy.property.utils.CustomDialog(getThisContext(), R.layout.dialog_sign_success, R.style.myDialogTheme);
@@ -481,7 +474,9 @@ public class SignSubmitActivity extends BaseActivity implements UpCompletionHand
                 int power = (scanRecord[29] & 0xff);
 
                 if (mScanning) {
-                    getDeviceAddress(ConvertData.bytesToHexString(mac, false), power + "%");
+                           getDeviceAddress(ConvertData.bytesToHexString(mac, false));
+                    devicePower=power+"%";
+
 
                 }
             });
@@ -510,21 +505,18 @@ public class SignSubmitActivity extends BaseActivity implements UpCompletionHand
     /**
      * 用来获取设备位置
      */
-    private void getDeviceAddress(String macAddress, String power) {
+    private void getDeviceAddress(String macAddress) {
+        runOnUiThread(() ->   signPosition.setText("已找到巡更设备"));
+
         deviceId = macAddress;
         SignJsonTo jsonTo = new SignJsonTo();
         jsonTo.setDeviceId("1909DCFD-243D-2F68-233A-250C9C9B571E");
         jsonTo.setTradeType("GetSignas");
         jsonTo.setEqId(macAddress);
-        jsonTo.setEqEy(power);
         jsonTo.setOpenId(mUserHelper.getSid());
-        jsonTo.setUniqueStr(((TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId());
-        SignBaseParam param = new SignBaseParam();
-        param.setParamData(WLHSecurityUtils.toURLDecoded(WLHSecurityUtils.encrypt(new Gson().toJson(jsonTo))));
+        jsonTo.setUniqueStr(getDeviceUid());
 
-        Map<String, String> params = new HashMap<>();
-        params.put("ParamData", param.getParamData());
-        SXHttpUtils.requestPostData(SignSubmitActivity.this, "http://prowatch.joyhomenet.com:8081/watch/index.php/backend/api.html", params, "UTF-8", new SXHttpUtils.LoadListener() {
+        SXHttpUtils.requestPostData(SignSubmitActivity.this, jsonTo, new SXHttpUtils.LoadListener() {
             @Override
             public void onLoadSuccess(String result) {
                 if (result == null)
