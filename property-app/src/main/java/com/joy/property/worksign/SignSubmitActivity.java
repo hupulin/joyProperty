@@ -94,11 +94,13 @@ public class SignSubmitActivity extends BaseActivity implements UpCompletionHand
     private SignSubmitJsonTo jsonTo;
     private List<String> imageList = new ArrayList<>();
     private List<ImageItem> rrcordImageItemList = new ArrayList<>();
-    private long netTime;//网络时间
+
 
     private TextView signTime;
     private SignAddressTo deviceAddressTo;//当前扫描到的蓝牙设备位置信息
     private String devicePower="100%";
+
+    private BluetoothAdapter mBluetoothAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,13 +143,14 @@ public class SignSubmitActivity extends BaseActivity implements UpCompletionHand
             Bimp.tempSelectBitmap.clear();
             goToAnimation(2);
         });
+
     }
 
     /**
      * 打开蓝牙
      */
     private void OpenBlueTooth() {
-        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         BluetoothManager.turnOnBluetooth();
 
         new Thread(() -> {
@@ -253,11 +256,7 @@ public class SignSubmitActivity extends BaseActivity implements UpCompletionHand
                     mPhotoPath = "";
                     break;
                 case Constant.RESULT_SDCARD:
-                    for (ImageItem imageItem : Bimp.tempSelectBitmap) {
-                        for (int i = 0; i < rrcordImageItemList.size(); i++) {
 
-                        }
-                    }
                     setGridView();
                     break;
                 default:
@@ -368,7 +367,6 @@ public class SignSubmitActivity extends BaseActivity implements UpCompletionHand
     /**
      * 提交签到数据
      *
-     * @param jsonTo
      */
     private void submit(SignSubmitJsonTo jsonTo) {
 
@@ -494,6 +492,7 @@ public class SignSubmitActivity extends BaseActivity implements UpCompletionHand
         stop = true;
         EventBus.getDefault().unregister(this);
         Bimp.tempSelectBitmap.clear();
+
     }
 
     @Override

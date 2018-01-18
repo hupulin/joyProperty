@@ -54,8 +54,6 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
     private int maxTotal;
     private GridLayout timeLayout;
     private LinearLayout workContentLayout;
-    private TextView workContent;
-    private TextView signDate;
     private TextView address;
     private TextView signCount;
     private TextView detailDate;
@@ -75,6 +73,7 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
     private TextView totalSignNumber;
 
 
+
     public FootprintFragment(long netTime) {
         this.netTime = netTime;
     }
@@ -86,15 +85,15 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
         findView();
         System.out.println(netTime + "netTime===");
 
-        getData((DateUtil.longToString(netTime, DateUtil.mFormatDateString)), DateUtil.longToString(netTime, DateUtil.mFormatDateString));
+        getData((DateUtil.longToString(netTime, DateUtil.mFormatDateString)), DateUtil.longToString(netTime, DateUtil.mFormatDateString),false);
         return rootView;
     }
 
     private void findView() {
         timeLayout = (GridLayout) rootView.findViewById(R.id.time_layout);
         workContentLayout = (LinearLayout) rootView.findViewById(R.id.work_content_layout);
-        workContent = (TextView) rootView.findViewById(R.id.work_content);
-        signDate = (TextView) rootView.findViewById(R.id.sign_date);
+        TextView workContent = (TextView) rootView.findViewById(R.id.work_content);
+        TextView signDate = (TextView) rootView.findViewById(R.id.sign_date);
         address = (TextView) rootView.findViewById(R.id.address);
         signCount = (TextView) rootView.findViewById(R.id.sign_count);
         detailDate = (TextView) rootView.findViewById(R.id.detail_date);
@@ -114,9 +113,10 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
     }
 
 
-    private void getData(String startTime, String endTime) {
-        System.out.println(startTime + "==" + endTime);
+    private void getData(String startTime, String endTime,boolean isReload) {
+
         CustomDialogFragment dialogFragment = new CustomDialogFragment();
+        if (!isReload)
         dialogFragment.show(getFragmentManager(), "");
         TelephonyManager tm = (TelephonyManager) getThisContext().getSystemService(Context.TELEPHONY_SERVICE);
         String IMEI = tm.getDeviceId();
@@ -316,9 +316,9 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
     @Override
     public void onDateSet(TimePickerDialog timePickerView, long millseconds) throws ParseException {
         if (signType == 0)
-            getData(DateUtil.longToString(millseconds, DateUtil.mFormatDateString), DateUtil.longToString(millseconds, DateUtil.mFormatDateString));
+            getData(DateUtil.longToString(millseconds, DateUtil.mFormatDateString), DateUtil.longToString(millseconds, DateUtil.mFormatDateString),false);
         else
-            getData(DateUtil.getFirstDayOfMonth(Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(0, 4)), Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(6, 7)), true, netTime), DateUtil.getLastDayOfMonth(Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(0, 4)), Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(6, 7)), true, netTime));
+            getData(DateUtil.getFirstDayOfMonth(Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(0, 4)), Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(6, 7)), true, netTime), DateUtil.getLastDayOfMonth(Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(0, 4)), Integer.parseInt(DateUtil.longToString(millseconds, DateUtil.mDateFormatString).substring(6, 7)), true, netTime),false);
     }
 
     @Override
@@ -330,7 +330,7 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
                 month.setTextColor(Color.parseColor("#999999"));
                 signType = 0;
                 selectTime.setVisibility(View.VISIBLE);
-                getData((DateUtil.longToString(netTime, DateUtil.mFormatDateString)), DateUtil.longToString(netTime, DateUtil.mFormatDateString));
+                getData((DateUtil.longToString(netTime, DateUtil.mFormatDateString)), DateUtil.longToString(netTime, DateUtil.mFormatDateString),false);
 
                 break;
             case R.id.week:
@@ -339,7 +339,7 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
                 month.setTextColor(Color.parseColor("#999999"));
                 selectTime.setVisibility(View.GONE);
                 signType = 1;
-                getData(DateUtil.getDateString(DateUtil.getLastWeek(netTime).get("monday"), DateUtil.mFormatDateString), DateUtil.getDateString(DateUtil.getLastWeek(netTime).get("sunday"), DateUtil.mFormatDateString));
+                getData(DateUtil.getDateString(DateUtil.getLastWeek(netTime).get("monday"), DateUtil.mFormatDateString), DateUtil.getDateString(DateUtil.getLastWeek(netTime).get("sunday"), DateUtil.mFormatDateString),false);
                 break;
             case R.id.month:
                 day.setTextColor(Color.parseColor("#999999"));
@@ -347,7 +347,7 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
                 month.setTextColor(Color.parseColor("#333333"));
                 signType = 2;
                 selectTime.setVisibility(View.VISIBLE);
-                getData(DateUtil.getFirstDayOfMonth(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), false, netTime), DateUtil.getLastDayOfMonth(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), false, netTime));
+                getData(DateUtil.getFirstDayOfMonth(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), false, netTime), DateUtil.getLastDayOfMonth(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), false, netTime),false);
                 break;
             case R.id.select_time:
                 selectTime(signType);
@@ -403,11 +403,11 @@ public class FootprintFragment extends BaseFragment implements OnDateSetListener
      */
     public void reLoadingData() {
         if (signType == 0)
-            getData((DateUtil.longToString(netTime, DateUtil.mFormatDateString)), DateUtil.longToString(netTime, DateUtil.mFormatDateString));
+            getData((DateUtil.longToString(netTime, DateUtil.mFormatDateString)), DateUtil.longToString(netTime, DateUtil.mFormatDateString),true);
         else if (signType == 1)
-            getData(DateUtil.getDateString(DateUtil.getLastWeek(netTime).get("monday"), DateUtil.mFormatDateString), DateUtil.getDateString(DateUtil.getLastWeek(netTime).get("sunday"), DateUtil.mFormatDateString));
+            getData(DateUtil.getDateString(DateUtil.getLastWeek(netTime).get("monday"), DateUtil.mFormatDateString), DateUtil.getDateString(DateUtil.getLastWeek(netTime).get("sunday"), DateUtil.mFormatDateString),true);
         else if (signType == 2)
-            getData(DateUtil.getFirstDayOfMonth(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), false, netTime), DateUtil.getLastDayOfMonth(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), false, netTime));
+            getData(DateUtil.getFirstDayOfMonth(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), false, netTime), DateUtil.getLastDayOfMonth(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), false, netTime),true);
 
     }
 }

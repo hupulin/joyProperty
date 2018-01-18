@@ -36,6 +36,7 @@ android {
     }
 
     lintOptions {
+        checkReleaseBuilds false
         abortOnError false
     }
 
@@ -89,7 +90,6 @@ dependencies {
     compile 'com.makeramen:roundedimageview:2.3.0'
     compile 'com.tuyenmonkey:mkloader:1.4.0'
     compile files('libs/badgeview.jar')
-    compile files('lib/xUtils-2.6.14.jar')
     compile files('lib/alipaysdk.jar')
     compile files('lib/alipaysecsdk.jar')
     compile files('lib/alipayutdid.jar')

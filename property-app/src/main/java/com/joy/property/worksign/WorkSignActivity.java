@@ -1,7 +1,4 @@
 package com.joy.property.worksign;
-
-
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -9,7 +6,6 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -20,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.Util.BluetoothManager;
 import com.Util.signencode.SXHttpUtils;
 import com.Util.signencode.aes.WLHSecurityUtils;
 import com.alibaba.fastjson.JSON;
@@ -33,23 +30,16 @@ import com.jinyi.ihome.module.worksign.SignMessageTo;
 import com.joy.library.fragment.CustomDialogFragment;
 import com.joy.property.R;
 import com.joy.property.base.BaseActivity;
-import com.joy.property.base.EventBusEvent;
 import com.joy.property.utils.ACache;
 import com.joy.property.utils.CustomDialog;
 import com.joy.property.utils.NetTimeUtil;
-import com.joy.property.utils.StatuBarUtil;
 import com.joy.property.worksign.adapter.SignApartmentAdapter;
-import com.joy.property.worksign.adapter.SignBaseParam;
 import com.joy.property.worksign.adapter.SignSubmitJsonTo;
 import com.joy.property.worksign.fragment.FootprintFragment;
 import com.joy.property.worksign.fragment.SignFragment;
-
-import org.greenrobot.eventbus.Subscribe;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 
 /**
@@ -203,7 +193,6 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
                     goToAnimation(2);
                 } else {
                     checkLayout.setVisibility(View.GONE);
-                    StatuBarUtil.setStatueBarBlueColor(getWindow());
                 }
 
                 break;
@@ -246,6 +235,7 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
     }
 
     public void checkDevice() {
@@ -273,7 +263,7 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
                         initFragment(NetTimeUtil.getSignNetTime(), checkDeviceTo.getParkName());
                     } else if (checkDeviceTo.getStatus() == 1 && TextUtils.isEmpty(checkDeviceTo.getParkName())) {
                         checkLayout.setVisibility(View.VISIBLE);
-                        StatuBarUtil.setStatueBarWhiteColor(getWindow());
+
                     } else if (checkDeviceTo.getStatus() == 2) {
                         checkDeviceDialog(checkDeviceTo.getParkName(), "您新的设备正在审核中");
                     } else
@@ -412,7 +402,7 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
                 if (msg.getResultCode() == 0) {
 
                     checkLayout.setVisibility(View.GONE);
-                    StatuBarUtil.setStatueBarBlueColor(getWindow());
+
                     if (type == 1) {
                         loadingDialog.show(getSupportFragmentManager(),"");
                         initFragment(NetTimeUtil.getSignNetTime(), apartmentName.getText().toString());
@@ -449,7 +439,7 @@ public class WorkSignActivity extends BaseActivity implements View.OnClickListen
      * 查看是否存在缓存
      */
     public void getCacheData() {
-        cacheSubmitList = JSON.parseArray(new ACache().getAsString("SignSubmitJson"), SignSubmitJsonTo.class);
+        cacheSubmitList = JSON.parseArray(new ACache().getAsString(mUserHelper.getSid()+"SignSubmitJson"), SignSubmitJsonTo.class);
         if (cacheSubmitList != null && cacheSubmitList.size() > 0)
             offLineIcon.setBackgroundResource(R.drawable.sign_offline_upload_select);
         else
